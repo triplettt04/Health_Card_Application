@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Entries from './entries';
+
 import pageEntries from './constants';
+
+import Page from './page';
+import Card from './card';
+import Entries from './entries';
+
 
 class App extends React.Component {
     constructor() {
@@ -14,12 +19,14 @@ class App extends React.Component {
     }
 
     render() {
+        let entries = <Entries
+            entries={this.state.entries}
+            tableClass={this.state.tableClass}
+        />;
+        let card = <Card content={entries} />;
         return (
             <div>
-                <Entries
-                    entries={this.state.entries}
-                    tableClass={this.state.tableClass}
-                />
+                <Page content={card} />
             </div>
         );
     }
