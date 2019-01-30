@@ -2,7 +2,7 @@ const pageEntries = [
     {
         entries: [
             "First Name",
-            "Age",
+            "Birthday",
         ],
         tableClass: "personalInfo",
     },
