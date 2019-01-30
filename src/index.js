@@ -4,7 +4,6 @@ import './index.css';
 
 import pageEntries from './constants';
 
-import Page from './page';
 import Card from './card';
 import Entries from './entries';
 
@@ -23,10 +22,10 @@ class App extends React.Component {
             entries={this.state.entries}
             tableClass={this.state.tableClass}
         />;
-        let card = <Card content={entries} />;
+
         return (
             <div>
-                <Page content={card} />
+                <Card content={entries} />
             </div>
         );
     }
