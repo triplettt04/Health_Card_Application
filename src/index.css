@@ -1,0 +1,6 @@
+@media only screen and (max-width: 768px) {
+    /* Mobile phone size */
+    body {
+        background-color: rgb(215, 245, 243);
+    }
+}
