@@ -2,6 +2,9 @@
     /* Mobile phone size */
     body {
         background-color: rgb(215, 245, 243);
+    }
+
+    .Page {
         text-align: center;
     }
 
