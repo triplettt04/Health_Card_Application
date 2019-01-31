@@ -8,9 +8,6 @@ import constants from "./constants";
 import Card from "./card";
 import Entries from "./entries";
 
-import Card from "./card";
-import Entries from "./entries";
-
 class App extends React.Component {
   constructor() {
     super();
