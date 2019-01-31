@@ -3,7 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 
-import pageEntries from "./constants";
+import constants from "./constants";
+
+import Card from "./card";
+import Entries from "./entries";
 
 import Card from "./card";
 import Entries from "./entries";
@@ -12,8 +15,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      entries: pageEntries[0].entries,
-      entryClass: pageEntries[0].entryClass
+      entries: constants.pageEntries[0].entries,
+      entryClass: constants.pageEntries[0].tableClass
     };
   }
 
