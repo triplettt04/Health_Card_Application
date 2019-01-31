@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import pageEntries from './constants';
+import constants from './constants';
 
 import Card from './card';
 import Entries from './entries';
@@ -12,8 +12,8 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            entries: pageEntries[0].entries,
-            tableClass: pageEntries[0].tableClass,
+            entries: constants.pageEntries[0].entries,
+            tableClass: constants.pageEntries[0].tableClass,
         };
     }
 

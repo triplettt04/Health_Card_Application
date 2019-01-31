@@ -1,20 +1,23 @@
-const pageEntries = [
-    {
-        entries: [
-            "First Name",
-            "Birthday",
-        ],
-        tableClass: "personalInfo",
-    },
-    {
-        entries: [
-            "Address",
-            "Postal Code",
-            "City",
-            "Province"
-        ],
-        tableClass: "locationInfo",
-    },
-];
+const constants = {
+    pageEntries: [
+        {
+            entries: [
+                "First Name",
+                "Birthday",
+            ],
+            tableClass: "personalInfo",
+        },
+        {
+            entries: [
+                "Address",
+                "Postal Code",
+                "City",
+                "Province"
+            ],
+            tableClass: "locationInfo",
+        },
+    ],
+    isMobile: true,
+};
 
-export default pageEntries;
+export default constants;
