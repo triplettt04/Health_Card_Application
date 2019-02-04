@@ -15,6 +15,7 @@ class App extends React.Component {
             entries: constants.pageEntries[0].entries,
             entryClass: constants.pageEntries[0].tableClass,
             page: 1,
+            numberOfPeople: 1,
         };
     }
 
@@ -24,17 +25,33 @@ class App extends React.Component {
         }));
     }
 
+    addPerson() {
+        this.setState(state => ({
+            numberOfPeople: state.numberOfPeople + 1,
+        }));
+    }
+
+    deletePerson() {
+        if (this.state.numberOfPeople > 1) {
+            this.setState(state => ({
+                numberOfPeople: state.numberOfPeople - 1,
+            }));
+        }
+    }
+
     render() {
         //Determine which cards to show based on page
         let content = [];
         switch (this.state.page) {
             case 1:
-                content.push(
-                    <Entries
-                        entries={this.state.entries}
-                        entryClass={this.state.entryClass}
-                    />
-                );
+                for (let i = 0; i < this.state.numberOfPeople; i++) {
+                    content.push(
+                        <Entries
+                            entries={this.state.entries}
+                            entryClass={this.state.entryClass}
+                        />
+                    );
+                }
                 break;
             default:
                 content.push(
