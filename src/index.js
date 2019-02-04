@@ -9,28 +9,52 @@ import Card from "./card";
 import Entries from "./entries";
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      entries: constants.pageEntries[0].entries,
-      entryClass: constants.pageEntries[0].tableClass
-    };
-  }
+    constructor() {
+        super();
+        this.state = {
+            entries: constants.pageEntries[0].entries,
+            entryClass: constants.pageEntries[0].tableClass,
+            page: 1,
+        };
+    }
 
-  render() {
-    let entries = (
-      <Entries
-        entries={this.state.entries}
-        entryClass={this.state.entryClass}
-      />
-    );
+    nextPage() {
+        this.setState(state => ({
+            page: state.page + 1,
+        }));
+    }
 
-    return (
-      <div>
-        <Card content={entries} />
-      </div>
-    );
-  }
+    render() {
+        //Determine which cards to show based on page
+        let content = [];
+        switch (this.state.page) {
+            case 1:
+                content.push(
+                    <Entries
+                        entries={this.state.entries}
+                        entryClass={this.state.entryClass}
+                    />
+                );
+                break;
+            default:
+                content.push(
+                    <div>
+                        ERROR - Unknown page number! - ERROR
+                </div>
+                );
+        }
+
+        let cards = [];
+        for (let i = 0; i < content.length; i++) {
+            cards.push(<Card content={content[i]} key={i} />);
+        }
+
+        return (
+            <div>
+                {cards}
+            </div>
+        );
+    }
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
