@@ -21,9 +21,3 @@ export default function Entries(props) {
     </div>
   );
 }
-
-/* <table className={props.tableClass}>
-<tbody>
-    {tableEntries}
-</tbody>
-</table> */
