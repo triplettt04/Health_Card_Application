@@ -14,9 +14,6 @@ class Card extends React.Component {
                 <div>
                     {this.props.content}
                 </div>
-                <div>
-                    Date selection: <DateSelection mobile={constants.isMobile} />
-                </div>
             </div>
         );
     }

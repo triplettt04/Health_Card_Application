@@ -15,8 +15,11 @@ class App extends React.Component {
             entries: constants.pageEntries[0].entries,
             entryClass: constants.pageEntries[0].tableClass,
             page: 1,
-            numberOfPeople: 1,
+            numberOfPeople: 2,
         };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     nextPage() {
@@ -39,6 +42,19 @@ class App extends React.Component {
         }
     }
 
+    handleChange(event) {
+        const value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit(event) {
+        //Add validation
+        event.preventDefault();
+    }
+
     render() {
         //Determine which cards to show based on page
         let content = [];
@@ -49,6 +65,8 @@ class App extends React.Component {
                         <Entries
                             entries={this.state.entries}
                             entryClass={this.state.entryClass}
+                            cardNumber={i}
+                            onChange={this.handleChange}
                         />
                     );
                 }
@@ -66,9 +84,25 @@ class App extends React.Component {
             cards.push(<Card content={content[i]} key={i} />);
         }
 
+        let wrapper;
+        if (this.state.page === constants.formPage) {
+            wrapper = (
+                <form onSubmit={this.handleSubmit}>
+                    {cards}
+                    <input type="submit" value="Next" />
+                </form>);
+        }
+        else {
+            wrapper = (
+                <div>
+                    {cards}
+                </div>
+            );
+        }
+
         return (
             <div>
-                {cards}
+                {wrapper}
             </div>
         );
     }

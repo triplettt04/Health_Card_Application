@@ -9,7 +9,8 @@ const constants = {
             tableClass: "locationInfo"
         }
     ],
-    isMobile: true
+    isMobile: true,
+    formPage: 1,
 };
 
 export default constants;
