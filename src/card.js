@@ -1,5 +1,4 @@
 import React from 'react';
-import DateSelection from './dateSelection';
 import constants from './constants';
 
 class Card extends React.Component {
