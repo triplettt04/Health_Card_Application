@@ -1,16 +1,19 @@
 const constants = {
     pageEntries: [
         {
-            entries: ["First Name", "Birthday"],
-            tableClass: "personalInfo"
+            entries: ["Username", "Password"],
+            entryClass: "login"
         },
         {
-            entries: ["Address", "Postal Code", "City", "Province"],
-            tableClass: "locationInfo"
-        }
+            entries: ["First Name", "Birthday"],
+            entryClass: "personalInfo"
+        },
     ],
     isMobile: true,
-    formPage: 1,
+    // As we add pages add their page number here
+    // so that we can easily switch the order
+    loginPage: 1,
+    formPage: 2,
 };
 
 export default constants;

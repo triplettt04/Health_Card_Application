@@ -12,10 +12,9 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            entries: constants.pageEntries[0].entries,
-            entryClass: constants.pageEntries[0].tableClass,
+            entryNumber: 0,
             page: 1,
-            numberOfPeople: 2,
+            numberOfPeople: 1,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -25,6 +24,13 @@ class App extends React.Component {
     nextPage() {
         this.setState(state => ({
             page: state.page + 1,
+        }));
+    }
+
+    nextPageUpdateEntries() {
+        this.setState(state => ({
+            page: state.page + 1,
+            entryNumber: state.entryNumber + 1,
         }));
     }
 
@@ -57,19 +63,53 @@ class App extends React.Component {
 
     render() {
         //Determine which cards to show based on page
-        let content = [];
+        let content, entries;
+        let currentPageEntries = constants.pageEntries[this.state.entryNumber];
+
         switch (this.state.page) {
-            case 1:
+            case constants.loginPage:
+                entries = (
+                    <Entries
+                        entries={currentPageEntries.entries}
+                        entryClass={currentPageEntries.entryClass}
+                    />);
+                content = (
+                    <div>
+                        <h1>Login</h1>
+                        <Card content={entries} />
+                        <button
+                            onClick={() => this.nextPageUpdateEntries()}
+                            className="btn btn-primary">
+                            Enter
+                        </button>
+                    </div>
+                );
+                break;
+            case constants.formPage:
+                entries = [];
                 for (let i = 0; i < this.state.numberOfPeople; i++) {
-                    content.push(
+                    entries.push(
                         <Entries
-                            entries={this.state.entries}
-                            entryClass={this.state.entryClass}
+                            entries={currentPageEntries.entries}
+                            entryClass={currentPageEntries.entryClass}
                             cardNumber={i}
                             onChange={this.handleChange}
                         />
                     );
                 }
+                let cards = [];
+                for (let i = 0; i < entries.length; i++) {
+                    cards.push(<Card content={entries[i]} key={i} />);
+                }
+                content = (
+                    <form onSubmit={this.handleSubmit}>
+                        {cards}
+                        <input
+                            type="submit"
+                            value="Next"
+                            className="btn btn-primary"
+                        />
+                    </form>);
                 break;
             default:
                 content.push(
@@ -79,30 +119,9 @@ class App extends React.Component {
                 );
         }
 
-        let cards = [];
-        for (let i = 0; i < content.length; i++) {
-            cards.push(<Card content={content[i]} key={i} />);
-        }
-
-        let wrapper;
-        if (this.state.page === constants.formPage) {
-            wrapper = (
-                <form onSubmit={this.handleSubmit}>
-                    {cards}
-                    <input type="submit" value="Next" />
-                </form>);
-        }
-        else {
-            wrapper = (
-                <div>
-                    {cards}
-                </div>
-            );
-        }
-
         return (
             <div>
-                {wrapper}
+                {content}
             </div>
         );
     }
