@@ -1,5 +1,4 @@
 import React from 'react';
-import DateSelection from './dateSelection';
 import constants from './constants';
 
 class Card extends React.Component {
@@ -13,9 +12,6 @@ class Card extends React.Component {
             <div className="Card">
                 <div>
                     {this.props.content}
-                </div>
-                <div>
-                    Date selection: <DateSelection mobile={constants.isMobile} />
                 </div>
             </div>
         );
