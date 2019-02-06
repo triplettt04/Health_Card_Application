@@ -1,7 +1,7 @@
 const constants = {
     pageEntries: [
         {
-            entries: ["First Name", "Birthday Year", "Birthday Month", "Birthday Day"],
+            entries: ["First Name", "Birthday"],
             tableClass: "personalInfo"
         },
         {
@@ -9,7 +9,8 @@ const constants = {
             tableClass: "locationInfo"
         }
     ],
-    isMobile: true
+    isMobile: true,
+    formPage: 1,
 };
 
 export default constants;
