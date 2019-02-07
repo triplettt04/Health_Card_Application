@@ -25,6 +25,10 @@ class Birthday extends React.Component {
         }
     }
 
+    back() {
+        this.props.history.push("/");
+    }
+
     render() {
         let currentPageEntries = this.props.currentPageEntries;
         let entries = [];
@@ -34,7 +38,7 @@ class Birthday extends React.Component {
                     entries={currentPageEntries.entries}
                     entryClass={currentPageEntries.entryClass}
                     cardNumber={i}
-                    onChange={this.handleChange}
+                    onChange={this.props.onChange}
                 />
             );
         }
@@ -45,11 +49,11 @@ class Birthday extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 {cards}
-                <NavigateButton
-                    path="/"
-                    text="Back to login"
-                    onClick={this.props.back}
-                />
+                <button
+                    className="btn btn-primary"
+                    onClick={() => this.back()}>
+                    Back to login
+                </button>
                 <input
                     type="submit"
                     value="Next"

@@ -5,7 +5,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import {
     BrowserRouter as Router,
     Route,
-    Switch
+    Switch,
+    withRouter
 } from "react-router-dom";
 
 import constants from "./constants";
@@ -51,22 +52,21 @@ class App extends React.Component {
     }
 
     render() {
-        //Determine which cards to show based on page
-        let currentPageEntries = constants.pageEntries[this.state.entryNumber];
+        const RouterLogin = withRouter(Login);
+        const RouterBirthday = withRouter(Birthday);
 
         return (
             <Router>
                 <Switch>
                     <Route exact path="/" render={() =>
-                        <Login
-                            currentPageEntries={currentPageEntries}
-                            next={() => this.nextPageUpdateEntries()}
+                        <RouterLogin
+                            currentPageEntries={constants.pageEntries[0]}
                         />} />
                     <Route path="/birthday" render={() =>
-                        <Birthday
-                            currentPageEntries={currentPageEntries}
+                        <RouterBirthday
+                            currentPageEntries={constants.pageEntries[1]}
                             numberOfPeople={constants.peopleToStart}
-                            back={() => this.previousPageUpdateEntries()}
+                            onChange={() => this.handleChange()}
                         />} />
                     <Route component={NotFound} />
                 </Switch>
