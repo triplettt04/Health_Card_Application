@@ -1,9 +1,9 @@
 import React from "react";
 import Card from "../components/card";
 import Entries from "../components/entries";
+import NavigateButton from "../components/navigateButton";
 
 function Login(props) {
-    debugger;
     let currentPageEntries = props.currentPageEntries;
     let entries = (
         <Entries
@@ -14,11 +14,11 @@ function Login(props) {
         <div>
             <h1>Login</h1>
             <Card content={entries} />
-            <button
-                onClick={() => this.nextPageUpdateEntries()}
-                className="btn btn-primary">
-                Enter
-            </button>
+            <NavigateButton
+                path="/birthday"
+                text="Enter"
+                onClick={props.next}
+            />
         </div>
     );
 }

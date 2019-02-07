@@ -5,14 +5,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import {
     BrowserRouter as Router,
     Route,
-    Link,
     Switch
 } from "react-router-dom";
 
 import constants from "./constants";
-
-import Card from "./components/card";
-import Entries from "./components/entries";
 
 import Login from "./pages/login";
 import Birthday from "./pages/birthday";
@@ -22,40 +18,23 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            entryNumber: 0,
-            page: 1,
-            numberOfPeople: 1,
+            entryNumber: 0
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    nextPage() {
-        this.setState(state => ({
-            page: state.page + 1,
-        }));
-    }
-
     nextPageUpdateEntries() {
         this.setState(state => ({
-            page: state.page + 1,
             entryNumber: state.entryNumber + 1,
         }));
     }
 
-    addPerson() {
+    previousPageUpdateEntries() {
         this.setState(state => ({
-            numberOfPeople: state.numberOfPeople + 1,
+            entryNumber: state.entryNumber - 1,
         }));
-    }
-
-    deletePerson() {
-        if (this.state.numberOfPeople > 1) {
-            this.setState(state => ({
-                numberOfPeople: state.numberOfPeople - 1,
-            }));
-        }
     }
 
     handleChange(event) {
@@ -78,8 +57,17 @@ class App extends React.Component {
         return (
             <Router>
                 <Switch>
-                    <Route exact path="/" render={() => <Login currentPageEntries={currentPageEntries} />} />
-                    <Route path="/birthday" render={() => <Birthday currentPageEntries={currentPageEntries} />} />
+                    <Route exact path="/" render={() =>
+                        <Login
+                            currentPageEntries={currentPageEntries}
+                            next={() => this.nextPageUpdateEntries()}
+                        />} />
+                    <Route path="/birthday" render={() =>
+                        <Birthday
+                            currentPageEntries={currentPageEntries}
+                            numberOfPeople={constants.peopleToStart}
+                            back={() => this.previousPageUpdateEntries()}
+                        />} />
                     <Route component={NotFound} />
                 </Switch>
             </Router>
