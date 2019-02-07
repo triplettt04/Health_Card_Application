@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "../components/card";
 import Entries from "../components/entries";
-import NavigateButton from "../components/navigateButton";
 
 class Birthday extends React.Component {
     constructor(props) {
