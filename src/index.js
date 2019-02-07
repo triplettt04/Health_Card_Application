@@ -2,11 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import "bootstrap/dist/css/bootstrap.css";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch
+} from "react-router-dom";
 
 import constants from "./constants";
 
-import Card from "./card";
-import Entries from "./entries";
+import Card from "./components/card";
+import Entries from "./components/entries";
+
+import Login from "./pages/login";
+import Birthday from "./pages/birthday";
+import NotFound from "./pages/notFound";
 
 class App extends React.Component {
     constructor() {
@@ -63,66 +73,16 @@ class App extends React.Component {
 
     render() {
         //Determine which cards to show based on page
-        let content, entries;
         let currentPageEntries = constants.pageEntries[this.state.entryNumber];
 
-        switch (this.state.page) {
-            case constants.loginPage:
-                entries = (
-                    <Entries
-                        entries={currentPageEntries.entries}
-                        entryClass={currentPageEntries.entryClass}
-                    />);
-                content = (
-                    <div>
-                        <h1>Login</h1>
-                        <Card content={entries} />
-                        <button
-                            onClick={() => this.nextPageUpdateEntries()}
-                            className="btn btn-primary">
-                            Enter
-                        </button>
-                    </div>
-                );
-                break;
-            case constants.formPage:
-                entries = [];
-                for (let i = 0; i < this.state.numberOfPeople; i++) {
-                    entries.push(
-                        <Entries
-                            entries={currentPageEntries.entries}
-                            entryClass={currentPageEntries.entryClass}
-                            cardNumber={i}
-                            onChange={this.handleChange}
-                        />
-                    );
-                }
-                let cards = [];
-                for (let i = 0; i < entries.length; i++) {
-                    cards.push(<Card content={entries[i]} key={i} />);
-                }
-                content = (
-                    <form onSubmit={this.handleSubmit}>
-                        {cards}
-                        <input
-                            type="submit"
-                            value="Next"
-                            className="btn btn-primary"
-                        />
-                    </form>);
-                break;
-            default:
-                content.push(
-                    <div>
-                        ERROR - Unknown page number! - ERROR
-                </div>
-                );
-        }
-
         return (
-            <div>
-                {content}
-            </div>
+            <Router>
+                <Switch>
+                    <Route exact path="/" render={() => <Login currentPageEntries={currentPageEntries} />} />
+                    <Route path="/birthday" render={() => <Birthday currentPageEntries={currentPageEntries} />} />
+                    <Route component={NotFound} />
+                </Switch>
+            </Router>
         );
     }
 }
