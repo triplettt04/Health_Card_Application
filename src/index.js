@@ -44,6 +44,13 @@ class App extends React.Component {
     }
 
     render() {
+        //Entry indexes:
+        //  0 - login
+        //  1 - birthday
+        //  2 - name
+        //  3 - address
+        //  4 - contact
+
         const RouterLogin = withRouter(Login);
         const RouterBirthday = withRouter(Birthday);
 

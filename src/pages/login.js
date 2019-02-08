@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../components/card";
 import Entries from "../components/entries";
+import constants from "../constants";
 
 class Login extends React.Component {
     authenticate(event) {
@@ -26,7 +27,7 @@ class Login extends React.Component {
                 <h1>Login</h1>
                 <Card content={entries} />
                 <input
-                    className="btn btn-primary"
+                    className={constants.buttonClasses}
                     type="submit"
                     value="Enter"
                 />
