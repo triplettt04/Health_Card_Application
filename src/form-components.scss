@@ -1,17 +1,20 @@
+//radio-buttons
 .radio-style {
   height: 65px;
+  margin-left: 15px;
+  font-size: 26px;
 
   .radio-input {
     appearance: none;
     position: relative;
-    top: 15px;
+    top: 12px;
     right: 0;
     bottom: 0;
     left: 0;
     height: 40px;
     width: 40px;
     background: #fff;
-    border: 5px solid #fff;
+    border: 8px solid #fff;
     box-shadow: 0px 0px 0px 3px #333;
     color: #fff;
     cursor: pointer;
@@ -44,3 +47,5 @@
     border-radius: 50%;
   }
 }
+
+//name-fields

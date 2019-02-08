@@ -2,129 +2,84 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import "bootstrap/dist/css/bootstrap.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter
+} from "react-router-dom";
 
 import constants from "./constants";
 
-import Card from "./card";
-import Entries from "./entries";
+import Login from "./pages/login";
+import Birthday from "./pages/birthday";
+import NotFound from "./pages/notFound";
 
 class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            entryNumber: 0,
-            page: 1,
-            numberOfPeople: 1,
-        };
+  constructor() {
+    super();
+    this.state = {
+      entryNumber: 0
+    };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    nextPage() {
-        this.setState(state => ({
-            page: state.page + 1,
-        }));
-    }
+  nextPageUpdateEntries() {
+    this.setState(state => ({
+      entryNumber: state.entryNumber + 1
+    }));
+  }
 
-    nextPageUpdateEntries() {
-        this.setState(state => ({
-            page: state.page + 1,
-            entryNumber: state.entryNumber + 1,
-        }));
-    }
+  previousPageUpdateEntries() {
+    this.setState(state => ({
+      entryNumber: state.entryNumber - 1
+    }));
+  }
 
-    addPerson() {
-        this.setState(state => ({
-            numberOfPeople: state.numberOfPeople + 1,
-        }));
-    }
+  handleChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  }
 
-    deletePerson() {
-        if (this.state.numberOfPeople > 1) {
-            this.setState(state => ({
-                numberOfPeople: state.numberOfPeople - 1,
-            }));
-        }
-    }
+  handleSubmit(event) {
+    //Add validation
+    event.preventDefault();
+  }
 
-    handleChange(event) {
-        const value = event.target.value;
-        const name = event.target.name;
-        this.setState({
-            [name]: value
-        });
-    }
+  render() {
+    const RouterLogin = withRouter(Login);
+    const RouterBirthday = withRouter(Birthday);
 
-    handleSubmit(event) {
-        //Add validation
-        event.preventDefault();
-    }
-
-    render() {
-        //Determine which cards to show based on page
-        let content, entries;
-        let currentPageEntries = constants.pageEntries[this.state.entryNumber];
-
-        switch (this.state.page) {
-            case constants.loginPage:
-                entries = (
-                    <Entries
-                        entries={currentPageEntries.entries}
-                        entryClass={currentPageEntries.entryClass}
-                    />);
-                content = (
-                    <div>
-                        <h1>Login</h1>
-                        <Card content={entries} />
-                        <button
-                            onClick={() => this.nextPageUpdateEntries()}
-                            className="btn btn-primary">
-                            Enter
-                        </button>
-                    </div>
-                );
-                break;
-            case constants.formPage:
-                entries = [];
-                for (let i = 0; i < this.state.numberOfPeople; i++) {
-                    entries.push(
-                        <Entries
-                            entries={currentPageEntries.entries}
-                            entryClass={currentPageEntries.entryClass}
-                            cardNumber={i}
-                            onChange={this.handleChange}
-                        />
-                    );
-                }
-                let cards = [];
-                for (let i = 0; i < entries.length; i++) {
-                    cards.push(<Card content={entries[i]} key={i} />);
-                }
-                content = (
-                    <form onSubmit={this.handleSubmit}>
-                        {cards}
-                        <input
-                            type="submit"
-                            value="Next"
-                            className="btn btn-primary"
-                        />
-                    </form>);
-                break;
-            default:
-                content.push(
-                    <div>
-                        ERROR - Unknown page number! - ERROR
-                </div>
-                );
-        }
-
-        return (
-            <div>
-                {content}
-            </div>
-        );
-    }
+    return (
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <RouterLogin currentPageEntries={constants.pageEntries[0]} />
+            )}
+          />
+          <Route
+            path="/birthday"
+            render={() => (
+              <RouterBirthday
+                currentPageEntries={constants.pageEntries[1]}
+                numberOfPeople={constants.peopleToStart}
+                onChange={() => this.handleChange()}
+              />
+            )}
+          />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
