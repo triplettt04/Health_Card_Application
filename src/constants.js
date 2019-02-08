@@ -10,10 +10,7 @@ const constants = {
     }
   ],
   isMobile: true,
-  // As we add pages add their page number here
-  // so that we can easily switch the order
-  loginPage: 1,
-  formPage: 2
+  peopleToStart: 1
 };
 
 export default constants;
