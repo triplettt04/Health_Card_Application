@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
+import "./style/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import {
   BrowserRouter as Router,
@@ -14,6 +14,7 @@ import constants from "./constants";
 //Pages
 import Terms from "./pages/terms";
 import Birthday from "./pages/birthday";
+import Sex from "./pages/sex";
 import NotFound from "./pages/notFound";
 import Name from "./pages/name";
 import AddressRes from "./pages/addressRes";
@@ -58,6 +59,7 @@ class App extends React.Component {
     const RouterBirthday = withRouter(Birthday);
     const RouterName = withRouter(Name);
     const RouterAddressRes = withRouter(AddressRes);
+    const RouterSex = withRouter(Sex);
 
     return (
       <Router>
@@ -74,6 +76,7 @@ class App extends React.Component {
             render={() => (
               <RouterBirthday
                 currentPageEntries={constants.pageEntries[1]}
+                numberOfPeople={constants.peopleToStart}
                 onChange={() => this.handleChange()}
               />
             )}
@@ -95,6 +98,10 @@ class App extends React.Component {
                 save={target => this.handleChange(target)}
               />
             )}
+          />
+          <Route
+            path="/sex"
+            render={() => <RouterSex save={() => this.handleChange()} />}
           />
           <Route component={NotFound} />
         </Switch>

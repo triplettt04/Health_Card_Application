@@ -28,7 +28,9 @@ class Birthday extends React.Component {
   back() {
     this.props.history.push("/");
   }
-
+  forward() {
+    this.props.history.push("/sex");
+  }
   render() {
     let currentPageEntries = this.props.currentPageEntries;
     let entries = [];
@@ -47,7 +49,7 @@ class Birthday extends React.Component {
       cards.push(<Card content={entries[i]} key={i} />);
     }
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.forward}>
         {cards}
         <button className={constants.buttonClasses} onClick={() => this.back()}>
           Back to login

@@ -12,10 +12,13 @@ const constants = {
       entries: ["First name", "Middle name", "Last name"],
       entryClass: "name"
     },
-
     {
       entries: ["Primary phone", "Alternate phone", "Email"],
       entryClass: "contact"
+    },
+    {
+      entries: ["Sex"],
+      entryClass: "sex"
     }
   ],
   buttonClasses: "btn btn-primary"
