@@ -38,6 +38,7 @@ import Summary from "./pages/summary";
 import Confirmation from "./pages/confirmation";
 import UploadPosting from "./pages/uploadPosting";
 import Contact from "./pages/contact";
+import Template from "./pages/template";
 
 class App extends React.Component {
   constructor() {
@@ -56,6 +57,7 @@ class App extends React.Component {
 
   render() {
     const RouterTerms = withRouter(Terms);
+    const RouterTemplate = withRouter(Template);
     const RouterBirthday = withRouter(Birthday);
     const RouterName = withRouter(Name);
     const RouterAddressRes = withRouter(AddressRes);
@@ -89,6 +91,12 @@ class App extends React.Component {
             path="/"
             render={() => (
               <RouterTerms save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/template"
+            render={() => (
+              <RouterTemplate save={target => this.handleChange(target)} />
             )}
           />
           <Route

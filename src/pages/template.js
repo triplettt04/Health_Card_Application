@@ -22,11 +22,12 @@ class Template extends React.Component {
   render() {
     return (
       <form onSubmit={this.next}>
-        <nav className="navbar sticky">
-          <a className="navbar-brand" href="#">
-            {constants.navTopName}
-          </a>
-        </nav>
+        <div class="ontario-header-container">
+          <img
+            src={require("./project-header.png")}
+            className="ontario-header"
+          />
+        </div>
         <div className="form-wrapper">
           <div className="text-input one-line">
             <label className="form-label" htmlFor="first-name-1">
