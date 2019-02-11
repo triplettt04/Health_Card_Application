@@ -1,10 +1,6 @@
-.form-wrapper {
-  padding: 10px;
-}
-
 //radio-buttons
 .radio-field {
-  margin: 30px 0;
+  margin: 15px 0;
 
   .radio-style {
     height: 45px;
@@ -84,4 +80,48 @@
     box-shadow: 0px 0px 0px 3px $active-accent;
     border: 2px solid #000;
   }
+}
+
+//Button styling
+.btn.btn-general {
+  background-color: $button-colour;
+  color: $white;
+  border-radius: 0;
+  padding: 0.526315em 0.789473em 0.263157em;
+  line-height: 1.25;
+  box-shadow: 0 2px 0 #003618;
+  border: none;
+  position: relative;
+  font-size: 16px;
+}
+
+.btn.btn-navigation {
+  padding: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.btn.btn-navigation:hover,
+.btn.btn-navigation:active,
+.btn.btn-navigation:focus {
+  background-color: #999;
+}
+
+.btn.btn-left-align {
+  border-right: 1px solid #888;
+}
+
+.btn.btn-right-align {
+  float: right;
+  border-left: 1px solid #999;
+}
+
+//text boxes
+.text-box {
+  margin: 25px 0 10px;
+}
+
+.text-box.text-box-small {
+  font-size: 16px;
 }
