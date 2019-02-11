@@ -54,7 +54,12 @@ class Birthday extends React.Component {
         <button className={constants.buttonClasses} onClick={() => this.back()}>
           Back to login
         </button>
-        <input type="submit" value="Next" className={constants.buttonClasses} />
+        <input
+          type="submit"
+          value="Next"
+          className={constants.buttonClasses}
+          onClick={() => this.forward()}
+        />
       </form>
     );
   }
