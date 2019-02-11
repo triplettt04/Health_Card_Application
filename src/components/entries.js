@@ -5,9 +5,7 @@ export default function Entries(props) {
   for (let i = 0; i < props.entries.length; i++) {
     //Use the card index on the page plus the entry name as
     //the name for input fields
-    let name = props.cardNumber
-      ? props.cardNumber.toString() + props.entries[i]
-      : props.entries[i];
+    let name = props.entries[i];
     let input;
     if (props.onChange) {
       input = <input type="text" name={name} onChange={props.onChange} />;
@@ -16,7 +14,7 @@ export default function Entries(props) {
     }
     tableEntries.push(
       <div key={i}>
-        <div className="entry-labels">{props.entries[i]}</div>
+        <div className="entry-labls">{props.entries[i]}</div>
         <div className="entry-input">{input}</div>
       </div>
     );

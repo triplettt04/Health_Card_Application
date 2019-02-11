@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../components/card";
 import Entries from "../components/entries";
+import constants from "../constants";
 
 class Birthday extends React.Component {
   constructor(props) {
@@ -27,11 +28,9 @@ class Birthday extends React.Component {
   back() {
     this.props.history.push("/");
   }
-
   forward() {
     this.props.history.push("/sex");
   }
-
   render() {
     let currentPageEntries = this.props.currentPageEntries;
     let entries = [];
@@ -52,15 +51,10 @@ class Birthday extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         {cards}
-        <button className="btn btn-primary" onClick={() => this.back()}>
-          Back
+        <button className={constants.buttonClasses} onClick={() => this.back()}>
+          Back to login
         </button>
-        <input
-          type="submit"
-          value="Next"
-          className="btn btn-primary"
-          onClick={() => this.forward()}
-        />
+        <input type="submit" value="Next" className={constants.buttonClasses} />
       </form>
     );
   }
