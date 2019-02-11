@@ -1,11 +1,18 @@
 import React from "react";
 import Card from "../components/card";
 import Entries from "../components/entries";
+import constants from "../constants";
 
 class Login extends React.Component {
-    authenticate() {
+    authenticate(event) {
+        event.preventDefault();
         let isValid = true;
         if (isValid) {
+            for (let i = 0; i < event.target.length; i++) {
+                if (event.target[i].type !== "submit") {
+                    this.props.save(event.target[i]);
+                }
+            }
             this.props.history.push("/birthday");
         }
     }
@@ -16,15 +23,15 @@ class Login extends React.Component {
                 entryClass={this.props.currentPageEntries.entryClass}
             />);
         return (
-            <div>
+            <form onSubmit={(event) => this.authenticate(event)}>
                 <h1>Login</h1>
                 <Card content={entries} />
-                <button
-                    className="btn btn-primary"
-                    onClick={() => this.authenticate()}>
-                    Enter
-                </button>
-            </div>
+                <input
+                    className={constants.buttonClasses}
+                    type="submit"
+                    value="Enter"
+                />
+            </form>
         );
     }
 }

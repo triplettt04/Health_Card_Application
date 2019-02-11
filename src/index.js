@@ -23,7 +23,6 @@ class App extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     nextPageUpdateEntries() {
@@ -38,20 +37,20 @@ class App extends React.Component {
         }));
     }
 
-    handleChange(event) {
-        const value = event.target.value;
-        const name = event.target.name;
+    handleChange(target) {
         this.setState({
-            [name]: value
+            [target.name]: target.value
         });
     }
 
-    handleSubmit(event) {
-        //Add validation
-        event.preventDefault();
-    }
-
     render() {
+        //Entry indexes:
+        //  0 - login
+        //  1 - birthday
+        //  2 - name
+        //  3 - address
+        //  4 - contact
+
         const RouterLogin = withRouter(Login);
         const RouterBirthday = withRouter(Birthday);
 
@@ -61,6 +60,7 @@ class App extends React.Component {
                     <Route exact path="/" render={() =>
                         <RouterLogin
                             currentPageEntries={constants.pageEntries[0]}
+                            save={(target) => this.handleChange(target)}
                         />} />
                     <Route path="/birthday" render={() =>
                         <RouterBirthday

@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../components/card";
 import Entries from "../components/entries";
+import constants from "../constants";
 
 class Birthday extends React.Component {
     constructor(props) {
@@ -49,14 +50,14 @@ class Birthday extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 {cards}
                 <button
-                    className="btn btn-primary"
+                    className={constants.buttonClasses}
                     onClick={() => this.back()}>
                     Back to login
                 </button>
                 <input
                     type="submit"
                     value="Next"
-                    className="btn btn-primary"
+                    className={constants.buttonClasses}
                 />
             </form>);
     }

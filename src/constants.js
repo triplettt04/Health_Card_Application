@@ -5,12 +5,23 @@ const constants = {
             entryClass: "login"
         },
         {
-            entries: ["First Name", "Birthday"],
-            entryClass: "personalInfo"
+            entries: ["Birthday"],
+            entryClass: "birthday"
+        },
+        {
+            entries: ["First name", "Middle name", "Last name"],
+            entryClass: "name"
+        },
+        {
+            entries: ["Street", "City", "Province", "Postal code", "Country"],
+            entryClass: "address"
+        },
+        {
+            entries: ["Primary phone", "Alternate phone", "Email"],
+            entryClass: "contact"
         },
     ],
-    isMobile: true,
-    peopleToStart: 1,
+    buttonClasses: "btn btn-primary",
 };
 
 export default constants;
