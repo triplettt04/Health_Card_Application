@@ -7,6 +7,10 @@ const constants = {
     {
       entries: ["First Name", "Birthday"],
       entryClass: "personalInfo"
+    },
+    {
+      entries: ["Sex"],
+      entryClass: "sex"
     }
   ],
   isMobile: true,

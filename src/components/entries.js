@@ -16,7 +16,7 @@ export default function Entries(props) {
     }
     tableEntries.push(
       <div key={i}>
-        <div className="entry-labls">{props.entries[i]}</div>
+        <div className="entry-labels">{props.entries[i]}</div>
         <div className="entry-input">{input}</div>
       </div>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
+import "./style/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import {
   BrowserRouter as Router,
@@ -13,6 +13,7 @@ import constants from "./constants";
 
 import Login from "./pages/login";
 import Birthday from "./pages/birthday";
+import Sex from "./pages/sex";
 import NotFound from "./pages/notFound";
 
 class App extends React.Component {
@@ -54,6 +55,7 @@ class App extends React.Component {
   render() {
     const RouterLogin = withRouter(Login);
     const RouterBirthday = withRouter(Birthday);
+    const RouterSex = withRouter(Sex);
 
     return (
       <Router>
@@ -74,6 +76,10 @@ class App extends React.Component {
                 onChange={() => this.handleChange()}
               />
             )}
+          />
+          <Route
+            path="/sex"
+            render={() => <RouterSex onChange={() => this.handleChange()} />}
           />
           <Route component={NotFound} />
         </Switch>
