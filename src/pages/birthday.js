@@ -49,7 +49,7 @@ class Birthday extends React.Component {
       cards.push(<Card content={entries[i]} key={i} />);
     }
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.forward}>
         {cards}
         <button className={constants.buttonClasses} onClick={() => this.back()}>
           Back to login

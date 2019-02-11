@@ -2,15 +2,15 @@ import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
 
-class Name extends React.Component {
+class SelectMilitaryProof extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/");
+    this.props.history.push("/uploadMilitary");
   }
 
   back() {
-    this.props.history.push("/");
+    this.props.history.push("/selectBase");
   }
 
   render() {
@@ -28,4 +28,4 @@ class Name extends React.Component {
   }
 }
 
-export default Name;
+export default SelectMilitaryProof;
