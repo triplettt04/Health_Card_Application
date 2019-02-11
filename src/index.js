@@ -30,11 +30,18 @@ import SelectCitizen from "./pages/selectCitizen";
 import SelectCitizenProof from "./pages/selectCitizenProof";
 import UploadCitizen from "./pages/uploadCitizen";
 import SelectID from "./pages/selectID";
+import UploadID from "./pages/uploadID";
+import Summary from "./pages/summary";
+import Confirmation from "./pages/confirmation";
+import UploadPosting from "./pages/uploadPosting";
+import Contact from "./pages/contact";
 
 class App extends React.Component {
   constructor() {
     super();
-
+    this.state = {
+      baseIndex: 0
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -62,6 +69,11 @@ class App extends React.Component {
     const RouterSelectCitizenProof = withRouter(SelectCitizenProof);
     const RouterUploadCitizen = withRouter(UploadCitizen);
     const RouterSelectID = withRouter(SelectID);
+    const RouterUploadID = withRouter(UploadID);
+    const RouterSummary = withRouter(Summary);
+    const RouterConfirmation = withRouter(Confirmation);
+    const RouterUploadPosting = withRouter(UploadPosting);
+    const RouterContact = withRouter(Contact);
 
     return (
       <Router>
@@ -76,94 +88,139 @@ class App extends React.Component {
           <Route
             path="/birthday"
             render={() => (
-              <RouterBirthday
-                currentPageEntries={constants.pageEntries[1]}
-                numberOfPeople={constants.peopleToStart}
-                onChange={() => this.handleChange()}
-              />
+              <RouterBirthday save={target => this.handleChange(target)} />
             )}
           />
           <Route
             path="/name"
             render={() => (
-              <RouterName
-                currentPageEntries={constants.pageEntries[2]}
-                save={target => this.handleChange(target)}
-              />
+              <RouterName save={target => this.handleChange(target)} />
             )}
           />
           <Route
             path="/addressRes"
             render={() => (
-              <RouterAddressRes
-                currentPageEntries={constants.pageEntries[0]}
+              <RouterAddressRes save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/sex"
+            render={() => (
+              <RouterSex save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/pastOHIP"
+            render={() => (
+              <RouterPastOHIP save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/isMilitary"
+            render={() => (
+              <RouterIsMilitary save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/selectBase"
+            render={() => (
+              <RouterSelectBase save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/selectMilitaryProof"
+            render={() => (
+              <RouterSelectMilitaryProof
                 save={target => this.handleChange(target)}
               />
             )}
           />
           <Route
-            path="/sex"
-            render={() => <RouterSex save={() => this.handleChange()} />}
-          />
-          <Route
-            path="/pastOHIP"
-            render={() => <RouterPastOHIP save={() => this.handleChange()} />}
-          />
-          <Route
-            path="/isMilitary"
-            render={() => <RouterIsMilitary save={() => this.handleChange()} />}
-          />
-          <Route
-            path="/selectBase"
-            render={() => <RouterSelectBase save={() => this.handleChange()} />}
-          />
-          <Route
-            path="/selectMilitaryProof"
-            render={() => (
-              <RouterSelectMilitaryProof save={() => this.handleChange()} />
-            )}
-          />
-          <Route
             path="/uploadMilitary"
             render={() => (
-              <RouterUploadMilitary save={() => this.handleChange()} />
+              <RouterUploadMilitary
+                save={target => this.handleChange(target)}
+              />
             )}
           />
           <Route
             path="/hasAddress"
-            render={() => <RouterHasAddress save={() => this.handleChange()} />}
+            render={() => (
+              <RouterHasAddress save={target => this.handleChange(target)} />
+            )}
           />
           <Route
             path="/selectResProof"
             render={() => (
-              <RouterSelectResProof save={() => this.handleChange()} />
+              <RouterSelectResProof
+                save={target => this.handleChange(target)}
+              />
             )}
           />
           <Route
             path="/uploadRes"
-            render={() => <RouterUploadRes save={() => this.handleChange()} />}
+            render={() => (
+              <RouterUploadRes save={target => this.handleChange(target)} />
+            )}
           />
           <Route
             path="/selectCitizen"
             render={() => (
-              <RouterSelectCitizen save={() => this.handleChange()} />
+              <RouterSelectCitizen save={target => this.handleChange(target)} />
             )}
           />
           <Route
             path="/selectCitizenProof"
             render={() => (
-              <RouterSelectCitizenProof save={() => this.handleChange()} />
+              <RouterSelectCitizenProof
+                save={target => this.handleChange(target)}
+              />
             )}
           />
           <Route
             path="/uploadCitizen"
             render={() => (
-              <RouterUploadCitizen save={() => this.handleChange()} />
+              <RouterUploadCitizen save={target => this.handleChange(target)} />
             )}
           />
           <Route
             path="/selectID"
-            render={() => <RouterSelectID save={() => this.handleChange()} />}
+            render={() => (
+              <RouterSelectID save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/uploadID"
+            render={() => (
+              <RouterUploadID save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/summary"
+            render={() => (
+              <RouterSummary save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/confirmation"
+            render={() => (
+              <RouterConfirmation save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/uploadPosting"
+            render={() => (
+              <RouterUploadPosting
+                save={target => this.handleChange(target)}
+                baseIndex={this.state.baseIndex}
+              />
+            )}
+          />
+          <Route
+            path="/contact"
+            render={() => (
+              <RouterContact save={target => this.handleChange(target)} />
+            )}
           />
           <Route component={NotFound} />
         </Switch>
