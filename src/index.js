@@ -15,6 +15,9 @@ import constants from "./constants";
 import Terms from "./pages/terms";
 import Birthday from "./pages/birthday";
 import Sex from "./pages/sex";
+import HowSignature from "./pages/howSignature";
+import InCamera from "./pages/inCamera";
+import ConfirmPhoto from "./pages/confirmPhoto";
 import NotFound from "./pages/notFound";
 import Name from "./pages/name";
 import AddressRes from "./pages/addressRes";
@@ -49,7 +52,10 @@ class App extends React.Component {
     const RouterBirthday = withRouter(Birthday);
     const RouterName = withRouter(Name);
     const RouterAddressRes = withRouter(AddressRes);
+    const RouterHowSignature = withRouter(HowSignature);
     const RouterSex = withRouter(Sex);
+    const RouterInCamera = withRouter(InCamera);
+    const RouterConfirmPhoto = withRouter(ConfirmPhoto);
     const RouterPastOHIP = withRouter(PastOHIP);
     const RouterIsMilitary = withRouter(IsMilitary);
     const RouterSelectBase = withRouter(SelectBase);
@@ -104,6 +110,22 @@ class App extends React.Component {
           <Route
             path="/sex"
             render={() => <RouterSex save={() => this.handleChange()} />}
+          />
+          <Route
+            path="/howSignature"
+            render={() => (
+              <RouterHowSignature save={() => this.handleChange()} />
+            )}
+          />
+          <Route
+            path="/inCamera"
+            render={() => <RouterInCamera save={() => this.handleChange()} />}
+          />
+          <Route
+            path="/confirmPhoto"
+            render={() => (
+              <RouterConfirmPhoto save={() => this.handleChange()} />
+            )}
           />
           <Route
             path="/pastOHIP"
