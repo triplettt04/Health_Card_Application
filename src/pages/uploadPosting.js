@@ -1,8 +1,7 @@
 import React from "react";
 import constants from "../constants";
-import Card from "../components/card";
 
-class Name extends React.Component {
+class UploadPosting extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,11 +12,14 @@ class Name extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/birthday");
+    this.props.history.push({
+      pathname: "/addressRes",
+      state: { pathFrom: "/uploadPosting" }
+    });
   }
 
   back() {
-    this.props.history.push("/uploadID");
+    this.props.history.push("/");
   }
 
   render() {
@@ -46,4 +48,4 @@ class Name extends React.Component {
   }
 }
 
-export default Name;
+export default UploadPosting;

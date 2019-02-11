@@ -1,8 +1,7 @@
 import React from "react";
 import constants from "../constants";
-import Card from "../components/card";
 
-class Name extends React.Component {
+class UploadID extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,11 +12,11 @@ class Name extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/birthday");
+    this.props.history.push("/name");
   }
 
   back() {
-    this.props.history.push("/uploadID");
+    this.props.history.push("/selectID");
   }
 
   render() {
@@ -46,4 +45,4 @@ class Name extends React.Component {
   }
 }
 
-export default Name;
+export default UploadID;
