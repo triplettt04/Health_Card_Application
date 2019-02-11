@@ -6,11 +6,11 @@ class Name extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/");
+    this.props.history.push("/birthday");
   }
 
   back() {
-    this.props.history.push("/");
+    this.props.history.push("/uploadID");
   }
 
   render() {

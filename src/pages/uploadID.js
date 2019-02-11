@@ -1,15 +1,17 @@
 import React from "react";
-import Card from "../components/card";
 import constants from "../constants";
 
-class Birthday extends React.Component {
-  back() {
-    this.props.history.push("/name");
-  }
+class Template extends React.Component {
   next(event) {
     event.preventDefault();
-    this.props.history.push("/sex");
+    //handle target and call this.props.save(event.target[i])
+    this.props.history.push("/name");
   }
+
+  back() {
+    this.props.history.push("/selectID");
+  }
+
   render() {
     return (
       <form onSubmit={event => this.next(event)}>
@@ -36,4 +38,4 @@ class Birthday extends React.Component {
   }
 }
 
-export default Birthday;
+export default Template;
