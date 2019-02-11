@@ -28,6 +28,28 @@ class IsMilitary extends React.Component {
             Home
           </a>
         </nav>
+        <div className="form-wrapper">
+          <div className="checkbox-field">
+            <label className="checkbox-label block">
+              <input
+                type="checkbox"
+                className="checkbox-input checkbox"
+                name="example"
+              />
+              <div className="label-text">I love to eat cabbage</div>
+            </label>
+            <label className="checkbox-label block">
+              <input
+                type="checkbox"
+                className="checkbox-input checkbox"
+                name="example"
+              />
+              <div className="label-text">
+                I really love all kinds of mushrooms in general
+              </div>
+            </label>
+          </div>
+        </div>
         <footer className="footer">
           <button
             className="btn btn-navigation btn-left-align"
