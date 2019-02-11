@@ -23,6 +23,8 @@ import IsMilitary from "./pages/isMilitary";
 import SelectBase from "./pages/selectBase";
 import SelectMilitaryProof from "./pages/selectMilitaryProof";
 import UploadMilitary from "./pages/uploadMilitary";
+import HasAddress from "./pages/hasAddress";
+import SelectResProof from "./pages/selectResProof";
 
 class App extends React.Component {
   constructor() {
@@ -55,6 +57,8 @@ class App extends React.Component {
     const RouterSelectBase = withRouter(SelectBase);
     const RouterSelectMilitaryProof = withRouter(SelectMilitaryProof);
     const RouterUploadMilitary = withRouter(UploadMilitary);
+    const RouterHasAddress = withRouter(HasAddress);
+    const RouterSelectResProof = withRouter(SelectResProof);
 
     return (
       <Router>
@@ -120,6 +124,16 @@ class App extends React.Component {
             path="/uploadMilitary"
             render={() => (
               <RouterUploadMilitary save={() => this.handleChange()} />
+            )}
+          />
+          <Route
+            path="/hasAddress"
+            render={() => <RouterHasAddress save={() => this.handleChange()} />}
+          />
+          <Route
+            path="/selectResProof"
+            render={() => (
+              <RouterSelectResProof save={() => this.handleChange()} />
             )}
           />
           <Route component={NotFound} />
