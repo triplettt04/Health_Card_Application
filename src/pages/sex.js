@@ -35,7 +35,12 @@ class Sex extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div class="form-wrapper">
+        <nav className="navbar sticky">
+          <a className="navbar-brand" href="#">
+            Home
+          </a>
+        </nav>
+        <div className="form-wrapper">
           <div className="text-input one-line">
             <label className="form-label" for="first-name-1">
               First Name
@@ -46,25 +51,40 @@ class Sex extends React.Component {
             </label>
             <input className="form-control" id="last-name-1" />
           </div>
+          <div className="text-box text-box-small" />
+          What is your sex (as indicated on your passport)?
           <div className="radio-field">
-            <label class="radio-style block">
-              <input type="radio" class="radio-input radio" name="example" />
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+              />
               Male
             </label>
             <label className="radio-style block">
-              <input type="radio" class="radio-input radio" name="example" />
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+              />
               Female
             </label>
-            <label className="radio-style block">
-              <input type="radio" class="radio-input radio" name="example" />
-              Other
-            </label>
           </div>
-          <button className="btn btn-primary" onClick={() => this.back()}>
+        </div>
+        <footer className="footer">
+          <button
+            className="btn btn-navigation btn-left-align"
+            onClick={() => this.back()}
+          >
             Back
           </button>
-          <input type="submit" value="Next" className="btn btn-primary" />
-        </div>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-navigation btn-right-align"
+          />
+        </footer>
       </form>
     );
   }
