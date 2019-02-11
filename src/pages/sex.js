@@ -5,17 +5,17 @@ class Sex extends React.Component {
     this.props.history.push("/birthday");
   }
 
-  forward(event) {
+  next(event) {
     event.preventDefault();
     this.props.history.push("/sex");
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.next}>
         <nav className="navbar sticky">
           <a className="navbar-brand" href="#">
-            Home
+            Sex
           </a>
         </nav>
         <div className="form-wrapper">

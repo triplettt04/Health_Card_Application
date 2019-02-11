@@ -14,15 +14,26 @@ class SelectBase extends React.Component {
   }
 
   render() {
-    //Add header element
-    let entries = "";
     return (
       <form onSubmit={event => this.next(event)}>
-        <Card content={entries} />
-        <button className={constants.buttonClasses} onClick={() => this.back()}>
-          Back
-        </button>
-        <input className={constants.buttonClasses} type="submit" value="Next" />
+        <nav className="navbar sticky">
+          <a className="navbar-brand" href="#">
+            Select base
+          </a>
+        </nav>
+        <footer className="footer">
+          <button
+            className="btn btn-navigation btn-left-align"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-navigation btn-right-align"
+          />
+        </footer>
       </form>
     );
   }

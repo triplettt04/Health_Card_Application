@@ -8,16 +8,26 @@ class Terms extends React.Component {
     this.props.history.push("/pastOHIP");
   }
   render() {
-    let entries = "Nothing yet";
     return (
       <form onSubmit={event => this.next(event)}>
-        <h1>Terms and conditions</h1>
-        <Card content={entries} />
-        <input
-          className={constants.buttonClasses}
-          type="submit"
-          value="Accept"
-        />
+        <nav className="navbar sticky">
+          <a className="navbar-brand" href="#">
+            Terms and conditions
+          </a>
+        </nav>
+        <footer className="footer">
+          <button
+            className="btn btn-navigation btn-left-align"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+          <input
+            type="submit"
+            value="Accept"
+            className="btn btn-navigation btn-right-align"
+          />
+        </footer>
       </form>
     );
   }

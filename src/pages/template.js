@@ -1,6 +1,5 @@
 import React from "react";
 import constants from "../constants";
-import Card from "../components/card";
 
 class Template extends React.Component {
   next(event) {
@@ -14,8 +13,6 @@ class Template extends React.Component {
   }
 
   render() {
-    //Add header element
-    let entries = "";
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar sticky">

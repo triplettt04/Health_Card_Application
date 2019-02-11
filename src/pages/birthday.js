@@ -28,7 +28,8 @@ class Birthday extends React.Component {
   back() {
     this.props.history.push("/");
   }
-  forward() {
+  next(event) {
+    event.preventDefault();
     this.props.history.push("/sex");
   }
   render() {
@@ -49,17 +50,25 @@ class Birthday extends React.Component {
       cards.push(<Card content={entries[i]} key={i} />);
     }
     return (
-      <form onSubmit={this.forward}>
-        {cards}
-        <button className={constants.buttonClasses} onClick={() => this.back()}>
-          Back to login
-        </button>
-        <input
-          type="submit"
-          value="Next"
-          className={constants.buttonClasses}
-          onClick={() => this.forward()}
-        />
+      <form onSubmit={event => this.next(event)}>
+        <nav className="navbar sticky">
+          <a className="navbar-brand" href="#">
+            Birthday
+          </a>
+        </nav>
+        <footer className="footer">
+          <button
+            className="btn btn-navigation btn-left-align"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-navigation btn-right-align"
+          />
+        </footer>
       </form>
     );
   }
