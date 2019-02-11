@@ -3,6 +3,13 @@ import Card from "../components/card";
 import constants from "../constants";
 
 class Birthday extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.back = this.back.bind(this);
+    this.next = this.next.bind(this);
+  }
+
   back() {
     this.props.history.push("/name");
   }

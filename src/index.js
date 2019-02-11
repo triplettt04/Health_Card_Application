@@ -33,11 +33,15 @@ import SelectID from "./pages/selectID";
 import UploadID from "./pages/uploadID";
 import Summary from "./pages/summary";
 import Confirmation from "./pages/confirmation";
+import UploadPosting from "./pages/uploadPosting";
+import Contact from "./pages/contact";
 
 class App extends React.Component {
   constructor() {
     super();
-
+    this.state = {
+      baseIndex: 0
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -68,6 +72,8 @@ class App extends React.Component {
     const RouterUploadID = withRouter(UploadID);
     const RouterSummary = withRouter(Summary);
     const RouterConfirmation = withRouter(Confirmation);
+    const RouterUploadPosting = withRouter(UploadPosting);
+    const RouterContact = withRouter(Contact);
 
     return (
       <Router>
@@ -199,6 +205,21 @@ class App extends React.Component {
             path="/confirmation"
             render={() => (
               <RouterConfirmation save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/uploadPosting"
+            render={() => (
+              <RouterUploadPosting
+                save={target => this.handleChange(target)}
+                baseIndex={this.state.baseIndex}
+              />
+            )}
+          />
+          <Route
+            path="/contact"
+            render={() => (
+              <RouterContact save={target => this.handleChange(target)} />
             )}
           />
           <Route component={NotFound} />

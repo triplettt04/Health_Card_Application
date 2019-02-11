@@ -1,54 +1,55 @@
 import React from "react";
+import Card from "../components/card";
 import constants from "../constants";
 
 class Sex extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.back = this.back.bind(this);
+    this.next = this.next.bind(this);
+  }
+
   back() {
     this.props.history.push("/birthday");
   }
 
-  next(event) {
-    event.preventDefault();
-    this.props.history.push("/sex");
+  next(isMale) {
+    let target = {
+      name: "Sex",
+      value: isMale ? "Male" : "Female"
+    };
+    this.props.save(target);
+    this.props.history.push("/contact");
   }
 
   render() {
+    let content = <div>What is your sex?</div>;
+
     return (
-      <form onSubmit={this.next}>
+      <div>
         <nav className="navbar sticky">
           <a className="navbar-brand" href="#">
             {constants.navTopName}
           </a>
         </nav>
         <div className="form-wrapper">
-          <div className="text-input one-line">
-            <label className="form-label" htmlFor="first-name-1">
-              First Name
-            </label>
-            <input className="form-control" id="first-name-1" />
-            <label className="form-label" htmlFor="last-name-1">
-              Last Name
-            </label>
-            <input className="form-control" id="last-name-1" />
-          </div>
-          <div className="text-box text-box-small" />
-          What is your sex (as indicated on your passport)?
-          <div className="radio-field">
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-              />
+          <Card content={content} />
+          <div className="row">
+            <button
+              className={constants.buttonClasses}
+              onClick={() => this.next(true)}
+            >
               Male
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-              />
+            </button>
+          </div>
+          <div className="row">
+            <button
+              className={constants.buttonClasses}
+              onClick={() => this.next(false)}
+            >
               Female
-            </label>
+            </button>
           </div>
         </div>
         <footer className="footer">
@@ -64,7 +65,7 @@ class Sex extends React.Component {
             className="btn btn-navigation btn-right-align"
           />
         </footer>
-      </form>
+      </div>
     );
   }
 }

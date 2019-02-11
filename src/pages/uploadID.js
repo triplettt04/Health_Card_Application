@@ -1,7 +1,14 @@
 import React from "react";
 import constants from "../constants";
 
-class Template extends React.Component {
+class UploadID extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.back = this.back.bind(this);
+    this.next = this.next.bind(this);
+  }
+
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
@@ -38,4 +45,4 @@ class Template extends React.Component {
   }
 }
 
-export default Template;
+export default UploadID;
