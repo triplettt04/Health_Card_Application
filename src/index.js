@@ -31,6 +31,8 @@ import SelectCitizenProof from "./pages/selectCitizenProof";
 import UploadCitizen from "./pages/uploadCitizen";
 import SelectID from "./pages/selectID";
 import UploadID from "./pages/uploadID";
+import Summary from "./pages/summary";
+import Confirmation from "./pages/confirmation";
 
 class App extends React.Component {
   constructor() {
@@ -64,6 +66,8 @@ class App extends React.Component {
     const RouterUploadCitizen = withRouter(UploadCitizen);
     const RouterSelectID = withRouter(SelectID);
     const RouterUploadID = withRouter(UploadID);
+    const RouterSummary = withRouter(Summary);
+    const RouterConfirmation = withRouter(Confirmation);
 
     return (
       <Router>
@@ -183,6 +187,18 @@ class App extends React.Component {
             path="/uploadID"
             render={() => (
               <RouterUploadID save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/summary"
+            render={() => (
+              <RouterSummary save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/confirmation"
+            render={() => (
+              <RouterConfirmation save={target => this.handleChange(target)} />
             )}
           />
           <Route component={NotFound} />
