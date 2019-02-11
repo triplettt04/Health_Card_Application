@@ -23,7 +23,7 @@ class IsMilitary extends React.Component {
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar sticky">
           <a className="navbar-brand" href="#">
-            Military?
+            {constants.navTopName}
           </a>
         </nav>
         <footer className="footer">

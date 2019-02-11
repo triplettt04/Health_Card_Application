@@ -1,4 +1,5 @@
 import React from "react";
+import constants from "../constants";
 
 class Sex extends React.Component {
   back() {
@@ -15,7 +16,7 @@ class Sex extends React.Component {
       <form onSubmit={this.next}>
         <nav className="navbar sticky">
           <a className="navbar-brand" href="#">
-            Sex
+            {constants.navTopName}
           </a>
         </nav>
         <div className="form-wrapper">

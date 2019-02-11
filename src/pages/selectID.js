@@ -1,21 +1,15 @@
 import React from "react";
 import constants from "../constants";
-import Card from "../components/card";
 
-class HasAddress extends React.Component {
+class SelectID extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    let hasAddress = true;
-    if (hasAddress) {
-      this.props.history.push("/selectResProof");
-    } else {
-      this.props.history.push("/uploadPosting");
-    }
+    this.props.history.push("/uploadID");
   }
 
   back() {
-    this.props.history.push("/");
+    this.props.history.push("/uploadCitizen");
   }
 
   render() {
@@ -44,4 +38,4 @@ class HasAddress extends React.Component {
   }
 }
 
-export default HasAddress;
+export default SelectID;

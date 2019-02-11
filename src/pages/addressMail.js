@@ -1,20 +1,15 @@
 import React from "react";
 import constants from "../constants";
-import Card from "../components/card";
 
-class HasAddress extends React.Component {
+class AddressMail extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    let hasAddress = true;
-    if (hasAddress) {
-      this.props.history.push("/selectResProof");
-    } else {
-      this.props.history.push("/uploadPosting");
-    }
+    this.props.history.push("/selectCitizen");
   }
 
   back() {
+    //TODO!!
     this.props.history.push("/");
   }
 
@@ -23,7 +18,7 @@ class HasAddress extends React.Component {
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar sticky">
           <a className="navbar-brand" href="#">
-            {constants.navTopName}
+            Home
           </a>
         </nav>
         <footer className="footer">
@@ -44,4 +39,4 @@ class HasAddress extends React.Component {
   }
 }
 
-export default HasAddress;
+export default AddressMail;
