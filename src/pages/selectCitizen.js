@@ -1,16 +1,15 @@
 import React from "react";
 import constants from "../constants";
-import Card from "../components/card";
 
-class Name extends React.Component {
+class SelectCitizen extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/");
+    this.props.history.push("/selectCitizenProof");
   }
 
   back() {
-    this.props.history.push("/");
+    this.props.history.push("/addressMailing");
   }
 
   render() {
@@ -39,4 +38,4 @@ class Name extends React.Component {
   }
 }
 
-export default Name;
+export default SelectCitizen;

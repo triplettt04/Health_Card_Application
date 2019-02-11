@@ -1,15 +1,15 @@
 import React from "react";
 import constants from "../constants";
-import Card from "../components/card";
 
-class Name extends React.Component {
+class AddressMail extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/");
+    this.props.history.push("/selectCitizen");
   }
 
   back() {
+    //TODO!!
     this.props.history.push("/");
   }
 
@@ -18,7 +18,7 @@ class Name extends React.Component {
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar sticky">
           <a className="navbar-brand" href="#">
-            {constants.navTopName}
+            Home
           </a>
         </nav>
         <footer className="footer">
@@ -39,4 +39,4 @@ class Name extends React.Component {
   }
 }
 
-export default Name;
+export default AddressMail;

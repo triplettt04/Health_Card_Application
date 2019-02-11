@@ -23,6 +23,13 @@ import IsMilitary from "./pages/isMilitary";
 import SelectBase from "./pages/selectBase";
 import SelectMilitaryProof from "./pages/selectMilitaryProof";
 import UploadMilitary from "./pages/uploadMilitary";
+import HasAddress from "./pages/hasAddress";
+import SelectResProof from "./pages/selectResProof";
+import UploadRes from "./pages/uploadRes";
+import SelectCitizen from "./pages/selectCitizen";
+import SelectCitizenProof from "./pages/selectCitizenProof";
+import UploadCitizen from "./pages/uploadCitizen";
+import SelectID from "./pages/selectID";
 
 class App extends React.Component {
   constructor() {
@@ -38,13 +45,6 @@ class App extends React.Component {
   }
 
   render() {
-    //Entry indexes:
-    //  0 - address
-    //  1 - birthday
-    //  2 - name
-    //  3 - contact
-    //  4 - sex
-
     const RouterTerms = withRouter(Terms);
     const RouterBirthday = withRouter(Birthday);
     const RouterName = withRouter(Name);
@@ -55,6 +55,13 @@ class App extends React.Component {
     const RouterSelectBase = withRouter(SelectBase);
     const RouterSelectMilitaryProof = withRouter(SelectMilitaryProof);
     const RouterUploadMilitary = withRouter(UploadMilitary);
+    const RouterHasAddress = withRouter(HasAddress);
+    const RouterSelectResProof = withRouter(SelectResProof);
+    const RouterUploadRes = withRouter(UploadRes);
+    const RouterSelectCitizen = withRouter(SelectCitizen);
+    const RouterSelectCitizenProof = withRouter(SelectCitizenProof);
+    const RouterUploadCitizen = withRouter(UploadCitizen);
+    const RouterSelectID = withRouter(SelectID);
 
     return (
       <Router>
@@ -121,6 +128,42 @@ class App extends React.Component {
             render={() => (
               <RouterUploadMilitary save={() => this.handleChange()} />
             )}
+          />
+          <Route
+            path="/hasAddress"
+            render={() => <RouterHasAddress save={() => this.handleChange()} />}
+          />
+          <Route
+            path="/selectResProof"
+            render={() => (
+              <RouterSelectResProof save={() => this.handleChange()} />
+            )}
+          />
+          <Route
+            path="/uploadRes"
+            render={() => <RouterUploadRes save={() => this.handleChange()} />}
+          />
+          <Route
+            path="/selectCitizen"
+            render={() => (
+              <RouterSelectCitizen save={() => this.handleChange()} />
+            )}
+          />
+          <Route
+            path="/selectCitizenProof"
+            render={() => (
+              <RouterSelectCitizenProof save={() => this.handleChange()} />
+            )}
+          />
+          <Route
+            path="/uploadCitizen"
+            render={() => (
+              <RouterUploadCitizen save={() => this.handleChange()} />
+            )}
+          />
+          <Route
+            path="/selectID"
+            render={() => <RouterSelectID save={() => this.handleChange()} />}
           />
           <Route component={NotFound} />
         </Switch>

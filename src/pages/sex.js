@@ -1,21 +1,22 @@
 import React from "react";
+import constants from "../constants";
 
 class Sex extends React.Component {
   back() {
     this.props.history.push("/birthday");
   }
 
-  forward(event) {
+  next(event) {
     event.preventDefault();
     this.props.history.push("/sex");
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.next}>
         <nav className="navbar sticky">
           <a className="navbar-brand" href="#">
-            Home
+            {constants.navTopName}
           </a>
         </nav>
         <div className="form-wrapper">
