@@ -1,8 +1,8 @@
 const constants = {
   pageEntries: [
     {
-      entries: ["Username", "Password"],
-      entryClass: "login"
+      entries: ["Street", "City", "Province", "Postal code", "Country"],
+      entryClass: "address"
     },
     {
       entries: ["Birthday"],
@@ -11,10 +11,6 @@ const constants = {
     {
       entries: ["First name", "Middle name", "Last name"],
       entryClass: "name"
-    },
-    {
-      entries: ["Street", "City", "Province", "Postal code", "Country"],
-      entryClass: "address"
     },
     {
       entries: ["Primary phone", "Alternate phone", "Email"],

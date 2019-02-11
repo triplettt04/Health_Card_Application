@@ -1,34 +1,12 @@
 import React from "react";
-import Card from "../components/card";
-import Entries from "../components/entries";
 
 class Sex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      numberOfPeople: props.numberOfPeople
-    };
-  }
-
-  addPerson() {
-    this.setState(state => ({
-      numberOfPeople: state.numberOfPeople + 1
-    }));
-  }
-
-  deletePerson() {
-    if (this.state.numberOfPeople > 1) {
-      this.setState(state => ({
-        numberOfPeople: state.numberOfPeople - 1
-      }));
-    }
-  }
-
   back() {
     this.props.history.push("/birthday");
   }
 
-  forward() {
+  forward(event) {
+    event.preventDefault();
     this.props.history.push("/sex");
   }
 
@@ -42,11 +20,11 @@ class Sex extends React.Component {
         </nav>
         <div className="form-wrapper">
           <div className="text-input one-line">
-            <label className="form-label" for="first-name-1">
+            <label className="form-label" htmlFor="first-name-1">
               First Name
             </label>
             <input className="form-control" id="first-name-1" />
-            <label className="form-label" for="last-name-1">
+            <label className="form-label" htmlFor="last-name-1">
               Last Name
             </label>
             <input className="form-control" id="last-name-1" />
