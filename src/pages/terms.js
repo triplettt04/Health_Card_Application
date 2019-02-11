@@ -1,20 +1,11 @@
 import React from "react";
 import Card from "../components/card";
-import Entries from "../components/entries";
 import constants from "../constants";
 
 class Terms extends React.Component {
   next(event) {
     event.preventDefault();
-    let isValid = true;
-    if (isValid) {
-      for (let i = 0; i < event.target.length; i++) {
-        if (event.target[i].type !== "submit") {
-          this.props.save(event.target[i]);
-        }
-      }
-      this.props.history.push("/birthday");
-    }
+    this.props.history.push("/pastOHIP");
   }
   render() {
     let entries = "Nothing yet";
