@@ -26,7 +26,7 @@
     .progress-indicator {
       text-align: center;
       color: $light-grey;
-      font-size: 12px;
+      font-size: 16px;
     }
 
     .birthday {
@@ -111,10 +111,13 @@ h2.sub-header {
 }
 
 p.caption {
-  font-size: 12px;
+  font-size: 16px;
   color: $font-grey;
 }
 
+.minimized-text {
+  display: block;
+}
 //image-styling
 .upload-image {
   width: 100%;
