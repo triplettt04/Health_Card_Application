@@ -1,9 +1,11 @@
 @import "variables.scss";
 @import "form-components.scss";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 
 //Page formatting
 .form-wrapper {
   padding: 25px 20px;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 @media only screen and (max-width: 768px) {
@@ -101,10 +103,25 @@ h1.primary-header {
 
 h2.sub-header {
   font-size: 20px;
-  margin: 20px 0 15px;
+  margin: 20px 0 20px;
+  font-weight: 600;
 }
 
 p.caption {
   font-size: 12px;
   color: $font-grey;
+}
+
+//card-styling
+.question-card {
+  box-shadow: 0px 2px 8px 0px #999;
+  border-radius: 20px;
+  padding: 15px 30px;
+  margin-bottom: 15px;
+
+  .progress-indicator {
+    text-align: center;
+    color: $inactive;
+    font-size: 12px;
+  }
 }
