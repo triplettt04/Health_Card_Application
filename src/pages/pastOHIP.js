@@ -16,7 +16,7 @@ class PastOHIP extends React.Component {
       value: pastOHIP ? "Yes" : "No"
     };
     this.props.save(target);
-    if (pastOHIP) {
+    if (!pastOHIP) {
       this.props.history.push("/isMilitary");
     } else {
       this.props.history.push("/moveDate");
@@ -63,11 +63,7 @@ class PastOHIP extends React.Component {
             >
               Back
             </button>
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align"
-            />
+            <button className="btn btn-general btn-right-align">Next</button>
           </div>
         </div>
       </div>

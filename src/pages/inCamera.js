@@ -1,11 +1,33 @@
 import React from "react";
 import constants from "../constants";
+import testImg from "./project-header.png";
 
-class SelectCitizen extends React.Component {
+class InCamera extends React.Component {
+  constructor(props) {
+    super(props);
+    let img;
+    switch (this.props.location.state.pathFrom) {
+      case "/uploadRes":
+        img = testImg; //Test for now
+        break;
+      default:
+        img = "";
+    }
+    this.state = {
+      img: img
+    };
+  }
+
   next(event) {
     event.preventDefault();
-    //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/confirmPhoto");
+    let pathFrom = this.props.location.state.pathFrom;
+    this.props.history.push({
+      pathname: "/confirmPhoto",
+      state: {
+        pathFrom: pathFrom,
+        img: this.state.img
+      }
+    });
   }
 
   back() {
@@ -19,6 +41,7 @@ class SelectCitizen extends React.Component {
   render() {
     return (
       <form onSubmit={event => this.next(event)}>
+        <img src={this.state.img} />
         <footer className="footer camera-footer">
           <button className="camera-cancel" onClick={() => this.back()}>
             Cancel
@@ -30,4 +53,4 @@ class SelectCitizen extends React.Component {
   }
 }
 
-export default SelectCitizen;
+export default InCamera;

@@ -6,7 +6,6 @@ class Terms extends React.Component {
   constructor(props) {
     super(props);
 
-    this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
 
