@@ -29,7 +29,7 @@ class Name extends React.Component {
 
     return (
       <form onSubmit={event => this.next(event)}>
-        <div class="ontario-header-container">
+        <div className="ontario-header-container">
           <img
             src={require("./project-header.png")}
             className="ontario-header"

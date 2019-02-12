@@ -45,7 +45,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      baseIndex: 0
+      baseIndex: 0,
+      ["Military relation"]: "Yes" //Hard coded for testing
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -116,7 +117,14 @@ class App extends React.Component {
           <Route
             path="/addressRes"
             render={() => (
-              <RouterAddressRes save={target => this.handleChange(target)} />
+              <RouterAddressRes
+                save={target => this.handleChange(target)}
+                address={
+                  this.state["Military relation"]
+                    ? constants.militaryAddresses[this.state.baseIndex]
+                    : null
+                }
+              />
             )}
           />
           <Route
@@ -258,7 +266,14 @@ class App extends React.Component {
             exact
             path="/addressMail"
             render={() => (
-              <RouterAddressMail save={target => this.handleChange(target)} />
+              <RouterAddressMail
+                save={target => this.handleChange(target)}
+                street={"123 Sesame"}
+                postalCode={"A1A1A1"}
+                city={"Ottawa"}
+                province={"Ontario"}
+                country={"Canada"}
+              />
             )}
           />
           <Route component={NotFound} />
