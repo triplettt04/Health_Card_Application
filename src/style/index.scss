@@ -81,3 +81,30 @@ h1.primary-header {
 .semi-bold {
   font-weight: 600;
 }
+
+//summary page
+.summary-content {
+  text-align: center;
+
+  .summary-step {
+    padding: 50px 15px 30px;
+  }
+
+  .spacer {
+    height: 50px;
+    border: 2px solid #c4c4c4;
+    width: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+h2.sub-header {
+  font-size: 20px;
+  margin: 20px 0 15px;
+}
+
+p.caption {
+  font-size: 12px;
+  color: $font-grey;
+}

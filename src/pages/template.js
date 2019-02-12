@@ -84,6 +84,13 @@ class Template extends React.Component {
               <div className="label-text">I love cabbage and potatoes</div>{" "}
             </label>
           </div>
+          <div className="option-container">
+            <button className="btn btn-general btn-options">Yes</button>
+            <button className="btn btn-general btn-options">No</button>
+            <button className="btn btn-general btn-options btn-selected">
+              Maybe So
+            </button>
+          </div>
           <div className="btn-container">
             <button
               className="btn btn-general btn-invert"
