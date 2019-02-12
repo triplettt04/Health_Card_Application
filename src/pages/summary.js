@@ -23,11 +23,14 @@ class Summary extends React.Component {
   render() {
     return (
       <form onSubmit={event => this.next(event)}>
-        <div class="ontario-header-container">
+        <div className="ontario-header-container">
           <img
             src={require("./project-header.png")}
             className="ontario-header"
           />
+        </div>
+        <div className="form-wrapper">
+          <h1 className="primary-header">Here's how applying online works</h1>
         </div>
       </form>
     );

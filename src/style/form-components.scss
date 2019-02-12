@@ -166,16 +166,32 @@
 }
 
 //Button styling
+.btn-container {
+  padding: 15px 0;
+}
+
 .btn.btn-general {
-  background-color: $button-colour;
+  background-color: $primary-blue;
   color: $white;
-  border-radius: 0;
-  padding: 0.6em 1em 0.5em;
+  border-radius: 4px;
+  font-weight: 300;
+  padding: 0.5em 1.5em 0.4em;
   line-height: 1.25;
-  box-shadow: 0 2px 0 #003618;
-  border: none;
+  letter-spacing: 1px;
+  border: 1px solid $primary-blue;
   position: relative;
-  font-size: 16px;
+  font-size: 24px;
+}
+
+.btn.btn-general.btn-invert {
+  background-color: $white;
+  color: $primary-blue;
+}
+
+.btn.btn-general.btn-inactive {
+  background-color: $inactive;
+  border-color: $inactive;
+  color: $white;
 }
 
 .btn.btn-navigation {
@@ -191,13 +207,8 @@
   background-color: #999;
 }
 
-.btn.btn-left-align {
-  border-right: 1px solid #888;
-}
-
 .btn.btn-right-align {
   float: right;
-  border-left: 1px solid #999;
 }
 
 //text boxes
@@ -209,7 +220,7 @@
   font-size: 16px;
 }
 
-//footer
+//footer (CURRENTLY TERMINATED)
 
 .footer.camera-footer {
   bottom: 0;
