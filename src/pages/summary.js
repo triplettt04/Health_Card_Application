@@ -29,6 +29,9 @@ class Summary extends React.Component {
             className="ontario-header"
           />
         </div>
+        <div className="form-wrapper">
+          <h1 className="primary-header">Here's how applying online works</h1>
+        </div>
       </form>
     );
   }
