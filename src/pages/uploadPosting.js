@@ -13,13 +13,14 @@ class UploadPosting extends React.Component {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
     this.props.history.push({
-      pathname: "/addressRes",
-      state: { pathFrom: "/uploadPosting" }
+      pathname: process.env.PUBLIC_URL + "/addressRes",
+      state: { pathFrom: process.env.PUBLIC_URL + "/uploadPosting" }
     });
   }
 
   back() {
-    this.props.history.push("/");
+    let path = process.env.PUBLIC_URL + "/";
+    this.props.history.push(path);
   }
 
   render() {

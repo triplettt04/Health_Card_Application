@@ -3,23 +3,52 @@ import constants from "../constants";
 import Card from "../components/card";
 
 class SelectBase extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      img: props.location.state ? props.location.state.img : ""
+    };
+
+    this.next = this.next.bind(this);
+    this.back = this.back.bind(this);
+  }
+
   next(event) {
     event.preventDefault();
-    //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/selectMilitaryProof");
+    let pathFrom = this.props.location.state.pathFrom;
+    this.props.history.push({
+      pathname: pathFrom,
+      state: {
+        uploaded: true
+      }
+    });
   }
 
   back() {
-    this.props.history.push("/inCamera");
+    let pathFrom = this.props.location.state.pathFrom;
+    this.props.history.push({
+      pathname: process.env.PUBLIC_URL + "/inCamera",
+      state: {
+        pathFrom: pathFrom
+      }
+    });
   }
 
   render() {
     return (
       <form onSubmit={event => this.next(event)}>
-        <div className="ontario-header-container">
-          <img
-            src={require("./project-header.png")}
-            className="ontario-header"
+        <img src={this.state.img} />
+        <div className="btn-container">
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Retake
+          </button>
+          <input
+            type="submit"
+            value="Accept"
+            className="btn btn-general btn-right-align"
           />
         </div>
       </form>

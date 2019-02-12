@@ -48,12 +48,14 @@ class AddressMail extends React.Component {
         this.props.save(event.target[i]);
       }
     }
-    this.props.history.push("/selectCitizen");
+    let path = process.env.PUBLIC_URL + "/selectCitizen";
+    this.props.history.push(path);
   }
 
   back() {
     //TODO!!
-    this.props.history.push("/addressRes");
+    let path = process.env.PUBLIC_URL + "/addressRes";
+    this.props.history.push(path);
   }
 
   render() {

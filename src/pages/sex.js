@@ -11,7 +11,8 @@ class Sex extends React.Component {
   }
 
   back() {
-    this.props.history.push("/birthday");
+    let path = process.env.PUBLIC_URL + "/birthday";
+    this.props.history.push(path);
   }
 
   next(isMale) {
@@ -20,7 +21,8 @@ class Sex extends React.Component {
       value: isMale ? "Male" : "Female"
     };
     this.props.save(target);
-    this.props.history.push("/contact");
+    let path = process.env.PUBLIC_URL + "/contact";
+    this.props.history.push(path);
   }
 
   render() {

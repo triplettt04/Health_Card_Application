@@ -12,11 +12,13 @@ class UploadID extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/name");
+    let path = process.env.PUBLIC_URL + "/name";
+    this.props.history.push(path);
   }
 
   back() {
-    this.props.history.push("/selectID");
+    let path = process.env.PUBLIC_URL + "/selectID";
+    this.props.history.push(path);
   }
 
   render() {

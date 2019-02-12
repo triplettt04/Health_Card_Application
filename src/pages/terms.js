@@ -6,13 +6,13 @@ class Terms extends React.Component {
   constructor(props) {
     super(props);
 
-    this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
 
   next(event) {
     event.preventDefault();
-    this.props.history.push("/pastOHIP");
+    let path = process.env.PUBLIC_URL + "/pastOHIP";
+    this.props.history.push(path);
   }
   render() {
     return (
