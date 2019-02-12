@@ -33,7 +33,19 @@ class IsMilitary extends React.Component {
   }
 
   render() {
-    let content = <div>Are you a military spouse or dependent?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">3 / 15</div>
+        <h2 className="sub-header">
+          Are you a spouse or dependant of a Canadian military member?
+        </h2>
+        <p className="caption">
+          As a spouse or dependant of a Canadian military member you are exempt
+          from the waiting period of living in Ontario for 153 days before
+          qualifying for OHIP.
+        </p>
+      </div>
+    );
 
     return (
       <div>
@@ -47,21 +59,23 @@ class IsMilitary extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="row">
-            <button
-              className={constants.buttonClasses}
-              onClick={() => this.next(true)}
-            >
-              Yes
-            </button>
-          </div>
-          <div className="row">
-            <button
-              className={constants.buttonClasses}
-              onClick={() => this.next(false)}
-            >
-              No
-            </button>
+          <div className="radio-field">
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+              />
+              <div className="label-text"> Yes</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+              />
+              <div className="label-text"> No</div>
+            </label>
           </div>
           <div className="btn-container">
             <button

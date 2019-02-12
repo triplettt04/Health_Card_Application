@@ -33,7 +33,7 @@ class PastOHIP extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">1 / 15</div>
+        <div className="progress-indicator">2 / 15</div>
         <h2 className="sub-header">Have you had OHIP coverage in the past?</h2>
         <p className="caption">
           Depending on when you last had coverage, you may not be required to
@@ -61,7 +61,7 @@ class PastOHIP extends React.Component {
                 className="radio-input radio"
                 name="example"
               />
-              Yes
+              <div className="label-text">Yes</div>
             </label>
             <label className="radio-style block">
               <input
@@ -69,7 +69,7 @@ class PastOHIP extends React.Component {
                 className="radio-input radio"
                 name="example"
               />
-              No
+              <div className="label-text">No</div>
             </label>
           </div>
           <div className="btn-container">
