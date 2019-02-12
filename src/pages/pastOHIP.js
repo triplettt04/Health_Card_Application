@@ -31,7 +31,16 @@ class PastOHIP extends React.Component {
   }
 
   render() {
-    let content = <div>Have you had an OHIP card before?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">1 / 15</div>
+        <h2 className="sub-header">Have you had OHIP coverage in the past?</h2>
+        <p className="caption">
+          Depending on when you last had coverage, you may not be required to
+          reapply.
+        </p>
+      </div>
+    );
 
     return (
       <div>
@@ -45,21 +54,25 @@ class PastOHIP extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="row">
-            <button
-              className={constants.buttonClasses}
-              onClick={() => this.next(true)}
-            >
+          <div className="radio-field">
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                onClick={() => this.next(true)}
+              />
               Yes
-            </button>
-          </div>
-          <div className="row">
-            <button
-              className={constants.buttonClasses}
-              onClick={() => this.next(false)}
-            >
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                onClick={() => this.next(false)}
+              />
               No
-            </button>
+            </label>
           </div>
           <div className="btn-container">
             <button

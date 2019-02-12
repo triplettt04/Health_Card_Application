@@ -17,6 +17,11 @@
     z-index: 1000;
   }
 
+  .checkbox-input:checked {
+    color: $primary-blue;
+    border: 2px solid $primary-blue;
+  }
+
   .checkbox-input:checked::after {
     content: "";
     position: absolute;
@@ -52,12 +57,12 @@
 
 //radio-buttons
 .radio-field {
-  margin: 15px 0;
+  margin: 15px 0px 15px 30px;
 
   .radio-style {
     height: 45px;
-    width: 175px;
-    font-size: 20px;
+    width: 100%;
+    font-size: 24px;
 
     .radio-input {
       appearance: none;
@@ -69,24 +74,27 @@
       height: 35px;
       width: 35px;
       background: $white;
-      border: 3px solid #333;
+      border: 2px solid #333;
       color: $white;
       cursor: pointer;
-      margin-right: 15px;
+      margin-right: 30px;
       outline: none;
       z-index: 1000;
     }
 
+    .radio-input:checked {
+      border: 2px solid $primary-blue;
+    }
     .radio-input:checked::after {
-      background: #333;
+      background: $primary-blue;
       content: "";
       display: block;
       position: relative;
       z-index: 100;
       margin-top: 5px;
       margin-left: 5px;
-      width: 19px;
-      height: 19px;
+      width: 21px;
+      height: 21px;
       transition: 0.15s ease-in-out;
     }
     .radio-input.radio {
@@ -118,7 +126,7 @@
 
 .text-input {
   label {
-    margin: 1rem 0 0.5rem 0;
+    margin: 1rem 0 1rem 0;
   }
   input {
     border: 2px solid #000;
@@ -167,7 +175,7 @@
 
 //Button styling
 .btn-container {
-  padding: 15px 0;
+  padding: 25px 0;
 }
 
 .btn-container.btn-center {
@@ -202,7 +210,7 @@
 .btn.btn-general.btn-inactive {
   background-color: $inactive;
   border-color: $inactive;
-  color: $white;
+  color: $dark-grey;
 }
 
 .btn.btn-navigation {

@@ -23,7 +23,27 @@ class Template extends React.Component {
   }
 
   render() {
-    let content = <div>This is the template page</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">1 / 15</div>
+        <h2 className="sub-header">Description of the chameleon</h2>
+        <p className="caption">
+          Chameleons are distinguished by their feet; their very extensive,
+          highly modified, rapidly extrudable tongues; their swaying gait;[2]
+          and crests or horns on their brow and snout. Most species, the larger
+          ones in particular, also have a prehensile tail. Chameleons' eyes are
+          independently mobile, but in aiming at a prey item, they focus forward
+          in coordination, affording the animal stereoscopic vision. <br />
+          <br />
+          Chameleons are adapted for climbing and visual hunting. They live in
+          warm habitats that range from rain forest to desert conditions, with
+          various species occurring in Africa, Madagascar, southern Europe, and
+          across southern Asia as far as Sri Lanka. They also have been
+          introduced to Hawaii, California, and Florida, and often are kept as
+          household pets
+        </p>
+      </div>
+    );
 
     return (
       <form onSubmit={this.next}>
@@ -106,6 +126,19 @@ class Template extends React.Component {
               type="submit"
               value="Next"
               className="btn btn-general btn-right-align"
+            />
+          </div>
+          <div className="btn-container">
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align btn-inactive"
             />
           </div>
         </div>
