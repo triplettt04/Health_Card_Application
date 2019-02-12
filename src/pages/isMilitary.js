@@ -35,11 +35,12 @@ class IsMilitary extends React.Component {
 
     return (
       <div>
-        <nav className="navbar sticky">
-          <a className="navbar-brand" href="#">
-            {constants.navTopName}
-          </a>
-        </nav>
+        <div class="ontario-header-container">
+          <img
+            src={require("./project-header.png")}
+            className="ontario-header"
+          />
+        </div>
         <div className="form-wrapper">
           <Card content={content} />
           <div className="row">
