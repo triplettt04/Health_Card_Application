@@ -29,7 +29,7 @@ class Name extends React.Component {
 
     return (
       <form onSubmit={event => this.next(event)}>
-        <div class="ontario-header-container">
+        <div className="ontario-header-container">
           <img
             src={require("./project-header.png")}
             className="ontario-header"
@@ -58,6 +58,19 @@ class Name extends React.Component {
               Last name
             </label>
             <input className="form-control" id="last-name-1" name="Last name" />
+          </div>
+          <div className="btn-container">
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align"
+            />
           </div>
         </div>
       </form>

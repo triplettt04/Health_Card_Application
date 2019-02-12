@@ -9,7 +9,11 @@ class SelectCitizen extends React.Component {
   }
 
   back() {
-    this.props.history.push("/howSignature");
+    if (this.props.location.state.pathFrom) {
+      this.props.history.push(this.props.location.state.pathFrom);
+    } else {
+      this.props.history.push("/howSignature");
+    }
   }
 
   render() {

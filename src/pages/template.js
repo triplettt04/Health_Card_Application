@@ -1,5 +1,6 @@
 import React from "react";
 import constants from "../constants";
+import Card from "../components/card";
 
 class Template extends React.Component {
   constructor(props) {
@@ -20,24 +21,27 @@ class Template extends React.Component {
   }
 
   render() {
+    let content = <div>This is the template page</div>;
+
     return (
       <form onSubmit={this.next}>
-        <div class="ontario-header-container">
+        <div className="ontario-header-container">
           <img
             src={require("./project-header.png")}
             className="ontario-header"
           />
         </div>
         <div className="form-wrapper">
+          <Card content={content} />
           <div className="text-input one-line">
             <label className="form-label" htmlFor="first-name-1">
               First Name
             </label>
-            <input className="form-control" id="first-name-1" />
+            <input className="form-control" id="first-name-1" name="" />
             <label className="form-label" htmlFor="last-name-1">
               Last Name
             </label>
-            <input className="form-control" id="last-name-1" />
+            <input className="form-control" id="last-name-1" name="" />
           </div>
           <div className="text-box text-box-small" />
           What is your sex (as indicated on your passport)?

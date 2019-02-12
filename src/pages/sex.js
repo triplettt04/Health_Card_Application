@@ -28,7 +28,7 @@ class Sex extends React.Component {
 
     return (
       <div>
-        <div class="ontario-header-container">
+        <div className="ontario-header-container">
           <img
             src={require("./project-header.png")}
             className="ontario-header"
@@ -51,6 +51,19 @@ class Sex extends React.Component {
             >
               Female
             </button>
+          </div>
+          <div className="btn-container">
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align"
+            />
           </div>
         </div>
       </div>
