@@ -28,7 +28,7 @@ class Sex extends React.Component {
 
     return (
       <div>
-        <div class="ontario-header-container">
+        <div className="ontario-header-container">
           <img
             src={require("./project-header.png")}
             className="ontario-header"

@@ -22,7 +22,7 @@ class Template extends React.Component {
   render() {
     return (
       <form onSubmit={this.next}>
-        <div class="ontario-header-container">
+        <div className="ontario-header-container">
           <img
             src={require("./project-header.png")}
             className="ontario-header"
