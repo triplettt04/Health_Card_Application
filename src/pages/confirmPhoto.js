@@ -27,7 +27,7 @@ class SelectBase extends React.Component {
   back() {
     let pathFrom = this.props.location.state.pathFrom;
     this.props.history.push({
-      pathname: "/inCamera",
+      pathname: process.env.PUBLIC_URL + "/inCamera",
       state: {
         pathFrom: pathFrom
       }

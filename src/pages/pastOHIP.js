@@ -17,14 +17,17 @@ class PastOHIP extends React.Component {
     };
     this.props.save(target);
     if (!pastOHIP) {
-      this.props.history.push("/isMilitary");
+      let path = process.env.PUBLIC_URL + "/isMilitary";
+      this.props.history.push(path);
     } else {
-      this.props.history.push("/moveDate");
+      let path = process.env.PUBLIC_URL + "/moveDate";
+      this.props.history.push(path);
     }
   }
 
   back() {
-    this.props.history.push("/");
+    let path = process.env.PUBLIC_URL + "/";
+    this.props.history.push(path);
   }
 
   render() {

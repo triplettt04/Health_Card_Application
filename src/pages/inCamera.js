@@ -22,7 +22,7 @@ class InCamera extends React.Component {
     event.preventDefault();
     let pathFrom = this.props.location.state.pathFrom;
     this.props.history.push({
-      pathname: "/confirmPhoto",
+      pathname: process.env.PUBLIC_URL + "/confirmPhoto",
       state: {
         pathFrom: pathFrom,
         img: this.state.img
@@ -34,7 +34,8 @@ class InCamera extends React.Component {
     if (this.props.location.state.pathFrom) {
       this.props.history.push(this.props.location.state.pathFrom);
     } else {
-      this.props.history.push("/howSignature");
+      let path = process.env.PUBLIC_URL + "/howSignature";
+      this.props.history.push(path);
     }
   }
 

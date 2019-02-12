@@ -13,7 +13,8 @@ class SelectResProof extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/uploadRes");
+    let path = process.env.PUBLIC_URL + "/uploadRes";
+    this.props.history.push(path);
   }
 
   back() {

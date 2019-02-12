@@ -11,11 +11,13 @@ class Birthday extends React.Component {
   }
 
   back() {
-    this.props.history.push("/name");
+    let path = process.env.PUBLIC_URL + "/name";
+    this.props.history.push(path);
   }
   next(event) {
     event.preventDefault();
-    this.props.history.push("/sex");
+    let path = process.env.PUBLIC_URL + "/sex";
+    this.props.history.push(path);
   }
   render() {
     return (

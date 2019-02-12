@@ -20,8 +20,8 @@ class UploadRes extends React.Component {
 
   takePic() {
     this.props.history.push({
-      pathname: "/inCamera",
-      state: { pathFrom: "/uploadRes" }
+      pathname: process.env.PUBLIC_URL + "/inCamera",
+      state: { pathFrom: process.env.PUBLIC_URL + "/uploadRes" }
     });
   }
 
@@ -35,8 +35,8 @@ class UploadRes extends React.Component {
     this.props.save(target);
 
     this.props.history.push({
-      pathname: "/addressRes",
-      state: { pathFrom: "/uploadRes" }
+      pathname: process.env.PUBLIC_URL + "/addressRes",
+      state: { pathFrom: process.env.PUBLIC_URL + "/uploadRes" }
     });
   }
 

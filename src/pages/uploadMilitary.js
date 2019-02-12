@@ -13,11 +13,13 @@ class UploadMilitary extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/hasAddress");
+    let path = process.env.PUBLIC_URL + "/hasAddress";
+    this.props.history.push(path);
   }
 
   back() {
-    this.props.history.push("/selectMilitaryProof");
+    let path = process.env.PUBLIC_URL + "/selectMilitaryProof";
+    this.props.history.push(path);
   }
 
   render() {

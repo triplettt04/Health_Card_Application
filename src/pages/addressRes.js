@@ -23,11 +23,13 @@ class AddressRes extends React.Component {
         this.props.save(event.target[i]);
       }
     }
-    this.props.history.push("/addressMail");
+    let path = process.env.PUBLIC_URL + "/addressMail";
+    this.props.history.push(path);
   }
 
   back() {
-    this.props.history.push(this.props.location.state.pathFrom);
+    let path = process.env.PUBLIC_URL + this.props.location.state.pathFrom;
+    this.props.history.push(path);
   }
 
   render() {

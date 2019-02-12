@@ -11,7 +11,8 @@ class Terms extends React.Component {
 
   next(event) {
     event.preventDefault();
-    this.props.history.push("/pastOHIP");
+    let path = process.env.PUBLIC_URL + "/pastOHIP";
+    this.props.history.push(path);
   }
   render() {
     return (

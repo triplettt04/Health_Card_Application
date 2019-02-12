@@ -13,11 +13,13 @@ class Template extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/");
+    let path = process.env.PUBLIC_URL + "/";
+    this.props.history.push(path);
   }
 
   back() {
-    this.props.history.push("/");
+    let path = process.env.PUBLIC_URL + "/";
+    this.props.history.push(path);
   }
 
   render() {
