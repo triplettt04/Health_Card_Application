@@ -58,18 +58,38 @@ class InCamera extends React.Component {
   next(event) {
     event.preventDefault();
     let pathFrom = this.props.location.state.pathFrom;
-    this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/confirmPhoto",
-      state: {
-        pathFrom: pathFrom,
-        img: this.state.img
-      }
-    });
+    if (this.props.location.state.num) {
+      this.props.history.push({
+        pathname: process.env.PUBLIC_URL + "/confirmPhoto",
+        state: {
+          pathFrom: pathFrom,
+          img: this.state.img,
+          num: this.props.location.state.num
+        }
+      });
+    } else {
+      this.props.history.push({
+        pathname: process.env.PUBLIC_URL + "/confirmPhoto",
+        state: {
+          pathFrom: pathFrom,
+          img: this.state.img
+        }
+      });
+    }
   }
 
   back() {
     if (this.props.location.state.pathFrom) {
-      this.props.history.push(this.props.location.state.pathFrom);
+      if (this.props.location.state.num) {
+        this.props.history.push({
+          pathname: this.props.location.state.pathFrom,
+          state: {
+            num: this.props.location.state.num - 1
+          }
+        });
+      } else {
+        this.props.history.push(this.props.location.state.pathFrom);
+      }
     } else {
       let path = process.env.PUBLIC_URL + "/howSignature";
       this.props.history.push(path);

@@ -28,7 +28,7 @@ class HasAddress extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/";
+    let path = process.env.PUBLIC_URL + "/uploadMilitary";
     this.props.history.push(path);
   }
 
