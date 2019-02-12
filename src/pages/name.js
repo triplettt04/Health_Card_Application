@@ -12,7 +12,11 @@ class Name extends React.Component {
 
   next(event) {
     event.preventDefault();
-    //handle target and call this.props.save(event.target[i])
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit") {
+        this.props.save(event.target[i]);
+      }
+    }
     this.props.history.push("/birthday");
   }
 
@@ -21,6 +25,8 @@ class Name extends React.Component {
   }
 
   render() {
+    let content = <div>What is your name?</div>;
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar sticky">
@@ -28,6 +34,31 @@ class Name extends React.Component {
             {constants.navTopName}
           </a>
         </nav>
+        <div className="form-wrapper">
+          <Card content={content} />
+          <div className="text-input one-line">
+            <label className="form-label" htmlFor="first-name-1">
+              First name
+            </label>
+            <input
+              className="form-control"
+              id="first-name-1"
+              name="First name"
+            />
+            <label className="form-label" htmlFor="middle-name-1">
+              Middle name(s)
+            </label>
+            <input
+              className="form-control"
+              id="middle-name-1"
+              name="Middle name(s)"
+            />
+            <label className="form-label" htmlFor="last-name-1">
+              Last name
+            </label>
+            <input className="form-control" id="last-name-1" name="Last name" />
+          </div>
+        </div>
         <footer className="footer">
           <button
             className="btn btn-navigation btn-left-align"
