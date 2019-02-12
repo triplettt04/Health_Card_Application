@@ -38,6 +38,7 @@ import Summary from "./pages/summary";
 import Confirmation from "./pages/confirmation";
 import UploadPosting from "./pages/uploadPosting";
 import Contact from "./pages/contact";
+import AddressMail from "./pages/addressMail";
 import Template from "./pages/template";
 
 class App extends React.Component {
@@ -82,6 +83,7 @@ class App extends React.Component {
     const RouterConfirmation = withRouter(Confirmation);
     const RouterUploadPosting = withRouter(UploadPosting);
     const RouterContact = withRouter(Contact);
+    const RouterAddressMail = withRouter(AddressMail);
 
     return (
       <Router>
@@ -250,6 +252,13 @@ class App extends React.Component {
             path="/contact"
             render={() => (
               <RouterContact save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            exact
+            path="/addressMail"
+            render={() => (
+              <RouterAddressMail save={target => this.handleChange(target)} />
             )}
           />
           <Route component={NotFound} />
