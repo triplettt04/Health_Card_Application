@@ -91,31 +91,31 @@ class App extends React.Component {
         <Switch>
           <Route
             exact
-            path="/"
+            path={process.env.PUBLIC_URL + "/"}
             render={() => (
               <RouterTerms save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/template"
+            path={process.env.PUBLIC_URL + "/template"}
             render={() => (
               <RouterTemplate save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/birthday"
+            path={process.env.PUBLIC_URL + "/birthday"}
             render={() => (
               <RouterBirthday save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/name"
+            path={process.env.PUBLIC_URL + "/name"}
             render={() => (
               <RouterName save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/addressRes"
+            path={process.env.PUBLIC_URL + "/addressRes"}
             render={() => (
               <RouterAddressRes
                 save={target => this.handleChange(target)}
@@ -128,47 +128,47 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/sex"
+            path={process.env.PUBLIC_URL + "/sex"}
             render={() => (
               <RouterSex save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/howSignature"
+            path={process.env.PUBLIC_URL + "/howSignature"}
             render={() => (
               <RouterHowSignature save={() => this.handleChange()} />
             )}
           />
           <Route
-            path="/inCamera"
+            path={process.env.PUBLIC_URL + "/inCamera"}
             render={() => <RouterInCamera save={() => this.handleChange()} />}
           />
           <Route
-            path="/confirmPhoto"
+            path={process.env.PUBLIC_URL + "/confirmPhoto"}
             render={() => (
               <RouterConfirmPhoto save={() => this.handleChange()} />
             )}
           />
           <Route
-            path="/pastOHIP"
+            path={process.env.PUBLIC_URL + "/pastOHIP"}
             render={() => (
               <RouterPastOHIP save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/isMilitary"
+            path={process.env.PUBLIC_URL + "/isMilitary"}
             render={() => (
               <RouterIsMilitary save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/selectBase"
+            path={process.env.PUBLIC_URL + "/selectBase"}
             render={() => (
               <RouterSelectBase save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/selectMilitaryProof"
+            path={process.env.PUBLIC_URL + "/selectMilitaryProof"}
             render={() => (
               <RouterSelectMilitaryProof
                 save={target => this.handleChange(target)}
@@ -176,7 +176,7 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/uploadMilitary"
+            path={process.env.PUBLIC_URL + "/uploadMilitary"}
             render={() => (
               <RouterUploadMilitary
                 save={target => this.handleChange(target)}
@@ -184,13 +184,13 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/hasAddress"
+            path={process.env.PUBLIC_URL + "/hasAddress"}
             render={() => (
               <RouterHasAddress save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/selectResProof"
+            path={process.env.PUBLIC_URL + "/selectResProof"}
             render={() => (
               <RouterSelectResProof
                 save={target => this.handleChange(target)}
@@ -198,19 +198,19 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/uploadRes"
+            path={process.env.PUBLIC_URL + "/uploadRes"}
             render={() => (
               <RouterUploadRes save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/selectCitizen"
+            path={process.env.PUBLIC_URL + "/selectCitizen"}
             render={() => (
               <RouterSelectCitizen save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/selectCitizenProof"
+            path={process.env.PUBLIC_URL + "/selectCitizenProof"}
             render={() => (
               <RouterSelectCitizenProof
                 save={target => this.handleChange(target)}
@@ -218,37 +218,37 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/uploadCitizen"
+            path={process.env.PUBLIC_URL + "/uploadCitizen"}
             render={() => (
               <RouterUploadCitizen save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/selectID"
+            path={process.env.PUBLIC_URL + "/selectID"}
             render={() => (
               <RouterSelectID save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/uploadID"
+            path={process.env.PUBLIC_URL + "/uploadID"}
             render={() => (
               <RouterUploadID save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/summary"
+            path={process.env.PUBLIC_URL + "/summary"}
             render={() => (
               <RouterSummary save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/confirmation"
+            path={process.env.PUBLIC_URL + "/confirmation"}
             render={() => (
               <RouterConfirmation save={target => this.handleChange(target)} />
             )}
           />
           <Route
-            path="/uploadPosting"
+            path={process.env.PUBLIC_URL + "/uploadPosting"}
             render={() => (
               <RouterUploadPosting
                 save={target => this.handleChange(target)}
@@ -257,14 +257,14 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/contact"
+            path={process.env.PUBLIC_URL + "/contact"}
             render={() => (
               <RouterContact save={target => this.handleChange(target)} />
             )}
           />
           <Route
             exact
-            path="/addressMail"
+            path={process.env.PUBLIC_URL + "/addressMail"}
             render={() => (
               <RouterAddressMail
                 save={target => this.handleChange(target)}

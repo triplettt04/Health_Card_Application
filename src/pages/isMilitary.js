@@ -17,17 +17,19 @@ class IsMilitary extends React.Component {
     };
     this.props.save(target);
     if (isMilitary) {
-      this.props.history.push("/selectBase");
+      let path = process.env.PUBLIC_URL + "/selectBase";
+      this.props.history.push(path);
     } else {
       this.props.history.push({
-        pathname: "/selectResProof",
-        state: { pathFrom: "/isMilitary" }
+        pathname: process.env.PUBLIC_URL + "/selectResProof",
+        state: { pathFrom: process.env.PUBLIC_URL + "/isMilitary" }
       });
     }
   }
 
   back() {
-    this.props.history.push("/pastOHIP");
+    let path = process.env.PUBLIC_URL + "/pastOHIP";
+    this.props.history.push(path);
   }
 
   render() {

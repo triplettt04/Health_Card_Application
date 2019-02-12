@@ -17,11 +17,13 @@ class Name extends React.Component {
         this.props.save(event.target[i]);
       }
     }
-    this.props.history.push("/birthday");
+    let path = process.env.PUBLIC_URL + "/birthday";
+    this.props.history.push(path);
   }
 
   back() {
-    this.props.history.push("/uploadID");
+    let path = process.env.PUBLIC_URL + "/uploadID";
+    this.props.history.push(path);
   }
 
   render() {

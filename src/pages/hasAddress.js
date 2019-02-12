@@ -18,16 +18,18 @@ class HasAddress extends React.Component {
     this.props.save(target);
     if (hasAddress) {
       this.props.history.push({
-        pathname: "/selectResProof",
-        state: { pathFrom: "/hasAddress" }
+        pathname: process.env.PUBLIC_URL + "/selectResProof",
+        state: { pathFrom: process.env.PUBLIC_URL + "/hasAddress" }
       });
     } else {
-      this.props.history.push("/uploadPosting");
+      let path = process.env.PUBLIC_URL + "/uploadPosting";
+      this.props.history.push(path);
     }
   }
 
   back() {
-    this.props.history.push("/");
+    let path = process.env.PUBLIC_URL + "/";
+    this.props.history.push(path);
   }
 
   render() {

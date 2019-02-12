@@ -13,11 +13,13 @@ class SelectMilitaryProof extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/uploadMilitary");
+    let path = process.env.PUBLIC_URL + "/uploadMilitary";
+    this.props.history.push(path);
   }
 
   back() {
-    this.props.history.push("/selectBase");
+    let path = process.env.PUBLIC_URL + "/selectBase";
+    this.props.history.push(path);
   }
 
   render() {

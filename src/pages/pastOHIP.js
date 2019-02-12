@@ -16,15 +16,18 @@ class PastOHIP extends React.Component {
       value: pastOHIP ? "Yes" : "No"
     };
     this.props.save(target);
-    if (pastOHIP) {
-      this.props.history.push("/isMilitary");
+    if (!pastOHIP) {
+      let path = process.env.PUBLIC_URL + "/isMilitary";
+      this.props.history.push(path);
     } else {
-      this.props.history.push("/moveDate");
+      let path = process.env.PUBLIC_URL + "/moveDate";
+      this.props.history.push(path);
     }
   }
 
   back() {
-    this.props.history.push("/");
+    let path = process.env.PUBLIC_URL + "/";
+    this.props.history.push(path);
   }
 
   render() {
@@ -63,11 +66,7 @@ class PastOHIP extends React.Component {
             >
               Back
             </button>
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align"
-            />
+            <button className="btn btn-general btn-right-align">Next</button>
           </div>
         </div>
       </div>

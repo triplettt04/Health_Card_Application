@@ -18,11 +18,13 @@ class Contact extends React.Component {
       }
     }
     //TODO!!
-    this.props.history.push("/uploadPhoto");
+    let path = process.env.PUBLIC_URL + "/uploadPhoto";
+    this.props.history.push(path);
   }
 
   back() {
-    this.props.history.push("/sex");
+    let path = process.env.PUBLIC_URL + "/sex";
+    this.props.history.push(path);
   }
 
   render() {

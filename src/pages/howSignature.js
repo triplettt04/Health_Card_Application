@@ -5,11 +5,13 @@ class SelectID extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/inCamera");
+    let path = process.env.PUBLIC_URL + "/inCamera";
+    this.props.history.push(path);
   }
 
   back() {
-    this.props.history.push("/uploadCitizen");
+    let path = process.env.PUBLIC_URL + "/uploadCitizen";
+    this.props.history.push(path);
   }
 
   render() {
