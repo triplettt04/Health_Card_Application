@@ -76,7 +76,7 @@ class Template extends React.Component {
                 className="radio-input radio"
                 name="example"
               />
-              Male
+              <div className="label-text">Male</div>
             </label>
             <label className="radio-style block">
               <input
@@ -84,7 +84,15 @@ class Template extends React.Component {
                 className="radio-input radio"
                 name="example"
               />
-              Female
+              <div className="label-text">Female</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+              />
+              <div className="label-text">I am very completely non-binary</div>
             </label>
           </div>
           What is your vegetable (as indicated on your passport)?

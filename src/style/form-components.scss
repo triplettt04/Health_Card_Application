@@ -80,6 +80,7 @@
       margin-right: 30px;
       outline: none;
       z-index: 1000;
+      vertical-align: top;
     }
 
     .radio-input:checked {
@@ -109,10 +110,11 @@
       transition: box-shadow 0.15s ease-in-out;
     }
   }
-}
-
-.radio-style.block {
-  display: block;
+  .label-text {
+    display: inline-block;
+    margin-top: 5px;
+    width: calc(100% - 65px);
+  }
 }
 
 //text-fields

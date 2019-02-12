@@ -60,7 +60,6 @@ class PastOHIP extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                onClick={() => this.next(true)}
               />
               Yes
             </label>
@@ -69,7 +68,6 @@ class PastOHIP extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                onClick={() => this.next(false)}
               />
               No
             </label>
