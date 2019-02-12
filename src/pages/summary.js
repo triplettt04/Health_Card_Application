@@ -31,6 +31,19 @@ class Summary extends React.Component {
         </div>
         <div className="form-wrapper">
           <h1 className="primary-header">Here's how applying online works</h1>
+          <div className="btn-container">
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align"
+            />
+          </div>
         </div>
       </form>
     );

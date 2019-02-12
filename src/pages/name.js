@@ -59,6 +59,19 @@ class Name extends React.Component {
             </label>
             <input className="form-control" id="last-name-1" name="Last name" />
           </div>
+          <div className="btn-container">
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align"
+            />
+          </div>
         </div>
       </form>
     );
