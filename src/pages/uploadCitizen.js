@@ -22,11 +22,12 @@ class UploadCitizen extends React.Component {
   render() {
     return (
       <form onSubmit={event => this.next(event)}>
-        <nav className="navbar sticky">
-          <a className="navbar-brand" href="#">
-            {constants.navTopName}
-          </a>
-        </nav>
+        <div class="ontario-header-container">
+          <img
+            src={require("./project-header.png")}
+            className="ontario-header"
+          />
+        </div>
         <footer className="footer">
           <button
             className="btn btn-navigation btn-left-align"

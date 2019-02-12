@@ -1,23 +1,15 @@
 import React from "react";
 import constants from "../constants";
 
-class Summary extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.back = this.back.bind(this);
-    this.next = this.next.bind(this);
-  }
-
+class SelectID extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    this.props.history.push("/confirmation");
+    this.props.history.push("/inCamera");
   }
 
   back() {
-    //TODO!!
-    this.props.history.push("/");
+    this.props.history.push("/uploadCitizen");
   }
 
   render() {
@@ -47,4 +39,4 @@ class Summary extends React.Component {
   }
 }
 
-export default Summary;
+export default SelectID;
