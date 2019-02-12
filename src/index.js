@@ -15,6 +15,9 @@ import constants from "./constants";
 import Terms from "./pages/terms";
 import Birthday from "./pages/birthday";
 import Sex from "./pages/sex";
+import HowSignature from "./pages/howSignature";
+import InCamera from "./pages/inCamera";
+import ConfirmPhoto from "./pages/confirmPhoto";
 import NotFound from "./pages/notFound";
 import Name from "./pages/name";
 import AddressRes from "./pages/addressRes";
@@ -35,6 +38,7 @@ import Summary from "./pages/summary";
 import Confirmation from "./pages/confirmation";
 import UploadPosting from "./pages/uploadPosting";
 import Contact from "./pages/contact";
+import Template from "./pages/template";
 
 class App extends React.Component {
   constructor() {
@@ -53,10 +57,14 @@ class App extends React.Component {
 
   render() {
     const RouterTerms = withRouter(Terms);
+    const RouterTemplate = withRouter(Template);
     const RouterBirthday = withRouter(Birthday);
     const RouterName = withRouter(Name);
     const RouterAddressRes = withRouter(AddressRes);
+    const RouterHowSignature = withRouter(HowSignature);
     const RouterSex = withRouter(Sex);
+    const RouterInCamera = withRouter(InCamera);
+    const RouterConfirmPhoto = withRouter(ConfirmPhoto);
     const RouterPastOHIP = withRouter(PastOHIP);
     const RouterIsMilitary = withRouter(IsMilitary);
     const RouterSelectBase = withRouter(SelectBase);
@@ -86,6 +94,12 @@ class App extends React.Component {
             )}
           />
           <Route
+            path="/template"
+            render={() => (
+              <RouterTemplate save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
             path="/birthday"
             render={() => (
               <RouterBirthday save={target => this.handleChange(target)} />
@@ -107,6 +121,22 @@ class App extends React.Component {
             path="/sex"
             render={() => (
               <RouterSex save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path="/howSignature"
+            render={() => (
+              <RouterHowSignature save={() => this.handleChange()} />
+            )}
+          />
+          <Route
+            path="/inCamera"
+            render={() => <RouterInCamera save={() => this.handleChange()} />}
+          />
+          <Route
+            path="/confirmPhoto"
+            render={() => (
+              <RouterConfirmPhoto save={() => this.handleChange()} />
             )}
           />
           <Route
