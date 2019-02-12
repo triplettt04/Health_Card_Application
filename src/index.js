@@ -45,8 +45,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      baseIndex: 0,
-      ["Military relation"]: "Yes" //Hard coded for testing
+      baseIndex: 0
+      //["Military relation"]: "Yes" //Hard coded for testing
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -268,9 +268,9 @@ class App extends React.Component {
             render={() => (
               <RouterAddressMail
                 save={target => this.handleChange(target)}
-                street={"123 Sesame"}
-                postalCode={"A1A1A1"}
-                city={"Ottawa"}
+                street={this.state["Residence street"]}
+                postalCode={this.state["Residence postal code"]}
+                city={this.state["Residence city"]}
                 province={"Ontario"}
                 country={"Canada"}
               />
