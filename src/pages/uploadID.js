@@ -28,7 +28,6 @@ class UploadID extends React.Component {
             className="ontario-header"
           />
         </div>
-        </div>
         <footer className="footer">
           <button
             className="btn btn-navigation btn-left-align"
