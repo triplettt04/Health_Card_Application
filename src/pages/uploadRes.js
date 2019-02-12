@@ -27,21 +27,23 @@ class UploadRes extends React.Component {
 
   next(event) {
     event.preventDefault();
+    if (this.state.status === "Uploaded") {
+      let target = {
+        name: "Residence proof uploaded",
+        value: "Uploaded"
+      };
+      this.props.save(target);
 
-    let target = {
-      name: "Residence proof uploaded",
-      value: this.state.status === "Uploaded"
-    };
-    this.props.save(target);
-
-    this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/addressRes",
-      state: { pathFrom: process.env.PUBLIC_URL + "/uploadRes" }
-    });
+      this.props.history.push({
+        pathname: process.env.PUBLIC_URL + "/addressRes",
+        state: { pathFrom: process.env.PUBLIC_URL + "/uploadRes" }
+      });
+    }
   }
 
   back() {
-    this.props.history.push("/selectResProof");
+    let path = process.env.PUBLIC_URL + "/selectResProof";
+    this.props.history.push(path);
   }
 
   render() {
