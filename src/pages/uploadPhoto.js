@@ -2,7 +2,7 @@ import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
 
-class UploadRes extends React.Component {
+class UploadPhoto extends React.Component {
   constructor(props) {
     super(props);
     let status =
@@ -21,38 +21,31 @@ class UploadRes extends React.Component {
   takePic() {
     this.props.history.push({
       pathname: process.env.PUBLIC_URL + "/inCamera",
-      state: { pathFrom: process.env.PUBLIC_URL + "/uploadRes" }
+      state: { pathFrom: process.env.PUBLIC_URL + "/uploadPhoto" }
     });
   }
 
   next(event) {
     event.preventDefault();
-    if (this.state.status === "Uploaded") {
-      let target = {
-        name: "Residence proof uploaded",
-        value: "Uploaded"
-      };
-      this.props.save(target);
-
-      this.props.history.push({
-        pathname: process.env.PUBLIC_URL + "/addressRes",
-        state: { pathFrom: process.env.PUBLIC_URL + "/uploadRes" }
-      });
-    }
+    //handle target and call this.props.save(event.target[i])
+    this.props.history.push({
+      pathname: process.env.PUBLIC_URL + "/selectSignature"
+    });
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/selectResProof";
+    let path = process.env.PUBLIC_URL + "/contact";
     this.props.history.push(path);
   }
 
   render() {
     let content = (
       <div>
-        <div>Upload your residence proof</div>
+        <div>Upload your passport-quality photo</div>
         <div>Current status: {this.state.status}</div>
       </div>
     );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -90,4 +83,4 @@ class UploadRes extends React.Component {
   }
 }
 
-export default UploadRes;
+export default UploadPhoto;

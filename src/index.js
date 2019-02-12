@@ -39,6 +39,9 @@ import Confirmation from "./pages/confirmation";
 import UploadPosting from "./pages/uploadPosting";
 import Contact from "./pages/contact";
 import AddressMail from "./pages/addressMail";
+import UploadPhoto from "./pages/uploadPhoto";
+import SelectSignature from "./pages/selectSignature";
+import UploadSignature from "./pages/uploadSignature";
 import Template from "./pages/template";
 
 class App extends React.Component {
@@ -85,6 +88,9 @@ class App extends React.Component {
     const RouterUploadPosting = withRouter(UploadPosting);
     const RouterContact = withRouter(Contact);
     const RouterAddressMail = withRouter(AddressMail);
+    const RouterUploadPhoto = withRouter(UploadPhoto);
+    const RouterSelectSignature = withRouter(SelectSignature);
+    const RouterUploadSignature = withRouter(UploadSignature);
 
     return (
       <Router>
@@ -273,6 +279,28 @@ class App extends React.Component {
                 city={this.state["Residence city"]}
                 province={"Ontario"}
                 country={"Canada"}
+              />
+            )}
+          />
+          <Route
+            path={process.env.PUBLIC_URL + "/uploadPhoto"}
+            render={() => (
+              <RouterUploadPhoto save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path={process.env.PUBLIC_URL + "/selectSignature"}
+            render={() => (
+              <RouterSelectSignature
+                save={target => this.handleChange(target)}
+              />
+            )}
+          />
+          <Route
+            path={process.env.PUBLIC_URL + "/uploadSignature"}
+            render={() => (
+              <RouterUploadSignature
+                save={target => this.handleChange(target)}
               />
             )}
           />
