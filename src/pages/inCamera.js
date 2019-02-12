@@ -79,7 +79,7 @@ class InCamera extends React.Component {
   render() {
     return (
       <form onSubmit={event => this.next(event)}>
-        <img src={this.state.img} />
+        <img className="upload-image" src={this.state.img} />
         <footer className="footer camera-footer">
           <button className="camera-cancel" onClick={() => this.back()}>
             Cancel
