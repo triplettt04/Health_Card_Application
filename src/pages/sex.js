@@ -30,12 +30,14 @@ class Sex extends React.Component {
 
     return (
       <div>
-        <div className="ontario-header-container">
-          <img
-            src={require("./project-header.png")}
-            className="ontario-header"
-          />
-        </div>
+        <nav className="navbar ontario-header-container">
+          <a className="brand" href="#">
+            OHIP application
+          </a>
+          <a className="french-toggle" href="#">
+            FR
+          </a>
+        </nav>
         <div className="form-wrapper">
           <Card content={content} />
           <div className="row">

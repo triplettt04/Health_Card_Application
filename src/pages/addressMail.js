@@ -63,12 +63,14 @@ class AddressMail extends React.Component {
 
     return (
       <form onSubmit={event => this.next(event)}>
-        <div className="ontario-header-container">
-          <img
-            src={require("./project-header.png")}
-            className="ontario-header"
-          />
-        </div>
+        <nav className="navbar ontario-header-container">
+          <a className="brand" href="#">
+            OHIP application
+          </a>
+          <a className="french-toggle" href="#">
+            FR
+          </a>
+        </nav>
         <div className="form-wrapper">
           <Card content={content} />
           <div className="checkbox-field">
