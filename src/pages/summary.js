@@ -31,17 +31,40 @@ class Summary extends React.Component {
         </div>
         <div className="form-wrapper">
           <h1 className="primary-header">Here's how applying online works</h1>
-          <div className="btn-container">
-            <button
-              className="btn btn-general btn-invert"
-              onClick={() => this.back()}
-            >
-              Back
-            </button>
+          <div className="summary-content">
+            <div className="summary-step">
+              <img src={require("../assets/upload-graphic.svg")} />
+              <h2 className="sub-header">Upload your documents</h2>
+              <p className="caption">
+                Submit relevant documents needed to complete the application
+              </p>
+            </div>
+            <div className="spacer" />
+            <div className="summary-step">
+              <img src={require("../assets/form-graphic.svg")} />
+              <h2 className="sub-header">Fill out the form</h2>
+              <p className="caption">
+                Complete the online application form with your personal
+                information
+              </p>
+            </div>
+            <div className="spacer" />
+            <div className="summary-step">
+              <img src={require("../assets/license-graphic.svg")} />
+              <h2 className="sub-header">
+                Wait for your health card in the mail
+              </h2>
+              <p className="caption">
+                If you completed the steps above correctly, then your Ontario
+                health card will be mailed to you soon!
+              </p>
+            </div>
+          </div>
+          <div className="btn-container btn-center">
             <input
               type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align"
+              value="Get started"
+              className="btn btn-general btn-wide btn-shadow"
             />
           </div>
         </div>

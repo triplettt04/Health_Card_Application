@@ -170,7 +170,12 @@
   padding: 15px 0;
 }
 
+.btn-container.btn-center {
+  text-align: center;
+}
+
 .btn.btn-general {
+  font-family: $page-font;
   background-color: $primary-blue;
   color: $white;
   border-radius: 4px;
@@ -181,6 +186,14 @@
   border: 1px solid $primary-blue;
   position: relative;
   font-size: 24px;
+}
+
+.btn.btn-general.btn-shadow {
+  box-shadow: 0px 2px 4px 0px #999;
+}
+
+.btn.btn-general.btn-wide {
+  width: 100%;
 }
 
 .btn.btn-general.btn-invert {
@@ -201,15 +214,50 @@
   border-radius: 0;
 }
 
+//for options
+.option-container {
+  margin: 10px 0;
+}
+
+.btn.btn-general.btn-options {
+  width: 100%;
+  color: $inactive;
+  border-color: $inactive;
+  background-color: $white;
+  margin: 10px 0;
+}
+
+.btn.btn-general.btn-options:hover {
+  color: $primary-blue;
+  border-color: $primary-blue;
+  background-color: $white;
+}
+
+.btn.btn-general.btn-options.btn-selected {
+  color: $primary-blue;
+  border-color: $primary-blue;
+  background-color: $white;
+}
+
 .btn.btn-navigation:hover,
 .btn.btn-navigation:active,
 .btn.btn-navigation:focus {
   background-color: #999;
 }
 
+.btn.btn-general:hover {
+  color: $white;
+}
+
+.btn.btn-general.btn-invert:hover {
+  color: $primary-blue;
+}
+
 .btn.btn-right-align {
   float: right;
 }
+
+.btn.btn-large.centered
 
 //text boxes
 .text-box {
