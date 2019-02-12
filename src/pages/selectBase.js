@@ -29,6 +29,21 @@ class SelectBase extends React.Component {
             className="ontario-header"
           />
         </div>
+        <div className="form-wrapper">
+          <div className="btn-container">
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align"
+            />
+          </div>
+        </div>
       </form>
     );
   }
