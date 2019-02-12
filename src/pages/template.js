@@ -59,20 +59,28 @@ class Template extends React.Component {
               Female
             </label>
           </div>
+          What is your vegetable (as indicated on your passport)?
+          <div className="checkbox-field">
+            <label className="checkbox-label block">
+              <input
+                type="checkbox"
+                className="checkbox-input checkbox"
+                name="example"
+              />
+              <div className="label-text">
+                I really love all types of mushrooms in general
+              </div>
+            </label>
+            <label className="checkbox-label block">
+              <input
+                type="checkbox"
+                className="checkbox-input checkbox"
+                name="example"
+              />
+              <div className="label-text">I love cabbage and potatoes</div>{" "}
+            </label>
+          </div>
         </div>
-        <footer className="footer">
-          <button
-            className="btn btn-navigation btn-left-align"
-            onClick={() => this.back()}
-          >
-            Back
-          </button>
-          <input
-            type="submit"
-            value="Next"
-            className="btn btn-navigation btn-right-align"
-          />
-        </footer>
       </form>
     );
   }
