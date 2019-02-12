@@ -1,5 +1,6 @@
 import React from "react";
 import constants from "../constants";
+import Card from "../components/card";
 
 class UploadCitizen extends React.Component {
   constructor(props) {
