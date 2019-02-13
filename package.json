@@ -4,6 +4,7 @@
   "homepage": "https://demo-prototype.ontariogovernment.ca/military",
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "inputmask": "^4.0.6",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

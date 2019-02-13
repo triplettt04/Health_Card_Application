@@ -1,5 +1,6 @@
 import React from "react";
 import constants from "../constants";
+import Card from "../components/card";
 
 class SelectCitizenProof extends React.Component {
   constructor(props) {
@@ -24,7 +25,6 @@ class SelectCitizenProof extends React.Component {
         name: "Citizen proof",
         value: value
       };
-
       this.props.save(target);
       let path = process.env.PUBLIC_URL + "/uploadCitizen";
       this.props.history.push(path);
@@ -37,6 +37,16 @@ class SelectCitizenProof extends React.Component {
   }
 
   render() {
+    let content = (
+      <div>
+        <div className="progress-indicator">5 / 15</div>
+        <h2 className="sub-header">
+          Please select one of the following documents you wish to use as proof
+          of your Canadian citizenship.
+        </h2>
+      </div>
+    );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -48,7 +58,9 @@ class SelectCitizenProof extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
-          <div className="radio-field">
+          <Card content={content} />
+
+          <div className="radio-field small-font">
             <label className="radio-style block">
               <input
                 type="radio"
@@ -56,7 +68,7 @@ class SelectCitizenProof extends React.Component {
                 name="example"
                 value="Canadian passport"
               />
-              Canadian passport
+              <div className="label-text">Canadian passport</div>
             </label>
             <label className="radio-style block">
               <input
@@ -65,7 +77,7 @@ class SelectCitizenProof extends React.Component {
                 name="example"
                 value="Birth certificate"
               />
-              Birth certificate
+              <div className="label-text">Birth certificate</div>{" "}
             </label>
             <label className="radio-style block">
               <input
@@ -74,7 +86,9 @@ class SelectCitizenProof extends React.Component {
                 name="example"
                 value="Birth abroad"
               />
-              Canadian Certificate of Registration of Birth Abroad
+              <div className="label-text">
+                Canadian Certificate of Registration of Birth Abroad
+              </div>
             </label>
             <label className="radio-style block">
               <input
@@ -83,8 +97,10 @@ class SelectCitizenProof extends React.Component {
                 name="example"
                 value="Live birth"
               />
-              Certified Statement of Live Birth from any Canadian province or
-              territory
+              <div className="label-text">
+                Certified Statement of Live Birth from any Canadian province or
+                territory
+              </div>
             </label>
             <label className="radio-style block">
               <input
@@ -93,8 +109,10 @@ class SelectCitizenProof extends React.Component {
                 name="example"
                 value="Citizenship or naturalization"
               />
-              Certificate of Canadian Citizenship or Certificate of
-              Naturalization
+              <div className="label-text">
+                Certificate of Canadian Citizenship or Certificate of
+                Naturalization
+              </div>
             </label>
             <label className="radio-style block">
               <input
@@ -103,7 +121,7 @@ class SelectCitizenProof extends React.Component {
                 name="example"
                 value="Indian status"
               />
-              Certificate of Indian Status
+              <div className="label-text">Certificate of Indian Status</div>
             </label>
             <label className="radio-style block">
               <input
@@ -112,7 +130,7 @@ class SelectCitizenProof extends React.Component {
                 name="example"
                 value="Indian record"
               />
-              Registered Indian Record
+              <div className="label-text">Registered Indian Record</div>
             </label>
             <label className="radio-style block">
               <input
@@ -121,7 +139,9 @@ class SelectCitizenProof extends React.Component {
                 name="example"
                 value="Temporary confirmation"
               />
-              Temporary Confirmation of Registration document
+              <div className="label-text">
+                Temporary Confirmation of Registration document
+              </div>
             </label>
           </div>
           <div className="btn-container">
