@@ -62,19 +62,19 @@ class Terms extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="btn-container">
-            <button
-              className="btn btn-general btn-invert"
-              onClick={() => this.back()}
-            >
-              Back
-            </button>
-            <input
-              type="submit"
-              value="Agree"
-              className="btn btn-general btn-right-align"
-            />
-          </div>
+        </div>
+        <div className="btn-container button-footer">
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+          <input
+            type="submit"
+            value="Agree"
+            className="btn btn-general btn-right-align"
+          />
         </div>
       </form>
     );

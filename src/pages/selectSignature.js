@@ -67,19 +67,19 @@ class SelectSignature extends React.Component {
               Select a local file
             </label>
           </div>
-          <div className="btn-container">
-            <button
-              className="btn btn-general btn-invert"
-              onClick={() => this.back()}
-            >
-              Back
-            </button>
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align"
-            />
-          </div>
+        </div>
+        <div className="btn-container button-footer">
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
         </div>
       </form>
     );
