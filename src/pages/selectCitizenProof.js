@@ -6,6 +6,10 @@ class SelectCitizenProof extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      citizenProof: props.citizenProof
+    };
+
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -67,6 +71,12 @@ class SelectCitizenProof extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Canadian passport"
+                checked={this.state.citizenProof === "Canadian passport"}
+                onChange={() =>
+                  this.setState({
+                    citizenProof: "Canadian passport"
+                  })
+                }
               />
               <div className="label-text">Canadian passport</div>
             </label>
@@ -76,6 +86,12 @@ class SelectCitizenProof extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Birth certificate"
+                checked={this.state.citizenProof === "Birth certificate"}
+                onChange={() =>
+                  this.setState({
+                    citizenProof: "Birth certificate"
+                  })
+                }
               />
               <div className="label-text">Birth certificate</div>{" "}
             </label>
@@ -85,6 +101,12 @@ class SelectCitizenProof extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Birth abroad"
+                checked={this.state.citizenProof === "Birth abroad"}
+                onChange={() =>
+                  this.setState({
+                    citizenProof: "Birth abroad"
+                  })
+                }
               />
               <div className="label-text">
                 Canadian Certificate of Registration of Birth Abroad
@@ -96,6 +118,12 @@ class SelectCitizenProof extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Live birth"
+                checked={this.state.citizenProof === "Live birth"}
+                onChange={() =>
+                  this.setState({
+                    citizenProof: "Live birth"
+                  })
+                }
               />
               <div className="label-text">
                 Certified Statement of Live Birth from any Canadian province or
@@ -107,7 +135,13 @@ class SelectCitizenProof extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                value="Citizenship or naturalization"
+                value="Citizenship"
+                checked={this.state.citizenProof === "Citizenship"}
+                onChange={() =>
+                  this.setState({
+                    citizenProof: "Citizenship"
+                  })
+                }
               />
               <div className="label-text">
                 Certificate of Canadian Citizenship or Certificate of
@@ -120,6 +154,12 @@ class SelectCitizenProof extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Indian status"
+                checked={this.state.citizenProof === "Indian status"}
+                onChange={() =>
+                  this.setState({
+                    citizenProof: "Indian status"
+                  })
+                }
               />
               <div className="label-text">Certificate of Indian Status</div>
             </label>
@@ -129,6 +169,12 @@ class SelectCitizenProof extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Indian record"
+                checked={this.state.citizenProof === "Indian record"}
+                onChange={() =>
+                  this.setState({
+                    citizenProof: "Indian record"
+                  })
+                }
               />
               <div className="label-text">Registered Indian Record</div>
             </label>
@@ -137,7 +183,13 @@ class SelectCitizenProof extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                value="Temporary confirmation"
+                value="Temp confirmation"
+                checked={this.state.citizenProof === "Temp confirmation"}
+                onChange={() =>
+                  this.setState({
+                    citizenProof: "Temp confirmation"
+                  })
+                }
               />
               <div className="label-text">
                 Temporary Confirmation of Registration document

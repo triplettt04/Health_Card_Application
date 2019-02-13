@@ -73,6 +73,7 @@ class PastOHIP extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
+                checked={this.props.pastOHIP === "Yes"}
               />
               <div className="label-text">Yes</div>
             </label>
@@ -82,6 +83,7 @@ class PastOHIP extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
+                checked={this.props.pastOHIP === "No"}
               />
               <div className="label-text">No</div>
             </label>
