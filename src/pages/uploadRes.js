@@ -29,7 +29,7 @@ class UploadRes extends React.Component {
     event.preventDefault();
     if (this.state.status === "Uploaded") {
       let target = {
-        name: "Residence proof uploaded",
+        name: "Residence proof",
         value: "Uploaded"
       };
       this.props.save(target);

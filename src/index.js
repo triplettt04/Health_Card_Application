@@ -55,6 +55,7 @@ class App extends React.Component {
   }
 
   handleChange(target) {
+    console.log(this.state);
     this.setState({
       [target.name]: target.value
     });

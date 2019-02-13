@@ -27,10 +27,16 @@ class UploadID extends React.Component {
 
   next(event) {
     event.preventDefault();
-    //handle target and call this.props.save(event.target[i])
-    this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/name"
-    });
+    if (this.state.status === "Uploaded") {
+      let target = {
+        name: "Identity proof",
+        value: "Uploaded"
+      };
+      this.props.save(target);
+      this.props.history.push({
+        pathname: process.env.PUBLIC_URL + "/name"
+      });
+    }
   }
 
   back() {

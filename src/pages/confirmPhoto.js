@@ -16,22 +16,42 @@ class SelectBase extends React.Component {
   next(event) {
     event.preventDefault();
     let pathFrom = this.props.location.state.pathFrom;
-    this.props.history.push({
-      pathname: pathFrom,
-      state: {
-        uploaded: true
-      }
-    });
+    if (this.props.location.state.num) {
+      this.props.history.push({
+        pathname: pathFrom,
+        state: {
+          uploaded: true,
+          num: this.props.location.state.num
+        }
+      });
+    } else {
+      this.props.history.push({
+        pathname: pathFrom,
+        state: {
+          uploaded: true
+        }
+      });
+    }
   }
 
   back() {
     let pathFrom = this.props.location.state.pathFrom;
-    this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/inCamera",
-      state: {
-        pathFrom: pathFrom
-      }
-    });
+    if (this.props.location.state.num) {
+      this.props.history.push({
+        pathname: process.env.PUBLIC_URL + "/inCamera",
+        state: {
+          pathFrom: pathFrom,
+          num: this.props.location.state.num
+        }
+      });
+    } else {
+      this.props.history.push({
+        pathname: process.env.PUBLIC_URL + "/inCamera",
+        state: {
+          pathFrom: pathFrom
+        }
+      });
+    }
   }
 
   render() {
