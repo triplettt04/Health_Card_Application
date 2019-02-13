@@ -1,5 +1,6 @@
 import React from "react";
 import constants from "../constants";
+import Card from "../components/card";
 
 class SelectCitizen extends React.Component {
   constructor(props) {
@@ -36,6 +37,19 @@ class SelectCitizen extends React.Component {
   }
 
   render() {
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">
+          Do you currently have an address in Ontario?
+        </h2>
+        <p className="caption">
+          In order to receive OHIP coverage, you must provide proof of residency
+          or proof of future residency.
+        </p>
+      </div>
+    );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -47,7 +61,8 @@ class SelectCitizen extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
-          <div className="radio-field">
+          <Card content={content} />
+          <div className="radio-field medium-font">
             <label className="radio-style block">
               <input
                 type="radio"
@@ -55,7 +70,7 @@ class SelectCitizen extends React.Component {
                 name="example"
                 value="Canadian citizen"
               />
-              Canadian citizen
+              <div className="label-text">Canadian citizen</div>
             </label>
             <label className="radio-style block">
               <input
@@ -63,7 +78,7 @@ class SelectCitizen extends React.Component {
                 className="radio-input radio"
                 name="example"
               />
-              Permanent resident
+              <div className="label-text">Permanent resident</div>
             </label>
             <label className="radio-style block">
               <input
@@ -71,7 +86,9 @@ class SelectCitizen extends React.Component {
                 className="radio-input radio"
                 name="example"
               />
-              Applicant for permanent residency
+              <div className="label-text">
+                Applicant for permanent residency
+              </div>
             </label>
             <label className="radio-style block">
               <input
@@ -79,7 +96,7 @@ class SelectCitizen extends React.Component {
                 className="radio-input radio"
                 name="example"
               />
-              Other immigration status
+              <div className="label-text">Other immigration status</div>
             </label>
           </div>
           <div className="btn-container">

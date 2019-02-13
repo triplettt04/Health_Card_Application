@@ -37,6 +37,24 @@ class SelectMilitaryProof extends React.Component {
   }
 
   render() {
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">
+          Please select one of the following documents you wish to use to show
+          military affiliation.
+        </h2>
+        <p className="caption">
+          MPRR - Member's personnel record resume, can be obtained online by
+          military member
+          <br />
+          <br />
+          Special passport - green coloured passport that is for military
+          members returning from an out of country posting
+        </p>
+      </div>
+    );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -48,42 +66,24 @@ class SelectMilitaryProof extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
-          <div className="radio-field">
+          <Card content={content} />
+          <div className="radio-field medium-font">
             <label className="radio-style block">
               <input
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                value=""
+                value="Canadian citizen"
               />
-              Canadian citizen
+              <div className="label-text">MPRR</div>
             </label>
             <label className="radio-style block">
               <input
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                value=""
               />
-              Permanent resident
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value=""
-              />
-              Applicant for permanent residency
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value=""
-              />
-              Other immigration status
+              <div className="label-text">Special passport</div>
             </label>
           </div>
           <div className="btn-container">

@@ -56,13 +56,31 @@
 }
 
 //radio-buttons
+
+.radio-field.small-font {
+  font-size: 16px;
+
+  .label-text {
+    margin-top: 18px;
+  }
+}
+
+.radio-field.medium-font {
+  font-size: 20px;
+
+  .label-text {
+    margin-top: 15px;
+  }
+}
+
 .radio-field {
   margin: 15px 0px 15px 30px;
+  font-size: 24px;
 
   .radio-style {
-    height: 45px;
+    display: block;
     width: 100%;
-    font-size: 24px;
+    padding-bottom: 1.3rem;
 
     .radio-input {
       appearance: none;
@@ -71,8 +89,8 @@
       right: 0;
       bottom: 0;
       left: 0;
-      height: 35px;
-      width: 35px;
+      height: 45px;
+      width: 45px;
       background: $white;
       border: 2px solid #333;
       color: $white;
@@ -94,8 +112,8 @@
       z-index: 100;
       margin-top: 5px;
       margin-left: 5px;
-      width: 21px;
-      height: 21px;
+      width: 31px;
+      height: 31px;
       transition: 0.15s ease-in-out;
     }
     .radio-input.radio {
@@ -112,8 +130,8 @@
   }
   .label-text {
     display: inline-block;
-    margin-top: 5px;
-    width: calc(100% - 65px);
+    margin-top: 10px;
+    width: calc(100% - 75px);
   }
 }
 

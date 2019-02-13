@@ -33,7 +33,18 @@ class HasAddress extends React.Component {
   }
 
   render() {
-    let content = <div>Do you have an Ontario address?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">
+          Do you currently have an address in Ontario?
+        </h2>
+        <p className="caption">
+          In order to receive OHIP coverage, you must provide proof of residency
+          or proof of future residency.
+        </p>
+      </div>
+    );
 
     return (
       <div>
@@ -47,35 +58,37 @@ class HasAddress extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="row">
-            <button
-              className={constants.buttonClasses}
-              onClick={() => this.next(true)}
-            >
-              Yes
-            </button>
+          <div className="radio-field">
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+              />
+              <div className="label-text"> Yes</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+              />
+              <div className="label-text"> No</div>
+            </label>
           </div>
-          <div className="row">
+          <div className="btn-container">
             <button
-              className={constants.buttonClasses}
-              onClick={() => this.next(false)}
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
             >
-              No
+              Back
             </button>
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align"
+            />
           </div>
-        </div>
-        <div className="btn-container">
-          <button
-            className="btn btn-general btn-invert"
-            onClick={() => this.back()}
-          >
-            Back
-          </button>
-          <input
-            type="submit"
-            value="Next"
-            className="btn btn-general btn-right-align"
-          />
         </div>
       </div>
     );
