@@ -10,20 +10,31 @@ class IsMilitary extends React.Component {
     this.next = this.next.bind(this);
   }
 
-  next(isMilitary) {
+  next(event) {
     let target = {
       name: "Military relation",
-      value: isMilitary ? "Yes" : "No"
+      value: null
     };
-    this.props.save(target);
-    if (isMilitary) {
-      let path = process.env.PUBLIC_URL + "/selectBase";
-      this.props.history.push(path);
-    } else {
-      this.props.history.push({
-        pathname: process.env.PUBLIC_URL + "/selectResProof",
-        state: { pathFrom: process.env.PUBLIC_URL + "/isMilitary" }
-      });
+    let isMilitary,
+      noneChecked = true;
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit" && event.target[i].checked) {
+        target.value = event.target[i].value;
+        this.props.save(target);
+        isMilitary = event.target[i].value === "Yes";
+        noneChecked = false;
+      }
+    }
+    if (!noneChecked) {
+      if (isMilitary) {
+        let path = process.env.PUBLIC_URL + "/selectBase";
+        this.props.history.push(path);
+      } else {
+        this.props.history.push({
+          pathname: process.env.PUBLIC_URL + "/selectResProof",
+          state: { pathFrom: process.env.PUBLIC_URL + "/isMilitary" }
+        });
+      }
     }
   }
 
@@ -48,7 +59,7 @@ class IsMilitary extends React.Component {
     );
 
     return (
-      <div>
+      <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
           <a className="brand" href="#">
             OHIP application
@@ -65,6 +76,7 @@ class IsMilitary extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
+                value="Yes"
               />
               <div className="label-text"> Yes</div>
             </label>
@@ -73,6 +85,7 @@ class IsMilitary extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
+                value="No"
               />
               <div className="label-text"> No</div>
             </label>
@@ -91,7 +104,7 @@ class IsMilitary extends React.Component {
             />
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }

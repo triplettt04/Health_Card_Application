@@ -25,21 +25,19 @@ class UploadMilitary extends React.Component {
 
   takePic() {
     console.log(this.state.num);
-    debugger;
-    if (this.state.num < 3) {
-      this.props.history.push({
-        pathname: process.env.PUBLIC_URL + "/inCamera",
-        state: {
-          pathFrom: process.env.PUBLIC_URL + "/uploadMilitary",
-          num: this.state.num + 1
-        }
-      });
-    }
+
+    this.props.history.push({
+      pathname: process.env.PUBLIC_URL + "/inCamera",
+      state: {
+        pathFrom: process.env.PUBLIC_URL + "/uploadMilitary",
+        num: this.state.num > 2 ? 3 : this.state.num + 1
+      }
+    });
   }
 
   next(event) {
     event.preventDefault();
-    debugger;
+
     if (this.state.status === "Uploaded") {
       let target = {
         name: "Military proof",
