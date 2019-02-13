@@ -3,6 +3,11 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 
 //Page formatting
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .form-wrapper {
   padding: 20px 15px;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
@@ -11,14 +16,17 @@
 @media only screen and (max-width: 768px) {
   /* Mobile phone size */
   body {
+    position: relative;
+    margin: 0;
     background-color: #fcf7f8;
     text-align: center;
-    height: 100vh;
+    min-height: 100%;
+    padding-bottom: 86px;
     font-family: "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   .Card {
-    box-shadow: 0px 2px 8px 0px #999;
+    box-shadow: $box-shadow-cards;
     border-radius: 20px;
     padding: 15px 30px 20px;
     margin-bottom: 40px;
@@ -39,6 +47,31 @@
           }
         }
       }
+    }
+  }
+
+  .card-uploaded {
+    box-shadow: $box-shadow-cards;
+    border-radius: 5px;
+    padding: 18px 22px;
+    font-size: 16px;
+    margin-bottom: 10px;
+
+    .view-link {
+      padding-right: 15px;
+      display: inline-block;
+      color: $primary-blue;
+    }
+
+    .file-name {
+      display: inline-block;
+    }
+
+    .delete-icon {
+      border: none;
+      padding: 0;
+      background: none;
+      float: right;
     }
   }
 }
@@ -123,4 +156,58 @@ p.caption {
 //image-styling
 .upload-image {
   width: 100%;
+}
+
+//icon-links
+.icon-link.icon-photo {
+  background-image: url("../assets/icon-photo.svg");
+  background-size: 38px;
+}
+
+.icon-link.icon-folder {
+  background-image: url("../assets/icon-folder.svg");
+  background-size: 38px;
+}
+
+.icon-link.icon-gallery {
+  background-image: url("../assets/icon-gallery.svg");
+  background-size: 38px;
+}
+
+.links-container {
+  padding: 25px 0;
+  margin-left: 25px;
+}
+
+//modal
+
+.modal-head {
+  padding: 15px 20px;
+
+  .file-name {
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  .modal-close {
+    display: block;
+    background-image: url("../assets/close-icon.svg");
+    background-size: 20px;
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+  }
+}
+
+.modal-image img {
+  width: 100%;
+}
+
+.button-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }

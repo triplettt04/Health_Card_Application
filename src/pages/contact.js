@@ -73,19 +73,19 @@ class Contact extends React.Component {
             </label>
             <input className="form-control" id="email-1" name="Email" />
           </div>
-          <div className="btn-container">
-            <button
-              className="btn btn-general btn-invert"
-              onClick={() => this.back()}
-            >
-              Back
-            </button>
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align"
-            />
-          </div>
+        </div>
+        <div className="btn-container button-footer">
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
         </div>
       </form>
     );
