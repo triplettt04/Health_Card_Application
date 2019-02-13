@@ -12,6 +12,7 @@ import {
 import constants from "./constants";
 
 //Pages
+import GetStarted from "./pages/getStarted";
 import Terms from "./pages/terms";
 import Birthday from "./pages/birthday";
 import Sex from "./pages/sex";
@@ -61,6 +62,7 @@ class App extends React.Component {
   }
 
   render() {
+    const RouterGetStarted = withRouter(GetStarted);
     const RouterTerms = withRouter(Terms);
     const RouterTemplate = withRouter(Template);
     const RouterBirthday = withRouter(Birthday);
@@ -97,6 +99,12 @@ class App extends React.Component {
           <Route
             exact
             path={process.env.PUBLIC_URL + "/"}
+            render={() => (
+              <RouterGetStarted save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path={process.env.PUBLIC_URL + "/terms"}
             render={() => (
               <RouterTerms save={target => this.handleChange(target)} />
             )}
