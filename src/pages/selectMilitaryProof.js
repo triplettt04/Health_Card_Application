@@ -6,6 +6,10 @@ class SelectMilitaryProof extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      militaryProof: props.militaryProof
+    };
+
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -13,17 +17,17 @@ class SelectMilitaryProof extends React.Component {
   next(event) {
     event.preventDefault();
     let noneChecked = true;
-    let name;
+    let value;
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
         noneChecked = false;
-        name = event.target[i].name;
+        value = event.target[i].value;
       }
     }
     if (!noneChecked) {
       let target = {
         name: "Military proof",
-        value: name
+        value: value
       };
       this.props.save(target);
       let path = process.env.PUBLIC_URL + "/uploadMilitary";
@@ -73,7 +77,13 @@ class SelectMilitaryProof extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                value="Canadian citizen"
+                value="MPRR"
+                checked={this.state.militaryProof === "MPRR"}
+                onChange={() =>
+                  this.setState({
+                    militaryProof: "MPRR"
+                  })
+                }
               />
               <div className="label-text">MPRR</div>
             </label>
@@ -82,6 +92,13 @@ class SelectMilitaryProof extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
+                value="Special passport"
+                checked={this.state.militaryProof === "Special passport"}
+                onChange={() =>
+                  this.setState({
+                    militaryProof: "Special passport"
+                  })
+                }
               />
               <div className="label-text">Special passport</div>
             </label>
