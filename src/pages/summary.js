@@ -5,7 +5,6 @@ class Summary extends React.Component {
   constructor(props) {
     super(props);
 
-    this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
 
@@ -33,40 +32,16 @@ class Summary extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
-          <h1 className="primary-header">Here's how applying online works</h1>
-          <div className="summary-content">
-            <div className="summary-step">
-              <img src={require("../assets/upload-graphic.svg")} />
-              <h2 className="sub-header">Upload your documents</h2>
-              <p className="caption">
-                Submit relevant documents needed to complete the application
-              </p>
-            </div>
-            <div className="spacer" />
-            <div className="summary-step">
-              <img src={require("../assets/form-graphic.svg")} />
-              <h2 className="sub-header">Fill out the form</h2>
-              <p className="caption">
-                Complete the online application form with your personal
-                information
-              </p>
-            </div>
-            <div className="spacer" />
-            <div className="summary-step">
-              <img src={require("../assets/license-graphic.svg")} />
-              <h2 className="sub-header">
-                Wait for your health card in the mail
-              </h2>
-              <p className="caption">
-                If you completed the steps above correctly, then your Ontario
-                health card will be mailed to you soon!
-              </p>
-            </div>
-          </div>
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
           <div className="btn-container btn-center">
             <input
               type="submit"
-              value="Get started"
+              value="Submit"
               className="btn btn-general btn-wide btn-shadow"
             />
           </div>

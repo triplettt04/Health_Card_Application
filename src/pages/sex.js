@@ -15,14 +15,25 @@ class Sex extends React.Component {
     this.props.history.push(path);
   }
 
-  next(isMale) {
-    let target = {
-      name: "Sex",
-      value: isMale ? "Male" : "Female"
-    };
-    this.props.save(target);
-    let path = process.env.PUBLIC_URL + "/contact";
-    this.props.history.push(path);
+  next(event) {
+    event.preventDefault();
+    let noneChecked = true;
+    let value;
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].checked) {
+        noneChecked = false;
+        value = event.target[i].value;
+      }
+    }
+    if (!noneChecked) {
+      let target = {
+        name: "Sex",
+        value: value
+      };
+      this.props.save(target);
+      let path = process.env.PUBLIC_URL + "/contact";
+      this.props.history.push(path);
+    }
   }
 
   render() {
@@ -40,21 +51,34 @@ class Sex extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="row">
-            <button
-              className={constants.buttonClasses}
-              onClick={() => this.next(true)}
-            >
-              Male
-            </button>
-          </div>
-          <div className="row">
-            <button
-              className={constants.buttonClasses}
-              onClick={() => this.next(false)}
-            >
-              Female
-            </button>
+          <div className="radio-field medium-font">
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Male"
+              />
+              <div className="label-text">Male</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Female"
+              />
+              <div className="label-text">Female</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="X"
+              />
+              <div className="label-text">X</div>
+            </label>
           </div>
           <div className="btn-container">
             <button
