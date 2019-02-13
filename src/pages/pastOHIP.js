@@ -10,18 +10,30 @@ class PastOHIP extends React.Component {
     this.next = this.next.bind(this);
   }
 
-  next(pastOHIP) {
+  next(event) {
+    event.preventDefault();
     let target = {
       name: "Past OHIP",
-      value: pastOHIP ? "Yes" : "No"
+      value: null
     };
-    this.props.save(target);
-    if (!pastOHIP) {
-      let path = process.env.PUBLIC_URL + "/isMilitary";
-      this.props.history.push(path);
-    } else {
-      let path = process.env.PUBLIC_URL + "/moveDate";
-      this.props.history.push(path);
+    let pastOHIP,
+      noneChecked = true;
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit" && event.target[i].checked) {
+        target.value = event.target[i].value;
+        this.props.save(target);
+        pastOHIP = event.target[i].value === "Yes";
+        noneChecked = false;
+      }
+    }
+    if (!noneChecked) {
+      if (!pastOHIP) {
+        let path = process.env.PUBLIC_URL + "/isMilitary";
+        this.props.history.push(path);
+      } else {
+        let path = process.env.PUBLIC_URL + "/moveDate";
+        this.props.history.push(path);
+      }
     }
   }
 
@@ -43,7 +55,7 @@ class PastOHIP extends React.Component {
     );
 
     return (
-      <div>
+      <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
           <a className="brand" href="#">
             OHIP application
@@ -60,6 +72,7 @@ class PastOHIP extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
+                value="Yes"
               />
               <div className="label-text">Yes</div>
             </label>
@@ -68,6 +81,7 @@ class PastOHIP extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
+                value="No"
               />
               <div className="label-text">No</div>
             </label>
@@ -79,10 +93,14 @@ class PastOHIP extends React.Component {
             >
               Back
             </button>
-            <button className="btn btn-general btn-right-align">Next</button>
+            <input
+              className="btn btn-general btn-right-align"
+              type="submit"
+              value="Next"
+            />
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }

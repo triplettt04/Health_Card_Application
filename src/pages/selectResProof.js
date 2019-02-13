@@ -32,6 +32,12 @@ class SelectResProof extends React.Component {
   }
 
   back() {
+    let path;
+    if (this.props.pathFrom === "Yes") {
+      path = process.env.PUBLIC_URL + "/hasAddress";
+    } else {
+      path = process.env.PUBLIC_URL + "/isMilitary";
+    }
     this.props.history.push(this.props.location.state.pathFrom);
   }
 

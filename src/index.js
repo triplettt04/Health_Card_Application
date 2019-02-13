@@ -131,6 +131,7 @@ class App extends React.Component {
                     ? constants.militaryAddresses[this.state.baseIndex]
                     : null
                 }
+                pathFrom={this.state["Ontario address"]}
               />
             )}
           />
@@ -201,6 +202,7 @@ class App extends React.Component {
             render={() => (
               <RouterSelectResProof
                 save={target => this.handleChange(target)}
+                pathFrom={this.state["Ontario address"]}
               />
             )}
           />
