@@ -13,7 +13,7 @@ import constants from "./constants";
 
 //Pages
 import GetStarted from "./pages/getStarted";
-import Terms from "./pages/terms";
+//import Terms from "./pages/terms";
 import Birthday from "./pages/birthday";
 import Sex from "./pages/sex";
 import InCamera from "./pages/inCamera";
@@ -65,7 +65,7 @@ class App extends React.Component {
 
   render() {
     const RouterGetStarted = withRouter(GetStarted);
-    const RouterTerms = withRouter(Terms);
+    //const RouterTerms = withRouter(Terms);
     const RouterTemplate = withRouter(Template);
     const RouterBirthday = withRouter(Birthday);
     const RouterName = withRouter(Name);
@@ -103,12 +103,6 @@ class App extends React.Component {
             path={process.env.PUBLIC_URL + "/"}
             render={() => (
               <RouterGetStarted save={target => this.handleChange(target)} />
-            )}
-          />
-          <Route
-            path={process.env.PUBLIC_URL + "/terms"}
-            render={() => (
-              <RouterTerms save={target => this.handleChange(target)} />
             )}
           />
           <Route
