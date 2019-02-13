@@ -6,6 +6,10 @@ class PastOHIP extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      pastOHIP: props.pastOHIP
+    };
+
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -73,7 +77,12 @@ class PastOHIP extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
-                checked={this.props.pastOHIP === "Yes"}
+                checked={this.state.pastOHIP === "Yes"}
+                onChange={() =>
+                  this.setState({
+                    pastOHIP: "Yes"
+                  })
+                }
               />
               <div className="label-text">Yes</div>
             </label>
@@ -83,7 +92,12 @@ class PastOHIP extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
-                checked={this.props.pastOHIP === "No"}
+                checked={this.state.pastOHIP === "No"}
+                onChange={() =>
+                  this.setState({
+                    pastOHIP: "No"
+                  })
+                }
               />
               <div className="label-text">No</div>
             </label>

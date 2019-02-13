@@ -3,7 +3,7 @@ import constants from "../constants";
 import Card from "../components/card";
 import CardUploaded from "../components/cardUploaded";
 import iconTrash from "../assets/icon-trash.svg";
-import postingLetter from "../assets/posting-letter.png";
+import Signature from "./Signature.png";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -55,9 +55,13 @@ class UploadSignature extends React.Component {
   }
 
   takePic() {
+    let target = {
+      name: "pathFrom",
+      value: process.env.PUBLIC_URL + "/uploadSignature"
+    };
+    this.props.save(target);
     this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/inCamera",
-      state: { pathFrom: process.env.PUBLIC_URL + "/uploadSignature" }
+      pathname: process.env.PUBLIC_URL + "/inCamera"
     });
   }
 
@@ -99,12 +103,45 @@ class UploadSignature extends React.Component {
         <a href="#" className="view-link" onClick={this.openModal}>
           View
         </a>
-        <div className="file-name">military_posting1.jpeg</div>
+        <div className="file-name">signature.png</div>
         <button className="delete-icon">
           <img src={iconTrash} />
         </button>
       </div>
     );
+
+    let cardUploaded =
+      this.state.status === "Uploaded" ? (
+        <CardUploaded content={uploaded} />
+      ) : (
+        ""
+      );
+
+    let modal =
+      this.state.status === "Uploaded" ? (
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="upload modal"
+        >
+          <div className="modal-head">
+            <div
+              className="file-name"
+              ref={subtitle => (this.subtitle = subtitle)}
+            >
+              signature.png
+            </div>
+            <a className="modal-close" onClick={this.closeModal} />
+          </div>
+          <div className="modal-image">
+            <img src={Signature} />
+          </div>
+        </Modal>
+      ) : (
+        ""
+      );
 
     return (
       <form onSubmit={event => this.next(event)}>
@@ -118,9 +155,9 @@ class UploadSignature extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <CardUploaded content={uploaded} />
+          {cardUploaded}
           <div className="links-container">
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-photo"
@@ -129,7 +166,7 @@ class UploadSignature extends React.Component {
                 Take a photo
               </a>
             </div>
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-folder"
@@ -138,7 +175,7 @@ class UploadSignature extends React.Component {
                 Browse files
               </a>
             </div>
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-gallery"
@@ -162,26 +199,7 @@ class UploadSignature extends React.Component {
             className="btn btn-general btn-right-align"
           />
         </div>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="upload modal"
-        >
-          <div className="modal-head">
-            <div
-              className="file-name"
-              ref={subtitle => (this.subtitle = subtitle)}
-            >
-              military_posting1.jpeg
-            </div>
-            <a className="modal-close" onClick={this.closeModal} />
-          </div>
-          <div className="modal-image">
-            <img src={postingLetter} />
-          </div>
-        </Modal>
+        {modal}
       </form>
     );
   }

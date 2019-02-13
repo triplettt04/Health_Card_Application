@@ -55,9 +55,13 @@ class UploadCitizen extends React.Component {
 
   takePic() {
     this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/inCamera",
-      state: { pathFrom: process.env.PUBLIC_URL + "/uploadCitizen" }
+      pathname: process.env.PUBLIC_URL + "/inCamera"
     });
+    let target = {
+      name: "pathFrom",
+      value: process.env.PUBLIC_URL + "/uploadCitizen"
+    };
+    this.props.save(target);
   }
 
   next(event) {
@@ -103,6 +107,39 @@ class UploadCitizen extends React.Component {
       </div>
     );
 
+    let cardUploaded =
+      this.state.status === "Uploaded" ? (
+        <CardUploaded content={uploaded} />
+      ) : (
+        ""
+      );
+
+    let modal =
+      this.state.status === "Uploaded" ? (
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="upload modal"
+        >
+          <div className="modal-head">
+            <div
+              className="file-name"
+              ref={subtitle => (this.subtitle = subtitle)}
+            >
+              mary_passport.jpeg
+            </div>
+            <a className="modal-close" onClick={this.closeModal} />
+          </div>
+          <div className="modal-image">
+            <img src={postingLetter} />
+          </div>
+        </Modal>
+      ) : (
+        ""
+      );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -115,9 +152,9 @@ class UploadCitizen extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <CardUploaded content={uploaded} />
+          {cardUploaded}
           <div className="links-container">
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-photo"
@@ -126,7 +163,7 @@ class UploadCitizen extends React.Component {
                 Take a photo
               </a>
             </div>
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-folder"
@@ -135,7 +172,7 @@ class UploadCitizen extends React.Component {
                 Browse files
               </a>
             </div>
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-gallery"
@@ -159,26 +196,7 @@ class UploadCitizen extends React.Component {
             className="btn btn-general btn-right-align"
           />
         </div>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="upload modal"
-        >
-          <div className="modal-head">
-            <div
-              className="file-name"
-              ref={subtitle => (this.subtitle = subtitle)}
-            >
-              mary_passport.jpeg
-            </div>
-            <a className="modal-close" onClick={this.closeModal} />
-          </div>
-          <div className="modal-image">
-            <img src={postingLetter} />
-          </div>
-        </Modal>
+        {modal}
       </form>
     );
   }

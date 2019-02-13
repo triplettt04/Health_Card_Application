@@ -14,7 +14,8 @@ class InCamera extends React.Component {
   constructor(props) {
     super(props);
     let img;
-    switch (this.props.location.state.pathFrom) {
+
+    switch (this.props.pathFrom) {
       case process.env.PUBLIC_URL + "/uploadRes":
         img = MPRR2; //Random one since the user is not going here
         break;
@@ -25,7 +26,7 @@ class InCamera extends React.Component {
         img = DriverLicense;
         break;
       case process.env.PUBLIC_URL + "/uploadMilitary":
-        switch (this.props.location.state.num) {
+        switch (this.props.num) {
           case 1:
             img = MPRR1;
             break;
@@ -41,7 +42,7 @@ class InCamera extends React.Component {
         }
         break;
       case process.env.PUBLIC_URL + "/uploadPosting":
-        switch (this.props.location.state.num) {
+        switch (this.props.num) {
           case 1:
             img = Posting1;
             break;
@@ -63,21 +64,27 @@ class InCamera extends React.Component {
         img = "";
         console.log("ERROR - unknown MPRR number");
     }
+
     this.state = {
-      img: img
+      img: img,
+      pathFrom: props.pathFrom,
+      num: props.num
     };
+
+    this.next = this.next.bind(this);
+    this.back = this.back.bind(this);
   }
 
   next(event) {
     event.preventDefault();
-    let pathFrom = this.props.location.state.pathFrom;
-    if (this.props.location.state.num) {
+    let pathFrom = this.state.pathFrom;
+    if (pathFrom) {
       this.props.history.push({
         pathname: process.env.PUBLIC_URL + "/confirmPhoto",
         state: {
           pathFrom: pathFrom,
           img: this.state.img,
-          num: this.props.location.state.num
+          num: this.state.num
         }
       });
     } else {
@@ -92,16 +99,16 @@ class InCamera extends React.Component {
   }
 
   back() {
-    if (this.props.location.state.pathFrom) {
-      if (this.props.location.state.num) {
+    if (this.state.pathFrom) {
+      if (this.state.num) {
         this.props.history.push({
-          pathname: this.props.location.state.pathFrom,
+          pathname: this.state.pathFrom,
           state: {
             num: this.props.location.state.num - 1
           }
         });
       } else {
-        this.props.history.push(this.props.location.state.pathFrom);
+        this.props.history.push(this.state.pathFrom);
       }
     } else {
       let path = process.env.PUBLIC_URL + "/howSignature";

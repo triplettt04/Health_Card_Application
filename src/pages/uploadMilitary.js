@@ -3,7 +3,9 @@ import constants from "../constants";
 import Card from "../components/card";
 import CardUploaded from "../components/cardUploaded";
 import iconTrash from "../assets/icon-trash.svg";
-import postingLetter from "../assets/posting-letter.png";
+import MPRR1 from "./MPRR1.png";
+import MPRR2 from "./MPRR2.png";
+import MPRR3 from "./MPRR3.png";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -30,7 +32,9 @@ class UploadMilitary extends React.Component {
         : 0;
     this.state = {
       status: status,
-      modalIsOpen: false,
+      modal1IsOpen: false,
+      modal2IsOpen: false,
+      modal3IsOpen: false,
       num: num
     };
 
@@ -43,8 +47,18 @@ class UploadMilitary extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-  openModal() {
-    this.setState({ modalIsOpen: true });
+  openModal(num) {
+    switch (num) {
+      case 1:
+        this.setState({ modal1IsOpen: true });
+        break;
+      case 2:
+        this.setState({ modal2IsOpen: true });
+        break;
+      case 3:
+        this.setState({ modal3IsOpen: true });
+        break;
+    }
   }
 
   afterOpenModal() {
@@ -52,19 +66,34 @@ class UploadMilitary extends React.Component {
     this.subtitle.style.color = "$dark-grey";
   }
 
-  closeModal() {
-    this.setState({ modalIsOpen: false });
+  closeModal(num) {
+    switch (num) {
+      case 1:
+        this.setState({ modal1IsOpen: false });
+        break;
+      case 2:
+        this.setState({ modal2IsOpen: false });
+        break;
+      case 3:
+        this.setState({ modal3IsOpen: false });
+        break;
+    }
   }
 
   takePic() {
     console.log(this.state.num);
-
+    let target = {
+      name: "pathFrom",
+      value: process.env.PUBLIC_URL + "/uploadMilitary"
+    };
+    this.props.save(target);
+    let num = this.state.num > 2 ? 3 : this.state.num + 1;
+    this.props.save({
+      name: "pageNum",
+      value: num
+    });
     this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/inCamera",
-      state: {
-        pathFrom: process.env.PUBLIC_URL + "/uploadMilitary",
-        num: this.state.num > 2 ? 3 : this.state.num + 1
-      }
+      pathname: process.env.PUBLIC_URL + "/inCamera"
     });
   }
 
@@ -102,17 +131,128 @@ class UploadMilitary extends React.Component {
         </p>
       </div>
     );
-    let uploaded = (
-      <div>
-        <a href="#" className="view-link" onClick={this.openModal}>
-          View
-        </a>
-        <div className="file-name">military_posting1.jpeg</div>
-        <button className="delete-icon">
-          <img src={iconTrash} />
-        </button>
-      </div>
-    );
+
+    let cardUploaded = [],
+      imageSrc,
+      uploaded;
+
+    let modal = [];
+    switch (this.state.num) {
+      case 3:
+        uploaded = (
+          <div>
+            <a href="#" className="view-link" onClick={() => this.openModal(3)}>
+              View
+            </a>
+            <div className="file-name">MPRR3.jpeg</div>
+            <button className="delete-icon">
+              <img src={iconTrash} />
+            </button>
+          </div>
+        );
+        cardUploaded.push(<CardUploaded content={uploaded} />);
+        imageSrc = MPRR3;
+        modal.push(
+          <Modal
+            key={3}
+            isOpen={this.state.modal3IsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={() => this.closeModal(3)}
+            style={customStyles}
+            contentLabel="upload modal"
+          >
+            <div className="modal-head">
+              <div
+                className="file-name"
+                ref={subtitle => (this.subtitle = subtitle)}
+              >
+                MPRR3.png
+              </div>
+              <a className="modal-close" onClick={() => this.closeModal(3)} />
+            </div>
+            <div className="modal-image">
+              <img src={imageSrc} />
+            </div>
+          </Modal>
+        );
+      case 2:
+        uploaded = (
+          <div>
+            <a href="#" className="view-link" onClick={() => this.openModal(2)}>
+              View
+            </a>
+            <div className="file-name">MPRR2.jpeg</div>
+            <button className="delete-icon">
+              <img src={iconTrash} />
+            </button>
+          </div>
+        );
+        cardUploaded.push(<CardUploaded content={uploaded} />);
+        imageSrc = MPRR2;
+        modal.push(
+          <Modal
+            key={2}
+            isOpen={this.state.modal2IsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={() => this.closeModal(2)}
+            style={customStyles}
+            contentLabel="upload modal"
+          >
+            <div className="modal-head">
+              <div
+                className="file-name"
+                ref={subtitle => (this.subtitle = subtitle)}
+              >
+                MPRR2.png
+              </div>
+              <a className="modal-close" onClick={() => this.closeModal(2)} />
+            </div>
+            <div className="modal-image">
+              <img src={imageSrc} />
+            </div>
+          </Modal>
+        );
+      case 1:
+        uploaded = (
+          <div>
+            <a href="#" className="view-link" onClick={() => this.openModal(1)}>
+              View
+            </a>
+            <div className="file-name">MPRR1.jpeg</div>
+            <button className="delete-icon">
+              <img src={iconTrash} />
+            </button>
+          </div>
+        );
+        cardUploaded.push(<CardUploaded content={uploaded} />);
+        imageSrc = MPRR1;
+        modal.push(
+          <Modal
+            key={1}
+            isOpen={this.state.modal1IsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={() => this.closeModal(1)}
+            style={customStyles}
+            contentLabel="upload modal"
+          >
+            <div className="modal-head">
+              <div
+                className="file-name"
+                ref={subtitle => (this.subtitle = subtitle)}
+              >
+                MPRR1.png
+              </div>
+              <a className="modal-close" onClick={() => this.closeModal(1)} />
+            </div>
+            <div className="modal-image">
+              <img src={imageSrc} />
+            </div>
+          </Modal>
+        );
+        break;
+      default:
+        cardUploaded = "";
+    }
 
     return (
       <form onSubmit={event => this.next(event)}>
@@ -126,9 +266,9 @@ class UploadMilitary extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <CardUploaded content={uploaded} />
+          {cardUploaded}
           <div className="links-container">
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-photo"
@@ -137,7 +277,7 @@ class UploadMilitary extends React.Component {
                 Take a photo
               </a>
             </div>
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-folder"
@@ -146,7 +286,7 @@ class UploadMilitary extends React.Component {
                 Browse files
               </a>
             </div>
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-gallery"
@@ -170,26 +310,7 @@ class UploadMilitary extends React.Component {
             className="btn btn-general btn-right-align"
           />
         </div>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="upload modal"
-        >
-          <div className="modal-head">
-            <div
-              className="file-name"
-              ref={subtitle => (this.subtitle = subtitle)}
-            >
-              military_posting1.jpeg
-            </div>
-            <a className="modal-close" onClick={this.closeModal} />
-          </div>
-          <div className="modal-image">
-            <img src={postingLetter} />
-          </div>
-        </Modal>
+        {modal}
       </form>
     );
   }

@@ -81,7 +81,7 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
-                checked={this.props.isMilitary === "Yes"}
+                checked={this.state.isMilitary === "Yes"}
                 onChange={() =>
                   this.setState({
                     isMilitary: "Yes"
@@ -96,7 +96,7 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
-                checked={this.props.isMilitary === "No"}
+                checked={this.state.isMilitary === "No"}
                 onChange={() =>
                   this.setState({
                     isMilitary: "No"
