@@ -12,18 +12,19 @@ class SelectCitizenProof extends React.Component {
   next(event) {
     event.preventDefault();
     let noneChecked = true;
-    let name;
+    let value;
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
         noneChecked = false;
-        name = event.target[i].name;
+        value = event.target[i].value;
       }
     }
     if (!noneChecked) {
       let target = {
-        name: "Citizen proof type",
-        value: name
+        name: "Citizen proof",
+        value: value
       };
+      debugger;
       this.props.save(target);
       let path = process.env.PUBLIC_URL + "/uploadCitizen";
       this.props.history.push(path);
@@ -52,29 +53,75 @@ class SelectCitizenProof extends React.Component {
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Canadian"
+                name="example"
+                value="Canadian passport"
               />
-              Canadian citizen
+              Canadian passport
             </label>
             <label className="radio-style block">
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Permanent"
+                name="example"
+                value="Birth certificate"
               />
-              Permanent resident
+              Birth certificate
             </label>
             <label className="radio-style block">
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Applicant"
+                name="example"
+                value="Birth abroad"
               />
-              Applicant for permanent residency
+              Canadian Certificate of Registration of Birth Abroad
             </label>
             <label className="radio-style block">
-              <input type="radio" className="radio-input radio" name="Other" />
-              Other immigration status
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Live birth"
+              />
+              Certified Statement of Live Birth from any Canadian province or
+              territory
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Citizenship or naturalization"
+              />
+              Certificate of Canadian Citizenship or Certificate of
+              Naturalization
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Indian status"
+              />
+              Certificate of Indian Status
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Indian record"
+              />
+              Registered Indian Record
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Temporary confirmation"
+              />
+              Temporary Confirmation of Registration document
             </label>
           </div>
           <div className="btn-container">

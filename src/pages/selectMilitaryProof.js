@@ -22,7 +22,7 @@ class SelectMilitaryProof extends React.Component {
     }
     if (!noneChecked) {
       let target = {
-        name: "Military proof type",
+        name: "Military proof",
         value: name
       };
       this.props.save(target);
@@ -53,7 +53,8 @@ class SelectMilitaryProof extends React.Component {
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Canadian"
+                name="example"
+                value=""
               />
               Canadian citizen
             </label>
@@ -61,7 +62,8 @@ class SelectMilitaryProof extends React.Component {
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Permanent"
+                name="example"
+                value=""
               />
               Permanent resident
             </label>
@@ -69,12 +71,18 @@ class SelectMilitaryProof extends React.Component {
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Applicant"
+                name="example"
+                value=""
               />
               Applicant for permanent residency
             </label>
             <label className="radio-style block">
-              <input type="radio" className="radio-input radio" name="Other" />
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value=""
+              />
               Other immigration status
             </label>
           </div>

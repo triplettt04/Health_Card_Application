@@ -49,11 +49,21 @@ class SelectSignature extends React.Component {
         <div className="form-wrapper">
           <div className="radio-field">
             <label className="radio-style block">
-              <input type="radio" className="radio-input radio" name="Photo" />
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Photo"
+              />
               Upload a photo
             </label>
             <label className="radio-style block">
-              <input type="radio" className="radio-input radio" name="File" />
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="File"
+              />
               Select a local file
             </label>
           </div>

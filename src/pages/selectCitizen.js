@@ -12,17 +12,17 @@ class SelectCitizen extends React.Component {
   next(event) {
     event.preventDefault();
     let noneChecked = true;
-    let name;
+    let value;
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
         noneChecked = false;
-        name = event.target[i].name;
+        value = event.target[i].value;
       }
     }
     if (!noneChecked) {
       let target = {
         name: "Citizen type",
-        value: name
+        value: value
       };
       this.props.save(target);
       let path = process.env.PUBLIC_URL + "/selectCitizenProof";
@@ -52,7 +52,8 @@ class SelectCitizen extends React.Component {
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Canadian"
+                name="example"
+                value="Canadian citizen"
               />
               Canadian citizen
             </label>
@@ -60,7 +61,7 @@ class SelectCitizen extends React.Component {
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Permanent"
+                name="example"
               />
               Permanent resident
             </label>
@@ -68,12 +69,16 @@ class SelectCitizen extends React.Component {
               <input
                 type="radio"
                 className="radio-input radio"
-                name="Applicant"
+                name="example"
               />
               Applicant for permanent residency
             </label>
             <label className="radio-style block">
-              <input type="radio" className="radio-input radio" name="Other" />
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+              />
               Other immigration status
             </label>
           </div>

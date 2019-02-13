@@ -9,8 +9,13 @@ class UploadMilitary extends React.Component {
       props.location.state && props.location.state.uploaded
         ? "Uploaded"
         : "Not completed";
+    let num =
+      props.location.state && props.location.state.num
+        ? props.location.state.num
+        : 0;
     this.state = {
-      status: status
+      status: status,
+      num: num
     };
 
     this.back = this.back.bind(this);
@@ -19,18 +24,32 @@ class UploadMilitary extends React.Component {
   }
 
   takePic() {
-    this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/inCamera",
-      state: { pathFrom: process.env.PUBLIC_URL + "/uploadMilitary" }
-    });
+    console.log(this.state.num);
+    debugger;
+    if (this.state.num < 3) {
+      this.props.history.push({
+        pathname: process.env.PUBLIC_URL + "/inCamera",
+        state: {
+          pathFrom: process.env.PUBLIC_URL + "/uploadMilitary",
+          num: this.state.num + 1
+        }
+      });
+    }
   }
 
   next(event) {
     event.preventDefault();
-    //handle target and call this.props.save(event.target[i])
-    this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/hasAddress"
-    });
+    debugger;
+    if (this.state.status === "Uploaded") {
+      let target = {
+        name: "Military proof",
+        value: "Uploaded"
+      };
+      this.props.save(target);
+      this.props.history.push({
+        pathname: process.env.PUBLIC_URL + "/hasAddress"
+      });
+    }
   }
 
   back() {
