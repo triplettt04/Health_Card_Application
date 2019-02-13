@@ -5,7 +5,7 @@ import Card from "../components/card";
 class AddressRes extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
+
     this.state = {
       street: this.props.address ? props.address.street : null,
       city: this.props.address ? props.address.city : null,
@@ -28,7 +28,12 @@ class AddressRes extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + this.props.location.state.pathFrom;
+    let path;
+    if (this.props.pathFrom === "No") {
+      path = process.env.PUBLIC_URL + "/uploadPosting";
+    } else {
+      path = process.env.PUBLIC_URL + "/uploadRes";
+    }
     this.props.history.push(path);
   }
 

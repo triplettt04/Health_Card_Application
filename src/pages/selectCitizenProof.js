@@ -24,7 +24,7 @@ class SelectCitizenProof extends React.Component {
         name: "Citizen proof",
         value: value
       };
-      debugger;
+
       this.props.save(target);
       let path = process.env.PUBLIC_URL + "/uploadCitizen";
       this.props.history.push(path);
