@@ -3,8 +3,8 @@ import constants from "../constants";
 import Card from "../components/card";
 import CardUploaded from "../components/cardUploaded";
 import iconTrash from "../assets/icon-trash.svg";
-import postingLetter from "../assets/posting-letter.png";
 import Modal from "react-modal";
+import DriverLicense from "./driverLicense.png";
 
 const customStyles = {
   content: {
@@ -59,6 +59,11 @@ class UploadID extends React.Component {
       pathname: process.env.PUBLIC_URL + "/inCamera",
       state: { pathFrom: process.env.PUBLIC_URL + "/uploadID" }
     });
+    let target = {
+      name: "pathFrom",
+      value: process.env.PUBLIC_URL + "/uploadID"
+    };
+    this.props.save(target);
   }
 
   next(event) {
@@ -96,12 +101,45 @@ class UploadID extends React.Component {
         <a href="#" className="view-link" onClick={this.openModal}>
           View
         </a>
-        <div className="file-name">military_posting1.jpeg</div>
+        <div className="file-name">driver_license.png</div>
         <button className="delete-icon">
           <img src={iconTrash} />
         </button>
       </div>
     );
+
+    let cardUploaded =
+      this.state.status === "Uploaded" ? (
+        <CardUploaded content={uploaded} />
+      ) : (
+        ""
+      );
+
+    let modal =
+      this.state.status === "Uploaded" ? (
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="upload modal"
+        >
+          <div className="modal-head">
+            <div
+              className="file-name"
+              ref={subtitle => (this.subtitle = subtitle)}
+            >
+              driver_license.png
+            </div>
+            <a className="modal-close" onClick={this.closeModal} />
+          </div>
+          <div className="modal-image">
+            <img src={DriverLicense} />
+          </div>
+        </Modal>
+      ) : (
+        ""
+      );
 
     return (
       <form onSubmit={event => this.next(event)}>
@@ -115,9 +153,9 @@ class UploadID extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <CardUploaded content={uploaded} />
+          {cardUploaded}
           <div className="links-container">
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-photo"
@@ -126,7 +164,7 @@ class UploadID extends React.Component {
                 Take a photo
               </a>
             </div>
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-folder"
@@ -135,7 +173,7 @@ class UploadID extends React.Component {
                 Browse files
               </a>
             </div>
-            <div class="icon-link-container">
+            <div className="icon-link-container">
               <a
                 href="#"
                 className="icon-link icon-gallery"
@@ -159,26 +197,7 @@ class UploadID extends React.Component {
             className="btn btn-general btn-right-align"
           />
         </div>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="upload modal"
-        >
-          <div className="modal-head">
-            <div
-              className="file-name"
-              ref={subtitle => (this.subtitle = subtitle)}
-            >
-              military_posting1.jpeg
-            </div>
-            <a className="modal-close" onClick={this.closeModal} />
-          </div>
-          <div className="modal-image">
-            <img src={postingLetter} />
-          </div>
-        </Modal>
+        {modal}
       </form>
     );
   }
