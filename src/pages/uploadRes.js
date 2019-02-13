@@ -5,10 +5,13 @@ import Card from "../components/card";
 class UploadRes extends React.Component {
   constructor(props) {
     super(props);
-    let status =
-      props.location.state && props.location.state.uploaded
-        ? "Uploaded"
-        : "Not completed";
+
+    let status = props.status
+      ? props.status
+      : props.location.state && props.location.state.uploaded
+      ? "Uploaded"
+      : "Not completed";
+
     this.state = {
       status: status
     };

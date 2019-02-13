@@ -5,10 +5,11 @@ import Card from "../components/card";
 class UploadMilitary extends React.Component {
   constructor(props) {
     super(props);
-    let status =
-      props.location.state && props.location.state.uploaded
-        ? "Uploaded"
-        : "Not completed";
+    let status = props.status
+      ? props.status
+      : props.location.state && props.location.state.uploaded
+      ? "Uploaded"
+      : "Not completed";
     let num =
       props.location.state && props.location.state.num
         ? props.location.state.num

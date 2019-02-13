@@ -6,6 +6,10 @@ class Sex extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      sex: props.sex
+    };
+
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -40,7 +44,7 @@ class Sex extends React.Component {
     let content = <div>What is your sex?</div>;
 
     return (
-      <div>
+      <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
           <a className="brand" href="#">
             OHIP application
@@ -58,6 +62,12 @@ class Sex extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Male"
+                checked={this.state.sex === "Male"}
+                onChange={() =>
+                  this.setState({
+                    sex: "Male"
+                  })
+                }
               />
               <div className="label-text">Male</div>
             </label>
@@ -67,6 +77,12 @@ class Sex extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Female"
+                checked={this.state.sex === "Female"}
+                onChange={() =>
+                  this.setState({
+                    sex: "Female"
+                  })
+                }
               />
               <div className="label-text">Female</div>
             </label>
@@ -76,6 +92,12 @@ class Sex extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="X"
+                checked={this.state.sex === "X"}
+                onChange={() =>
+                  this.setState({
+                    sex: "X"
+                  })
+                }
               />
               <div className="label-text">X</div>
             </label>
@@ -94,7 +116,7 @@ class Sex extends React.Component {
             />
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }

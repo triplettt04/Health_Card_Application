@@ -5,6 +5,10 @@ class SelectSignature extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      signature: props.signature
+    };
+
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -12,17 +16,17 @@ class SelectSignature extends React.Component {
   next(event) {
     event.preventDefault();
     let noneChecked = true;
-    let name;
+    let value;
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
         noneChecked = false;
-        name = event.target[i].name;
+        value = event.target[i].value;
       }
     }
     if (!noneChecked) {
       let target = {
         name: "Signature type",
-        value: name
+        value: value
       };
       this.props.save(target);
       let path = process.env.PUBLIC_URL + "/uploadSignature";
@@ -54,6 +58,12 @@ class SelectSignature extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Photo"
+                checked={this.state.signature === "Photo"}
+                onChange={() =>
+                  this.setState({
+                    signature: "Photo"
+                  })
+                }
               />
               Upload a photo
             </label>
@@ -63,6 +73,12 @@ class SelectSignature extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="File"
+                checked={this.state.signature === "File"}
+                onChange={() =>
+                  this.setState({
+                    signature: "File"
+                  })
+                }
               />
               Select a local file
             </label>

@@ -8,7 +8,7 @@ class SelectBase extends React.Component {
     super(props);
 
     this.state = {
-      value: ""
+      value: props.baseLabel ? props.baseLabel : ""
     };
 
     this.back = this.back.bind(this);

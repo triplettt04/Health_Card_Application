@@ -6,6 +6,10 @@ class HasAddress extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      hasAddress: props.hasAddress
+    };
+
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -76,6 +80,12 @@ class HasAddress extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
+                checked={this.state.hasAddress === "Yes"}
+                onChange={() =>
+                  this.setState({
+                    hasAddress: "Yes"
+                  })
+                }
               />
               <div className="label-text"> Yes</div>
             </label>
@@ -85,6 +95,12 @@ class HasAddress extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
+                checked={this.state.hasAddress === "No"}
+                onChange={() =>
+                  this.setState({
+                    hasAddress: "No"
+                  })
+                }
               />
               <div className="label-text"> No</div>
             </label>

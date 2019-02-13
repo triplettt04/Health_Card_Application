@@ -6,6 +6,10 @@ class IsMilitary extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      isMilitary: props.isMilitary
+    };
+
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -77,6 +81,12 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
+                checked={this.props.isMilitary === "Yes"}
+                onChange={() =>
+                  this.setState({
+                    isMilitary: "Yes"
+                  })
+                }
               />
               <div className="label-text"> Yes</div>
             </label>
@@ -86,6 +96,12 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
+                checked={this.props.isMilitary === "No"}
+                onChange={() =>
+                  this.setState({
+                    isMilitary: "No"
+                  })
+                }
               />
               <div className="label-text"> No</div>
             </label>

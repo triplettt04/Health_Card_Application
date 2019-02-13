@@ -5,7 +5,6 @@ import Card from "../components/card";
 class Contact extends React.Component {
   constructor(props) {
     super(props);
-
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -59,6 +58,7 @@ class Contact extends React.Component {
               className="form-control"
               id="primary-phone-1"
               name="Primary phone"
+              defaultValue={this.props.primaryPhone}
             />
             <label className="form-label" htmlFor="alternate-phone-1">
               Alternate phone
@@ -67,11 +67,17 @@ class Contact extends React.Component {
               className="form-control"
               id="alternate-phone-1"
               name="Alternate phone"
+              defaultValue={this.props.alternatePhone}
             />
             <label className="form-label" htmlFor="email-1">
               Email
             </label>
-            <input className="form-control" id="email-1" name="Email" />
+            <input
+              className="form-control"
+              id="email-1"
+              name="Email"
+              defaultValue={this.props.email}
+            />
           </div>
           <div className="btn-container">
             <button

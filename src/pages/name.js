@@ -5,7 +5,6 @@ import Card from "../components/card";
 class Name extends React.Component {
   constructor(props) {
     super(props);
-
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -59,6 +58,7 @@ class Name extends React.Component {
               className="form-control"
               id="first-name-1"
               name="First name"
+              defaultValue={this.props.firstName ? this.props.firstName : ""}
             />
             <label className="form-label" htmlFor="middle-name-1">
               Middle name(s)
@@ -67,11 +67,17 @@ class Name extends React.Component {
               className="form-control"
               id="middle-name-1"
               name="Middle name(s)"
+              defaultValue={this.props.middleName ? this.props.middleName : ""}
             />
             <label className="form-label" htmlFor="last-name-1">
               Last name
             </label>
-            <input className="form-control" id="last-name-1" name="Last name" />
+            <input
+              className="form-control"
+              id="last-name-1"
+              name="Last name"
+              defaultValue={this.props.lastName ? this.props.lastName : ""}
+            />
           </div>
           <div className="btn-container">
             <button

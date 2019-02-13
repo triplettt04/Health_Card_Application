@@ -124,7 +124,12 @@ class App extends React.Component {
           <Route
             path={process.env.PUBLIC_URL + "/name"}
             render={() => (
-              <RouterName save={target => this.handleChange(target)} />
+              <RouterName
+                save={target => this.handleChange(target)}
+                firstName={this.state["First name"]}
+                middleName={this.state["Middle name(s)"]}
+                lastName={this.state["Last name"]}
+              />
             )}
           />
           <Route
@@ -133,7 +138,13 @@ class App extends React.Component {
               <RouterAddressRes
                 save={target => this.handleChange(target)}
                 address={
-                  this.state["Military relation"]
+                  this.state["Residence street"]
+                    ? {
+                        street: this.state["Residence street"],
+                        city: this.state["Residence city"],
+                        postalCode: this.state["Residence postal code"]
+                      }
+                    : this.state["Military relation"]
                     ? constants.militaryAddresses[this.state.baseIndex]
                     : null
                 }
@@ -144,7 +155,10 @@ class App extends React.Component {
           <Route
             path={process.env.PUBLIC_URL + "/sex"}
             render={() => (
-              <RouterSex save={target => this.handleChange(target)} />
+              <RouterSex
+                save={target => this.handleChange(target)}
+                sex={this.state["Sex"]}
+              />
             )}
           />
           <Route
@@ -160,19 +174,30 @@ class App extends React.Component {
           <Route
             path={process.env.PUBLIC_URL + "/pastOHIP"}
             render={() => (
-              <RouterPastOHIP save={target => this.handleChange(target)} />
+              <RouterPastOHIP
+                save={target => this.handleChange(target)}
+                pastOHIP={this.state["Past OHIP"]}
+              />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/isMilitary"}
             render={() => (
-              <RouterIsMilitary save={target => this.handleChange(target)} />
+              <RouterIsMilitary
+                save={target => this.handleChange(target)}
+                isMilitary={this.state["Military relation"]}
+              />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/selectBase"}
             render={() => (
-              <RouterSelectBase save={target => this.handleChange(target)} />
+              <RouterSelectBase
+                save={target => this.handleChange(target)}
+                baseLabel={
+                  constants.militaryAddresses[this.state.baseIndex].label
+                }
+              />
             )}
           />
           <Route
@@ -180,6 +205,7 @@ class App extends React.Component {
             render={() => (
               <RouterSelectMilitaryProof
                 save={target => this.handleChange(target)}
+                militaryProof={this.state["Military proof"]}
               />
             )}
           />
@@ -188,13 +214,17 @@ class App extends React.Component {
             render={() => (
               <RouterUploadMilitary
                 save={target => this.handleChange(target)}
+                status={this.state["Military proof"]}
               />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/hasAddress"}
             render={() => (
-              <RouterHasAddress save={target => this.handleChange(target)} />
+              <RouterHasAddress
+                save={target => this.handleChange(target)}
+                hasAddress={this.state["Residence address"]}
+              />
             )}
           />
           <Route
@@ -203,19 +233,26 @@ class App extends React.Component {
               <RouterSelectResProof
                 save={target => this.handleChange(target)}
                 pathFrom={this.state["Ontario address"]}
+                resProof={this.state["Residence proof type"]}
               />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/uploadRes"}
             render={() => (
-              <RouterUploadRes save={target => this.handleChange(target)} />
+              <RouterUploadRes
+                save={target => this.handleChange(target)}
+                status={this.state["Residence proof"]}
+              />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/selectCitizen"}
             render={() => (
-              <RouterSelectCitizen save={target => this.handleChange(target)} />
+              <RouterSelectCitizen
+                save={target => this.handleChange(target)}
+                citizenType={this.state["Citizen type"]}
+              />
             )}
           />
           <Route
@@ -223,31 +260,44 @@ class App extends React.Component {
             render={() => (
               <RouterSelectCitizenProof
                 save={target => this.handleChange(target)}
+                citizenProof={this.state["Citizen proof"]}
               />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/uploadCitizen"}
             render={() => (
-              <RouterUploadCitizen save={target => this.handleChange(target)} />
+              <RouterUploadCitizen
+                save={target => this.handleChange(target)}
+                status={this.state["Citizenship proof"]}
+              />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/selectID"}
             render={() => (
-              <RouterSelectID save={target => this.handleChange(target)} />
+              <RouterSelectID
+                save={target => this.handleChange(target)}
+                identityProof={this.state["Identity proof type"]}
+              />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/uploadID"}
             render={() => (
-              <RouterUploadID save={target => this.handleChange(target)} />
+              <RouterUploadID
+                save={target => this.handleChange(target)}
+                status={this.state["Identity proof"]}
+              />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/summary"}
             render={() => (
-              <RouterSummary save={target => this.handleChange(target)} />
+              <RouterSummary
+                save={target => this.handleChange(target)}
+                state={this.state}
+              />
             )}
           />
           <Route
@@ -262,17 +312,22 @@ class App extends React.Component {
               <RouterUploadPosting
                 save={target => this.handleChange(target)}
                 baseIndex={this.state.baseIndex}
+                status={this.state["Posting message"]}
               />
             )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/contact"}
             render={() => (
-              <RouterContact save={target => this.handleChange(target)} />
+              <RouterContact
+                save={target => this.handleChange(target)}
+                primaryPhone={this.state["Primary phone"]}
+                alternatePhone={this.state["Alternate phone"]}
+                email={this.state["Email"]}
+              />
             )}
           />
           <Route
-            exact
             path={process.env.PUBLIC_URL + "/addressMail"}
             render={() => (
               <RouterAddressMail
@@ -288,7 +343,10 @@ class App extends React.Component {
           <Route
             path={process.env.PUBLIC_URL + "/uploadPhoto"}
             render={() => (
-              <RouterUploadPhoto save={target => this.handleChange(target)} />
+              <RouterUploadPhoto
+                save={target => this.handleChange(target)}
+                status={this.state["Photo proof"]}
+              />
             )}
           />
           <Route
@@ -296,6 +354,7 @@ class App extends React.Component {
             render={() => (
               <RouterSelectSignature
                 save={target => this.handleChange(target)}
+                signature={this.state["Signature type"]}
               />
             )}
           />
@@ -304,6 +363,7 @@ class App extends React.Component {
             render={() => (
               <RouterUploadSignature
                 save={target => this.handleChange(target)}
+                status={this.state["Signature"]}
               />
             )}
           />

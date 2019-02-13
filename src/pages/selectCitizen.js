@@ -6,6 +6,10 @@ class SelectCitizen extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      citizenType: props.citizenType
+    };
+
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
@@ -32,7 +36,7 @@ class SelectCitizen extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/addressMailing";
+    let path = process.env.PUBLIC_URL + "/addressMail";
     this.props.history.push(path);
   }
 
@@ -69,6 +73,12 @@ class SelectCitizen extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Canadian citizen"
+                checked={this.state.citizenType === "Canadian citizen"}
+                onChange={() =>
+                  this.setState({
+                    citizenType: "Canadian citizen"
+                  })
+                }
               />
               <div className="label-text">Canadian citizen</div>
             </label>
@@ -77,6 +87,13 @@ class SelectCitizen extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
+                value="Permanent resident"
+                checked={this.state.citizenType === "Permanent resident"}
+                onChange={() =>
+                  this.setState({
+                    citizenType: "Permanent resident"
+                  })
+                }
               />
               <div className="label-text">Permanent resident</div>
             </label>
@@ -85,6 +102,13 @@ class SelectCitizen extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
+                value="Applicant"
+                checked={this.state.citizenType === "Applicant"}
+                onChange={() =>
+                  this.setState({
+                    citizenType: "Applicant"
+                  })
+                }
               />
               <div className="label-text">
                 Applicant for permanent residency
@@ -95,6 +119,13 @@ class SelectCitizen extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
+                value="Other"
+                checked={this.state.citizenType === "Other"}
+                onChange={() =>
+                  this.setState({
+                    citizenType: "Other"
+                  })
+                }
               />
               <div className="label-text">Other immigration status</div>
             </label>
