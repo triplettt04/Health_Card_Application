@@ -141,7 +141,7 @@ class UploadPhoto extends React.Component {
                 className="icon-link icon-gallery"
                 onClick={() => this.takePic()}
               >
-                View gallery
+                Browse gallery
               </a>
             </div>
           </div>

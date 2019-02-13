@@ -15,6 +15,7 @@
     cursor: pointer;
     margin-right: 15px;
     z-index: 1000;
+    color: $dark-grey;
   }
 
   .checkbox-input:checked {
@@ -52,6 +53,7 @@
     display: inline-block;
     margin-top: 5px;
     width: calc(100% - 55px);
+    color: $dark-grey;
   }
 }
 
@@ -76,6 +78,7 @@
 .radio-field {
   margin: 15px 0px 15px 30px;
   font-size: 24px;
+  color: $dark-grey;
 
   .radio-style {
     display: block;

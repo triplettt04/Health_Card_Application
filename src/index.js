@@ -42,6 +42,7 @@ import AddressMail from "./pages/addressMail";
 import UploadPhoto from "./pages/uploadPhoto";
 import SelectSignature from "./pages/selectSignature";
 import UploadSignature from "./pages/uploadSignature";
+import Agreement from "./pages/agreement";
 import Template from "./pages/template";
 
 class App extends React.Component {
@@ -92,6 +93,7 @@ class App extends React.Component {
     const RouterUploadPhoto = withRouter(UploadPhoto);
     const RouterSelectSignature = withRouter(SelectSignature);
     const RouterUploadSignature = withRouter(UploadSignature);
+    const RouterAgreement = withRouter(Agreement);
 
     return (
       <Router>
@@ -113,6 +115,12 @@ class App extends React.Component {
             path={process.env.PUBLIC_URL + "/template"}
             render={() => (
               <RouterTemplate save={target => this.handleChange(target)} />
+            )}
+          />
+          <Route
+            path={process.env.PUBLIC_URL + "/agreement"}
+            render={() => (
+              <RouterAgreement save={target => this.handleChange(target)} />
             )}
           />
           <Route
