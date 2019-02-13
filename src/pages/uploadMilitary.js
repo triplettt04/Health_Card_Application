@@ -48,7 +48,7 @@ class UploadMilitary extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#000";
+    this.subtitle.style.color = "$dark-grey";
   }
 
   closeModal() {

@@ -29,7 +29,7 @@ html {
     box-shadow: $box-shadow-cards;
     border-radius: 20px;
     padding: 15px 30px 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 
     .progress-indicator {
       text-align: center;
@@ -210,4 +210,22 @@ p.caption {
   bottom: 0;
   left: 0;
   padding: 1rem;
+  z-index: -1;
+}
+
+.text-input.one-line.base-input {
+  .form-label {
+    margin: 5px;
+  }
+
+  .auto-text {
+    font-size: 16px;
+    margin: 15px 10px;
+    color: $dark-grey;
+  }
+  input {
+    width: 280px;
+    height: 55px;
+    padding: 15px 10px;
+  }
 }
