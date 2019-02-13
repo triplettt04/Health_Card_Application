@@ -155,7 +155,7 @@ class SelectResProof extends React.Component {
         </nav>
         <div className="form-wrapper">
           <div className="radio-field">{radioButtons}</div>
-          <div className="btn-container">
+          <div className="btn-container button-footer">
             <button
               className="btn btn-general btn-invert"
               onClick={() => this.back()}
