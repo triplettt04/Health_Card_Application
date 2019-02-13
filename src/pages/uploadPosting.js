@@ -25,9 +25,14 @@ class UploadPosting extends React.Component {
       props.location.state && props.location.state.uploaded
         ? "Uploaded"
         : "Not completed";
+    let num =
+      props.location.state && props.location.state.num
+        ? props.location.state.num
+        : 0;
     this.state = {
       status: status,
-      modalIsOpen: false
+      modalIsOpen: false,
+      num: num
     };
 
     this.back = this.back.bind(this);
@@ -56,7 +61,10 @@ class UploadPosting extends React.Component {
   takePic() {
     this.props.history.push({
       pathname: process.env.PUBLIC_URL + "/inCamera",
-      state: { pathFrom: process.env.PUBLIC_URL + "/uploadPosting" }
+      state: {
+        pathFrom: process.env.PUBLIC_URL + "/uploadPosting",
+        num: this.state.num > 1 ? 2 : this.state.num + 1
+      }
     });
   }
 

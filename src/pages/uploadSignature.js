@@ -62,7 +62,6 @@ class UploadSignature extends React.Component {
 
   next(event) {
     event.preventDefault();
-    //handle target and call this.props.save(event.target[i])
     if (this.state.status === "Uploaded") {
       let target = {
         name: "Signature",
