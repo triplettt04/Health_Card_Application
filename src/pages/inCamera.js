@@ -7,6 +7,8 @@ import MPRR3 from "./MPRR3.png";
 import Passport from "./Passport.png";
 import Selfie from "./Selfie.png";
 import Signature from "./Signature.png";
+import Posting1 from "./Posting1.png";
+import Posting2 from "./Posting2.png";
 
 class InCamera extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class InCamera extends React.Component {
     let img;
     switch (this.props.location.state.pathFrom) {
       case process.env.PUBLIC_URL + "/uploadRes":
-        img = Selfie; //Test for now
+        img = MPRR2; //Random one since the user is not going here
         break;
       case process.env.PUBLIC_URL + "/uploadCitizen":
         img = Passport;
@@ -39,7 +41,17 @@ class InCamera extends React.Component {
         }
         break;
       case process.env.PUBLIC_URL + "/uploadPosting":
-        img = Selfie; //TO CHANGE
+        switch (this.props.location.state.num) {
+          case 1:
+            img = Posting1;
+            break;
+          case 2:
+            img = Posting2;
+            break;
+          default:
+            img = "";
+            console.log("ERROR - unknown MPRR number");
+        }
         break;
       case process.env.PUBLIC_URL + "/uploadPhoto":
         img = Selfie;
@@ -49,6 +61,7 @@ class InCamera extends React.Component {
         break;
       default:
         img = "";
+        console.log("ERROR - unknown MPRR number");
     }
     this.state = {
       img: img
