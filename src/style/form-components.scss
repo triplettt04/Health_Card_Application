@@ -328,3 +328,21 @@
     outline: none;
   }
 }
+
+//Icon links
+.icon-link {
+  display: inline-block;
+  color: #0071a8;
+  font-size: 16px;
+  padding: 5px 0px 2px 55px;
+  background-repeat: no-repeat;
+}
+
+.icon-link-container {
+  width: 100%;
+  padding-bottom: 25px;
+}
+
+.icon-link-container:last-child {
+  padding-bottom: 10px;
+}
