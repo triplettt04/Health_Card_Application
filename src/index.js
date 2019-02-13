@@ -15,7 +15,6 @@ import constants from "./constants";
 import Terms from "./pages/terms";
 import Birthday from "./pages/birthday";
 import Sex from "./pages/sex";
-import HowSignature from "./pages/howSignature";
 import InCamera from "./pages/inCamera";
 import ConfirmPhoto from "./pages/confirmPhoto";
 import NotFound from "./pages/notFound";
@@ -67,7 +66,6 @@ class App extends React.Component {
     const RouterBirthday = withRouter(Birthday);
     const RouterName = withRouter(Name);
     const RouterAddressRes = withRouter(AddressRes);
-    const RouterHowSignature = withRouter(HowSignature);
     const RouterSex = withRouter(Sex);
     const RouterInCamera = withRouter(InCamera);
     const RouterConfirmPhoto = withRouter(ConfirmPhoto);
@@ -139,12 +137,6 @@ class App extends React.Component {
             path={process.env.PUBLIC_URL + "/sex"}
             render={() => (
               <RouterSex save={target => this.handleChange(target)} />
-            )}
-          />
-          <Route
-            path={process.env.PUBLIC_URL + "/howSignature"}
-            render={() => (
-              <RouterHowSignature save={() => this.handleChange()} />
             )}
           />
           <Route

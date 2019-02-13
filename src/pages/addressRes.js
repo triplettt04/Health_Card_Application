@@ -18,13 +18,23 @@ class AddressRes extends React.Component {
 
   next(event) {
     event.preventDefault();
+    let save = true,
+      toSave = [];
     for (let i = 0; i < event.target.length; i++) {
-      if (event.target[i].type !== "submit") {
-        this.props.save(event.target[i]);
+      if (event.target[i].type === "text") {
+        toSave.push(event.target[i]);
+        if (!event.target[i].value.length) {
+          save = false;
+        }
       }
     }
-    let path = process.env.PUBLIC_URL + "/addressMail";
-    this.props.history.push(path);
+    if (save) {
+      for (let i = 0; i < toSave.length; i++) {
+        this.props.save(toSave[i]);
+      }
+      let path = process.env.PUBLIC_URL + "/addressMail";
+      this.props.history.push(path);
+    }
   }
 
   back() {
