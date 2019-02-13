@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../components/card";
 import constants from "../constants";
+import MaskedInput from "react-text-mask";
 
 class Birthday extends React.Component {
   constructor(props) {
@@ -16,6 +17,11 @@ class Birthday extends React.Component {
   }
   next(event) {
     event.preventDefault();
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit") {
+        this.props.save(event.target[i]);
+      }
+    }
     let path = process.env.PUBLIC_URL + "/sex";
     this.props.history.push(path);
   }
@@ -31,6 +37,13 @@ class Birthday extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
+          <MaskedInput
+            mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
+            placeholder="25/09/1970"
+            className="form-control"
+            guide={true}
+            name="birthday"
+          />
         </div>
         <div className="btn-container button-footer">
           <button

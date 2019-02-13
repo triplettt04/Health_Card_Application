@@ -48,7 +48,9 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      baseIndex: 0
+      baseIndex: 0,
+      pathFrom: null,
+      pageNum: 0
       //["Military relation"]: "Yes" //Hard coded for testing
     };
     this.handleChange = this.handleChange.bind(this);
@@ -163,7 +165,13 @@ class App extends React.Component {
           />
           <Route
             path={process.env.PUBLIC_URL + "/inCamera"}
-            render={() => <RouterInCamera save={() => this.handleChange()} />}
+            render={() => (
+              <RouterInCamera
+                save={() => this.handleChange()}
+                pathFrom={this.state.pathFrom}
+                num={this.state.pageNum}
+              />
+            )}
           />
           <Route
             path={process.env.PUBLIC_URL + "/confirmPhoto"}
