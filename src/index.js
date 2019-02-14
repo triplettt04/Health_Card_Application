@@ -325,7 +325,15 @@ class App extends React.Component {
           <Route
             path={process.env.PUBLIC_URL + "/confirmation"}
             render={() => (
-              <RouterConfirmation save={target => this.handleChange(target)} />
+              <RouterConfirmation
+                save={target => this.handleChange(target)}
+                street={this.state["Residence street"]}
+                postalCode={this.state["Residence postal code"]}
+                city={this.state["Residence city"]}
+                province={"Ontario"}
+                country={"Canada"}
+                email={this.state["Email"]}
+              />
             )}
           />
           <Route

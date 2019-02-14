@@ -24,14 +24,15 @@ class Confirmation extends React.Component {
             </h2>
             <p className="caption">
               A confirmation email has been sent to
-              <a href="#"> mary_cook@gmail.com</a>.<br />
+              <a href="#">{this.props.email}</a>.<br />
               <br />
               You should receive your health card in approximately 4 weeks.
               <br />
               <br />
               It will be sent to{" "}
               <span className="semibold">
-                10354 97 St NW, Edmonton AB T5J 3W7
+                {this.props.street}, {this.props.city}, {this.props.province},{" "}
+                {this.props.country}, {this.props.postalCode}
               </span>
               .<br />
               <br />

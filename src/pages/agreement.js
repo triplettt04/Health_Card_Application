@@ -9,8 +9,16 @@ class Terms extends React.Component {
   }
   next(event) {
     event.preventDefault();
-    let path = process.env.PUBLIC_URL + "/confirmation";
-    this.props.history.push(path);
+    let checked = false;
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit" && event.target[i].checked) {
+        checked = true;
+      }
+    }
+    if (checked) {
+      let path = process.env.PUBLIC_URL + "/confirmation";
+      this.props.history.push(path);
+    }
   }
   back() {
     this.props.history.push(process.env.PUBLIC_URL + "/summary");
