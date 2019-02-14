@@ -21,9 +21,10 @@ const customStyles = {
 class UploadMilitary extends React.Component {
   constructor(props) {
     super(props);
+
     let status = props.status
       ? props.status
-      : props.location.state && props.location.state.uploaded
+      : props.num > 0
       ? "Uploaded"
       : "Not completed";
     let num =

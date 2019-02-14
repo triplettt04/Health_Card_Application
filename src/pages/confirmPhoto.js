@@ -16,6 +16,34 @@ class SelectBase extends React.Component {
   next(event) {
     event.preventDefault();
     let pathFrom = this.props.location.state.pathFrom;
+    let target = {
+      name: null,
+      value: "Uploaded"
+    };
+    switch (pathFrom) {
+      case process.env.PUBLIC_URL + "/uploadRes":
+        //Nothing yet
+        break;
+      case process.env.PUBLIC_URL + "/uploadCitizen":
+        target.name = "Citizenship proof";
+        break;
+      case process.env.PUBLIC_URL + "/uploadID":
+        target.name = "Identity proof";
+        break;
+      case process.env.PUBLIC_URL + "/uploadMilitary":
+        target.name = "Military proof";
+        break;
+      case process.env.PUBLIC_URL + "/uploadPosting":
+        target.name = "Posting message";
+        break;
+      case process.env.PUBLIC_URL + "/uploadPhoto":
+        target.name = "Photo proof";
+        break;
+      case process.env.PUBLIC_URL + "/uploadSignature":
+        target.name = "Signature";
+        break;
+    }
+    this.props.save(target);
     if (this.props.location.state.num) {
       this.props.history.push({
         pathname: pathFrom,
