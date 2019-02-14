@@ -167,7 +167,7 @@ class Summary extends React.Component {
             </div>
             <div className="summary-tab">
               <div className="summary-question">
-                Please select your immigration status in Ontario.
+                Please select your immigration status.
               </div>
               <div className="response">{this.props.state["Citizen type"]}</div>
               <a href="#" className="edit">
