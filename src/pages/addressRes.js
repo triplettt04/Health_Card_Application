@@ -51,8 +51,13 @@ class AddressRes extends React.Component {
       <div>
         <div className="progress-indicator">8 / 22</div>
         <h2 className="sub-header">
-          Please enter your Ontario residence address.
+          Your ontario residence address has been set to your military base
+          address for now.
         </h2>
+        <p className="caption">
+          You can update your residence address with ServiceOntario after you
+          know where you will be living.
+        </p>
       </div>
     );
 

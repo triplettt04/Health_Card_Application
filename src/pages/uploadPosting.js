@@ -117,12 +117,8 @@ class UploadPosting extends React.Component {
         <div className="progress-indicator">7 / 22</div>
         <h2 className="sub-header">
           Please upload photos or a scan of the military member's posting
-          message.
+          message to prove your intent to move to Ontario.
         </h2>
-        <p className="caption">
-          When relocating to Ontario, posting messages show your intent to move
-          into the province.
-        </p>
       </div>
     );
     let cardUploaded = [],

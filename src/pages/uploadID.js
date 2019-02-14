@@ -89,11 +89,10 @@ class UploadID extends React.Component {
     let content = (
       <div>
         <div className="progress-indicator">14 / 22</div>
-        <h2 className="sub-header">Please upload your proof of identity</h2>
-        <p className="caption">
-          When relocating to Ontario, posting messages show your intent to move
-          into the province.
-        </p>
+        <h2 className="sub-header">
+          Please upload a photo or scan of your identity document with your full
+          name and signature.
+        </h2>
       </div>
     );
     let uploaded = (
