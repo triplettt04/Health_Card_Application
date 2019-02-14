@@ -13,7 +13,7 @@ class Summary extends React.Component {
   next(event) {
     event.preventDefault();
     //handle target and call this.props.save(event.target[i])
-    let path = process.env.PUBLIC_URL + "/confirmation";
+    let path = process.env.PUBLIC_URL + "/agreement";
     this.props.history.push(path);
   }
 

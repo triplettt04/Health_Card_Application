@@ -149,7 +149,17 @@ class App extends React.Component {
                         postalCode: this.state["Residence postal code"]
                       }
                     : this.state["Military relation"]
-                    ? constants.militaryAddresses[this.state.baseIndex]
+                    ? {
+                        street:
+                          constants.militaryAddresses[this.state.baseIndex]
+                            .street,
+                        city:
+                          constants.militaryAddresses[this.state.baseIndex]
+                            .city,
+                        postalCode:
+                          constants.militaryAddresses[this.state.baseIndex]
+                            .postalCode
+                      }
                     : null
                 }
                 pathFrom={this.state["Ontario address"]}

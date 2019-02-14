@@ -102,6 +102,18 @@ class SelectBase extends React.Component {
                   value: val
                 })
               }
+              renderMenu={(items, value, style) => {
+                let maxLength = 3;
+                if (items.length > maxLength) {
+                  items = items.slice(0, maxLength);
+                }
+                return (
+                  <div
+                    style={{ ...style, ...this.menuStyle }}
+                    children={items}
+                  />
+                );
+              }}
             />
           </div>
         </div>
