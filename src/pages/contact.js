@@ -1,6 +1,8 @@
 import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
+import MaskedInput from "react-text-mask";
+import emailMask from "text-mask-addons/dist/emailMask";
 
 class Contact extends React.Component {
   constructor(props) {
@@ -11,12 +13,13 @@ class Contact extends React.Component {
 
   next(event) {
     event.preventDefault();
+
     let save = true,
       toSave = [];
     for (let i = 0; i < event.target.length; i++) {
-      if (event.target[i].type === "text") {
+      if (event.target[i].type !== "submit") {
         toSave.push(event.target[i]);
-        if (!event.target[i].value.length) {
+        if (!event.target[i].value || !event.target[i].value.length) {
           save = false;
         }
       }
@@ -54,29 +57,72 @@ class Contact extends React.Component {
             <label className="form-label" htmlFor="primary-phone-1">
               Primary phone
             </label>
-            <input
+            <MaskedInput
+              mask={[
+                "(",
+                /[1-9]/,
+                /\d/,
+                /\d/,
+                ")",
+                " ",
+                /\d/,
+                /\d/,
+                /\d/,
+                "-",
+                /\d/,
+                /\d/,
+                /\d/,
+                /\d/
+              ]}
+              placeholder="(123) 456-7890"
               className="form-control"
+              guide={true}
               id="primary-phone-1"
               name="Primary phone"
-              defaultValue={this.props.primaryPhone}
+              defaultValue={
+                this.props.primaryPhone ? this.props.primaryPhone : ""
+              }
             />
             <label className="form-label" htmlFor="alternate-phone-1">
               Alternate phone
             </label>
-            <input
+            <MaskedInput
+              mask={[
+                "(",
+                /[1-9]/,
+                /\d/,
+                /\d/,
+                ")",
+                " ",
+                /\d/,
+                /\d/,
+                /\d/,
+                "-",
+                /\d/,
+                /\d/,
+                /\d/,
+                /\d/
+              ]}
+              placeholder="(123) 456-7890"
               className="form-control"
+              guide={true}
               id="alternate-phone-1"
               name="Alternate phone"
-              defaultValue={this.props.alternatePhone}
+              defaultValue={
+                this.props.alternatePhone ? this.props.alternatePhone : ""
+              }
             />
             <label className="form-label" htmlFor="email-1">
               Email
             </label>
-            <input
+            <MaskedInput
+              mask={emailMask}
+              placeholder="someone@example.com"
               className="form-control"
+              guide={true}
               id="email-1"
               name="Email"
-              defaultValue={this.props.email}
+              defaultValue={this.props.email ? this.props.email : ""}
             />
           </div>
         </div>

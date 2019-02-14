@@ -26,7 +26,7 @@ class SelectMilitaryProof extends React.Component {
     }
     if (!noneChecked) {
       let target = {
-        name: "Military proof",
+        name: "Military proof type",
         value: value
       };
       this.props.save(target);

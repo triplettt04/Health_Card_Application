@@ -48,7 +48,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      baseIndex: 0,
+      baseIndex: null,
       pathFrom: null,
       pageNum: 0
       //["Military relation"]: "Yes" //Hard coded for testing
@@ -170,7 +170,7 @@ class App extends React.Component {
           <Route
             path={process.env.PUBLIC_URL + "/confirmPhoto"}
             render={() => (
-              <RouterConfirmPhoto save={() => this.handleChange()} />
+              <RouterConfirmPhoto save={target => this.handleChange(target)} />
             )}
           />
           <Route
@@ -197,7 +197,9 @@ class App extends React.Component {
               <RouterSelectBase
                 save={target => this.handleChange(target)}
                 baseLabel={
-                  constants.militaryAddresses[this.state.baseIndex].label
+                  this.state.baseIndex
+                    ? constants.militaryAddresses[this.state.baseIndex].label
+                    : null
                 }
               />
             )}
@@ -207,7 +209,7 @@ class App extends React.Component {
             render={() => (
               <RouterSelectMilitaryProof
                 save={target => this.handleChange(target)}
-                militaryProof={this.state["Military proof"]}
+                militaryProof={this.state["Military proof type"]}
               />
             )}
           />
