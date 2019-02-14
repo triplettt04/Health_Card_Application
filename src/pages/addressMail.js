@@ -7,11 +7,26 @@ class AddressMail extends React.Component {
     super(props);
     this.state = {
       checked: false,
-      street: "",
-      city: "",
-      postalCode: "",
-      province: "",
-      country: ""
+      street:
+        this.props.address && this.props.address.street
+          ? this.props.address.street
+          : "",
+      city:
+        this.props.address && this.props.address.city
+          ? this.props.address.city
+          : "",
+      postalCode:
+        this.props.address && this.props.address.postalCode
+          ? this.props.address.postalCode
+          : "",
+      province:
+        this.props.address && this.props.address.province
+          ? this.props.address.province
+          : "",
+      country:
+        this.props.address && this.props.address.country
+          ? this.props.address.country
+          : ""
     };
 
     this.back = this.back.bind(this);
@@ -32,11 +47,26 @@ class AddressMail extends React.Component {
     } else {
       this.setState({
         checked: event.target.checked,
-        street: "",
-        city: "",
-        postalCode: "",
-        province: "",
-        country: ""
+        street:
+          this.props.address && this.props.address.street
+            ? this.props.address.street
+            : "",
+        city:
+          this.props.address && this.props.address.city
+            ? this.props.address.city
+            : "",
+        postalCode:
+          this.props.address && this.props.address.postalCode
+            ? this.props.address.postalCode
+            : "",
+        province:
+          this.props.address && this.props.address.province
+            ? this.props.address.province
+            : "",
+        country:
+          this.props.address && this.props.address.country
+            ? this.props.address.country
+            : ""
       });
     }
   }

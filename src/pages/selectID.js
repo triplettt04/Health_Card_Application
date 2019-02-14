@@ -46,7 +46,7 @@ class SelectID extends React.Component {
         <div className="progress-indicator">13 / 22</div>
         <h2 className="sub-header">
           Please select one of the following documents you wish to use as proof
-          of oyur identity.
+          of your identity.
         </h2>
         <p className="caption">
           In order to receive OHIP coverage, you must prove who you are with a

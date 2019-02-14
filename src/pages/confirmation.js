@@ -24,7 +24,7 @@ class Confirmation extends React.Component {
             </h2>
             <p className="caption">
               A confirmation email has been sent to
-              <a href="#">{this.props.email}</a>.<br />
+              <a href="#">{" " + this.props.email}</a>.<br />
               <br />
               You should receive your health card in approximately 4 weeks.
               <br />
