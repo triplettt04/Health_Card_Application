@@ -86,7 +86,7 @@ class SelectBase extends React.Component {
     return (
       <form onSubmit={event => this.next(event)}>
         <img className="upload-image" src={this.state.img} />
-        <div className="btn-container">
+        <div className="btn-container button-footer">
           <button
             className="btn btn-general btn-invert"
             onClick={() => this.back()}

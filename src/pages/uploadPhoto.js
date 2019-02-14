@@ -5,6 +5,7 @@ import CardUploaded from "../components/cardUploaded";
 import iconTrash from "../assets/icon-trash.svg";
 import Selfie from "./Selfie.png";
 import Modal from "react-modal";
+import passportPhoto from "../assets/passport.png";
 
 const customStyles = {
   content: {
@@ -88,11 +89,20 @@ class UploadPhoto extends React.Component {
     let content = (
       <div>
         <div className="progress-indicator">19 / 22</div>
-        <h2 className="sub-header">Upload your selfie</h2>
+        <h2 className="sub-header">
+          Please upload the front and back of a certified passport photo of
+          yourself.
+        </h2>
         <p className="caption">
-          When relocating to Ontario, posting messages show your intent to move
-          into the province.
+          This photo must be taken within the last month and will be used as
+          your health card photo.
+          <br />
+          <br />
+          Specifications of the front and back of the photo:
         </p>
+        <div className="passport-photo">
+          <img src={passportPhoto} />
+        </div>
       </div>
     );
     let uploaded = (
@@ -157,15 +167,6 @@ class UploadPhoto extends React.Component {
             <div className="icon-link-container">
               <a
                 href="#"
-                className="icon-link icon-photo"
-                onClick={() => this.takePic()}
-              >
-                Take a photo
-              </a>
-            </div>
-            <div className="icon-link-container">
-              <a
-                href="#"
                 className="icon-link icon-folder"
                 onClick={() => this.takePic()}
               >
@@ -183,7 +184,7 @@ class UploadPhoto extends React.Component {
             </div>
           </div>
         </div>
-        <div className="btn-container">
+        <div className="btn-container button-footer">
           <button
             className="btn btn-general btn-invert"
             onClick={() => this.back()}
