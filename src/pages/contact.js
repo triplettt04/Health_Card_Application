@@ -94,7 +94,7 @@ class Contact extends React.Component {
               }
             />
             <label className="form-label" htmlFor="alternate-phone-1">
-              Alternate phone
+              Alternate phone (Optional)
             </label>
             <MaskedInput
               mask={[

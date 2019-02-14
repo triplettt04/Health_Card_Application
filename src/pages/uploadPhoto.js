@@ -167,6 +167,15 @@ class UploadPhoto extends React.Component {
             <div className="icon-link-container">
               <a
                 href="#"
+                className="icon-link icon-photo"
+                onClick={() => this.takePic()}
+              >
+                Take a photo
+              </a>
+            </div>
+            <div className="icon-link-container">
+              <a
+                href="#"
                 className="icon-link icon-folder"
                 onClick={() => this.takePic()}
               >

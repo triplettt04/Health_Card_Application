@@ -100,7 +100,7 @@ class UploadID extends React.Component {
         <a href="#" className="view-link" onClick={this.openModal}>
           View
         </a>
-        <div className="file-name">driver_license.png</div>
+        <div className="file-name">drivers_license.png</div>
         <button className="delete-icon">
           <img src={iconTrash} />
         </button>
@@ -128,7 +128,7 @@ class UploadID extends React.Component {
               className="file-name"
               ref={subtitle => (this.subtitle = subtitle)}
             >
-              driver_license.png
+              drivers_license.png
             </div>
             <a className="modal-close" onClick={this.closeModal} />
           </div>

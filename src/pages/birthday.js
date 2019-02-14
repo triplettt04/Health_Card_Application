@@ -36,7 +36,7 @@ class Birthday extends React.Component {
     let content = (
       <div>
         <div className="progress-indicator">16 / 22</div>
-        <h2 className="sub-header">When is your date of birth?</h2>
+        <h2 className="sub-header">What is your date of birth?</h2>
       </div>
     );
 
@@ -52,14 +52,17 @@ class Birthday extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <MaskedInput
-            mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
-            placeholder="DD/MM/YYYY"
-            className="form-control"
-            guide={true}
-            defaultValue={this.props.birthday ? this.props.birthday : ""}
-            name="birthday"
-          />
+          <div className="birthdate-input">
+            <label>Birthdate (DD/MM/YYYY)</label>
+            <MaskedInput
+              mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
+              placeholder="DD/MM/YYYY"
+              className="form-control"
+              guide={true}
+              defaultValue={this.props.birthday ? this.props.birthday : ""}
+              name="birthday"
+            />
+          </div>
         </div>
         <div className="btn-container button-footer">
           <button
