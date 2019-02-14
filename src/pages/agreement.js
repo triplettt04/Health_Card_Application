@@ -9,8 +9,16 @@ class Terms extends React.Component {
   }
   next(event) {
     event.preventDefault();
-    let path = process.env.PUBLIC_URL + "/confirmation";
-    this.props.history.push(path);
+    let checked = false;
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit" && event.target[i].checked) {
+        checked = true;
+      }
+    }
+    if (checked) {
+      let path = process.env.PUBLIC_URL + "/confirmation";
+      this.props.history.push(path);
+    }
   }
   back() {
     this.props.history.push(process.env.PUBLIC_URL + "/summary");
@@ -18,7 +26,7 @@ class Terms extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">15 / 15</div>
+        <div className="progress-indicator">22 / 22</div>
         <h2 className="sub-header">Online application agreement.</h2>
         <p className="caption">
           You will need to agree to the following before submitting your online

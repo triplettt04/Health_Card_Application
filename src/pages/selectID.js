@@ -43,7 +43,7 @@ class SelectID extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 15</div>
+        <div className="progress-indicator">13 / 22</div>
         <h2 className="sub-header">
           Please select one of the following documents you wish to use as proof
           of oyur identity.

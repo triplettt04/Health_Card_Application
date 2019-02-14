@@ -50,7 +50,7 @@ class HasAddress extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 15</div>
+        <div className="progress-indicator">6 / 22</div>
         <h2 className="sub-header">
           Do you currently have an address in Ontario?
         </h2>

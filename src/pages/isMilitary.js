@@ -50,7 +50,7 @@ class IsMilitary extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">3 / 15</div>
+        <div className="progress-indicator">2 / 22</div>
         <h2 className="sub-header">
           Are you a spouse or dependant of a Canadian military member?
         </h2>

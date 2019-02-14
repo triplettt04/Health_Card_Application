@@ -35,7 +35,7 @@ class Birthday extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 15</div>
+        <div className="progress-indicator">16 / 22</div>
         <h2 className="sub-header">What is your date of birth?</h2>
       </div>
     );
@@ -54,7 +54,7 @@ class Birthday extends React.Component {
           <Card content={content} />
           <MaskedInput
             mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
-            placeholder="31/01/1900"
+            placeholder="01/31/1950"
             className="form-control"
             guide={true}
             name="birthday"

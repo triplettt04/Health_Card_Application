@@ -71,7 +71,7 @@ class AddressMail extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 15</div>
+        <div className="progress-indicator">9 / 22</div>
         <h2 className="sub-header">Please enter your mailing address.</h2>
         <p className="caption">
           This is where we will mail your health card and send correspondence.

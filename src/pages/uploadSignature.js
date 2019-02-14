@@ -81,14 +81,14 @@ class UploadSignature extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/selectSignature";
+    let path = process.env.PUBLIC_URL + "/uploadPhoto";
     this.props.history.push(path);
   }
 
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">2 / 15</div>
+        <div className="progress-indicator">20 / 22</div>
         <h2 className="sub-header">
           Please upload a photo or scan of your signature.
         </h2>

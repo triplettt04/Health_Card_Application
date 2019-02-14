@@ -88,8 +88,8 @@ class UploadID extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">2 / 15</div>
-        <h2 className="sub-header">Please upload PROOF OF ID PLACEHOLDER</h2>
+        <div className="progress-indicator">14 / 22</div>
+        <h2 className="sub-header">Please upload your proof of identity</h2>
         <p className="caption">
           When relocating to Ontario, posting messages show your intent to move
           into the province.

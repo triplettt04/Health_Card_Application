@@ -74,7 +74,7 @@ class UploadPhoto extends React.Component {
       };
       this.props.save(target);
       this.props.history.push({
-        pathname: process.env.PUBLIC_URL + "/selectSignature"
+        pathname: process.env.PUBLIC_URL + "/uploadSignature"
       });
     }
   }
@@ -87,7 +87,7 @@ class UploadPhoto extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">2 / 15</div>
+        <div className="progress-indicator">19 / 22</div>
         <h2 className="sub-header">Upload your selfie</h2>
         <p className="caption">
           When relocating to Ontario, posting messages show your intent to move
