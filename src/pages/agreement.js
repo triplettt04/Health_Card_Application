@@ -13,7 +13,7 @@ class Terms extends React.Component {
     this.props.history.push(path);
   }
   back() {
-    this.props.history.push("/");
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
   }
   render() {
     let content = (

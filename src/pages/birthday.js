@@ -17,13 +17,20 @@ class Birthday extends React.Component {
   }
   next(event) {
     event.preventDefault();
+    let noneEntered = true;
     for (let i = 0; i < event.target.length; i++) {
-      if (event.target[i].type !== "submit") {
+      if (
+        event.target[i].type !== "submit" &&
+        event.target[i].value.length > 7
+      ) {
         this.props.save(event.target[i]);
+        noneEntered = false;
       }
     }
-    let path = process.env.PUBLIC_URL + "/sex";
-    this.props.history.push(path);
+    if (!noneEntered) {
+      let path = process.env.PUBLIC_URL + "/sex";
+      this.props.history.push(path);
+    }
   }
   render() {
     let content = (
@@ -47,7 +54,7 @@ class Birthday extends React.Component {
           <Card content={content} />
           <MaskedInput
             mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
-            placeholder="25/09/1970"
+            placeholder="31/01/1900"
             className="form-control"
             guide={true}
             name="birthday"

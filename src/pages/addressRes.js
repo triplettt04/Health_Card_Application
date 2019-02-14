@@ -5,7 +5,7 @@ import Card from "../components/card";
 class AddressRes extends React.Component {
   constructor(props) {
     super(props);
-
+    debugger;
     this.state = {
       street: this.props.address ? props.address.street : null,
       city: this.props.address ? props.address.city : null,
