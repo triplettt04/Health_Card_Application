@@ -90,11 +90,14 @@ class UploadSignature extends React.Component {
       <div>
         <div className="progress-indicator">20 / 22</div>
         <h2 className="sub-header">
-          Please upload a photo or scan of your signature.
+          Please upload a photo or scan of your signature or sign on your
+          device.
         </h2>
         <p className="caption">
-          When relocating to Ontario, posting messages show your intent to move
-          into the province.
+          If you are uploading a photo, please sign in{" "}
+          <span className="semibold">
+            black or blue ink on plain white printer paper.
+          </span>
         </p>
       </div>
     );
@@ -182,6 +185,15 @@ class UploadSignature extends React.Component {
                 onClick={() => this.takePic()}
               >
                 Browse gallery
+              </a>
+            </div>
+            <div className="icon-link-container">
+              <a
+                href="#"
+                className="icon-link icon-signon"
+                onClick={() => this.takePic()}
+              >
+                Sign on your device
               </a>
             </div>
           </div>
