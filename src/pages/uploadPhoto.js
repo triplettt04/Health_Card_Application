@@ -3,7 +3,7 @@ import constants from "../constants";
 import Card from "../components/card";
 import CardUploaded from "../components/cardUploaded";
 import iconTrash from "../assets/icon-trash.svg";
-import Selfie from "./Selfie.png";
+import Selfie from "../assets/Self photo.png";
 import Modal from "react-modal";
 import passportPhoto from "../assets/passport.png";
 
@@ -110,7 +110,7 @@ class UploadPhoto extends React.Component {
         <a href="#" className="view-link" onClick={this.openModal}>
           View
         </a>
-        <div className="file-name">selfie.png</div>
+        <div className="file-name">self_photo.png</div>
         <button className="delete-icon">
           <img src={iconTrash} />
         </button>
@@ -138,7 +138,7 @@ class UploadPhoto extends React.Component {
               className="file-name"
               ref={subtitle => (this.subtitle = subtitle)}
             >
-              selfie.png
+              self_photo.png
             </div>
             <a className="modal-close" onClick={this.closeModal} />
           </div>

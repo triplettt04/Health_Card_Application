@@ -36,7 +36,7 @@ class Birthday extends React.Component {
     let content = (
       <div>
         <div className="progress-indicator">16 / 22</div>
-        <h2 className="sub-header">What is your date of birth?</h2>
+        <h2 className="sub-header">When is your date of birth?</h2>
       </div>
     );
 
@@ -57,6 +57,7 @@ class Birthday extends React.Component {
             placeholder="DD/MM/YYYY"
             className="form-control"
             guide={true}
+            defaultValue={this.props.birthday ? this.props.birthday : ""}
             name="birthday"
           />
         </div>
