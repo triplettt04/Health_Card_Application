@@ -12,8 +12,8 @@ import {
 import constants from "./constants";
 
 //Pages
-import GetStarted from "./pages/getStarted";
 //import Terms from "./pages/terms";
+import GetStarted from "./pages/getStarted";
 import Birthday from "./pages/birthday";
 import Sex from "./pages/sex";
 import InCamera from "./pages/inCamera";
