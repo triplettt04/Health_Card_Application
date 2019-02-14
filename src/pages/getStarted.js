@@ -30,19 +30,25 @@ class GetStarted extends React.Component {
           <h1 className="primary-header">Here's how applying online works</h1>
           <div className="summary-content">
             <div className="summary-step">
-              <img src={require("../assets/upload-graphic.svg")} />
-              <h2 className="sub-header">Upload your documents</h2>
+              <img src={require("../assets/passport-photo.svg")} />
+              <h2 className="sub-header">
+                Get a certified passport photo and gather your documents
+              </h2>
               <p className="caption">
-                Submit relevant documents needed to complete the application
+                In addition to a <a href="#">certified passport photo</a>, you
+                will need three types of <a href="#">documents</a> to prove your
+                eligibility.
               </p>
             </div>
             <div className="spacer" />
             <div className="summary-step">
               <img src={require("../assets/form-graphic.svg")} />
-              <h2 className="sub-header">Fill out the form</h2>
+              <h2 className="sub-header">
+                Fill out the form and upload your documents
+              </h2>
               <p className="caption">
                 Complete the online application form with your personal
-                information
+                information and upload the relevant documents.
               </p>
             </div>
             <div className="spacer" />
