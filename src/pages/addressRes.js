@@ -5,7 +5,6 @@ import Card from "../components/card";
 class AddressRes extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
     this.state = {
       street: this.props.address ? props.address.street : null,
       city: this.props.address ? props.address.city : null,
@@ -50,7 +49,7 @@ class AddressRes extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 15</div>
+        <div className="progress-indicator">8 / 22</div>
         <h2 className="sub-header">
           Please enter your Ontario residence address.
         </h2>

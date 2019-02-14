@@ -25,7 +25,7 @@ class Summary extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">15 / 15</div>
+        <div className="progress-indicator">21 / 22</div>
         <h2 className="sub-header">
           Please verify the information you have provided is complete and
           correct.

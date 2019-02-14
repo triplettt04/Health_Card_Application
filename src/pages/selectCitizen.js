@@ -43,7 +43,7 @@ class SelectCitizen extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 15</div>
+        <div className="progress-indicator">10 / 22</div>
         <h2 className="sub-header">
           Please select your immigration status in Ontario.
         </h2>

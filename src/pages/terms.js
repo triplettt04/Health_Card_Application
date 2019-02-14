@@ -18,7 +18,7 @@ class Terms extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">1 / 15</div>
+        <div className="progress-indicator">1 / 22</div>
         <h2 className="sub-header">Terms and conditions</h2>
         <p className="caption">
           Depending on when you last had coverage, you may not be required to

@@ -16,7 +16,10 @@ class Name extends React.Component {
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].type === "text") {
         toSave.push(event.target[i]);
-        if (!event.target[i].value.length) {
+        if (
+          !event.target[i].value.length &&
+          event.target[i].name === "Last name"
+        ) {
           save = false;
         }
       }
@@ -36,7 +39,16 @@ class Name extends React.Component {
   }
 
   render() {
-    let content = <div>What is your name?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">15 / 22</div>
+        <h2 className="sub-header">Please enter your full name.</h2>
+        <p className="caption">
+          If your cultures uses a single name, please leave the first and middle
+          name(s) fields empty.
+        </p>
+      </div>
+    );
 
     return (
       <form onSubmit={event => this.next(event)}>
@@ -70,7 +82,7 @@ class Name extends React.Component {
               defaultValue={this.props.middleName ? this.props.middleName : ""}
             />
             <label className="form-label" htmlFor="last-name-1">
-              Last name
+              Last name / Single name
             </label>
             <input
               className="form-control"

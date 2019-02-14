@@ -35,7 +35,7 @@ class Birthday extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 15</div>
+        <div className="progress-indicator">16 / 22</div>
         <h2 className="sub-header">What is your date of birth?</h2>
       </div>
     );

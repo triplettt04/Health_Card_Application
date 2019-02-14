@@ -40,7 +40,7 @@ import UploadPosting from "./pages/uploadPosting";
 import Contact from "./pages/contact";
 import AddressMail from "./pages/addressMail";
 import UploadPhoto from "./pages/uploadPhoto";
-import SelectSignature from "./pages/selectSignature";
+//import SelectSignature from "./pages/selectSignature";
 import UploadSignature from "./pages/uploadSignature";
 import Agreement from "./pages/agreement";
 import Template from "./pages/template";
@@ -93,7 +93,7 @@ class App extends React.Component {
     const RouterContact = withRouter(Contact);
     const RouterAddressMail = withRouter(AddressMail);
     const RouterUploadPhoto = withRouter(UploadPhoto);
-    const RouterSelectSignature = withRouter(SelectSignature);
+    //const RouterSelectSignature = withRouter(SelectSignature);
     const RouterUploadSignature = withRouter(UploadSignature);
     const RouterAgreement = withRouter(Agreement);
 
@@ -368,15 +368,6 @@ class App extends React.Component {
               <RouterUploadPhoto
                 save={target => this.handleChange(target)}
                 status={this.state["Photo proof"]}
-              />
-            )}
-          />
-          <Route
-            path={process.env.PUBLIC_URL + "/selectSignature"}
-            render={() => (
-              <RouterSelectSignature
-                save={target => this.handleChange(target)}
-                signature={this.state["Signature type"]}
               />
             )}
           />

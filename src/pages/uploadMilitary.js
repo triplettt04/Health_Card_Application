@@ -121,10 +121,10 @@ class UploadMilitary extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">2 / 15</div>
+        <div className="progress-indicator">5 / 22</div>
         <h2 className="sub-header">
           Please upload photos or a scan of the military member's posting
-          message. MPRR PLACEHOLDER
+          message.
         </h2>
         <p className="caption">
           When relocating to Ontario, posting messages show your intent to move

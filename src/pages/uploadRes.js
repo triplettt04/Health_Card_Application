@@ -87,7 +87,7 @@ class UploadRes extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">2 / 15</div>
+        <div className="progress-indicator">2 / 22</div>
         <h2 className="sub-header">UPLOAD RESIDENCY</h2>
         <p className="caption">
           When relocating to Ontario, posting messages show your intent to move

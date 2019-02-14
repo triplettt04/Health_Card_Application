@@ -114,7 +114,7 @@ class UploadPosting extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">2 / 15</div>
+        <div className="progress-indicator">7 / 22</div>
         <h2 className="sub-header">
           Please upload photos or a scan of the military member's posting
           message.

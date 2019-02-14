@@ -25,7 +25,7 @@ class Template extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">1 / 15</div>
+        <div className="progress-indicator">1 / 22</div>
         <h2 className="sub-header">Description of the chameleon</h2>
         <p className="caption">
           Chameleons are distinguished by their feet; their very extensive,

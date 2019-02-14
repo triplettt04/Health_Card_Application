@@ -43,7 +43,7 @@ class Sex extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 15</div>
+        <div className="progress-indicator">17 / 22</div>
         <h2 className="sub-header">
           What is your sex as indicated on your birth certificate or passport?
         </h2>
@@ -68,21 +68,6 @@ class Sex extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                value="Male"
-                checked={this.state.sex === "Male"}
-                onChange={() =>
-                  this.setState({
-                    sex: "Male"
-                  })
-                }
-              />
-              <div className="label-text">Male</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
                 value="Female"
                 checked={this.state.sex === "Female"}
                 onChange={() =>
@@ -92,6 +77,21 @@ class Sex extends React.Component {
                 }
               />
               <div className="label-text">Female</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Male"
+                checked={this.state.sex === "Male"}
+                onChange={() =>
+                  this.setState({
+                    sex: "Male"
+                  })
+                }
+              />
+              <div className="label-text">Male</div>
             </label>
             <label className="radio-style block">
               <input
