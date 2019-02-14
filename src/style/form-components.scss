@@ -54,6 +54,7 @@
     margin-top: 5px;
     width: calc(100% - 55px);
     color: $dark-grey;
+    text-align: left;
   }
 }
 
@@ -135,6 +136,7 @@
     display: inline-block;
     margin-top: 10px;
     width: calc(100% - 75px);
+    text-align: left;
   }
 }
 
@@ -303,7 +305,7 @@
 .footer.camera-footer {
   bottom: 0;
   position: absolute;
-  background-color: $dark-grey;
+  background-color: #000;
   width: 100%;
   height: 80px;
   text-align: center;
@@ -313,6 +315,8 @@
     position: absolute;
     bottom: 30%;
     color: #fff;
+    border: none;
+    background: none;
   }
 
   .camera-button {
