@@ -36,7 +36,15 @@ class Contact extends React.Component {
   }
 
   render() {
-    let content = <div>What is your contact information?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">Please enter your contact information.</h2>
+        <p className="caption">
+          This information will be useful if we need to get in contact with you.
+        </p>
+      </div>
+    );
 
     return (
       <form onSubmit={event => this.next(event)}>
