@@ -41,7 +41,14 @@ class Sex extends React.Component {
   }
 
   render() {
-    let content = <div>What is your sex?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">
+          What is your sex as indicated on your birth certificate or passport?
+        </h2>
+      </div>
+    );
 
     return (
       <form onSubmit={event => this.next(event)}>
@@ -99,7 +106,7 @@ class Sex extends React.Component {
                   })
                 }
               />
-              <div className="label-text">X</div>
+              <div className="label-text">Unspecified</div>
             </label>
           </div>
         </div>

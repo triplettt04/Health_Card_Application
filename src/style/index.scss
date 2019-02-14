@@ -11,69 +11,83 @@ html {
 .form-wrapper {
   padding: 20px 15px;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
-}
 
-@media only screen and (max-width: 768px) {
-  /* Mobile phone size */
-  body {
-    position: relative;
-    margin: 0;
-    background-color: #fcf7f8;
-    text-align: center;
-    min-height: 100%;
-    padding-bottom: 86px;
-    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  a {
+    color: $primary-blue;
   }
 
-  .Card {
-    box-shadow: $box-shadow-cards;
-    border-radius: 20px;
-    padding: 15px 30px 20px;
-    margin-bottom: 40px;
+  .semibold {
+    font-weight: 600;
+  }
+}
 
-    .progress-indicator {
-      text-align: center;
-      color: $light-grey;
-      font-size: 16px;
-    }
+body {
+  position: relative;
+  margin: 0;
+  background-color: #fcf7f8;
+  text-align: center;
+  min-height: 100%;
+  padding-bottom: 86px;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
 
-    .birthday {
-      font-size: 20px;
+.Card {
+  box-shadow: $box-shadow-cards;
+  border-radius: 20px;
+  padding: 15px 30px 20px;
+  margin-bottom: 30px;
 
-      .user-entry {
-        .entry-input {
-          input {
-            width: 100%;
-          }
+  .progress-indicator {
+    text-align: center;
+    color: $light-grey;
+    font-size: 16px;
+  }
+
+  .birthday {
+    font-size: 20px;
+
+    .user-entry {
+      .entry-input {
+        input {
+          width: 100%;
         }
       }
     }
   }
+}
 
-  .card-uploaded {
-    box-shadow: $box-shadow-cards;
-    border-radius: 5px;
-    padding: 18px 22px;
-    font-size: 16px;
-    margin-bottom: 10px;
+.card-uploaded {
+  box-shadow: $box-shadow-cards;
+  border-radius: 5px;
+  padding: 18px 22px;
+  font-size: 16px;
+  margin-bottom: 10px;
 
-    .view-link {
-      padding-right: 15px;
-      display: inline-block;
-      color: $primary-blue;
-    }
-
-    .file-name {
-      display: inline-block;
-    }
-
-    .delete-icon {
-      border: none;
-      padding: 0;
-      background: none;
-      float: right;
-    }
+  .view-link {
+    padding-right: 15px;
+    display: inline-block;
+    color: $primary-blue;
   }
+
+  .file-name {
+    display: inline-block;
+  }
+
+  .delete-icon {
+    border: none;
+    padding: 0;
+    background: none;
+    float: right;
+  }
+}
+
+.small-card-uploaded {
+  width: 100%;
+}
+
+.card-collection {
+  display: inline-block;
+  width: calc(100% - 60px);
 }
 
 //navbar
@@ -115,6 +129,7 @@ html {
 h1.primary-header {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 24px;
+  color: $dark-grey;
 }
 
 .semi-bold {
@@ -127,6 +142,7 @@ h1.primary-header {
 
   .summary-step {
     padding: 50px 15px 30px;
+    text-align: center;
   }
 
   .spacer {
@@ -143,6 +159,7 @@ h2.sub-header {
   margin: 20px 0 20px;
   font-weight: 600;
   line-height: 32px;
+  color: $dark-grey;
 }
 
 p.caption {
@@ -210,4 +227,79 @@ p.caption {
   bottom: 0;
   left: 0;
   padding: 1rem;
+  z-index: -1;
+}
+
+.text-input.one-line.base-input {
+  .form-label {
+    margin: 5px;
+  }
+
+  .auto-text {
+    font-size: 16px;
+    margin: 15px 10px;
+    color: $dark-grey;
+  }
+  input {
+    width: 280px;
+    height: 55px;
+    padding: 15px 10px;
+  }
+}
+
+.confirmation-text {
+  .text-block {
+    padding-bottom: 15px;
+
+    .main-text {
+      padding-bottom: 10px;
+      color: $dark-grey;
+    }
+
+    .list {
+      color: $light-grey;
+    }
+  }
+}
+
+.summary-content {
+  text-align: left;
+  .summary-tab {
+    border-bottom: 2px solid #e2e2e2;
+    padding: 25px 0;
+    .summary-question {
+      color: $light-grey;
+      padding-bottom: 18px;
+    }
+    .response {
+      color: $dark-grey;
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .edit {
+      float: right;
+    }
+  }
+
+  .summary-tab:last-child {
+    border-bottom: none;
+  }
+}
+
+.radio-field.small-font.dead-first-child .radio-style:first-child {
+  color: $light-grey !important;
+
+  .radio-input {
+    background: repeating-linear-gradient(
+      45deg,
+      #fff,
+      #fff 3px,
+      #c4c4c4 3px,
+      #c4c4c4 5px
+    );
+    border-color: #c4c4c4;
+  }
+
+  pointer-events: none;
 }

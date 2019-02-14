@@ -48,7 +48,14 @@ class AddressRes extends React.Component {
   }
 
   render() {
-    let content = <div>What is your residence address?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">
+          Please enter your Ontario residence address.
+        </h2>
+      </div>
+    );
 
     return (
       <form onSubmit={event => this.next(event)}>

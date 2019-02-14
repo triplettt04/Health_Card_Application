@@ -47,7 +47,7 @@ class UploadID extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#000";
+    this.subtitle.style.color = "$dark-grey";
   }
 
   closeModal() {
@@ -179,7 +179,7 @@ class UploadID extends React.Component {
                 className="icon-link icon-gallery"
                 onClick={() => this.takePic()}
               >
-                View gallery
+                Browse gallery
               </a>
             </div>
           </div>

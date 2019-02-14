@@ -1,5 +1,6 @@
 import React from "react";
 import constants from "../constants";
+import Card from "../components/card";
 
 class Summary extends React.Component {
   constructor(props) {
@@ -22,6 +23,16 @@ class Summary extends React.Component {
   }
 
   render() {
+    let content = (
+      <div>
+        <div className="progress-indicator">15 / 15</div>
+        <h2 className="sub-header">
+          Please verify the information you have provided is complete and
+          correct.
+        </h2>
+      </div>
+    );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -33,17 +44,219 @@ class Summary extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
-          <button
-            className="btn btn-general btn-invert"
-            onClick={() => this.back()}
-          >
-            Back
-          </button>
-          <div className="btn-container btn-center">
+          <Card content={content} />
+          <div className="summary-content">
+            <div className="summary-tab">
+              <div className="summary-question">
+                Have you had OHIP in the past?
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Are you a spouse or dependant of a Canadian military member?
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please indicate which Ontario base the military member has been
+                posted to.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please select the document you wish to use to show military
+                affiliation.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please upload photos or a scan of the military member's MPRR.
+              </div>
+              <div className="card-collection">
+                <div className="card-uploaded small-card-uploaded">
+                  <a href="#" className="view-link">
+                    View
+                  </a>
+                  <div className="file-name">MPRR_1.jpeg</div>
+                </div>
+                <div className="card-uploaded small-card-uploaded">
+                  <a href="#" className="view-link">
+                    View
+                  </a>
+                  <div className="file-name">MPRR_2.jpeg</div>
+                </div>
+                <div className="card-uploaded small-card-uploaded">
+                  <a href="#" className="view-link">
+                    View
+                  </a>
+                  <div className="file-name">MPRR_3.jpeg</div>
+                </div>
+              </div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please enter your Ontario residence address.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please enter your mailing address.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please select your immigration status in Ontario.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please select the document you wish to use as proof of your
+                Canadian citizenship.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please upload photos or a scan of your Canadian passport.
+              </div>
+              <div className="card-collection">
+                <div className="card-uploaded small-card-uploaded">
+                  <a href="#" className="view-link">
+                    View
+                  </a>
+                  <div className="file-name">mary_passport.jpeg</div>
+                </div>
+              </div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please select one of the following documents you wish to use as
+                proof of your identity.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please enter your full name.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                What is your date of birth?
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                What is your sex as in dicated on your birth certificate or
+                passport?
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please enter your contact information.
+              </div>
+              <div className="response">Placeholder</div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please upload photos or a scan of your Canadian passport.
+              </div>
+              <div className="card-collection">
+                <div className="card-uploaded small-card-uploaded">
+                  <a href="#" className="view-link">
+                    View
+                  </a>
+                  <div className="file-name">self-photo.jpeg</div>
+                </div>
+              </div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please upload photos or a scan of your signature or sign on your
+                device.
+              </div>
+              <div className="card-collection">
+                <div className="card-uploaded small-card-uploaded">
+                  <a href="#" className="view-link">
+                    View
+                  </a>
+                  <div className="file-name">signature.jpeg</div>
+                </div>
+              </div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+          </div>
+          <div className="btn-container button-footer">
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
             <input
               type="submit"
-              value="Submit"
-              className="btn btn-general btn-wide btn-shadow"
+              value="Next"
+              className="btn btn-general btn-right-align"
             />
           </div>
         </div>

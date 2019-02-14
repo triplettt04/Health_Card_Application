@@ -1,5 +1,6 @@
 import React from "react";
 import constants from "../constants";
+import Card from "../components/card";
 
 class SelectID extends React.Component {
   constructor(props) {
@@ -40,7 +41,26 @@ class SelectID extends React.Component {
   }
 
   render() {
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">
+          Please select one of the following documents you wish to use as proof
+          of oyur identity.
+        </h2>
+        <p className="caption">
+          In order to receive OHIP coverage, you must prove who you are with a
+          document that includes your name and signature.
+        </p>
+      </div>
+    );
+
     const buttonNames = [
+      {
+        label: "Passport",
+        value:
+          "Passport (Canadian or foreign)\n*You have already used this document type to prove Canadian citizenship."
+      },
       {
         label: "Credit card",
         value: "Credit card"
@@ -83,10 +103,6 @@ class SelectID extends React.Component {
         label: "Vehicle permit",
         value:
           "Motor vehicle permit (plate portion only) from any Canadian province or territory"
-      },
-      {
-        label: "Passport",
-        value: "Passport (Canadian or foreign)"
       },
       {
         label: "Residence card",
@@ -137,7 +153,10 @@ class SelectID extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
-          <div className="radio-field">{radioButtons}</div>
+          <Card content={content} />
+          <div className="radio-field small-font dead-first-child">
+            {radioButtons}
+          </div>
           <div className="btn-container button-footer">
             <button
               className="btn btn-general btn-invert"

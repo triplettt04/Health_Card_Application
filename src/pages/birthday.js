@@ -26,6 +26,13 @@ class Birthday extends React.Component {
     this.props.history.push(path);
   }
   render() {
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">What is your date of birth?</h2>
+      </div>
+    );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -37,6 +44,7 @@ class Birthday extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
+          <Card content={content} />
           <MaskedInput
             mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
             placeholder="25/09/1970"
