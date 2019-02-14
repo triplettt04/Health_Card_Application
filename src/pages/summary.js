@@ -37,9 +37,11 @@ class Summary extends React.Component {
       this.props.state["Military relation"] === "Yes" ? (
         <div className="summary-tab">
           <div className="summary-question">
-            Are you a spouse or dependant of a Canadian military member?
+            Do you currently have an address in Ontario?
           </div>
-          <div className="response">{this.props.state["Ontario address"]}</div>
+          <div className="response">
+            {this.props.state["Residence address"]}
+          </div>
           <a href="#" className="edit">
             Edit
           </a>
@@ -86,7 +88,12 @@ class Summary extends React.Component {
                 Please indicate which Ontario base the military member has been
                 posted to.
               </div>
-              <div className="response">{this.props.state.baseIndex}</div>
+              <div className="response">
+                {this.props.state && this.props.state.baseIndex
+                  ? constants.militaryAddresses[this.props.state.baseIndex]
+                      .label
+                  : ""}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -97,7 +104,7 @@ class Summary extends React.Component {
                 affiliation.
               </div>
               <div className="response">
-                {this.props.state["Military proof"]}
+                {this.props.state["Military proof type"]}
               </div>
               <a href="#" className="edit">
                 Edit
@@ -138,7 +145,7 @@ class Summary extends React.Component {
               </div>
               <div className="response">
                 {this.props.state["Residence street"]},{" "}
-                {this.props.state["Residence city"]},{" "}
+                {this.props.state["Residence city"]}, Ontario, Canada,{" "}
                 {this.props.state["Residence postal code"]}
               </div>
               <a href="#" className="edit">
@@ -151,8 +158,8 @@ class Summary extends React.Component {
               </div>
               <div className="response">
                 {this.props.state["Residence street"]},{" "}
-                {this.props.state["Residence postal code"]},{" "}
-                {this.props.state["Residence city"]}, Ontario, Canada"
+                {this.props.state["Residence city"]}, Ontario, Canada,{" "}
+                {this.props.state["Residence postal code"]}
               </div>
               <a href="#" className="edit">
                 Edit
@@ -213,7 +220,7 @@ class Summary extends React.Component {
               </div>
               <div className="response">
                 {this.props.state["First name"]}{" "}
-                {this.props.state["Middle name"]}{" "}
+                {this.props.state["Middle name(s)"]}{" "}
                 {this.props.state["Last name"]}
               </div>
               <a href="#" className="edit">
@@ -244,9 +251,24 @@ class Summary extends React.Component {
                 Please enter your contact information.
               </div>
               <div className="response">
-                {this.props.state["Primary phone"]}, alt:
-                {this.props.state["Alternate phone"]},{" "}
-                {this.props.state["Email"]}
+                <div className="one-line">
+                  <label className="form-label">
+                    {this.props.state["Primary phone"]
+                      ? "Primary phone: " + this.props.state["Primary phone"]
+                      : ""}
+                  </label>
+                  <label className="form-label">
+                    {this.props.state["Alternate phone"]
+                      ? "Alternate phone: " +
+                        this.props.state["Alternate phone"]
+                      : ""}
+                  </label>
+                  <label className="form-label">
+                    {this.props.state["Email"]
+                      ? "Email: " + this.props.state["Email"]
+                      : ""}
+                  </label>
+                </div>
               </div>
               <a href="#" className="edit">
                 Edit
