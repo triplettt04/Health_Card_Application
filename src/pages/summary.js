@@ -33,6 +33,21 @@ class Summary extends React.Component {
       </div>
     );
 
+    let hasAddress =
+      this.props.state["Military relation"] === "Yes" ? (
+        <div className="summary-tab">
+          <div className="summary-question">
+            Are you a spouse or dependant of a Canadian military member?
+          </div>
+          <div className="response">{this.props.state["Ontario address"]}</div>
+          <a href="#" className="edit">
+            Edit
+          </a>
+        </div>
+      ) : (
+        ""
+      );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -50,7 +65,7 @@ class Summary extends React.Component {
               <div className="summary-question">
                 Have you had OHIP in the past?
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">{this.props.state["Past OHIP"]}</div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -59,7 +74,9 @@ class Summary extends React.Component {
               <div className="summary-question">
                 Are you a spouse or dependant of a Canadian military member?
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">
+                {this.props.state["Military relation"]}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -69,7 +86,7 @@ class Summary extends React.Component {
                 Please indicate which Ontario base the military member has been
                 posted to.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">{this.props.state.baseIndex}</div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -79,7 +96,9 @@ class Summary extends React.Component {
                 Please select the document you wish to use to show military
                 affiliation.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">
+                {this.props.state["Military proof"]}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -112,11 +131,16 @@ class Summary extends React.Component {
                 Edit
               </a>
             </div>
+            {hasAddress}
             <div className="summary-tab">
               <div className="summary-question">
                 Please enter your Ontario residence address.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">
+                {this.props.state["Residence street"]},{" "}
+                {this.props.state["Residence city"]},{" "}
+                {this.props.state["Residence postal code"]}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -125,7 +149,11 @@ class Summary extends React.Component {
               <div className="summary-question">
                 Please enter your mailing address.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">
+                {this.props.state["Residence street"]},{" "}
+                {this.props.state["Residence postal code"]},{" "}
+                {this.props.state["Residence city"]}, Ontario, Canada"
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -134,7 +162,7 @@ class Summary extends React.Component {
               <div className="summary-question">
                 Please select your immigration status in Ontario.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">{this.props.state["Citizen type"]}</div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -144,7 +172,9 @@ class Summary extends React.Component {
                 Please select the document you wish to use as proof of your
                 Canadian citizenship.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">
+                {this.props.state["Citizen proof"]}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -170,7 +200,9 @@ class Summary extends React.Component {
                 Please select one of the following documents you wish to use as
                 proof of your identity.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">
+                {this.props.state["Identity proof type"]}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -179,7 +211,11 @@ class Summary extends React.Component {
               <div className="summary-question">
                 Please enter your full name.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">
+                {this.props.state["First name"]}{" "}
+                {this.props.state["Middle name"]}{" "}
+                {this.props.state["Last name"]}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -188,7 +224,7 @@ class Summary extends React.Component {
               <div className="summary-question">
                 What is your date of birth?
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">{this.props.state["birthday"]}</div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -198,7 +234,7 @@ class Summary extends React.Component {
                 What is your sex as in dicated on your birth certificate or
                 passport?
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">{this.props.state["Sex"]}</div>
               <a href="#" className="edit">
                 Edit
               </a>
@@ -207,7 +243,11 @@ class Summary extends React.Component {
               <div className="summary-question">
                 Please enter your contact information.
               </div>
-              <div className="response">Placeholder</div>
+              <div className="response">
+                {this.props.state["Primary phone"]}, alt:
+                {this.props.state["Alternate phone"]},{" "}
+                {this.props.state["Email"]}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
