@@ -102,19 +102,19 @@ class PastOHIP extends React.Component {
               <div className="label-text">No</div>
             </label>
           </div>
-          <div className="btn-container">
-            <button
-              className="btn btn-general btn-invert"
-              onClick={() => this.back()}
-            >
-              Back
-            </button>
-            <input
-              className="btn btn-general btn-right-align"
-              type="submit"
-              value="Next"
-            />
-          </div>
+        </div>
+        <div className="btn-container button-footer">
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+          <input
+            className="btn btn-general btn-right-align"
+            type="submit"
+            value="Next"
+          />
         </div>
       </form>
     );

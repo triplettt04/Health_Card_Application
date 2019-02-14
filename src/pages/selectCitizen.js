@@ -45,11 +45,11 @@ class SelectCitizen extends React.Component {
       <div>
         <div className="progress-indicator">4 / 15</div>
         <h2 className="sub-header">
-          Do you currently have an address in Ontario?
+          Please select your immigration status in Ontario.
         </h2>
         <p className="caption">
-          In order to receive OHIP coverage, you must provide proof of residency
-          or proof of future residency.
+          In order to receive OHIP coverage, you must provide proof of legal
+          status in Ontario.
         </p>
       </div>
     );

@@ -49,7 +49,15 @@ class SelectBase extends React.Component {
   }
 
   render() {
-    let content = <div>Enter which base the military member serves at?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">
+          Please indicate which Ontario base the military member has been posted
+          to.
+        </h2>
+      </div>
+    );
     return (
       <form onSubmit={event => this.next(event)}>
         <nav className="navbar ontario-header-container">
@@ -62,41 +70,39 @@ class SelectBase extends React.Component {
         </nav>
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="text-input one-line">
+          <div className="text-input one-line base-input">
             <label className="form-label" htmlFor="first-name-1">
               Enter your base
             </label>
-            <div className="row">
-              <Autocomplete
-                className="form-control"
-                getItemValue={item => item.label}
-                items={constants.militaryAddresses}
-                shouldItemRender={(item, value) =>
-                  item.label.toLowerCase().indexOf(value.toLowerCase()) > -1
-                }
-                renderItem={(item, isHighlighted) => (
-                  <div
-                    className={
-                      isHighlighted ? "auto-highlighted auto-text" : "auto-text"
-                    }
-                    key={item.label}
-                  >
-                    {item.label}
-                  </div>
-                )}
-                value={this.state.value}
-                onChange={event =>
-                  this.setState({
-                    value: event.target.value
-                  })
-                }
-                onSelect={val =>
-                  this.setState({
-                    value: val
-                  })
-                }
-              />
-            </div>
+            <Autocomplete
+              className="auto-text-container"
+              getItemValue={item => item.label}
+              items={constants.militaryAddresses}
+              shouldItemRender={(item, value) =>
+                item.label.toLowerCase().indexOf(value.toLowerCase()) > -1
+              }
+              renderItem={(item, isHighlighted) => (
+                <div
+                  className={
+                    isHighlighted ? "auto-highlighted auto-text" : "auto-text"
+                  }
+                  key={item.label}
+                >
+                  {item.label}
+                </div>
+              )}
+              value={this.state.value}
+              onChange={event =>
+                this.setState({
+                  value: event.target.value
+                })
+              }
+              onSelect={val =>
+                this.setState({
+                  value: val
+                })
+              }
+            />
           </div>
         </div>
         <div className="btn-container button-footer">

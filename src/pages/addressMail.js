@@ -69,7 +69,15 @@ class AddressMail extends React.Component {
   }
 
   render() {
-    let content = <div>What is your mailing address?</div>;
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">Please enter your mailing address.</h2>
+        <p className="caption">
+          This is where we will mail your health card and send correspondence.
+        </p>
+      </div>
+    );
 
     return (
       <form onSubmit={event => this.next(event)}>
@@ -91,7 +99,7 @@ class AddressMail extends React.Component {
                 name="Same as residence address"
                 onChange={event => this.checked(event)}
               />
-              Same as residence address
+              <div className="label-text">Same as residence address</div>
             </label>
           </div>
           <div className="text-input one-line">

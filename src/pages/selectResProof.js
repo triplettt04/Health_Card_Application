@@ -45,6 +45,19 @@ class SelectResProof extends React.Component {
   }
 
   render() {
+    let content = (
+      <div>
+        <div className="progress-indicator">4 / 15</div>
+        <h2 className="sub-header">
+          Please select one of the following documents you wish to use as proof
+          of your residency in Ontario.
+        </h2>
+        <p className="caption">
+          In order to receive OHIP coverage, you must prove you live in Ontario
+          with a document that includes your name and Ontario address.
+        </p>
+      </div>
+    );
     const buttonNames = [
       {
         label: "Driver license",
@@ -114,11 +127,11 @@ class SelectResProof extends React.Component {
       },
       {
         label: "Bank options",
-        value: `Any of the following statements from a bank, trust company or credit union:
-        - Registered Retirement Savings Plan (RRSP)
-        - Registered Retirement Income Fund (RRIF)
-        - Registered Home Ownership Savings Plan (RHOSP)
-        - Workplace Safety and Insurance Board Statement of Benefits (T5007)
+        value: `Any of the following statements from a bank, trust company or credit union:\
+        - Registered Retirement Savings Plan (RRSP)  
+        - Registered Retirement Income Fund (RRIF)  
+        - Registered Home Ownership Savings Plan (RHOSP)  
+        - Workplace Safety and Insurance Board Statement of Benefits (T5007)  
         - Canada Pension Plan Statement of Contributions`
       }
     ];
@@ -154,7 +167,8 @@ class SelectResProof extends React.Component {
           </a>
         </nav>
         <div className="form-wrapper">
-          <div className="radio-field">{radioButtons}</div>
+          <Card content={content} />
+          <div className="radio-field small-font">{radioButtons}</div>
           <div className="btn-container button-footer">
             <button
               className="btn btn-general btn-invert"
