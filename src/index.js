@@ -122,7 +122,10 @@ class App extends React.Component {
           <Route
             path={process.env.PUBLIC_URL + "/birthday"}
             render={() => (
-              <RouterBirthday save={target => this.handleChange(target)} />
+              <RouterBirthday
+                save={target => this.handleChange(target)}
+                birthday={this.state["birthday"]}
+              />
             )}
           />
           <Route
@@ -367,6 +370,13 @@ class App extends React.Component {
                 city={this.state["Residence city"]}
                 province={"Ontario"}
                 country={"Canada"}
+                address={{
+                  street: this.state["Mailing street"],
+                  postalCode: this.state["Mailing postal code"],
+                  city: this.state["Mailing city"],
+                  province: this.state["Mailing province"],
+                  country: this.state["Mailing country"]
+                }}
               />
             )}
           />

@@ -5,7 +5,7 @@ import MPRR1 from "./MPRR1.png";
 import MPRR2 from "./MPRR2.png";
 import MPRR3 from "./MPRR3.png";
 import Passport from "./Passport.png";
-import Selfie from "./Selfie.png";
+import Selfie from "../assets/Self photo.png";
 import Signature from "./Signature.png";
 import Posting1 from "./Posting1.png";
 import Posting2 from "./Posting2.png";

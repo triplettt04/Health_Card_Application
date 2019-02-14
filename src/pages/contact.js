@@ -19,8 +19,10 @@ class Contact extends React.Component {
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].type !== "submit") {
         toSave.push(event.target[i]);
-        if (!event.target[i].value || !event.target[i].value.length) {
-          save = false;
+        if (event.target[i].name !== "Alternate phone") {
+          if (!event.target[i].value || !event.target[i].value.length) {
+            save = false;
+          }
         }
       }
     }
