@@ -83,7 +83,7 @@ class Terms extends React.Component {
               <ul className="list">
                 <li>
                   If there is any change in my name, address, citizenship or
-                  immigration status I will inform the Ministry of Healtha nd
+                  immigration status I will inform the Ministry of Health and
                   Long-Term Care and/or its agent ServiceOntario within 30 days.
                 </li>
                 <li>
