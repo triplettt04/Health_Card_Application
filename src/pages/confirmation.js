@@ -34,7 +34,11 @@ class Confirmation extends React.Component {
                 {this.props.street}, {this.props.city}, {this.props.province},{" "}
                 {this.props.country}, {this.props.postalCode}
               </span>
-              .<br />
+              .
+              <br />
+              <br />
+              If your application is not approved, we will contact you.
+              <br />
               <br />
               It is now safe to close this page.
             </p>

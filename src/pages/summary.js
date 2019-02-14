@@ -224,7 +224,7 @@ class Summary extends React.Component {
                   <a href="#" className="view-link">
                     View
                   </a>
-                  <div className="file-name">driver_license.png</div>
+                  <div className="file-name">drivers_license.png</div>
                 </div>
               </div>
               <a href="#" className="edit">
