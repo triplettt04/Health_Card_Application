@@ -104,7 +104,7 @@ class InCamera extends React.Component {
         this.props.history.push({
           pathname: this.state.pathFrom,
           state: {
-            num: this.props.location.state.num - 1
+            num: this.state.num - 1
           }
         });
       } else {
