@@ -216,6 +216,23 @@ class Summary extends React.Component {
             </div>
             <div className="summary-tab">
               <div className="summary-question">
+                Please upload a photo or scan of your identity document with
+                your full name and signature.
+              </div>
+              <div className="card-collection">
+                <div className="card-uploaded small-card-uploaded">
+                  <a href="#" className="view-link">
+                    View
+                  </a>
+                  <div className="file-name">driver_license.png</div>
+                </div>
+              </div>
+              <a href="#" className="edit">
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
                 Please enter your full name.
               </div>
               <div className="response">

@@ -44,7 +44,7 @@ class Name extends React.Component {
         <div className="progress-indicator">15 / 22</div>
         <h2 className="sub-header">Please enter your full name.</h2>
         <p className="caption">
-          If your cultures uses a single name, please leave the first and middle
+          If your culture uses a single name, please leave the first and middle
           name(s) fields empty.
         </p>
       </div>

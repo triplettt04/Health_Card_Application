@@ -54,7 +54,7 @@ class Birthday extends React.Component {
           <Card content={content} />
           <MaskedInput
             mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
-            placeholder="01/31/1950"
+            placeholder="DD/MM/YYYY"
             className="form-control"
             guide={true}
             name="birthday"

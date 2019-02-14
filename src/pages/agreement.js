@@ -55,7 +55,7 @@ class Terms extends React.Component {
                   of residence.
                 </li>
                 <li>
-                  I will be physically present in Ontaruio for at least 5 months
+                  I will be physically present in Ontario for at least 5 months
                   (153 days) in a 12-month period.
                 </li>
                 <li>
