@@ -341,3 +341,15 @@ p.caption {
     width: 250px;
   }
 }
+
+//address page
+
+.address-set {
+  border-bottom: 3px solid $divider-color;
+  padding-bottom: 30px;
+}
+
+.address-set:last-child {
+  padding-top: 30px;
+  border-bottom: none;
+}

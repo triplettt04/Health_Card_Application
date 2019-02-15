@@ -113,156 +113,161 @@ class Address extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <label className="form-label">
-            <b>Residence address</b>
-          </label>
-          <div className="text-input one-line">
-            <label className="form-label" htmlFor="street-1">
-              Street
+          <div className="address-set">
+            <label className="form-label">
+              <b>Residence address</b>
             </label>
-            <input
-              className="form-control"
-              id="street-1"
-              name="Residence street"
-              value={this.state.streetRes}
-              onChange={event =>
-                this.setState({ streetRes: event.target.value })
-              }
-            />
-            <label className="form-label" htmlFor="city-1">
-              City
-            </label>
-            <input
-              className="form-control"
-              id="city-1"
-              name="Residence city"
-              value={this.state.cityRes}
-              onChange={event => this.setState({ cityRes: event.target.value })}
-            />
-            <label className="form-label" htmlFor="postal-code-1">
-              Postal code
-            </label>
-            <input
-              className="form-control"
-              id="postal-code-1"
-              name="Residence postal code"
-              value={this.state.postalCodeRes}
-              onChange={event =>
-                this.setState({ postalCodeRes: event.target.value })
-              }
-            />
-            <label className="form-label" htmlFor="province-1">
-              Province
-            </label>
-            <input
-              className="form-control"
-              id="province-1"
-              name="Residence province"
-              value="Ontario"
-              disabled={true}
-            />
-            <label className="form-label" htmlFor="country-1">
-              Country
-            </label>
-            <input
-              className="form-control"
-              id="country-1"
-              name="Residence country"
-              value="Canada"
-              disabled={true}
-            />
-          </div>
-          <hr />
-          <label className="form-label">
-            <b>Mailing address</b>
-          </label>
-          <div className="checkbox-field">
-            <label className="checkbox-style block">
+            <div className="text-input one-line">
+              <label className="form-label" htmlFor="street-1">
+                Street
+              </label>
               <input
-                type="checkbox"
-                className="checkbox-input checkbox"
-                name="Same as residence address"
-                onChange={event => this.checked(event)}
+                className="form-control"
+                id="street-1"
+                name="Residence street"
+                value={this.state.streetRes}
+                onChange={event =>
+                  this.setState({ streetRes: event.target.value })
+                }
               />
-              <div className="label-text">Same as residence address</div>
-            </label>
+              <label className="form-label" htmlFor="city-1">
+                City
+              </label>
+              <input
+                className="form-control"
+                id="city-1"
+                name="Residence city"
+                value={this.state.cityRes}
+                onChange={event =>
+                  this.setState({ cityRes: event.target.value })
+                }
+              />
+              <label className="form-label" htmlFor="postal-code-1">
+                Postal code
+              </label>
+              <input
+                className="form-control"
+                id="postal-code-1"
+                name="Residence postal code"
+                value={this.state.postalCodeRes}
+                onChange={event =>
+                  this.setState({ postalCodeRes: event.target.value })
+                }
+              />
+              <label className="form-label" htmlFor="province-1">
+                Province
+              </label>
+              <input
+                className="form-control"
+                id="province-1"
+                name="Residence province"
+                value="Ontario"
+                disabled={true}
+              />
+              <label className="form-label" htmlFor="country-1">
+                Country
+              </label>
+              <input
+                className="form-control"
+                id="country-1"
+                name="Residence country"
+                value="Canada"
+                disabled={true}
+              />
+            </div>
           </div>
-          <div className="text-input one-line">
-            <label className="form-label" htmlFor="street-1">
-              Street
+          <div className="address-set">
+            <label className="form-label">
+              <b>Mailing address</b>
             </label>
-            <input
-              className="form-control"
-              id="street-1"
-              name="Mailing street"
-              value={this.state.streetMail}
-              readOnly={this.state.checked}
-              onChange={event =>
-                this.setState({
-                  streetMail: event.target.value
-                })
-              }
-            />
-            <label className="form-label" htmlFor="city-1">
-              City
-            </label>
-            <input
-              className="form-control"
-              id="city-1"
-              name="Mailing city"
-              value={this.state.cityMail}
-              readOnly={this.state.checked}
-              onChange={event =>
-                this.setState({
-                  cityMail: event.target.value
-                })
-              }
-            />
-            <label className="form-label" htmlFor="postal-code-1">
-              Postal code
-            </label>
-            <input
-              className="form-control"
-              id="postal-code-1"
-              name="Mailing postal code"
-              value={this.state.postalCodeMail}
-              readOnly={this.state.checked}
-              onChange={event =>
-                this.setState({
-                  postalCodeMail: event.target.value
-                })
-              }
-            />
-            <label className="form-label" htmlFor="province-1">
-              Province
-            </label>
-            <input
-              className="form-control"
-              id="province-1"
-              name="Mailing province"
-              value={this.state.provinceMail}
-              readOnly={this.state.checked}
-              onChange={event =>
-                this.setState({
-                  provinceMail: event.target.value
-                })
-              }
-            />
-            <label className="form-label" htmlFor="country-1">
-              Country
-            </label>
-            <input
-              className="form-control"
-              id="country-1"
-              name="Mailing country"
-              value={this.state.countryMail}
-              readOnly={this.state.checked}
-              onChange={event =>
-                this.setState({
-                  countryMail: event.target.value
-                })
-              }
-            />
+            <div className="checkbox-field">
+              <label className="checkbox-style block">
+                <input
+                  type="checkbox"
+                  className="checkbox-input checkbox"
+                  name="Same as residence address"
+                  onChange={event => this.checked(event)}
+                />
+                <div className="label-text">Same as residence address</div>
+              </label>
+            </div>
+            <div className="text-input one-line">
+              <label className="form-label" htmlFor="street-1">
+                Street
+              </label>
+              <input
+                className="form-control"
+                id="street-1"
+                name="Mailing street"
+                value={this.state.streetMail}
+                readOnly={this.state.checked}
+                onChange={event =>
+                  this.setState({
+                    streetMail: event.target.value
+                  })
+                }
+              />
+              <label className="form-label" htmlFor="city-1">
+                City
+              </label>
+              <input
+                className="form-control"
+                id="city-1"
+                name="Mailing city"
+                value={this.state.cityMail}
+                readOnly={this.state.checked}
+                onChange={event =>
+                  this.setState({
+                    cityMail: event.target.value
+                  })
+                }
+              />
+              <label className="form-label" htmlFor="postal-code-1">
+                Postal code
+              </label>
+              <input
+                className="form-control"
+                id="postal-code-1"
+                name="Mailing postal code"
+                value={this.state.postalCodeMail}
+                readOnly={this.state.checked}
+                onChange={event =>
+                  this.setState({
+                    postalCodeMail: event.target.value
+                  })
+                }
+              />
+              <label className="form-label" htmlFor="province-1">
+                Province
+              </label>
+              <input
+                className="form-control"
+                id="province-1"
+                name="Mailing province"
+                value={this.state.provinceMail}
+                readOnly={this.state.checked}
+                onChange={event =>
+                  this.setState({
+                    provinceMail: event.target.value
+                  })
+                }
+              />
+              <label className="form-label" htmlFor="country-1">
+                Country
+              </label>
+              <input
+                className="form-control"
+                id="country-1"
+                name="Mailing country"
+                value={this.state.countryMail}
+                readOnly={this.state.checked}
+                onChange={event =>
+                  this.setState({
+                    countryMail: event.target.value
+                  })
+                }
+              />
+            </div>
           </div>
         </div>
         <div className="btn-container button-footer">
