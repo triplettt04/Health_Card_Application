@@ -21,7 +21,7 @@ import InCamera from "./pages/inCamera";
 import ConfirmPhoto from "./pages/confirmPhoto";
 import NotFound from "./pages/notFound";
 import Name from "./pages/name";
-import AddressRes from "./pages/addressRes";
+import Address from "./pages/address";
 import PastOHIP from "./pages/pastOHIP";
 import IsMilitary from "./pages/isMilitary";
 import SelectBase from "./pages/selectBase";
@@ -39,7 +39,7 @@ import Summary from "./pages/summary";
 import Confirmation from "./pages/confirmation";
 import UploadPosting from "./pages/uploadPosting";
 import Contact from "./pages/contact";
-import AddressMail from "./pages/addressMail";
+//import AddressMail from "./pages/address";
 import UploadPhoto from "./pages/uploadPhoto";
 //import SelectSignature from "./pages/selectSignature";
 import UploadSignature from "./pages/uploadSignature";
@@ -71,7 +71,7 @@ class App extends React.Component {
     const RouterTemplate = withRouter(Template);
     const RouterBirthday = withRouter(Birthday);
     const RouterName = withRouter(Name);
-    const RouterAddressRes = withRouter(AddressRes);
+    const RouterAddress = withRouter(Address);
     const RouterSex = withRouter(Sex);
     const RouterInCamera = withRouter(InCamera);
     const RouterConfirmPhoto = withRouter(ConfirmPhoto);
@@ -92,7 +92,7 @@ class App extends React.Component {
     const RouterConfirmation = withRouter(Confirmation);
     const RouterUploadPosting = withRouter(UploadPosting);
     const RouterContact = withRouter(Contact);
-    const RouterAddressMail = withRouter(AddressMail);
+    //const RouterAddressMail = withRouter(AddressMail);
     const RouterUploadPhoto = withRouter(UploadPhoto);
     //const RouterSelectSignature = withRouter(SelectSignature);
     const RouterUploadSignature = withRouter(UploadSignature);
@@ -139,11 +139,11 @@ class App extends React.Component {
               )}
             />
             <Route
-              path={process.env.PUBLIC_URL + "/addressRes"}
+              path={process.env.PUBLIC_URL + "/address"}
               render={() => (
-                <RouterAddressRes
+                <RouterAddress
                   save={target => this.handleChange(target)}
-                  address={
+                  addressRes={
                     this.state["Residence street"]
                       ? {
                           street: this.state["Residence street"],
@@ -164,6 +164,14 @@ class App extends React.Component {
                         }
                       : null
                   }
+                  addressMail={{
+                    sameAsRes: this.state["Same as residence"],
+                    street: this.state["Mailing street"],
+                    city: this.state["Mailing city"],
+                    postalCode: this.state["Mailing postal code"],
+                    province: this.state["Mailing province"],
+                    country: this.state["Mailing country"]
+                  }}
                   pathFrom={this.state["Ontario address"]}
                 />
               )}
@@ -358,19 +366,6 @@ class App extends React.Component {
                   primaryPhone={this.state["Primary phone"]}
                   alternatePhone={this.state["Alternate phone"]}
                   email={this.state["Email"]}
-                />
-              )}
-            />
-            <Route
-              path={process.env.PUBLIC_URL + "/addressMail"}
-              render={() => (
-                <RouterAddressMail
-                  save={target => this.handleChange(target)}
-                  street={this.state["Residence street"]}
-                  postalCode={this.state["Residence postal code"]}
-                  city={this.state["Residence city"]}
-                  province={"Ontario"}
-                  country={"Canada"}
                 />
               )}
             />
