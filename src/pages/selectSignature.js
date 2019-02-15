@@ -1,5 +1,6 @@
 import React from "react";
 import constants from "../constants";
+import Nav from "../components/nav";
 
 class SelectSignature extends React.Component {
   constructor(props) {
@@ -42,14 +43,7 @@ class SelectSignature extends React.Component {
   render() {
     return (
       <form onSubmit={event => this.next(event)}>
-        <nav className="navbar ontario-header-container">
-          <a className="brand" href="#">
-            OHIP application
-          </a>
-          <a className="french-toggle" href="#">
-            FR
-          </a>
-        </nav>
+        <Nav />
         <div className="form-wrapper">
           <div className="radio-field">
             <label className="radio-style block">
@@ -85,17 +79,17 @@ class SelectSignature extends React.Component {
           </div>
         </div>
         <div className="btn-container button-footer">
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
           <button
             className="btn btn-general btn-invert"
             onClick={() => this.back()}
           >
             Back
           </button>
-          <input
-            type="submit"
-            value="Next"
-            className="btn btn-general btn-right-align"
-          />
         </div>
       </form>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 import constants from "../constants";
+import Nav from "../components/nav";
 
 class GetStarted extends React.Component {
   constructor(props) {
@@ -18,14 +19,7 @@ class GetStarted extends React.Component {
   render() {
     return (
       <form onSubmit={event => this.next(event)}>
-        <nav className="navbar ontario-header-container">
-          <a className="brand" href="#">
-            OHIP application
-          </a>
-          <a className="french-toggle" href="#">
-            FR
-          </a>
-        </nav>
+        <Nav />
         <div className="form-wrapper">
           <h1 className="primary-header">Here's how applying online works</h1>
           <div className="summary-content">

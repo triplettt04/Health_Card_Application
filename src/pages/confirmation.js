@@ -1,6 +1,7 @@
 import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
+import Nav from "../components/nav";
 
 class Confirmation extends React.Component {
   //There should be no next or back
@@ -8,14 +9,7 @@ class Confirmation extends React.Component {
   render() {
     return (
       <div>
-        <nav className="navbar ontario-header-container">
-          <a className="brand" href="#">
-            OHIP application
-          </a>
-          <a className="french-toggle" href="#">
-            FR
-          </a>
-        </nav>
+        <Nav />
         <div className="form-wrapper">
           <div className="Card">
             <div className="progress-indicator">Complete</div>

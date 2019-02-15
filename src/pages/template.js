@@ -1,6 +1,7 @@
 import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
+import Nav from "../components/nav";
 
 class Template extends React.Component {
   constructor(props) {
@@ -47,14 +48,7 @@ class Template extends React.Component {
 
     return (
       <form onSubmit={this.next}>
-        <nav className="navbar ontario-header-container">
-          <a className="brand" href="#">
-            OHIP application
-          </a>
-          <a className="french-toggle" href="#">
-            FR
-          </a>
-        </nav>
+        <Nav />
         <div className="form-wrapper">
           <Card content={content} />
           <div className="text-input one-line">
@@ -137,17 +131,17 @@ class Template extends React.Component {
             />
           </div>
           <div className="btn-container">
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align btn-inactive"
+            />
             <button
               className="btn btn-general btn-invert"
               onClick={() => this.back()}
             >
               Back
             </button>
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align btn-inactive"
-            />
           </div>
         </div>
       </form>
