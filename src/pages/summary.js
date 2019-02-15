@@ -255,8 +255,7 @@ class Summary extends React.Component {
             </div>
             <div className="summary-tab">
               <div className="summary-question">
-                What is your sex as in dicated on your birth certificate or
-                passport?
+                What is your sex on your passport or birth certificate?
               </div>
               <div className="response">{this.props.state["Sex"]}</div>
               <a href="#" className="edit">

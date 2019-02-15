@@ -137,17 +137,17 @@ class Template extends React.Component {
             />
           </div>
           <div className="btn-container">
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align btn-inactive"
+            />
             <button
               className="btn btn-general btn-invert"
               onClick={() => this.back()}
             >
               Back
             </button>
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align btn-inactive"
-            />
           </div>
         </div>
       </form>

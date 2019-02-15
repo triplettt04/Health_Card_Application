@@ -85,17 +85,17 @@ class SelectSignature extends React.Component {
           </div>
         </div>
         <div className="btn-container button-footer">
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
           <button
             className="btn btn-general btn-invert"
             onClick={() => this.back()}
           >
             Back
           </button>
-          <input
-            type="submit"
-            value="Next"
-            className="btn btn-general btn-right-align"
-          />
         </div>
       </form>
     );

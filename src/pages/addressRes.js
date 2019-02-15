@@ -1,6 +1,7 @@
 import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
+import Nav from "../components/nav";
 
 class AddressRes extends React.Component {
   constructor(props) {
@@ -63,14 +64,7 @@ class AddressRes extends React.Component {
 
     return (
       <form onSubmit={event => this.next(event)}>
-        <nav className="navbar ontario-header-container">
-          <a className="brand" href="#">
-            OHIP application
-          </a>
-          <a className="french-toggle" href="#">
-            FR
-          </a>
-        </nav>
+        <Nav />
         <div className="form-wrapper">
           <Card content={content} />
           <div className="text-input one-line">
@@ -129,17 +123,17 @@ class AddressRes extends React.Component {
           </div>
         </div>
         <div className="btn-container button-footer">
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
           <button
             className="btn btn-general btn-invert"
             onClick={() => this.back()}
           >
             Back
           </button>
-          <input
-            type="submit"
-            value="Next"
-            className="btn btn-general btn-right-align"
-          />
         </div>
       </form>
     );

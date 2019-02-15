@@ -62,7 +62,7 @@ body {
 .card-uploaded {
   box-shadow: $box-shadow-cards;
   border-radius: 5px;
-  padding: 18px 22px;
+  padding: 18px 18px;
   font-size: 16px;
   margin-bottom: 10px;
 
@@ -106,7 +106,7 @@ body {
   font-size: 18px;
   padding: 15px 15px 10px 15px;
 
-  a.brand {
+  .brand {
     color: $white;
     letter-spacing: 1px;
   }
