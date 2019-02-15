@@ -37,7 +37,7 @@ class SelectCitizen extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/addressMail";
+    let path = process.env.PUBLIC_URL + "/address";
     this.props.history.push(path);
   }
 

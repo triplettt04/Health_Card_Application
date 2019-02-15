@@ -101,7 +101,7 @@ class UploadPosting extends React.Component {
       };
       this.props.save(target);
       this.props.history.push({
-        pathname: process.env.PUBLIC_URL + "/addressRes",
+        pathname: process.env.PUBLIC_URL + "/address",
         state: { pathFrom: process.env.PUBLIC_URL + "/uploadPosting" }
       });
     }

@@ -1,6 +1,6 @@
 {
   "name": "military",
-  "version": "2.1.0",
+  "version": "2.4.0",
   "homepage": "https://demo-prototype.ontariogovernment.ca/military",
   "dependencies": {
     "bootstrap": "^4.2.1",
