@@ -63,7 +63,7 @@ class GetStarted extends React.Component {
               </p>
             </div>
           </div>
-          <div className="btn-container btn-center">
+          <div className="btn-container btn-center btn-nospace">
             <input
               type="submit"
               value="Get started"
