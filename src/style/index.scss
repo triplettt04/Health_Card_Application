@@ -8,6 +8,21 @@ html {
   box-sizing: border-box;
 }
 
+//Mobile simulation for desktop
+@media only screen and (min-width: 426px) {
+  html body {
+    max-width: 425px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 750px;
+    box-shadow: $box-shadow-cards;
+    border-radius: 10px;
+    border: 8px solid $dark-grey;
+    border-top: 35px solid $dark-grey;
+    border-bottom: 70px solid $dark-grey;
+  }
+}
+
 .form-wrapper {
   padding: 20px 15px;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;

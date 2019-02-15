@@ -223,6 +223,10 @@
   box-shadow: $box-shadow-buttons;
 }
 
+.btn.btn-general:focus {
+  box-shadow: 0px 0px 0px 3px $active-accent;
+}
+
 .btn.btn-general.btn-wide {
   width: 100%;
 }
