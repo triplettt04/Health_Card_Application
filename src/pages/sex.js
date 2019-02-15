@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../components/card";
+import Nav from "../components/nav";
 import constants from "../constants";
 
 class Sex extends React.Component {
@@ -52,14 +53,7 @@ class Sex extends React.Component {
 
     return (
       <form onSubmit={event => this.next(event)}>
-        <nav className="navbar ontario-header-container">
-          <a className="brand" href="#">
-            OHIP application
-          </a>
-          <a className="french-toggle" href="#">
-            FR
-          </a>
-        </nav>
+        <Nav />
         <div className="form-wrapper">
           <Card content={content} />
           <div className="radio-field medium-font">

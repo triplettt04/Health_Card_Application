@@ -1,6 +1,7 @@
 import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
+import Nav from "../components/nav";
 import CardUploaded from "../components/cardUploaded";
 import iconTrash from "../assets/icon-trash.svg";
 import MPRR1 from "./MPRR1.png";
@@ -253,14 +254,7 @@ class UploadMilitary extends React.Component {
 
     return (
       <form onSubmit={event => this.next(event)}>
-        <nav className="navbar ontario-header-container">
-          <a className="brand" href="#">
-            OHIP application
-          </a>
-          <a className="french-toggle" href="#">
-            FR
-          </a>
-        </nav>
+        <Nav />
         <div className="form-wrapper">
           <Card content={content} />
           {cardUploaded}
@@ -295,7 +289,7 @@ class UploadMilitary extends React.Component {
           </div>
         </div>
         <div className="btn-container button-footer">
-                    <input
+          <input
             type="submit"
             value="Next"
             className="btn btn-general btn-right-align"

@@ -1,6 +1,7 @@
 import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
+import Nav from "../components/nav";
 
 class SelectBase extends React.Component {
   constructor(props) {
