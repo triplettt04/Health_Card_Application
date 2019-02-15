@@ -1,7 +1,6 @@
 import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
-import MaskedInput from "react-text-mask";
 import emailMask from "text-mask-addons/dist/emailMask";
 
 class Contact extends React.Component {
@@ -67,26 +66,8 @@ class Contact extends React.Component {
             <label className="form-label" htmlFor="primary-phone-1">
               Primary phone
             </label>
-            <MaskedInput
-              mask={[
-                "(",
-                /[1-9]/,
-                /\d/,
-                /\d/,
-                ")",
-                " ",
-                /\d/,
-                /\d/,
-                /\d/,
-                "-",
-                /\d/,
-                /\d/,
-                /\d/,
-                /\d/
-              ]}
-              placeholder="(123) 456-7890"
+            <input
               className="form-control"
-              guide={true}
               id="primary-phone-1"
               name="Primary phone"
               defaultValue={
@@ -96,24 +77,7 @@ class Contact extends React.Component {
             <label className="form-label" htmlFor="alternate-phone-1">
               Alternate phone (Optional)
             </label>
-            <MaskedInput
-              mask={[
-                "(",
-                /[1-9]/,
-                /\d/,
-                /\d/,
-                ")",
-                " ",
-                /\d/,
-                /\d/,
-                /\d/,
-                "-",
-                /\d/,
-                /\d/,
-                /\d/,
-                /\d/
-              ]}
-              placeholder="(123) 456-7890"
+            <input
               className="form-control"
               guide={true}
               id="alternate-phone-1"
@@ -125,9 +89,8 @@ class Contact extends React.Component {
             <label className="form-label" htmlFor="email-1">
               Email
             </label>
-            <MaskedInput
+            <input
               mask={emailMask}
-              placeholder="someone@example.com"
               className="form-control"
               guide={true}
               id="email-1"
