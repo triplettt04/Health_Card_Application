@@ -56,7 +56,6 @@ class Birthday extends React.Component {
             <label>Birthdate (DD/MM/YYYY)</label>
             <MaskedInput
               mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
-              placeholder="DD/MM/YYYY"
               className="form-control"
               guide={true}
               defaultValue={this.props.birthday ? this.props.birthday : ""}
