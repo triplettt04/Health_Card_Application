@@ -119,16 +119,19 @@ const constants = {
   buttonsID: [
     {
       label: "Passport",
+      dependency: "n/a",
       value: "Passport (Canadian or foreign)",
       extraText:
         "\n*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Credit card",
+      dependency: "n/a",
       value: "Credit card"
     },
     {
       label: "Driver license",
+      dependency: "n/a",
       value:
         "Valid driver's licence or temporary driver's licence from any Canadian province or territory",
       extraText:
@@ -136,57 +139,73 @@ const constants = {
     },
     {
       label: "Immigration ID card",
-      value: "Canadian Immigration Identification Card"
+      dependency: "Canadian citizen",
+      value: "Canadian Immigration Identification Card",
+      extraText:
+        "\n*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Certificate of Canadian Citizenship",
+      dependency: "n/a",
       value: "Certificate of Canadian Citizenship (plastic card)",
       extraText:
         "\n*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Certificate of Indian status",
+      dependency: "n/a",
       value: "Certificate of Indian Status (paper or plastic card)",
       extraText:
         "\n*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Confirmation of permanent residence",
+      dependency: "Canadian citizen",
       value:
-        "Confirmation of Permanent Residence (IMM 5292) only if signature is shown"
+        "Confirmation of Permanent Residence (IMM 5292) only if signature is shown",
+      extraText:
+        "\n*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Employee ID card",
+      dependency: "n/a",
       value: "Current employee ID card"
     },
     {
       label: "professional association licence",
+      dependency: "n/a",
       value: "Current professional association licence"
     },
     {
       label: "Old age security card",
+      dependency: "n/a",
       value: "Old Age Security Card"
     },
     {
       label: "Vehicle permit",
+      dependency: "n/a",
       value:
         "Motor vehicle permit (plate portion only) from any Canadian province or territory"
     },
     {
       label: "Permanent residence card",
+      dependency: "n/a",
       value:
         "Permanent Resident Card from any Canadian province or territory only if signature is shown"
     },
     {
       label: "Record of landing",
+      dependency: "n/a",
       value: "Record of Landing (IMM 1000)"
     },
     {
       label: "Student ID card",
+      dependency: "n/a",
       value: "Student ID card"
     },
     {
       label: "Union card",
+      dependency: "n/a",
       value: "Union card"
     }
   ],
