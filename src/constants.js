@@ -192,100 +192,53 @@ const constants = {
   ],
   militaryAddresses: [
     {
-      label: "Armstrong",
-      street: "8X3Q+QH Armstrong Station",
-      city: "Unorganized Thunder Bay District",
-      postalCode: ""
+      label: "Petawawa",
+      value: "4th Canadian Division Support Base Petawawa Headquarters",
+      street: "Building S-111, 101 Menin Road",
+      city: "Chalk River",
+      postalCode: "K0J 1J0"
     },
     {
-      label: "Borden"
-    },
-    {
-      label: "Bytown"
-    },
-    {
-      label: "Camp Ipperwash"
-    },
-    {
-      label: "Carp"
-    },
-    {
-      label: "Carp Almonte",
-      street: "7R6X+Q3 Hardwood Plains",
+      label: "Ottawa",
+      value: "Canadian Forces Support Unit (Ottawa)",
+      street: "101 Colonel By Drive",
       city: "Ottawa",
-      postalCode: "K0A1A0"
+      postalCode: "K1A 0K2"
     },
     {
-      label: "Carp Dunrobin"
+      label: "Borden",
+      value: "CFB Borden",
+      street: "PO Box 1000, Stn Main",
+      city: "Borden",
+      postalCode: "L0M 1C0"
     },
     {
-      label: "Carp Richardson"
+      label: "Kingston",
+      value: "CFB Kingston",
+      street: "PO Box 17000, Station Forces",
+      city: "Kingston",
+      postalCode: "K7K 7B4"
     },
     {
-      label: "Clinton"
+      label: "Leitrim",
+      value: "CFS Leitrim",
+      street: "3545 Leitrim Rd",
+      city: "Ottawa",
+      postalCode: "K1A 0K2"
     },
     {
-      label: "Cobourg"
-    },
-    {
-      label: "Falconbridge"
-    },
-    {
-      label: "Foymount"
-    },
-    {
-      label: "Kingston"
-    },
-    {
-      label: "Leitrim"
-    },
-    {
-      label: "London"
-    },
-    {
-      label: "Lowther"
-    },
-    {
-      label: "Meaford"
-    },
-    {
-      label: "Moosonee"
-    },
-    {
-      label: "Mountain View"
-    },
-    {
-      label: "North Bay"
-    },
-    {
-      label: "Ottawa"
-    },
-    {
-      label: "Petawawa"
-    },
-    {
-      label: "Picton"
-    },
-    {
-      label: "Ramore"
-    },
-    {
-      label: "Sioux Lookout"
-    },
-    {
-      label: "Toronto"
+      label: "North Bay",
+      value: "CFB North Bay",
+      street: "General Delivery",
+      city: "Hornell Heights",
+      postalCode: "POH 1PO"
     },
     {
       label: "Trenton",
-      street: "1000 Stn Forces",
+      value: "CFB Trenton",
+      street: "PO Box 1000 Station Forces",
       city: "Astra",
-      postalCode: "K0K3W0"
-    },
-    {
-      label: "Uplands"
-    },
-    {
-      label: "York"
+      postalCode: "K0K 3W0"
     }
   ]
 };
