@@ -9,6 +9,7 @@ class Summary extends React.Component {
 
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   next(event) {
@@ -16,6 +17,15 @@ class Summary extends React.Component {
     //handle target and call this.props.save(event.target[i])
     let path = process.env.PUBLIC_URL + "/agreement";
     this.props.history.push(path);
+  }
+
+  handleClick(event, path) {
+    event.preventDefault();
+    this.props.save({
+      name: "Summary",
+      value: true
+    });
+    this.props.history.push(process.env.PUBLIC_URL + "/" + path);
   }
 
   back() {
@@ -252,7 +262,10 @@ class Summary extends React.Component {
                 What is your date of birth?
               </div>
               <div className="response">{this.props.state["Birthday"]}</div>
-              <a href="#" className="edit">
+              <a
+                onClick={event => this.handleClick(event, "birthday")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>

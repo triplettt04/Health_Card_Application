@@ -90,6 +90,7 @@ class App extends React.Component {
       ["Posting message"]: cookies.get("Posting message") || null,
       ["Residence proof"]: cookies.get("Residence proof") || null,
       ["Signature"]: cookies.get("Signature") || null,
+      ["Summary"]: cookies.get("Summary") || null,
       pathFrom: cookies.get("pathFrom") || null,
       personNum: 0
     };
@@ -164,7 +165,10 @@ class App extends React.Component {
             <Route
               path={process.env.PUBLIC_URL + "/birthday"}
               render={() => (
-                <RouterBirthday save={target => this.handleChange(target)} />
+                <RouterBirthday
+                  save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
+                />
               )}
             />
             <Route

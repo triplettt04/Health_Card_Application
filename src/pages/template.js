@@ -23,7 +23,17 @@ class Template extends React.Component {
     this.props.history.push(path);
   }
 
-  summary() {
+  summary(event) {
+    event.preventDefault();
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit" && event.target[i].value.length) {
+        this.props.save(event.target);
+      }
+    }
+    this.props.save({
+      name: "Summary",
+      value: false
+    });
     this.props.history.push(process.env.PUBLIC_URL + "/summary");
   }
 
@@ -148,7 +158,7 @@ class Template extends React.Component {
             </button>
             <button
               className="btn btn-general btn-wide"
-              onClick={() => this.summary()}
+              onClick={event => this.summary(event)}
             >
               Back to summary
             </button>
