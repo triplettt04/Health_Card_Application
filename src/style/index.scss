@@ -338,7 +338,13 @@ p.caption {
     border: 2px solid $dark-grey;
     border-radius: 0;
     padding: 6px 12px;
-    width: 250px;
+    width: 270px;
+  }
+
+  .form-control:focus {
+    box-shadow: 0px 0px 0px 3px $active-accent;
+    transition: box-shadow 0.15s ease-in-out;
+    border: 2px solid $dark-grey;
   }
 }
 
