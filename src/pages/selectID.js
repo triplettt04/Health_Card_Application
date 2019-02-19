@@ -59,8 +59,9 @@ class SelectID extends React.Component {
     const buttonNames = [
       {
         label: "Passport",
-        value:
-          "Passport (Canadian or foreign)\n*You have already used this document type to prove Canadian citizenship."
+        value: "Passport (Canadian or foreign)",
+        extraText:
+          "\n*You have already used this document type to prove Canadian citizenship."
       },
       {
         label: "Credit card",
@@ -69,7 +70,9 @@ class SelectID extends React.Component {
       {
         label: "Driver license",
         value:
-          "Valid driver's licence or temporary driver's licence from any Canadian province or territory"
+          "Valid driver's licence or temporary driver's licence from any Canadian province or territory",
+        extraText:
+          "\n*You have already used this document type to prove residency in Ontario."
       },
       {
         label: "Immigration ID",
@@ -77,11 +80,15 @@ class SelectID extends React.Component {
       },
       {
         label: "Citizenship",
-        value: "Certificate of Canadian Citizenship (plastic card)"
+        value: "Certificate of Canadian Citizenship (plastic card)",
+        extraText:
+          "\n*You have already used this document type to prove Canadian citizenship."
       },
       {
         label: "Indian status",
-        value: "Certificate of Indian Status (paper or plastic card)"
+        value: "Certificate of Indian Status (paper or plastic card)",
+        extraText:
+          "\n*You have already used this document type to prove Canadian citizenship."
       },
       {
         label: "Permanent residence",
@@ -125,21 +132,34 @@ class SelectID extends React.Component {
     ];
     let radioButtons = [];
     for (let i = 0; i < buttonNames.length; i++) {
+      let isDisabled =
+        buttonNames[i].label === this.props.citizenProof ||
+        buttonNames[i].label === this.props.resProof;
       radioButtons.push(
-        <label className="radio-style block" key={buttonNames[i].label}>
+        <label
+          className={
+            isDisabled ? "radio-style block dead" : "radio-style block"
+          }
+          key={buttonNames[i].label}
+        >
           <input
             type="radio"
             className="radio-input radio"
             name="example"
             value={buttonNames[i].label}
             checked={this.state.identityProof === buttonNames[i].label}
+            disabled={isDisabled}
             onChange={() =>
               this.setState({
                 identityProof: buttonNames[i].label
               })
             }
           />
-          <div className="label-text">{buttonNames[i].value}</div>
+          <div className="label-text">
+            {isDisabled
+              ? buttonNames[i].value + buttonNames[i].extraText
+              : buttonNames[i].value}
+          </div>
         </label>
       );
     }
@@ -148,9 +168,7 @@ class SelectID extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="radio-field small-font dead-first-child">
-            {radioButtons}
-          </div>
+          <div className="radio-field small-font">{radioButtons}</div>
           <div className="btn-container button-footer">
             <input
               type="submit"

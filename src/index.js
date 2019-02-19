@@ -313,6 +313,8 @@ class App extends React.Component {
                 <RouterSelectID
                   save={target => this.handleChange(target)}
                   identityProof={this.state["Identity proof type"]}
+                  resProof={this.state["Residence proof type"]}
+                  citizenProof={this.state["Citizen proof"]}
                 />
               )}
             />

@@ -311,8 +311,8 @@ p.caption {
   }
 }
 
-.radio-field.small-font.dead-first-child .radio-style:first-child {
-  color: $light-grey !important;
+.radio-field.small-font .radio-style.dead {
+  color: $light-grey;
 
   .radio-input {
     background: repeating-linear-gradient(

@@ -64,11 +64,11 @@ class SelectCitizenProof extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                value="Canadian passport"
-                checked={this.state.citizenProof === "Canadian passport"}
+                value="Passport"
+                checked={this.state.citizenProof === "Passport"}
                 onChange={() =>
                   this.setState({
-                    citizenProof: "Canadian passport"
+                    citizenProof: "Passport"
                   })
                 }
               />
