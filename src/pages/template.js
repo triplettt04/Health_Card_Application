@@ -23,6 +23,10 @@ class Template extends React.Component {
     this.props.history.push(path);
   }
 
+  summary() {
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
+  }
+
   render() {
     let content = (
       <div>
@@ -141,6 +145,12 @@ class Template extends React.Component {
               onClick={() => this.back()}
             >
               Back
+            </button>
+            <button
+              className="btn btn-general btn-wide"
+              onClick={() => this.summary()}
+            >
+              Back to summary
             </button>
           </div>
         </div>
