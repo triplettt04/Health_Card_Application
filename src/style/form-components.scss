@@ -153,13 +153,12 @@
   label {
     margin: 1rem 0 0.5rem 0;
   }
+
   input {
     border: 2px solid $dark-grey;
     border-radius: 0;
   }
-}
 
-.text-input {
   .form-control {
     display: block;
     width: 100%;
@@ -194,7 +193,7 @@
 
 .text-input.one-line {
   input {
-    width: 250px;
+    width: 270px;
   }
 }
 
@@ -221,6 +220,10 @@
   position: relative;
   font-size: 24px;
   box-shadow: $box-shadow-buttons;
+}
+
+.btn.btn-general:focus {
+  box-shadow: 0px 0px 0px 3px $active-accent;
 }
 
 .btn.btn-general.btn-wide {

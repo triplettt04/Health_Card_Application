@@ -100,7 +100,7 @@ class Sex extends React.Component {
                   })
                 }
               />
-              <div className="label-text">Unspecified</div>
+              <div className="label-text">X</div>
             </label>
           </div>
         </div>
