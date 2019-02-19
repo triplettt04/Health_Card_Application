@@ -89,7 +89,8 @@ class UploadCitizen extends React.Component {
       <div>
         <div className="progress-indicator">12 / 22</div>
         <h2 className="sub-header">
-          Please upload a photo or a scan of your Canadian passport.
+          Please upload a photo or a scan of your{" "}
+          {this.props.item.toLowerCase()}.
         </h2>
       </div>
     );
