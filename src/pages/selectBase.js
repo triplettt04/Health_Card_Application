@@ -2,7 +2,6 @@ import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
 import Nav from "../components/nav";
-import Autocomplete from "react-autocomplete";
 
 class SelectBase extends React.Component {
   constructor(props) {
@@ -23,7 +22,7 @@ class SelectBase extends React.Component {
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
         noneChecked = false;
-        value = event.target[i].value;
+        value = this.findIndex(event.target[i].value);
       }
     }
     if (!noneChecked) {
@@ -35,23 +34,8 @@ class SelectBase extends React.Component {
       let path = process.env.PUBLIC_URL + "/selectMilitaryProof";
       this.props.history.push(path);
     }
-    /*     let notEntered = true;
-    for (let i = 0; i < event.target.length; i++) {
-      if (event.target[i].type !== "submit" && event.target[i].value.length) {
-        notEntered = false;
-        let target = {
-          name: "baseIndex",
-          value: this.findIndex(event.target[i].value)
-        };
-        this.props.save(target);
-      }
-    }
-    if (!notEntered) {
-      let path = process.env.PUBLIC_URL + "/selectMilitaryProof";
-      this.props.history.push(path);
-    } */
   }
-  /* 
+
   findIndex(label) {
     for (let i = 0; i < constants.militaryAddresses.length; i++) {
       if (constants.militaryAddresses[i].label === label) {
@@ -60,7 +44,7 @@ class SelectBase extends React.Component {
     }
     return null;
   }
- */
+
   back() {
     let path = process.env.PUBLIC_URL + "/isMilitary";
     this.props.history.push(path);
@@ -76,164 +60,41 @@ class SelectBase extends React.Component {
         </h2>
       </div>
     );
+
+    let radioButtons = [];
+    for (let i = 0; i < constants.militaryAddresses.length; i++) {
+      radioButtons.push(
+        <label
+          className="radio-style block"
+          key={constants.militaryAddresses[i].label}
+        >
+          <input
+            type="radio"
+            className="radio-input radio"
+            name="example"
+            value={constants.militaryAddresses[i].label}
+            checked={
+              this.state.citizenProof === constants.militaryAddresses[i].label
+            }
+            onChange={() =>
+              this.setState({
+                citizenProof: constants.militaryAddresses[i].label
+              })
+            }
+          />
+          <div className="label-text">
+            {constants.militaryAddresses[i].value}
+          </div>
+        </label>
+      );
+    }
+
     return (
       <form onSubmit={event => this.next(event)}>
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="radio-field small-font">
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Base 1"
-                checked={this.state.base === "Base 1"}
-                onChange={() =>
-                  this.setState({
-                    base: "Base 1"
-                  })
-                }
-              />
-              <div className="label-text">Base 1</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Base 2"
-                checked={this.state.base === "Base 2"}
-                onChange={() =>
-                  this.setState({
-                    base: "Base 2"
-                  })
-                }
-              />
-              <div className="label-text">Base 2</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Base 3"
-                checked={this.state.base === "Base 3"}
-                onChange={() =>
-                  this.setState({
-                    base: "Base 3"
-                  })
-                }
-              />
-              <div className="label-text">Base 3</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Base 4"
-                checked={this.state.base === "Base 4"}
-                onChange={() =>
-                  this.setState({
-                    base: "Base 4"
-                  })
-                }
-              />
-              <div className="label-text">Base 4</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Base 5"
-                checked={this.state.base === "Base 5"}
-                onChange={() =>
-                  this.setState({
-                    base: "Base 5"
-                  })
-                }
-              />
-              <div className="label-text">Base 5</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Base 6"
-                checked={this.state.base === "Base 6"}
-                onChange={() =>
-                  this.setState({
-                    base: "Base 6"
-                  })
-                }
-              />
-              <div className="label-text">Base 6</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Base 7"
-                checked={this.state.base === "Base 7"}
-                onChange={() =>
-                  this.setState({
-                    base: "Base 7"
-                  })
-                }
-              />
-              <div className="label-text">Base 7</div>
-            </label>
-          </div>
-          {/*           <div className="text-input one-line base-input">
-            <label className="form-label" htmlFor="first-name-1">
-              Enter your base
-            </label>
-            <Autocomplete
-              className="auto-text-container"
-              getItemValue={item => item.label}
-              items={constants.militaryAddresses}
-              shouldItemRender={(item, value) =>
-                item.label.toLowerCase().indexOf(value.toLowerCase()) > -1
-              }
-              renderItem={(item, isHighlighted) => (
-                <div
-                  className={
-                    isHighlighted ? "auto-highlighted auto-text" : "auto-text"
-                  }
-                  key={item.label}
-                >
-                  {item.label}
-                </div>
-              )}
-              value={this.state.value}
-              onChange={event =>
-                this.setState({
-                  value: event.target.value
-                })
-              }
-              onSelect={val =>
-                this.setState({
-                  value: val
-                })
-              }
-              renderMenu={(items, value, style) => {
-                let maxLength = 3;
-                if (items.length > maxLength) {
-                  items = items.slice(0, maxLength);
-                }
-                return (
-                  <div
-                    style={{ ...style, ...this.menuStyle }}
-                    children={items}
-                  />
-                );
-              }}
-            />
-          </div> */}
+          <div className="radio-field small-font">{radioButtons}</div>
         </div>
         <div className="btn-container button-footer">
           <input
