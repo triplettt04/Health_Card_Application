@@ -143,7 +143,7 @@ class UploadRes extends React.Component {
     let modal = [];
     for (let i = 0; i < this.state.num; i++) {
       uploaded = (
-        <div>
+        <div className="upload-container">
           <a href="#" className="view-link" onClick={() => this.openModal(i)}>
             View
           </a>

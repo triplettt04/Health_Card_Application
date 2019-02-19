@@ -110,22 +110,28 @@ class Summary extends React.Component {
               </div>
               <div className="card-collection">
                 <div className="card-uploaded small-card-uploaded">
-                  <a href="#" className="view-link">
-                    View
-                  </a>
-                  <div className="file-name">MPRR_1.jpeg</div>
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">MPRR_1.jpeg</div>
+                  </div>
                 </div>
                 <div className="card-uploaded small-card-uploaded">
-                  <a href="#" className="view-link">
-                    View
-                  </a>
-                  <div className="file-name">MPRR_2.jpeg</div>
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">MPRR_2.jpeg</div>
+                  </div>
                 </div>
                 <div className="card-uploaded small-card-uploaded">
-                  <a href="#" className="view-link">
-                    View
-                  </a>
-                  <div className="file-name">MPRR_3.jpeg</div>
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">MPRR_3.jpeg</div>
+                  </div>
                 </div>
               </div>
               <a href="#" className="edit">
@@ -186,10 +192,12 @@ class Summary extends React.Component {
               </div>
               <div className="card-collection">
                 <div className="card-uploaded small-card-uploaded">
-                  <a href="#" className="view-link">
-                    View
-                  </a>
-                  <div className="file-name">mary_passport.jpeg</div>
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">mary_passport.jpeg</div>
+                  </div>
                 </div>
               </div>
               <a href="#" className="edit">
@@ -215,10 +223,12 @@ class Summary extends React.Component {
               </div>
               <div className="card-collection">
                 <div className="card-uploaded small-card-uploaded">
-                  <a href="#" className="view-link">
-                    View
-                  </a>
-                  <div className="file-name">drivers_license.png</div>
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">drivers_license.png</div>
+                  </div>
                 </div>
               </div>
               <a href="#" className="edit">
@@ -290,10 +300,12 @@ class Summary extends React.Component {
               </div>
               <div className="card-collection">
                 <div className="card-uploaded small-card-uploaded">
-                  <a href="#" className="view-link">
-                    View
-                  </a>
-                  <div className="file-name">self-photo.jpeg</div>
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">self-photo.jpeg</div>
+                  </div>
                 </div>
               </div>
               <a href="#" className="edit">
@@ -307,10 +319,12 @@ class Summary extends React.Component {
               </div>
               <div className="card-collection">
                 <div className="card-uploaded small-card-uploaded">
-                  <a href="#" className="view-link">
-                    View
-                  </a>
-                  <div className="file-name">signature.jpeg</div>
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">signature.jpeg</div>
+                  </div>
                 </div>
               </div>
               <a href="#" className="edit">

@@ -77,25 +77,33 @@ body {
 .card-uploaded {
   box-shadow: $box-shadow-cards;
   border-radius: 5px;
-  padding: 18px 18px;
   font-size: 16px;
+  min-height: 50px;
   margin-bottom: 10px;
 
-  .view-link {
-    padding-right: 15px;
-    display: inline-block;
-    color: $primary-blue;
-  }
+  .upload-container {
+    display: flex;
+    justify-content: space-between;
 
-  .file-name {
-    display: inline-block;
-  }
+    .view-link {
+      padding: 15px 10px;
+      color: $primary-blue;
+    }
 
-  .delete-icon {
-    border: none;
-    padding: 0;
-    background: none;
-    float: right;
+    .file-name {
+      padding-top: 15px;
+      display: inline-block;
+      width: 100%;
+      word-wrap: break-word;
+    }
+
+    button.delete-icon {
+      border: none;
+      width: 54px;
+      background: #eeeeee;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
   }
 }
 
