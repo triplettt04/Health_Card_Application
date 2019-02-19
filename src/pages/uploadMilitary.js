@@ -141,7 +141,7 @@ class UploadMilitary extends React.Component {
     switch (this.state.num) {
       case 3:
         uploaded = (
-          <div>
+          <div className="upload-container">
             <a href="#" className="view-link" onClick={() => this.openModal(3)}>
               View
             </a>
@@ -178,7 +178,7 @@ class UploadMilitary extends React.Component {
         );
       case 2:
         uploaded = (
-          <div>
+          <div className="upload-container">
             <a href="#" className="view-link" onClick={() => this.openModal(2)}>
               View
             </a>
@@ -215,7 +215,7 @@ class UploadMilitary extends React.Component {
         );
       case 1:
         uploaded = (
-          <div>
+          <div className="upload-container">
             <a href="#" className="view-link" onClick={() => this.openModal(1)}>
               View
             </a>

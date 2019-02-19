@@ -18,7 +18,24 @@ class SelectBase extends React.Component {
 
   next(event) {
     event.preventDefault();
-    let notEntered = true;
+    let noneChecked = true;
+    let value;
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].checked) {
+        noneChecked = false;
+        value = event.target[i].value;
+      }
+    }
+    if (!noneChecked) {
+      let target = {
+        name: "baseIndex",
+        value: value
+      };
+      this.props.save(target);
+      let path = process.env.PUBLIC_URL + "/selectMilitaryProof";
+      this.props.history.push(path);
+    }
+    /*     let notEntered = true;
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].type !== "submit" && event.target[i].value.length) {
         notEntered = false;
@@ -32,9 +49,9 @@ class SelectBase extends React.Component {
     if (!notEntered) {
       let path = process.env.PUBLIC_URL + "/selectMilitaryProof";
       this.props.history.push(path);
-    }
+    } */
   }
-
+  /* 
   findIndex(label) {
     for (let i = 0; i < constants.militaryAddresses.length; i++) {
       if (constants.militaryAddresses[i].label === label) {
@@ -43,7 +60,7 @@ class SelectBase extends React.Component {
     }
     return null;
   }
-
+ */
   back() {
     let path = process.env.PUBLIC_URL + "/isMilitary";
     this.props.history.push(path);
@@ -64,7 +81,114 @@ class SelectBase extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="text-input one-line base-input">
+          <div className="radio-field small-font">
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Base 1"
+                checked={this.state.base === "Base 1"}
+                onChange={() =>
+                  this.setState({
+                    base: "Base 1"
+                  })
+                }
+              />
+              <div className="label-text">Base 1</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Base 2"
+                checked={this.state.base === "Base 2"}
+                onChange={() =>
+                  this.setState({
+                    base: "Base 2"
+                  })
+                }
+              />
+              <div className="label-text">Base 2</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Base 3"
+                checked={this.state.base === "Base 3"}
+                onChange={() =>
+                  this.setState({
+                    base: "Base 3"
+                  })
+                }
+              />
+              <div className="label-text">Base 3</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Base 4"
+                checked={this.state.base === "Base 4"}
+                onChange={() =>
+                  this.setState({
+                    base: "Base 4"
+                  })
+                }
+              />
+              <div className="label-text">Base 4</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Base 5"
+                checked={this.state.base === "Base 5"}
+                onChange={() =>
+                  this.setState({
+                    base: "Base 5"
+                  })
+                }
+              />
+              <div className="label-text">Base 5</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Base 6"
+                checked={this.state.base === "Base 6"}
+                onChange={() =>
+                  this.setState({
+                    base: "Base 6"
+                  })
+                }
+              />
+              <div className="label-text">Base 6</div>
+            </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="Base 7"
+                checked={this.state.base === "Base 7"}
+                onChange={() =>
+                  this.setState({
+                    base: "Base 7"
+                  })
+                }
+              />
+              <div className="label-text">Base 7</div>
+            </label>
+          </div>
+          {/*           <div className="text-input one-line base-input">
             <label className="form-label" htmlFor="first-name-1">
               Enter your base
             </label>
@@ -109,7 +233,7 @@ class SelectBase extends React.Component {
                 );
               }}
             />
-          </div>
+          </div> */}
         </div>
         <div className="btn-container button-footer">
           <input
