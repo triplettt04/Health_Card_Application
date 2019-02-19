@@ -34,22 +34,21 @@ class Summary extends React.Component {
       </div>
     );
 
-    let hasAddress =
-      this.props.state["Military relation"] === "Yes" ? (
-        <div className="summary-tab">
-          <div className="summary-question">
-            Do you currently have an address in Ontario?
-          </div>
-          <div className="response">
-            {this.props.state["Residence address"]}
-          </div>
-          <a href="#" className="edit">
-            Edit
-          </a>
+    let hasAddress = this.props.state["Military relation"] ? (
+      <div className="summary-tab">
+        <div className="summary-question">
+          Do you currently have an address in Ontario?
         </div>
-      ) : (
-        ""
-      );
+        <div className="response">
+          {this.props.state["Residence address"] ? "Yes" : "No"}
+        </div>
+        <a href="#" className="edit">
+          Edit
+        </a>
+      </div>
+    ) : (
+      ""
+    );
 
     return (
       <form onSubmit={event => this.next(event)}>
@@ -71,7 +70,7 @@ class Summary extends React.Component {
                 Are you a spouse or dependant of a Canadian military member?
               </div>
               <div className="response">
-                {this.props.state["Military relation"]}
+                {this.props.state["Military relation"] ? "Yes" : "No"}
               </div>
               <a href="#" className="edit">
                 Edit
@@ -252,7 +251,7 @@ class Summary extends React.Component {
               <div className="summary-question">
                 What is your date of birth?
               </div>
-              <div className="response">{this.props.state["birthday"]}</div>
+              <div className="response">{this.props.state["Birthday"]}</div>
               <a href="#" className="edit">
                 Edit
               </a>

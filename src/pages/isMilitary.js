@@ -18,20 +18,11 @@ class IsMilitary extends React.Component {
   next(event) {
     let target = {
       name: "Military relation",
-      value: null
+      value: this.state.isMilitary
     };
-    let isMilitary,
-      noneChecked = true;
-    for (let i = 0; i < event.target.length; i++) {
-      if (event.target[i].type !== "submit" && event.target[i].checked) {
-        target.value = event.target[i].value;
-        this.props.save(target);
-        isMilitary = event.target[i].value === "Yes";
-        noneChecked = false;
-      }
-    }
-    if (!noneChecked) {
-      if (isMilitary) {
+    if (this.state.isMilitary != null) {
+      this.props.save(target);
+      if (this.state.isMilitary) {
         let path = process.env.PUBLIC_URL + "/selectBase";
         this.props.history.push(path);
       } else {
@@ -44,7 +35,7 @@ class IsMilitary extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/pastOHIP";
+    let path = process.env.PUBLIC_URL + "/pastOHIP"; //TO CHANGE
     this.props.history.push(path);
   }
 
@@ -75,10 +66,10 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
-                checked={this.state.isMilitary === "Yes"}
+                checked={this.state.isMilitary}
                 onChange={() =>
                   this.setState({
-                    isMilitary: "Yes"
+                    isMilitary: true
                   })
                 }
               />
@@ -90,10 +81,10 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
-                checked={this.state.isMilitary === "No"}
+                checked={!this.state.isMilitary}
                 onChange={() =>
                   this.setState({
-                    isMilitary: "No"
+                    isMilitary: false
                   })
                 }
               />

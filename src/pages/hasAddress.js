@@ -18,20 +18,11 @@ class HasAddress extends React.Component {
   next(event) {
     let target = {
       name: "Residence address",
-      value: null
+      value: this.state.hasAddress
     };
-    let hasAddress,
-      noneChecked = true;
-    for (let i = 0; i < event.target.length; i++) {
-      if (event.target[i].type !== "submit" && event.target[i].checked) {
-        target.value = event.target[i].value;
-        this.props.save(target);
-        hasAddress = event.target[i].value === "Yes";
-        noneChecked = false;
-      }
-    }
-    if (!noneChecked) {
-      if (hasAddress) {
+    if (this.state.hasAddress != null) {
+      this.props.save(target);
+      if (this.state.hasAddress) {
         this.props.history.push({
           pathname: process.env.PUBLIC_URL + "/selectResProof",
           state: { pathFrom: process.env.PUBLIC_URL + "/hasAddress" }
@@ -74,10 +65,10 @@ class HasAddress extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
-                checked={this.state.hasAddress === "Yes"}
+                checked={this.state.hasAddress}
                 onChange={() =>
                   this.setState({
-                    hasAddress: "Yes"
+                    hasAddress: true
                   })
                 }
               />
@@ -89,10 +80,10 @@ class HasAddress extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
-                checked={this.state.hasAddress === "No"}
+                checked={!this.state.hasAddress}
                 onChange={() =>
                   this.setState({
-                    hasAddress: "No"
+                    hasAddress: false
                   })
                 }
               />
