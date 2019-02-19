@@ -85,7 +85,7 @@ class Address extends React.Component {
 
   back() {
     let path;
-    if (this.props.pathFrom === "No") {
+    if (!this.props.pathFrom) {
       path = process.env.PUBLIC_URL + "/uploadPosting";
     } else {
       path = process.env.PUBLIC_URL + "/uploadRes";

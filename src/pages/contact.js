@@ -73,7 +73,7 @@ class Contact extends React.Component {
             </label>
             <input
               className="form-control"
-              guide={true}
+              guide="true"
               id="alternate-phone-1"
               name="Alternate phone"
               defaultValue={
@@ -86,7 +86,7 @@ class Contact extends React.Component {
             <input
               mask={emailMask}
               className="form-control"
-              guide={true}
+              guide="true"
               id="email-1"
               name="Email"
               defaultValue={this.props.email ? this.props.email : ""}
