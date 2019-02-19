@@ -9,6 +9,8 @@ import {
   withRouter
 } from "react-router-dom";
 import ScrollToTop from "react-router-scroll-top";
+import { CookiesProvider, withCookies, Cookies } from "react-cookie";
+import { instanceOf } from "prop-types";
 
 import constants from "./constants";
 
@@ -22,7 +24,7 @@ import ConfirmPhoto from "./pages/confirmPhoto";
 import NotFound from "./pages/notFound";
 import Name from "./pages/name";
 import Address from "./pages/address";
-import PastOHIP from "./pages/pastOHIP";
+//import PastOHIP from "./pages/pastOHIP";
 import IsMilitary from "./pages/isMilitary";
 import SelectBase from "./pages/selectBase";
 import SelectMilitaryProof from "./pages/selectMilitaryProof";
@@ -47,13 +49,49 @@ import Agreement from "./pages/agreement";
 import Template from "./pages/template";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  static propTypes = {
+    cookies: instanceOf(Cookies).isRequired
+  };
+
+  constructor(props) {
+    super(props);
+    const { cookies } = props;
+
     this.state = {
-      baseIndex: null,
-      pathFrom: null,
-      pageNum: 0
-      //["Military relation"]: "Yes" //Hard coded for testing
+      baseIndex: cookies.get("baseIndex") || null,
+      ["Residence street"]: cookies.get("Residence street") || null,
+      ["Residence city"]: cookies.get("Residence city") || null,
+      ["Residence postal code"]: cookies.get("Residence postal code") || null,
+      ["Mailing street"]: cookies.get("Mailing street") || null,
+      ["Mailing city"]: cookies.get("Mailing city") || null,
+      ["Mailing postal code"]: cookies.get("Mailing postal code") || null,
+      ["Mailing province"]: cookies.get("Mailing province") || null,
+      ["Mailing country"]: cookies.get("Mailing country") || null,
+      ["Birthday"]: cookies.get("Birthday") || null,
+      ["Primary phone"]: cookies.get("Primary phone") || null,
+      ["Alternate phone"]: cookies.get("Alternate phone") || null,
+      ["Email"]: cookies.get("Email") || null,
+      ["Residence address"]: cookies.get("Residence address") || null,
+      ["Military relation"]: cookies.get("Military relation") || null,
+      ["First name"]: cookies.get("First name") || null,
+      ["Middle name(s)"]: cookies.get("Middle name(s)") || null,
+      ["Last name"]: cookies.get("Last name") || null,
+      ["Citizen type"]: cookies.get("Citizen type") || null,
+      ["Citizen proof"]: cookies.get("Citizen proof") || null,
+      ["Identity proof type"]: cookies.get("Identity proof type") || null,
+      ["Military proof type"]: cookies.get("Military proof type") || null,
+      ["Residence proof type"]: cookies.get("Residence proof type") || null,
+      ["Signature type"]: cookies.get("Signature type") || null,
+      ["Sex"]: cookies.get("Sex") || null,
+      ["Citizenship proof"]: cookies.get("Citizenship proof") || null,
+      ["Identity proof"]: cookies.get("Identity proof") || null,
+      ["Military proof"]: cookies.get("Military proof") || null,
+      ["Photo proof"]: cookies.get("Photo proof") || null,
+      ["Posting message"]: cookies.get("Posting message") || null,
+      ["Residence proof"]: cookies.get("Residence proof") || null,
+      ["Signature"]: cookies.get("Signature") || null,
+      pathFrom: cookies.get("pathFrom") || null,
+      personNum: 0
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -63,6 +101,8 @@ class App extends React.Component {
     this.setState({
       [target.name]: target.value
     });
+    const { cookies } = this.props;
+    cookies.set(target.name, target.value);
   }
 
   render() {
@@ -75,7 +115,7 @@ class App extends React.Component {
     const RouterSex = withRouter(Sex);
     const RouterInCamera = withRouter(InCamera);
     const RouterConfirmPhoto = withRouter(ConfirmPhoto);
-    const RouterPastOHIP = withRouter(PastOHIP);
+    //const RouterPastOHIP = withRouter(PastOHIP);
     const RouterIsMilitary = withRouter(IsMilitary);
     const RouterSelectBase = withRouter(SelectBase);
     const RouterSelectMilitaryProof = withRouter(SelectMilitaryProof);
@@ -144,13 +184,14 @@ class App extends React.Component {
                 <RouterAddress
                   save={target => this.handleChange(target)}
                   addressRes={
-                    this.state["Residence street"] === "Yes"
+                    this.state["Residence street"]
                       ? {
                           street: this.state["Residence street"],
                           city: this.state["Residence city"],
                           postalCode: this.state["Residence postal code"]
                         }
-                      : this.state["Military relation"] === "Yes"
+                      : this.state["Military relation"] &&
+                        this.state["Residence address"] === false
                       ? {
                           street:
                             constants.militaryAddresses[this.state.baseIndex]
@@ -172,7 +213,7 @@ class App extends React.Component {
                     province: this.state["Mailing province"],
                     country: this.state["Mailing country"]
                   }}
-                  pathFrom={this.state["Ontario address"]}
+                  pathFrom={this.state["Residence address"]}
                 />
               )}
             />
@@ -200,15 +241,6 @@ class App extends React.Component {
               render={() => (
                 <RouterConfirmPhoto
                   save={target => this.handleChange(target)}
-                />
-              )}
-            />
-            <Route
-              path={process.env.PUBLIC_URL + "/pastOHIP"}
-              render={() => (
-                <RouterPastOHIP
-                  save={target => this.handleChange(target)}
-                  pastOHIP={this.state["Past OHIP"]}
                 />
               )}
             />
@@ -271,7 +303,7 @@ class App extends React.Component {
               render={() => (
                 <RouterSelectResProof
                   save={target => this.handleChange(target)}
-                  pathFrom={this.state["Ontario address"]} //This is fine
+                  pathFrom={this.state["Residence address"]} //This is fine
                   resProof={this.state["Residence proof type"]}
                 />
               )}
@@ -418,4 +450,13 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+function Root() {
+  let CookieApp = withCookies(App);
+  return (
+    <CookiesProvider>
+      <CookieApp />
+    </CookiesProvider>
+  );
+}
+
+ReactDOM.render(<Root />, document.getElementById("root"));

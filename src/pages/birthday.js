@@ -53,7 +53,7 @@ class Birthday extends React.Component {
               className="form-control"
               guide={true}
               defaultValue={this.props.birthday ? this.props.birthday : ""}
-              name="birthday"
+              name="Birthday"
             />
           </div>
         </div>
