@@ -168,6 +168,7 @@ class App extends React.Component {
                 <RouterBirthday
                   save={target => this.handleChange(target)}
                   summary={this.state["Summary"]}
+                  birthday={this.state["Birthday"]}
                 />
               )}
             />
