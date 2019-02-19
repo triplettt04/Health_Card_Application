@@ -249,6 +249,11 @@ class App extends React.Component {
                 <RouterUploadMilitary
                   save={target => this.handleChange(target)}
                   status={this.state["Military proof"]}
+                  item={
+                    this.state["Military proof type"]
+                      ? this.state["Military proof type"]
+                      : ""
+                  }
                 />
               )}
             />
@@ -277,6 +282,11 @@ class App extends React.Component {
                 <RouterUploadRes
                   save={target => this.handleChange(target)}
                   status={this.state["Residence proof"]}
+                  item={
+                    this.state["Residence proof type"]
+                      ? this.state["Residence proof type"]
+                      : ""
+                  }
                 />
               )}
             />
@@ -304,6 +314,11 @@ class App extends React.Component {
                 <RouterUploadCitizen
                   save={target => this.handleChange(target)}
                   status={this.state["Citizenship proof"]}
+                  item={
+                    this.state["Citizen proof"]
+                      ? this.state["Citizen proof"]
+                      : ""
+                  }
                 />
               )}
             />
@@ -313,6 +328,8 @@ class App extends React.Component {
                 <RouterSelectID
                   save={target => this.handleChange(target)}
                   identityProof={this.state["Identity proof type"]}
+                  resProof={this.state["Residence proof type"]}
+                  citizenProof={this.state["Citizen proof"]}
                 />
               )}
             />
@@ -322,6 +339,11 @@ class App extends React.Component {
                 <RouterUploadID
                   save={target => this.handleChange(target)}
                   status={this.state["Identity proof"]}
+                  item={
+                    this.state["Identity proof type"]
+                      ? this.state["Identity proof type"]
+                      : ""
+                  }
                 />
               )}
             />
