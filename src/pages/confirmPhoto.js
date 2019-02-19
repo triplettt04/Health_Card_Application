@@ -23,7 +23,7 @@ class SelectBase extends React.Component {
     };
     switch (pathFrom) {
       case process.env.PUBLIC_URL + "/uploadRes":
-        //Nothing yet
+        target.name = "Residence proof";
         break;
       case process.env.PUBLIC_URL + "/uploadCitizen":
         target.name = "Citizenship proof";
