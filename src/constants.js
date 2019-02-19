@@ -1,6 +1,8 @@
 const constants = {
   buttonClasses: "btn btn-primary",
   navTopName: "Home",
+  numResPages: 2,
+  numPostingPages: 2,
   militaryAddresses: [
     {
       label: "Armstrong",
