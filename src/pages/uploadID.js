@@ -97,7 +97,7 @@ class UploadID extends React.Component {
       </div>
     );
     let uploaded = (
-      <div>
+      <div className="upload-container">
         <a href="#" className="view-link" onClick={this.openModal}>
           View
         </a>

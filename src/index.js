@@ -144,7 +144,7 @@ class App extends React.Component {
                 <RouterAddress
                   save={target => this.handleChange(target)}
                   addressRes={
-                    this.state["Residence street"]
+                    this.state["Residence street"] === "Yes"
                       ? {
                           street: this.state["Residence street"],
                           city: this.state["Residence city"],
