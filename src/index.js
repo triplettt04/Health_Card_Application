@@ -362,6 +362,7 @@ class App extends React.Component {
                   identityProof={this.state["Identity proof type"]}
                   resProof={this.state["Residence proof type"]}
                   citizenProof={this.state["Citizen proof"]}
+                  citizenType={this.state["Citizen type"]}
                 />
               )}
             />

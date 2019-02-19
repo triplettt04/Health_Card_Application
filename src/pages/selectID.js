@@ -60,7 +60,8 @@ class SelectID extends React.Component {
     for (let i = 0; i < constants.buttonsID.length; i++) {
       let isDisabled =
         constants.buttonsID[i].label === this.props.citizenProof ||
-        constants.buttonsID[i].label === this.props.resProof;
+        constants.buttonsID[i].label === this.props.resProof ||
+        constants.buttonsID[i].dependency === this.props.citizenType;
       radioButtons.push(
         <label
           className={

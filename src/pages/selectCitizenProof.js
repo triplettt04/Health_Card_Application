@@ -54,9 +54,13 @@ class SelectCitizenProof extends React.Component {
 
     let radioButtons = [];
     for (let i = 0; i < constants.buttonsCitizen.length; i++) {
+      let isDisabled =
+        constants.buttonsID[i].label === this.props.identityProof;
       radioButtons.push(
         <label
-          className="radio-style block"
+          className={
+            isDisabled ? "radio-style block dead" : "radio-style block"
+          }
           key={constants.buttonsCitizen[i].label}
         >
           <input
