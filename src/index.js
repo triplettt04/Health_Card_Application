@@ -164,7 +164,10 @@ class App extends React.Component {
             <Route
               path={process.env.PUBLIC_URL + "/birthday"}
               render={() => (
-                <RouterBirthday save={target => this.handleChange(target)} />
+                <RouterBirthday
+                  save={target => this.handleChange(target)}
+                  birthday={this.state["Birthday"]}
+                />
               )}
             />
             <Route
