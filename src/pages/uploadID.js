@@ -91,8 +91,7 @@ class UploadID extends React.Component {
       <div>
         <div className="progress-indicator">14 / 22</div>
         <h2 className="sub-header">
-          Please upload a photo or scan of your identity document with your full
-          name and signature.
+          Please upload a photo or scan of your {this.props.item.toLowerCase()}.
         </h2>
       </div>
     );

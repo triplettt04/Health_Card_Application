@@ -120,12 +120,15 @@ class UploadMilitary extends React.Component {
   }
 
   render() {
+    let personalized =
+      this.props.item === "MPRR"
+        ? "the military member's Military Personal Record Resume (MPRR)"
+        : "your " + this.props.item.toLowerCase();
     let content = (
       <div>
         <div className="progress-indicator">5 / 22</div>
         <h2 className="sub-header">
-          Please upload photos or a scan of the military member's Military
-          Personal Record Resume (MPRR).
+          Please upload photos or a scan of {personalized}.
         </h2>
       </div>
     );

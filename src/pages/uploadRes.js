@@ -124,11 +124,9 @@ class UploadRes extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">2 / 22</div>
-        <h2 className="sub-header">UPLOAD RESIDENCY</h2>
+        <div className="progress-indicator">7 / 22</div>
         <p className="caption">
-          When relocating to Ontario, posting messages show your intent to move
-          into the province.
+          Please upload a photo or scan of your {this.props.item.toLowerCase()}.
         </p>
       </div>
     );

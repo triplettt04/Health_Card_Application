@@ -52,144 +52,39 @@ class SelectCitizenProof extends React.Component {
       </div>
     );
 
+    let radioButtons = [];
+    for (let i = 0; i < constants.buttonsCitizen.length; i++) {
+      radioButtons.push(
+        <label
+          className="radio-style block"
+          key={constants.buttonsCitizen[i].label}
+        >
+          <input
+            type="radio"
+            className="radio-input radio"
+            name="example"
+            value={constants.buttonsCitizen[i].label}
+            checked={
+              this.state.citizenProof === constants.buttonsCitizen[i].label
+            }
+            onChange={() =>
+              this.setState({
+                citizenProof: constants.buttonsCitizen[i].label
+              })
+            }
+          />
+          <div className="label-text">{constants.buttonsCitizen[i].value}</div>
+        </label>
+      );
+    }
+
     return (
       <form onSubmit={event => this.next(event)}>
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
 
-          <div className="radio-field small-font">
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Passport"
-                checked={this.state.citizenProof === "Passport"}
-                onChange={() =>
-                  this.setState({
-                    citizenProof: "Passport"
-                  })
-                }
-              />
-              <div className="label-text">Canadian passport</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Birth certificate"
-                checked={this.state.citizenProof === "Birth certificate"}
-                onChange={() =>
-                  this.setState({
-                    citizenProof: "Birth certificate"
-                  })
-                }
-              />
-              <div className="label-text">Birth certificate</div>{" "}
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Birth abroad"
-                checked={this.state.citizenProof === "Birth abroad"}
-                onChange={() =>
-                  this.setState({
-                    citizenProof: "Birth abroad"
-                  })
-                }
-              />
-              <div className="label-text">
-                Canadian Certificate of Registration of Birth Abroad
-              </div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Live birth"
-                checked={this.state.citizenProof === "Live birth"}
-                onChange={() =>
-                  this.setState({
-                    citizenProof: "Live birth"
-                  })
-                }
-              />
-              <div className="label-text">
-                Certified Statement of Live Birth from any Canadian province or
-                territory
-              </div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Citizenship"
-                checked={this.state.citizenProof === "Citizenship"}
-                onChange={() =>
-                  this.setState({
-                    citizenProof: "Citizenship"
-                  })
-                }
-              />
-              <div className="label-text">
-                Certificate of Canadian Citizenship or Certificate of
-                Naturalization
-              </div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Indian status"
-                checked={this.state.citizenProof === "Indian status"}
-                onChange={() =>
-                  this.setState({
-                    citizenProof: "Indian status"
-                  })
-                }
-              />
-              <div className="label-text">Certificate of Indian Status</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Indian record"
-                checked={this.state.citizenProof === "Indian record"}
-                onChange={() =>
-                  this.setState({
-                    citizenProof: "Indian record"
-                  })
-                }
-              />
-              <div className="label-text">Registered Indian Record</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="Temp confirmation"
-                checked={this.state.citizenProof === "Temp confirmation"}
-                onChange={() =>
-                  this.setState({
-                    citizenProof: "Temp confirmation"
-                  })
-                }
-              />
-              <div className="label-text">
-                Temporary Confirmation of Registration document
-              </div>
-            </label>
-          </div>
+          <div className="radio-field small-font">{radioButtons}</div>
         </div>
         <div className="btn-container button-footer">
           <input
