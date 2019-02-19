@@ -4,7 +4,8 @@ import Card from "../components/card";
 import Nav from "../components/nav";
 import CardUploaded from "../components/cardUploaded";
 import iconTrash from "../assets/icon-trash.svg";
-import postingLetter from "../assets/posting-letter.png";
+import Residence1 from "./MPRR1.png"; //TO CHANGE
+import Residence2 from "./MPRR2.png"; //TO CHANGE
 import Modal from "react-modal";
 
 const customStyles = {
@@ -25,13 +26,21 @@ class UploadRes extends React.Component {
 
     let status = props.status
       ? props.status
-      : props.location.state && props.location.state.uploaded
+      : props.num > 0
       ? "Uploaded"
       : "Not completed";
-
+    let num =
+      props.location.state && props.location.state.num
+        ? props.location.state.num
+        : 0;
+    let modalIsOpen = [];
+    for (let i = 0; i < constants.numResPages; i++) {
+      modalIsOpen.push(false);
+    }
     this.state = {
       status: status,
-      modalIsOpen: false
+      num: num,
+      modalIsOpen: modalIsOpen
     };
 
     this.back = this.back.bind(this);
@@ -44,8 +53,10 @@ class UploadRes extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal() {
-    this.setState({ modalIsOpen: true });
+  openModal(num) {
+    let curModal = this.state.modalIsOpen;
+    curModal[num] = true;
+    this.setState({ modalIsOpen: curModal });
   }
 
   afterOpenModal() {
@@ -53,14 +64,39 @@ class UploadRes extends React.Component {
     this.subtitle.style.color = "$dark-grey";
   }
 
-  closeModal() {
-    this.setState({ modalIsOpen: false });
+  closeModal(num) {
+    let curModal = this.state.modalIsOpen;
+    curModal[num] = false;
+    this.setState({ modalIsOpen: curModal });
+  }
+
+  getSrc(num) {
+    switch (num) {
+      case 0:
+        return Residence1;
+      case 1:
+        return Residence2;
+      default:
+        return null;
+    }
   }
 
   takePic() {
+    let target = {
+      name: "pathFrom",
+      value: process.env.PUBLIC_URL + "/uploadRes"
+    };
+    this.props.save(target);
+    let num =
+      this.state.num > constants.numResPages - 1
+        ? constants.numResPages
+        : this.state.num + 1;
+    this.props.save({
+      name: "pageNum",
+      value: num
+    });
     this.props.history.push({
-      pathname: process.env.PUBLIC_URL + "/inCamera",
-      state: { pathFrom: process.env.PUBLIC_URL + "/uploadRes" }
+      pathname: process.env.PUBLIC_URL + "/inCamera"
     });
   }
 
@@ -96,24 +132,62 @@ class UploadRes extends React.Component {
         </p>
       </div>
     );
-    let uploaded = (
-      <div>
-        <a href="#" className="view-link" onClick={this.openModal}>
-          View
-        </a>
-        <div className="file-name">military_posting1.jpeg</div>
-        <button className="delete-icon">
-          <img src={iconTrash} />
-        </button>
-      </div>
-    );
+
+    let cardUploaded = [],
+      imageSrc,
+      uploaded;
+
+    let imageNameStart = "residence_proof";
+    let imageEnding = ".jpeg";
+
+    let modal = [];
+    for (let i = 0; i < this.state.num; i++) {
+      uploaded = (
+        <div>
+          <a href="#" className="view-link" onClick={() => this.openModal(i)}>
+            View
+          </a>
+          <div className="file-name">
+            {imageNameStart + (i + 1).toString() + imageEnding}
+          </div>
+          <button className="delete-icon">
+            <img src={iconTrash} />
+          </button>
+        </div>
+      );
+      cardUploaded.push(<CardUploaded key={i} content={uploaded} />);
+      imageSrc = this.getSrc(i);
+      modal.push(
+        <Modal
+          key={i}
+          isOpen={this.state.modalIsOpen[i]}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={() => this.closeModal(i)}
+          style={customStyles}
+          contentLabel="upload modal"
+        >
+          <div className="modal-head">
+            <div
+              className="file-name"
+              ref={subtitle => (this.subtitle = subtitle)}
+            >
+              {imageNameStart + (i + 1).toString() + imageEnding}
+            </div>
+            <a className="modal-close" onClick={() => this.closeModal(i)} />
+          </div>
+          <div className="modal-image">
+            <img src={imageSrc} />
+          </div>
+        </Modal>
+      );
+    }
 
     return (
       <form onSubmit={event => this.next(event)}>
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <CardUploaded content={uploaded} />
+          {cardUploaded}
           <div className="links-container">
             <div className="icon-link-container">
               <a
@@ -157,26 +231,7 @@ class UploadRes extends React.Component {
             Back
           </button>
         </div>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="upload modal"
-        >
-          <div className="modal-head">
-            <div
-              className="file-name"
-              ref={subtitle => (this.subtitle = subtitle)}
-            >
-              military_posting1.jpeg
-            </div>
-            <a className="modal-close" onClick={this.closeModal} />
-          </div>
-          <div className="modal-image">
-            <img src={postingLetter} />
-          </div>
-        </Modal>
+        {modal}
       </form>
     );
   }

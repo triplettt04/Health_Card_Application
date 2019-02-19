@@ -150,7 +150,7 @@ class App extends React.Component {
                           city: this.state["Residence city"],
                           postalCode: this.state["Residence postal code"]
                         }
-                      : this.state["Military relation"]
+                      : this.state["Military relation"] === "Yes"
                       ? {
                           street:
                             constants.militaryAddresses[this.state.baseIndex]
@@ -266,7 +266,7 @@ class App extends React.Component {
               render={() => (
                 <RouterSelectResProof
                   save={target => this.handleChange(target)}
-                  pathFrom={this.state["Ontario address"]}
+                  pathFrom={this.state["Ontario address"]} //This is fine
                   resProof={this.state["Residence proof type"]}
                 />
               )}

@@ -25,7 +25,7 @@ class UploadPosting extends React.Component {
     super(props);
     let status = props.status
       ? props.status
-      : props.location.state && props.location.state.uploaded
+      : props.num > 0
       ? "Uploaded"
       : "Not completed";
     let num =
@@ -82,7 +82,10 @@ class UploadPosting extends React.Component {
       value: process.env.PUBLIC_URL + "/uploadPosting"
     };
     this.props.save(target);
-    let num = this.state.num > 1 ? 2 : this.state.num + 1;
+    let num =
+      this.state.num > constants.numResPages - 1
+        ? constants.numResPages
+        : this.state.num + 1;
     this.props.save({
       name: "pageNum",
       value: num
