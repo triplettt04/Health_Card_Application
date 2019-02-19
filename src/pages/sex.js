@@ -92,15 +92,15 @@ class Sex extends React.Component {
                 type="radio"
                 className="radio-input radio"
                 name="example"
-                value="X (unspecified)"
-                checked={this.state.sex === "X (unspecified)"}
+                value="X"
+                checked={this.state.sex === "X"}
                 onChange={() =>
                   this.setState({
-                    sex: "X (unspecified)"
+                    sex: "X"
                   })
                 }
               />
-              <div className="label-text">X (unspecified)</div>
+              <div className="label-text">X</div>
             </label>
           </div>
         </div>
