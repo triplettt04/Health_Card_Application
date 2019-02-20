@@ -128,16 +128,30 @@ class Name extends React.Component {
         </div>
       );
 
-    let content = (
-      <div>
-        <div className="progress-indicator">15 / 22</div>
-        <h2 className="sub-header">Please enter your full name.</h2>
-        <p className="caption">
-          If your culture uses a single name, please leave the first and middle
-          name(s) fields empty.
-        </p>
-      </div>
-    );
+    let content =
+      this.props.personNum === 0 ? (
+        <div>
+          <div className="progress-indicator">15 / 22</div>
+          <h2 className="sub-header">Please enter your full name.</h2>
+          <p className="caption">
+            This is your full name, regardless of whether you are applying for
+            yourself and/or applying for your spouse or dependant(s).
+            <br />
+            <br />
+            If your culture uses a single name, please leave the first and
+            middle name(s) field empty.
+          </p>
+        </div>
+      ) : (
+        <div>
+          <div className="progress-indicator">15 / 22</div>
+          <h2 className="sub-header">Please enter your full name.</h2>
+          <p className="caption">
+            If your culture uses a single name, please leave the first and
+            middle name(s) field empty.
+          </p>
+        </div>
+      );
 
     return (
       <form
@@ -176,7 +190,7 @@ class Name extends React.Component {
               }
             />
             <label className="form-label" htmlFor="last-name-1">
-              Last name / Single name
+              Last name / single name
             </label>
             <input
               className="form-control"

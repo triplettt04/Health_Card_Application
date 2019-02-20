@@ -51,7 +51,7 @@ const constants = {
       value: "Valid Ontario driver's licence"
     },
     {
-      label: "Temp license",
+      label: "Temp licence",
       value:
         "Temporary driver's licence only if accompanied by photo licence card with the same address"
     },
@@ -172,7 +172,7 @@ const constants = {
       value: "Credit card"
     },
     {
-      label: "Driver's license",
+      label: "Driver's licence",
       dependency: "n/a",
       value:
         "Valid driver's licence or temporary driver's licence from any Canadian province or territory",

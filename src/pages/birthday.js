@@ -89,12 +89,23 @@ class Birthday extends React.Component {
         </div>
       );
 
-    let content = (
-      <div>
-        <div className="progress-indicator">16 / 22</div>
-        <h2 className="sub-header">What is your date of birth?</h2>
-      </div>
-    );
+    let content =
+      this.props.personNum === 0 ? (
+        <div>
+          <div className="progress-indicator">16 / 22</div>
+          <h2 className="sub-header">What is your date of birth?</h2>
+          <p className="caption">
+            This is <b>your</b> date of birth, regardless of whether you are
+            applying for yourself and/or applying for your spouse or
+            dependant(s).
+          </p>
+        </div>
+      ) : (
+        <div>
+          <div className="progress-indicator">16 / 22</div>
+          <h2 className="sub-header">What is your date of birth?</h2>
+        </div>
+      );
 
     return (
       <form

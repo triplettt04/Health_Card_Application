@@ -1,6 +1,6 @@
 import React from "react";
 import constants from "../constants";
-import DriverLicense from "./driverLicense.png";
+import DriverLicence from "./driverLicense.png";
 import MPRR1 from "./MPRR1.png";
 import MPRR2 from "./MPRR2.png";
 import MPRR3 from "./MPRR3.png";
@@ -23,7 +23,7 @@ class InCamera extends React.Component {
         img = Passport;
         break;
       case process.env.PUBLIC_URL + "/uploadID":
-        img = DriverLicense;
+        img = DriverLicence;
         break;
       case process.env.PUBLIC_URL + "/uploadMilitary":
         switch (this.props.num) {
