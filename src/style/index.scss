@@ -307,6 +307,7 @@ p.caption {
       color: $dark-grey;
       display: inline-block;
       font-weight: 600;
+      max-width: calc(100% - 30px);
     }
 
     .edit {

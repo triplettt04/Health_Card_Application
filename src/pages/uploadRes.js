@@ -132,9 +132,9 @@ class UploadRes extends React.Component {
     let content = (
       <div>
         <div className="progress-indicator">7 / 22</div>
-        <p className="caption">
+        <h2 className="sub-header">
           Please upload a photo or scan of your {this.props.item.toLowerCase()}.
-        </p>
+        </h2>
       </div>
     );
 
