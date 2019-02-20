@@ -57,43 +57,17 @@ class App extends React.Component {
     super(props);
     const { cookies } = props;
 
-    this.state = {
-      baseIndex: cookies.get("baseIndex") || null,
-      ["Residence street"]: cookies.get("Residence street") || null,
-      ["Residence city"]: cookies.get("Residence city") || null,
-      ["Residence postal code"]: cookies.get("Residence postal code") || null,
-      ["Mailing street"]: cookies.get("Mailing street") || null,
-      ["Mailing city"]: cookies.get("Mailing city") || null,
-      ["Mailing postal code"]: cookies.get("Mailing postal code") || null,
-      ["Mailing province"]: cookies.get("Mailing province") || null,
-      ["Mailing country"]: cookies.get("Mailing country") || null,
-      ["Birthday"]: cookies.get("Birthday") || null,
-      ["Primary phone"]: cookies.get("Primary phone") || null,
-      ["Alternate phone"]: cookies.get("Alternate phone") || null,
-      ["Email"]: cookies.get("Email") || null,
-      ["Residence address"]: cookies.get("Residence address") || null,
-      ["Military relation"]: cookies.get("Military relation") || null,
-      ["First name"]: cookies.get("First name") || null,
-      ["Middle name(s)"]: cookies.get("Middle name(s)") || null,
-      ["Last name"]: cookies.get("Last name") || null,
-      ["Citizen type"]: cookies.get("Citizen type") || null,
-      ["Citizen proof"]: cookies.get("Citizen proof") || null,
-      ["Identity proof type"]: cookies.get("Identity proof type") || null,
-      ["Military proof type"]: cookies.get("Military proof type") || null,
-      ["Residence proof type"]: cookies.get("Residence proof type") || null,
-      ["Signature type"]: cookies.get("Signature type") || null,
-      ["Sex"]: cookies.get("Sex") || null,
-      ["Citizenship proof"]: cookies.get("Citizenship proof") || null,
-      ["Identity proof"]: cookies.get("Identity proof") || null,
-      ["Military proof"]: cookies.get("Military proof") || null,
-      ["Photo proof"]: cookies.get("Photo proof") || null,
-      ["Posting message"]: cookies.get("Posting message") || null,
-      ["Residence proof"]: cookies.get("Residence proof") || null,
-      ["Signature"]: cookies.get("Signature") || null,
-      ["Summary"]: cookies.get("Summary") || null,
-      pathFrom: cookies.get("pathFrom") || null,
-      personNum: 0
-    };
+    let values = {},
+      softResetValues = constants.softResetValues,
+      hardResetValues = constants.hardResetValues;
+    for (let i = 0; i < softResetValues.length; i++) {
+      values[softResetValues[i]] = cookies.get(softResetValues[i]) || null;
+    }
+    for (let i = 0; i < hardResetValues.length; i++) {
+      values[hardResetValues[i]] = cookies.get(hardResetValues[i]) || null;
+    }
+    values.personNum = 0;
+    this.state = values;
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -104,6 +78,32 @@ class App extends React.Component {
     });
     const { cookies } = this.props;
     cookies.set(target.name, target.value);
+  }
+
+  deleteCookie(name) {
+    const { cookies } = this.props;
+    cookies.remove(name);
+  }
+
+  softCookieReset() {
+    const { cookies } = this.props;
+    let softResetValues = constants.softResetValues;
+    for (let i = 0; i < softResetValues.length; i++) {
+      cookies.remove(softResetValues[i]);
+    }
+  }
+
+  hardCookieReset() {
+    const { cookies } = this.props;
+    let hardResetValues = constants.hardResetValues;
+    for (let i = 0; i < hardResetValues.length; i++) {
+      cookies.remove(hardResetValues[i]);
+    }
+  }
+
+  resetAllCookies() {
+    this.softCookieReset();
+    this.hardCookieReset();
   }
 
   render() {
