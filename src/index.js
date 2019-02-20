@@ -79,6 +79,13 @@ class App extends React.Component {
         let val = null;
         if (values[j] === "pageNum" || values[j] === "Person num") {
           val = 0;
+        } else if (
+          values[j] === "Birthday" ||
+          values[j] === "First name" ||
+          values[j] === "Middle name(s)" ||
+          values[j] === "Last name"
+        ) {
+          val = [];
         }
 
         let cookie = cookies.get(values[j]) || val;
@@ -141,8 +148,8 @@ class App extends React.Component {
   }
 
   resetAll() {
-    this.softCookieReset();
-    this.hardCookieReset();
+    this.softReset();
+    this.hardReset();
     const { cookies } = this.props;
     let globalValues = constants.globalValues;
     for (let i = 0; i < globalValues.length; i++) {
@@ -214,8 +221,9 @@ class App extends React.Component {
               render={() => (
                 <RouterBirthday
                   save={target => this.handleChange(target)}
-                  birthday={this.state["Birthday"][this.state["Person num"]]}
+                  birthday={this.state["Birthday"]}
                   summary={this.state["Summary"]}
+                  personNum={this.state["Person num"]}
                 />
               )}
             />
@@ -225,11 +233,10 @@ class App extends React.Component {
                 <RouterName
                   save={target => this.handleChange(target)}
                   summary={this.state["Summary"]}
-                  firstName={this.state["First name"][this.state["Person num"]]}
-                  middleName={
-                    this.state["Middle name(s)"][this.state["Person num"]]
-                  }
-                  lastName={this.state["Last name"][this.state["Person num"]]}
+                  firstName={this.state["First name"]}
+                  middleName={this.state["Middle name(s)"]}
+                  lastName={this.state["Last name"]}
+                  personNum={this.state["Person num"]}
                 />
               )}
             />
