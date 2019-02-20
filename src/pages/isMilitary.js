@@ -16,6 +16,7 @@ class IsMilitary extends React.Component {
   }
 
   next(event) {
+    event.preventDefault();
     let target = {
       name: "Military relation",
       value: this.state.isMilitary
@@ -81,7 +82,7 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
-                checked={!this.state.isMilitary}
+                checked={this.state.isMilitary === false}
                 onChange={() =>
                   this.setState({
                     isMilitary: false

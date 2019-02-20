@@ -348,12 +348,14 @@ class Summary extends React.Component {
                       ? "Primary phone: " + this.props.state["Primary phone"]
                       : ""}
                   </label>
+                  <br />
                   <label className="form-label">
                     {this.props.state["Alternate phone"]
                       ? "Alternate phone: " +
                         this.props.state["Alternate phone"]
                       : ""}
                   </label>
+                  <br />
                   <label className="form-label">
                     {this.props.state["Email"]
                       ? "Email: " + this.props.state["Email"]

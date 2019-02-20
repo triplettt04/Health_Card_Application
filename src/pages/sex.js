@@ -25,6 +25,10 @@ class Sex extends React.Component {
         });
       }
     }
+    this.props.save({
+      name: "Summary",
+      value: false
+    });
     this.props.history.push(process.env.PUBLIC_URL + "/summary");
   }
   back() {
@@ -52,27 +56,28 @@ class Sex extends React.Component {
     }
   }
   render() {
-    let enableSummary = this.props.summary ? (
-      <input
-        className="btn btn-general btn-wide"
-        type="submit"
-        value="Back to summary"
-      />
-    ) : (
-      <div>
+    let enableSummary =
+      this.props.summary === true ? (
         <input
+          className="btn btn-general btn-wide"
           type="submit"
-          value="Next"
-          className="btn btn-general btn-right-align"
+          value="Back to summary"
         />
-        <button
-          className="btn btn-general btn-invert"
-          onClick={() => this.back()}
-        >
-          Back
-        </button>
-      </div>
-    );
+      ) : (
+        <div>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+        </div>
+      );
 
     let content = (
       <div>

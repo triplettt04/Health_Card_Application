@@ -177,6 +177,7 @@ class App extends React.Component {
               render={() => (
                 <RouterName
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                   firstName={this.state["First name"]}
                   middleName={this.state["Middle name(s)"]}
                   lastName={this.state["Last name"]}
@@ -424,6 +425,7 @@ class App extends React.Component {
               render={() => (
                 <RouterContact
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                   primaryPhone={this.state["Primary phone"]}
                   alternatePhone={this.state["Alternate phone"]}
                   email={this.state["Email"]}
