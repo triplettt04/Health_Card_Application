@@ -227,6 +227,7 @@ class App extends React.Component {
               render={() => (
                 <RouterSex
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                   sex={this.state["Sex"]}
                 />
               )}
