@@ -27,7 +27,26 @@ class Name extends React.Component {
     }
     if (save) {
       for (let i = 0; i < toSave.length; i++) {
-        this.props.save(toSave[i]);
+        let nameValues;
+        switch (toSave[i].name) {
+          case "First name":
+            nameValues = this.props.firstName;
+            break;
+          case "Last name":
+            nameValues = this.props.lastName;
+            break;
+          case "Middle name(s)":
+            nameValues = this.props.middleName;
+            break;
+        }
+        if (nameValues.length > 0) {
+          nameValues.pop();
+        }
+        nameValues.push(toSave[i].value);
+        this.props.save({
+          name: toSave[i].name,
+          value: nameValues
+        });
       }
       this.props.save({
         name: "Summary",
@@ -54,7 +73,26 @@ class Name extends React.Component {
     }
     if (save) {
       for (let i = 0; i < toSave.length; i++) {
-        this.props.save(toSave[i]);
+        let nameValues;
+        switch (toSave[i].name) {
+          case "First name":
+            nameValues = this.props.firstName;
+            break;
+          case "Last name":
+            nameValues = this.props.lastName;
+            break;
+          case "Middle name(s)":
+            nameValues = this.props.middleName;
+            break;
+        }
+        if (nameValues.length > 0) {
+          nameValues.pop();
+        }
+        nameValues.push(toSave[i].value);
+        this.props.save({
+          name: toSave[i].name,
+          value: nameValues
+        });
       }
       let path = process.env.PUBLIC_URL + "/birthday";
       this.props.history.push(path);
@@ -118,7 +156,11 @@ class Name extends React.Component {
               className="form-control"
               id="first-name-1"
               name="First name"
-              defaultValue={this.props.firstName ? this.props.firstName : ""}
+              defaultValue={
+                this.props.firstName
+                  ? this.props.firstName[this.props.personNum]
+                  : ""
+              }
             />
             <label className="form-label" htmlFor="middle-name-1">
               Middle name(s)
@@ -127,7 +169,11 @@ class Name extends React.Component {
               className="form-control"
               id="middle-name-1"
               name="Middle name(s)"
-              defaultValue={this.props.middleName ? this.props.middleName : ""}
+              defaultValue={
+                this.props.middleName
+                  ? this.props.middleName[this.props.personNum]
+                  : ""
+              }
             />
             <label className="form-label" htmlFor="last-name-1">
               Last name / Single name
@@ -136,7 +182,11 @@ class Name extends React.Component {
               className="form-control"
               id="last-name-1"
               name="Last name"
-              defaultValue={this.props.lastName ? this.props.lastName : ""}
+              defaultValue={
+                this.props.lastName
+                  ? this.props.lastName[this.props.personNum]
+                  : ""
+              }
             />
           </div>
         </div>

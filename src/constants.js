@@ -231,7 +231,7 @@ const constants = {
     },
     {
       label: "Permanent residence card",
-      dependency: "n/a",
+      dependency: "Canadian citizen",
       value:
         "Permanent Resident Card from any Canadian province or territory only if signature is shown"
     },
