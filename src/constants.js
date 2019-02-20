@@ -46,7 +46,7 @@ const constants = {
   ],
   buttonsRes: [
     {
-      label: "Driver license",
+      label: "Driver's licence",
       value: "Valid Ontario driver's licence"
     },
     {
@@ -171,7 +171,7 @@ const constants = {
       value: "Credit card"
     },
     {
-      label: "Driver license",
+      label: "Driver's license",
       dependency: "n/a",
       value:
         "Valid driver's licence or temporary driver's licence from any Canadian province or territory",
