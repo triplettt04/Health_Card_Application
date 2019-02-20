@@ -16,7 +16,8 @@ const constants = {
     "Identity proof",
     "Photo proof",
     "Signature",
-    "pathFrom"
+    "pathFrom",
+    "Summary"
   ],
   hardResetValues: [
     "baseIndex",

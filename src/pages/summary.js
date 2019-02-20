@@ -9,6 +9,7 @@ class Summary extends React.Component {
 
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   next(event) {
@@ -16,6 +17,15 @@ class Summary extends React.Component {
     //handle target and call this.props.save(event.target[i])
     let path = process.env.PUBLIC_URL + "/agreement";
     this.props.history.push(path);
+  }
+
+  handleClick(event, path) {
+    event.preventDefault();
+    this.props.save({
+      name: "Summary",
+      value: true
+    });
+    this.props.history.push(process.env.PUBLIC_URL + "/" + path);
   }
 
   back() {
@@ -61,7 +71,11 @@ class Summary extends React.Component {
                 Have you had OHIP in the past?
               </div>
               <div className="response">{this.props.state["Past OHIP"]}</div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "pastOHIP")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -72,7 +86,11 @@ class Summary extends React.Component {
               <div className="response">
                 {this.props.state["Military relation"] ? "Yes" : "No"}
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "isMilitary")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -87,7 +105,11 @@ class Summary extends React.Component {
                       .label
                   : ""}
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "selectBase")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -99,7 +121,13 @@ class Summary extends React.Component {
               <div className="response">
                 {this.props.state["Military proof type"]}
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event =>
+                  this.handleClick(event, "selectMilitaryProof")
+                }
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -133,7 +161,11 @@ class Summary extends React.Component {
                   </div>
                 </div>
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "uploadMilitary")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -147,7 +179,11 @@ class Summary extends React.Component {
                 {this.props.state["Residence city"]}, Ontario, Canada,{" "}
                 {this.props.state["Residence postal code"]}
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "address")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -160,7 +196,11 @@ class Summary extends React.Component {
                 {this.props.state["Residence city"]}, Ontario, Canada,{" "}
                 {this.props.state["Residence postal code"]}
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "address")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -169,7 +209,11 @@ class Summary extends React.Component {
                 Please select your immigration status.
               </div>
               <div className="response">{this.props.state["Citizen type"]}</div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "selectCitizen")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -181,7 +225,11 @@ class Summary extends React.Component {
               <div className="response">
                 {this.props.state["Citizen proof"]}
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "selectCitizenProof")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -199,7 +247,11 @@ class Summary extends React.Component {
                   </div>
                 </div>
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "uploadCitizen")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -211,7 +263,11 @@ class Summary extends React.Component {
               <div className="response">
                 {this.props.state["Identity proof type"]}
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "selectID")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -230,7 +286,11 @@ class Summary extends React.Component {
                   </div>
                 </div>
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "uploadID")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -243,7 +303,11 @@ class Summary extends React.Component {
                 {this.props.state["Middle name(s)"]}{" "}
                 {this.props.state["Last name"]}
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "name")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -252,7 +316,11 @@ class Summary extends React.Component {
                 What is your date of birth?
               </div>
               <div className="response">{this.props.state["Birthday"]}</div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "birthday")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -261,7 +329,11 @@ class Summary extends React.Component {
                 What is your sex on your passport or birth certificate?
               </div>
               <div className="response">{this.props.state["Sex"]}</div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "sex")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
@@ -289,13 +361,18 @@ class Summary extends React.Component {
                   </label>
                 </div>
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "contact")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
             <div className="summary-tab">
               <div className="summary-question">
-                Please upload photos or a scan of your Canadian passport.
+                Please upload the front and back of a certified passport photo
+                of yourself.
               </div>
               <div className="card-collection">
                 <div className="card-uploaded small-card-uploaded">
@@ -307,13 +384,17 @@ class Summary extends React.Component {
                   </div>
                 </div>
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "uploadPhoto")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
             <div className="summary-tab">
               <div className="summary-question">
-                Please upload photos or a scan of your signature or sign on your
+                Please upload a photo or scan of your signature or sign on your
                 device.
               </div>
               <div className="card-collection">
@@ -326,7 +407,11 @@ class Summary extends React.Component {
                   </div>
                 </div>
               </div>
-              <a href="#" className="edit">
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "uploadSignature")}
+                className="edit"
+              >
                 Edit
               </a>
             </div>
