@@ -251,7 +251,9 @@ class Summary extends React.Component {
               <div className="summary-question">
                 What is your date of birth?
               </div>
-              <div className="response">{this.props.state["Birthday"]}</div>
+              <div className="response">
+                {this.props.state["Birthday"][this.props.state["Person num"]]}
+              </div>
               <a href="#" className="edit">
                 Edit
               </a>
