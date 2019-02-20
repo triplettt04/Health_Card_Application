@@ -8,7 +8,7 @@ class SelectBase extends React.Component {
     super(props);
 
     this.state = {
-      value: props.baseLabel ? props.baseLabel : ""
+      baseLabel: props.baseLabel ? props.baseLabel : ""
     };
 
     this.back = this.back.bind(this);
@@ -74,11 +74,11 @@ class SelectBase extends React.Component {
             name="example"
             value={constants.militaryAddresses[i].label}
             checked={
-              this.state.citizenProof === constants.militaryAddresses[i].label
+              this.state.baseLabel === constants.militaryAddresses[i].label
             }
             onChange={() =>
               this.setState({
-                citizenProof: constants.militaryAddresses[i].label
+                baseLabel: constants.militaryAddresses[i].label
               })
             }
           />

@@ -59,39 +59,44 @@ class App extends React.Component {
     super(props);
     const { cookies } = props;
 
-    let values = {},
-      softResetValues = constants.softResetValues,
-      hardResetValues = constants.hardResetValues,
-      globalValues = constants.globalValues;
-    for (let i = 0; i < softResetValues.length; i++) {
-      let cookie = cookies.get(softResetValues[i]) || null;
-      if (cookie === "true" || cookie === "false") {
-        values[softResetValues[i]] = cookie === "true";
-      } else {
-        values[softResetValues[i]] = cookie;
+    let stateValues = {};
+
+    for (let i = 0; i < 3; i++) {
+      let values;
+      switch (i) {
+        case 0:
+          values = constants.softResetValues;
+          break;
+        case 1:
+          values = constants.hardResetValues;
+          break;
+        case 2:
+          values = constants.globalValues;
+          break;
+      }
+
+      for (let j = 0; j < values.length; j++) {
+        let val = null;
+        if (values[j] === "pageNum" || values[j] === "Person num") {
+          val = 0;
+        }
+
+        let cookie = cookies.get(values[j]) || val;
+        if (cookie === "true" || cookie === "false") {
+          stateValues[values[j]] = cookie === "true";
+        } else if (
+          (!isNaN(cookie) && values[j] === "pageNum") ||
+          values[j] === "Person num" ||
+          values[j] === "baseIndex"
+        ) {
+          stateValues[values[j]] = parseInt(cookie);
+        } else {
+          stateValues[values[j]] = cookie;
+        }
       }
     }
-    for (let i = 0; i < hardResetValues.length; i++) {
-      let cookie = cookies.get(hardResetValues[i]) || null;
-      if (cookie === "true" || cookie === "false") {
-        values[hardResetValues[i]] = cookie === "true";
-      } else {
-        values[hardResetValues[i]] = cookie;
-      }
-    }
-    for (let i = 0; i < globalValues.length; i++) {
-      let val = null;
-      if (globalValues[i] === "Person num") {
-        val = 0;
-      }
-      let cookie = cookies.get(globalValues[i]) || val;
-      if (cookie === "true" || cookie === "false") {
-        values[globalValues[i]] = cookie === "true";
-      } else {
-        values[globalValues[i]] = cookie;
-      }
-    }
-    this.state = values;
+
+    this.state = stateValues;
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -407,6 +412,7 @@ class App extends React.Component {
                       ? this.state["Citizen proof"]
                       : ""
                   }
+                  summary={this.state["Summary"]}
                 />
               )}
             />
