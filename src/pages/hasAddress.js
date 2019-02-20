@@ -108,7 +108,7 @@ class HasAddress extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
-                checked={this.state.hasAddress}
+                checked={this.state.hasAddress === true}
                 onChange={() =>
                   this.setState({
                     hasAddress: true

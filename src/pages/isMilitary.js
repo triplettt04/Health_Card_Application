@@ -43,9 +43,12 @@ class IsMilitary extends React.Component {
         let path = process.env.PUBLIC_URL + "/selectBase";
         this.props.history.push(path);
       } else {
+        this.props.save({
+          name: "pathFrom",
+          value: "/isMilitary"
+        });
         this.props.history.push({
-          pathname: process.env.PUBLIC_URL + "/selectResProof",
-          state: { pathFrom: process.env.PUBLIC_URL + "/isMilitary" }
+          pathname: process.env.PUBLIC_URL + "/selectResProof"
         });
       }
     }
@@ -110,7 +113,7 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
-                checked={this.state.isMilitary}
+                checked={this.state.isMilitary === true}
                 onChange={() =>
                   this.setState({
                     isMilitary: true

@@ -3,11 +3,14 @@ const constants = {
   navTopName: "Home",
   numResPages: 2,
   numPostingPages: 2,
-  softResetValues: [
+  globalValues: [
     "Birthday",
     "First name",
     "Middle name(s)",
     "Last name",
+    "Person num"
+  ],
+  softResetValues: [
     "Citizen type",
     "Citizen proof",
     "Identity proof type",
@@ -17,6 +20,7 @@ const constants = {
     "Photo proof",
     "Signature",
     "pathFrom",
+    "Same house",
     "Summary"
   ],
   hardResetValues: [
@@ -37,7 +41,8 @@ const constants = {
     "Residence proof type",
     "Military proof",
     "Posting message",
-    "Residence proof"
+    "Residence proof",
+    "Move when"
   ],
   buttonsRes: [
     {
