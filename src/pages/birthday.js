@@ -19,7 +19,15 @@ class Birthday extends React.Component {
         event.target[i].type !== "submit" &&
         event.target[i].value.length > 7
       ) {
-        this.props.save(event.target[i]);
+        let birthdayValues = this.props.birthday;
+        if (birthdayValues.length > 0) {
+          birthdayValues.pop();
+        }
+        birthdayValues.push(event.target[i].value);
+        this.props.save({
+          name: event.target[i].name,
+          value: birthdayValues
+        });
       }
     }
     this.props.save({
@@ -40,7 +48,15 @@ class Birthday extends React.Component {
         event.target[i].type !== "submit" &&
         event.target[i].value.length > 7
       ) {
-        this.props.save(event.target[i]);
+        let birthdayValues = this.props.birthday;
+        if (birthdayValues.length > 0) {
+          birthdayValues.pop();
+        }
+        birthdayValues.push(event.target[i].value);
+        this.props.save({
+          name: event.target[i].name,
+          value: birthdayValues
+        });
         noneEntered = false;
       }
     }
@@ -106,7 +122,11 @@ class Birthday extends React.Component {
               mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
               className="form-control"
               guide={true}
-              defaultValue={this.props.birthday ? this.props.birthday : ""}
+              defaultValue={
+                this.props.birthday
+                  ? this.props.birthday[this.state.personNum]
+                  : ""
+              }
               name="Birthday"
             />
           </div>
