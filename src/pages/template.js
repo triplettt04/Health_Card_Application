@@ -23,6 +23,20 @@ class Template extends React.Component {
     this.props.history.push(path);
   }
 
+  summary(event) {
+    event.preventDefault();
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit" && event.target[i].value.length) {
+        this.props.save(event.target);
+      }
+    }
+    this.props.save({
+      name: "Summary",
+      value: false
+    });
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
+  }
+
   render() {
     let content = (
       <div>
@@ -118,29 +132,35 @@ class Template extends React.Component {
             </button>
           </div>
           <div className="btn-container">
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align"
+            />
             <button
               className="btn btn-general btn-invert"
               onClick={() => this.back()}
             >
               Back
             </button>
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align"
-            />
           </div>
           <div className="btn-container">
             <input
               type="submit"
               value="Next"
-              className="btn btn-general btn-right-align btn-inactive"
+              className="btn btn-general btn-right-align"
             />
             <button
               className="btn btn-general btn-invert"
               onClick={() => this.back()}
             >
               Back
+            </button>
+            <button
+              className="btn btn-general btn-wide"
+              onClick={event => this.summary(event)}
+            >
+              Back to summary
             </button>
           </div>
         </div>

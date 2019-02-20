@@ -210,6 +210,7 @@ class App extends React.Component {
                 <RouterBirthday
                   save={target => this.handleChange(target)}
                   birthday={this.state["Birthday"][this.state["Person num"]]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -218,9 +219,12 @@ class App extends React.Component {
               render={() => (
                 <RouterName
                   save={target => this.handleChange(target)}
-                  firstName={this.state["First name"]}
-                  middleName={this.state["Middle name(s)"]}
-                  lastName={this.state["Last name"]}
+                  summary={this.state["Summary"]}
+                  firstName={this.state["First name"][this.state["Person num"]]}
+                  middleName={
+                    this.state["Middle name(s)"][this.state["Person num"]]
+                  }
+                  lastName={this.state["Last name"][this.state["Person num"]]}
                 />
               )}
             />
@@ -268,6 +272,7 @@ class App extends React.Component {
               render={() => (
                 <RouterSex
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                   sex={this.state["Sex"]}
                 />
               )}
@@ -464,6 +469,7 @@ class App extends React.Component {
               render={() => (
                 <RouterContact
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                   primaryPhone={this.state["Primary phone"]}
                   alternatePhone={this.state["Alternate phone"]}
                   email={this.state["Email"]}

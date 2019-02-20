@@ -16,6 +16,7 @@ class IsMilitary extends React.Component {
   }
 
   next(event) {
+    event.preventDefault();
     let target = {
       name: "Military relation",
       value: this.state.isMilitary
