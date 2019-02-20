@@ -407,6 +407,7 @@ class App extends React.Component {
                       ? this.state["Citizen proof"]
                       : ""
                   }
+                  summary={this.state["Summary"]}
                 />
               )}
             />
