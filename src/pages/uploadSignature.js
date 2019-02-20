@@ -175,7 +175,7 @@ class UploadSignature extends React.Component {
       );
 
     return (
-      <form onSubmit={event => this.next(event)}>
+      <form onSubmit={event => this.next(event, "/summary")}>
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
