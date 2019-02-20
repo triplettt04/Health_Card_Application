@@ -238,6 +238,7 @@ class App extends React.Component {
               render={() => (
                 <RouterAddress
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                   addressRes={
                     this.state["Residence street"]
                       ? {
@@ -305,6 +306,7 @@ class App extends React.Component {
               render={() => (
                 <RouterIsMilitary
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                   isMilitary={this.state["Military relation"]}
                 />
               )}
@@ -352,6 +354,7 @@ class App extends React.Component {
               render={() => (
                 <RouterHasAddress
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                   hasAddress={this.state["Residence address"]}
                 />
               )}
@@ -386,6 +389,7 @@ class App extends React.Component {
               path={process.env.PUBLIC_URL + "/selectCitizen"}
               render={() => (
                 <RouterSelectCitizen
+                  summary={this.state["Summary"]}
                   save={target => this.handleChange(target)}
                   citizenType={this.state["Citizen type"]}
                 />

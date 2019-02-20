@@ -52,7 +52,11 @@ class Summary extends React.Component {
         <div className="response">
           {this.props.state["Residence address"] ? "Yes" : "No"}
         </div>
-        <a href="#" className="edit">
+        <a
+          href="#"
+          onClick={event => this.handleClick(event, "hasAddress")}
+          className="edit"
+        >
           Edit
         </a>
       </div>
@@ -192,9 +196,9 @@ class Summary extends React.Component {
                 Please enter your mailing address.
               </div>
               <div className="response">
-                {this.props.state["Residence street"]},{" "}
-                {this.props.state["Residence city"]}, Ontario, Canada,{" "}
-                {this.props.state["Residence postal code"]}
+                {this.props.state["Mailing street"]},{" "}
+                {this.props.state["Mailing city"]}, Ontario, Canada,{" "}
+                {this.props.state["Mailing postal code"]}
               </div>
               <a
                 href="#"
