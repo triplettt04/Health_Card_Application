@@ -28,6 +28,27 @@ class Address extends React.Component {
 
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
+    this.summary = this.summary.bind(this);
+  }
+
+  summary(event) {
+    event.preventDefault();
+    let save = true,
+      toSave = [];
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type === "text") {
+        toSave.push(event.target[i]);
+        if (!event.target[i].value.length) {
+          save = false;
+        }
+      }
+    }
+    if (save) {
+      for (let i = 0; i < toSave.length; i++) {
+        this.props.save(toSave[i]);
+      }
+      this.props.history.push(process.env.PUBLIC_URL + "/summary");
+    }
   }
 
   checked(event) {
@@ -94,6 +115,29 @@ class Address extends React.Component {
   }
 
   render() {
+    let enableSummary =
+      this.props.summary === true ? (
+        <input
+          className="btn btn-general btn-wide"
+          type="submit"
+          value="Back to summary"
+        />
+      ) : (
+        <div>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+        </div>
+      );
+
     let content = (
       <div>
         <div className="progress-indicator">8 / 22</div>
@@ -109,7 +153,11 @@ class Address extends React.Component {
     );
 
     return (
-      <form onSubmit={event => this.next(event)}>
+      <form
+        onSubmit={event =>
+          this.props.summary ? this.summary(event) : this.next(event)
+        }
+      >
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
@@ -270,19 +318,7 @@ class Address extends React.Component {
             </div>
           </div>
         </div>
-        <div className="btn-container button-footer">
-          <input
-            type="submit"
-            value="Next"
-            className="btn btn-general btn-right-align"
-          />
-          <button
-            className="btn btn-general btn-invert"
-            onClick={() => this.back()}
-          >
-            Back
-          </button>
-        </div>
+        <div className="btn-container button-footer">{enableSummary}</div>
       </form>
     );
   }
