@@ -3,12 +3,12 @@ import constants from "../constants";
 import Card from "../components/card";
 import Nav from "../components/nav";
 
-class HasAddress extends React.Component {
+class SameHouse extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      hasAddress: props.hasAddress
+      sameHouse: props.sameHouse
     };
 
     this.back = this.back.bind(this);
@@ -17,39 +17,40 @@ class HasAddress extends React.Component {
 
   next(event) {
     let target = {
-      name: "Residence address",
-      value: this.state.hasAddress
+      name: "Same house",
+      value: this.state.sameHouse
     };
-    if (this.state.hasAddress != null) {
+    if (this.state.sameHouse != null) {
       this.props.save(target);
-      if (this.state.hasAddress) {
-        this.props.history.push({
-          pathname: process.env.PUBLIC_URL + "/selectResProof",
-          state: { pathFrom: process.env.PUBLIC_URL + "/hasAddress" }
-        });
-      } else {
-        let path = process.env.PUBLIC_URL + "/uploadPosting";
+      if (this.state.sameHouse) {
+        let path = process.env.PUBLIC_URL + "/selectCitizen";
         this.props.history.push(path);
+      } else {
+        this.props.save({
+          name: "pathFrom",
+          value: "/sameHouse"
+        });
+        this.props.history.push({
+          pathname: process.env.PUBLIC_URL + "/selectResProof"
+        });
       }
     }
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/uploadMilitary";
+    let path = process.env.PUBLIC_URL + "/confirmation";
     this.props.history.push(path);
   }
 
   render() {
+    let previousName = "Mary Cook"; //TO CHANGE
+
     let content = (
       <div>
-        <div className="progress-indicator">6 / 22</div>
+        <div className="progress-indicator">0 / 22</div>
         <h2 className="sub-header">
-          Do you currently have an address in Ontario?
+          Are you moving to the same household as {previousName}?
         </h2>
-        <p className="caption">
-          In order to receive OHIP coverage, you must provide proof of residency
-          or proof of future residency.
-        </p>
       </div>
     );
 
@@ -65,10 +66,10 @@ class HasAddress extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
-                checked={this.state.hasAddress === true}
+                checked={this.state.sameHouse === true}
                 onChange={() =>
                   this.setState({
-                    hasAddress: true
+                    sameHouse: true
                   })
                 }
               />
@@ -80,10 +81,10 @@ class HasAddress extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
-                checked={this.state.hasAddress === false}
+                checked={this.state.sameHouse === false}
                 onChange={() =>
                   this.setState({
-                    hasAddress: false
+                    sameHouse: false
                   })
                 }
               />
@@ -109,4 +110,4 @@ class HasAddress extends React.Component {
   }
 }
 
-export default HasAddress;
+export default SameHouse;

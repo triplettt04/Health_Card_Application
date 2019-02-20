@@ -61,7 +61,11 @@ class Template extends React.Component {
     );
 
     return (
-      <form onSubmit={this.next}>
+      <form
+        onSubmit={event =>
+          this.props.summary ? this.summary(event) : this.next(event)
+        }
+      >
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />

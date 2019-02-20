@@ -46,6 +46,8 @@ import UploadPhoto from "./pages/uploadPhoto";
 //import SelectSignature from "./pages/selectSignature";
 import UploadSignature from "./pages/uploadSignature";
 import Agreement from "./pages/agreement";
+import SameHouse from "./pages/sameHouse";
+import MoveWhen from "./pages/moveWhen";
 import Template from "./pages/template";
 
 class App extends React.Component {
@@ -59,14 +61,36 @@ class App extends React.Component {
 
     let values = {},
       softResetValues = constants.softResetValues,
-      hardResetValues = constants.hardResetValues;
+      hardResetValues = constants.hardResetValues,
+      globalValues = constants.globalValues;
     for (let i = 0; i < softResetValues.length; i++) {
-      values[softResetValues[i]] = cookies.get(softResetValues[i]) || null;
+      let cookie = cookies.get(softResetValues[i]) || null;
+      if (cookie === "true" || cookie === "false") {
+        values[softResetValues[i]] = cookie === "true";
+      } else {
+        values[softResetValues[i]] = cookie;
+      }
     }
     for (let i = 0; i < hardResetValues.length; i++) {
-      values[hardResetValues[i]] = cookies.get(hardResetValues[i]) || null;
+      let cookie = cookies.get(hardResetValues[i]) || null;
+      if (cookie === "true" || cookie === "false") {
+        values[hardResetValues[i]] = cookie === "true";
+      } else {
+        values[hardResetValues[i]] = cookie;
+      }
     }
-    values.personNum = 0;
+    for (let i = 0; i < globalValues.length; i++) {
+      let val = null;
+      if (globalValues[i] === "Person num") {
+        val = 0;
+      }
+      let cookie = cookies.get(globalValues[i]) || val;
+      if (cookie === "true" || cookie === "false") {
+        values[globalValues[i]] = cookie === "true";
+      } else {
+        values[globalValues[i]] = cookie;
+      }
+    }
     this.state = values;
     this.handleChange = this.handleChange.bind(this);
   }
@@ -85,25 +109,41 @@ class App extends React.Component {
     cookies.remove(name);
   }
 
-  softCookieReset() {
+  deleteValue(name) {
+    this.deleteCookie(name);
+    this.handleChange({
+      name: name,
+      value: null
+    });
+  }
+
+  softReset() {
     const { cookies } = this.props;
     let softResetValues = constants.softResetValues;
     for (let i = 0; i < softResetValues.length; i++) {
       cookies.remove(softResetValues[i]);
+      this.state[softResetValues[i]] = null;
     }
   }
 
-  hardCookieReset() {
+  hardReset() {
     const { cookies } = this.props;
     let hardResetValues = constants.hardResetValues;
     for (let i = 0; i < hardResetValues.length; i++) {
       cookies.remove(hardResetValues[i]);
+      this.state[hardResetValues[i]] = null;
     }
   }
 
-  resetAllCookies() {
+  resetAll() {
     this.softCookieReset();
     this.hardCookieReset();
+    const { cookies } = this.props;
+    let globalValues = constants.globalValues;
+    for (let i = 0; i < globalValues.length; i++) {
+      cookies.remove(globalValues[i]);
+      this.state[globalValues[i]] = null;
+    }
   }
 
   render() {
@@ -138,6 +178,8 @@ class App extends React.Component {
     //const RouterSelectSignature = withRouter(SelectSignature);
     const RouterUploadSignature = withRouter(UploadSignature);
     const RouterAgreement = withRouter(Agreement);
+    const RouterSameHouse = withRouter(SameHouse);
+    const RouterMoveWhen = withRouter(MoveWhen);
 
     return (
       <Router>
@@ -167,8 +209,8 @@ class App extends React.Component {
               render={() => (
                 <RouterBirthday
                   save={target => this.handleChange(target)}
+                  birthday={this.state["Birthday"][this.state["Person num"]]}
                   summary={this.state["Summary"]}
-                  birthday={this.state["Birthday"]}
                 />
               )}
             />
@@ -178,9 +220,11 @@ class App extends React.Component {
                 <RouterName
                   save={target => this.handleChange(target)}
                   summary={this.state["Summary"]}
-                  firstName={this.state["First name"]}
-                  middleName={this.state["Middle name(s)"]}
-                  lastName={this.state["Last name"]}
+                  firstName={this.state["First name"][this.state["Person num"]]}
+                  middleName={
+                    this.state["Middle name(s)"][this.state["Person num"]]
+                  }
+                  lastName={this.state["Last name"][this.state["Person num"]]}
                 />
               )}
             />
@@ -279,6 +323,7 @@ class App extends React.Component {
                 <RouterSelectMilitaryProof
                   save={target => this.handleChange(target)}
                   militaryProof={this.state["Military proof type"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -293,6 +338,7 @@ class App extends React.Component {
                       ? this.state["Military proof type"]
                       : ""
                   }
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -312,6 +358,7 @@ class App extends React.Component {
                   save={target => this.handleChange(target)}
                   pathFrom={this.state["Residence address"]} //This is fine
                   resProof={this.state["Residence proof type"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -326,6 +373,7 @@ class App extends React.Component {
                       ? this.state["Residence proof type"]
                       : ""
                   }
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -344,6 +392,7 @@ class App extends React.Component {
                 <RouterSelectCitizenProof
                   save={target => this.handleChange(target)}
                   citizenProof={this.state["Citizen proof"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -370,6 +419,7 @@ class App extends React.Component {
                   resProof={this.state["Residence proof type"]}
                   citizenProof={this.state["Citizen proof"]}
                   citizenType={this.state["Citizen type"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -384,6 +434,7 @@ class App extends React.Component {
                       ? this.state["Identity proof type"]
                       : ""
                   }
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -417,6 +468,7 @@ class App extends React.Component {
                   save={target => this.handleChange(target)}
                   baseIndex={this.state.baseIndex}
                   status={this.state["Posting message"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -438,6 +490,7 @@ class App extends React.Component {
                 <RouterUploadPhoto
                   save={target => this.handleChange(target)}
                   status={this.state["Photo proof"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -447,6 +500,25 @@ class App extends React.Component {
                 <RouterUploadSignature
                   save={target => this.handleChange(target)}
                   status={this.state["Signature"]}
+                  summary={this.state["Summary"]}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/sameHouse"}
+              render={() => (
+                <RouterSameHouse
+                  save={target => this.handleChange(target)}
+                  sameHouse={this.state["Same house"]}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/moveWhen"}
+              render={() => (
+                <RouterMoveWhen
+                  save={target => this.handleChange(target)}
+                  moveWhen={this.state["Move when"]}
                 />
               )}
             />

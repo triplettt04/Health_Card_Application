@@ -99,7 +99,7 @@ class UploadMilitary extends React.Component {
     });
   }
 
-  next(event) {
+  next(event, path) {
     event.preventDefault();
 
     if (this.state.status === "Uploaded") {
@@ -108,9 +108,18 @@ class UploadMilitary extends React.Component {
         value: "Uploaded"
       };
       this.props.save(target);
-      this.props.history.push({
-        pathname: process.env.PUBLIC_URL + "/hasAddress"
-      });
+      if (path === "/summary") {
+        this.props.save({
+          name: "Summary",
+          value: false
+        });
+      } else {
+        this.props.save({
+          name: "pathFrom",
+          value: "/uploadMilitary"
+        });
+      }
+      this.props.history.push(process.env.PUBLIC_URL + path);
     }
   }
 
@@ -132,6 +141,31 @@ class UploadMilitary extends React.Component {
         </h2>
       </div>
     );
+
+    let enableSummary =
+      this.props.summary === true ? (
+        <input
+          className="btn btn-general btn-wide"
+          type="submit"
+          value="Back to summary"
+        />
+      ) : (
+        <div>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+        </div>
+      );
+
+    let path = this.props.summary ? "/summary" : "/hasAddress";
 
     let cardUploaded = [],
       imageSrc,
@@ -256,7 +290,7 @@ class UploadMilitary extends React.Component {
     }
 
     return (
-      <form onSubmit={event => this.next(event)}>
+      <form onSubmit={event => this.next(event, path)}>
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
@@ -291,19 +325,7 @@ class UploadMilitary extends React.Component {
             </div>
           </div>
         </div>
-        <div className="btn-container button-footer">
-          <input
-            type="submit"
-            value="Next"
-            className="btn btn-general btn-right-align"
-          />
-          <button
-            className="btn btn-general btn-invert"
-            onClick={() => this.back()}
-          >
-            Back
-          </button>
-        </div>
+        <div className="btn-container button-footer">{enableSummary}</div>
         {modal}
       </form>
     );
