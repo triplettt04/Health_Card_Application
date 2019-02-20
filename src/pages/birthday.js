@@ -15,7 +15,10 @@ class Birthday extends React.Component {
   summary(event) {
     event.preventDefault();
     for (let i = 0; i < event.target.length; i++) {
-      if (event.target[i].type !== "submit" && event.target[i].value.length) {
+      if (
+        event.target[i].type !== "submit" &&
+        event.target[i].value.length > 7
+      ) {
         this.props.save(event.target[i]);
       }
     }
@@ -44,12 +47,11 @@ class Birthday extends React.Component {
   }
   render() {
     let enableSummary = this.props.summary ? (
-      <button
+      <input
         className="btn btn-general btn-wide"
-        onClick={event => this.summary(event)}
-      >
-        Back to summary
-      </button>
+        type="submit"
+        value="Back to summary"
+      />
     ) : (
       <div>
         <input
@@ -74,7 +76,11 @@ class Birthday extends React.Component {
     );
 
     return (
-      <form onSubmit={event => this.next(event)}>
+      <form
+        onSubmit={event =>
+          this.props.summary ? this.summary(event) : this.next(event)
+        }
+      >
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
