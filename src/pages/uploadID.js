@@ -5,7 +5,7 @@ import Nav from "../components/nav";
 import CardUploaded from "../components/cardUploaded";
 import iconTrash from "../assets/icon-trash.svg";
 import Modal from "react-modal";
-import DriverLicense from "./driverLicense.png";
+import DriverLicence from "./driverLicense.png";
 
 const customStyles = {
   content: {
@@ -163,7 +163,7 @@ class UploadID extends React.Component {
             <a className="modal-close" onClick={this.closeModal} />
           </div>
           <div className="modal-image">
-            <img src={DriverLicense} />
+            <img src={DriverLicence} />
           </div>
         </Modal>
       ) : (
