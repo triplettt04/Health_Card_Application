@@ -323,6 +323,7 @@ class App extends React.Component {
                 <RouterSelectMilitaryProof
                   save={target => this.handleChange(target)}
                   militaryProof={this.state["Military proof type"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -337,6 +338,7 @@ class App extends React.Component {
                       ? this.state["Military proof type"]
                       : ""
                   }
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -356,6 +358,7 @@ class App extends React.Component {
                   save={target => this.handleChange(target)}
                   pathFrom={this.state["Residence address"]} //This is fine
                   resProof={this.state["Residence proof type"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -370,6 +373,7 @@ class App extends React.Component {
                       ? this.state["Residence proof type"]
                       : ""
                   }
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -388,6 +392,7 @@ class App extends React.Component {
                 <RouterSelectCitizenProof
                   save={target => this.handleChange(target)}
                   citizenProof={this.state["Citizen proof"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -414,6 +419,7 @@ class App extends React.Component {
                   resProof={this.state["Residence proof type"]}
                   citizenProof={this.state["Citizen proof"]}
                   citizenType={this.state["Citizen type"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -428,6 +434,7 @@ class App extends React.Component {
                       ? this.state["Identity proof type"]
                       : ""
                   }
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -461,6 +468,7 @@ class App extends React.Component {
                   save={target => this.handleChange(target)}
                   baseIndex={this.state.baseIndex}
                   status={this.state["Posting message"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -482,6 +490,7 @@ class App extends React.Component {
                 <RouterUploadPhoto
                   save={target => this.handleChange(target)}
                   status={this.state["Photo proof"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -491,6 +500,7 @@ class App extends React.Component {
                 <RouterUploadSignature
                   save={target => this.handleChange(target)}
                   status={this.state["Signature"]}
+                  summary={this.state["Summary"]}
                 />
               )}
             />

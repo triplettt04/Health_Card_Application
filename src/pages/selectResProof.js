@@ -14,7 +14,7 @@ class SelectResProof extends React.Component {
     this.next = this.next.bind(this);
   }
 
-  next(event) {
+  next(event, path) {
     event.preventDefault();
     let noneChecked = true;
     let value;
@@ -30,8 +30,7 @@ class SelectResProof extends React.Component {
         value: value
       };
       this.props.save(target);
-      let path = process.env.PUBLIC_URL + "/uploadRes";
-      this.props.history.push(path);
+      this.props.history.push(process.env.PUBLIC_URL + path);
     }
   }
 
@@ -60,6 +59,31 @@ class SelectResProof extends React.Component {
       </div>
     );
 
+    let enableSummary =
+      this.props.summary === true ? (
+        <input
+          className="btn btn-general btn-wide"
+          type="submit"
+          value="Back to summary"
+        />
+      ) : (
+        <div>
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
+        </div>
+      );
+
+    let path = this.props.summary ? "/summary" : "/uploadRes";
+
     let radioButtons = [];
     for (let i = 0; i < constants.buttonsRes.length; i++) {
       radioButtons.push(
@@ -85,24 +109,12 @@ class SelectResProof extends React.Component {
     }
 
     return (
-      <form onSubmit={event => this.next(event)}>
+      <form onSubmit={event => this.next(event, path)}>
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
           <div className="radio-field small-font">{radioButtons}</div>
-          <div className="btn-container button-footer">
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align"
-            />
-            <button
-              className="btn btn-general btn-invert"
-              onClick={() => this.back()}
-            >
-              Back
-            </button>
-          </div>
+          <div className="btn-container button-footer">{enableSummary}</div>
         </div>
       </form>
     );
