@@ -230,7 +230,7 @@ class Template extends React.Component {
               className="btn btn-general btn-wide"
               onClick={event => this.summary(event)}
             >
-              Back to summary
+              Save and go back
             </button>
           </div>
         </div>
