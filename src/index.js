@@ -78,7 +78,11 @@ class App extends React.Component {
 
       for (let j = 0; j < values.length; j++) {
         let val = null;
-        if (values[j] === "pageNum" || values[j] === "Person num") {
+        if (
+          values[j] === "pageNum" ||
+          values[j] === "Person num" ||
+          values[j] === "Dependant count"
+        ) {
           val = 0;
         } else if (
           values[j] === "Birthday" ||
@@ -95,7 +99,8 @@ class App extends React.Component {
         } else if (
           (!isNaN(cookie) && values[j] === "pageNum") ||
           values[j] === "Person num" ||
-          values[j] === "baseIndex"
+          values[j] === "baseIndex" ||
+          values[j] === "Dependant count"
         ) {
           stateValues[values[j]] = parseInt(cookie);
         } else {
@@ -226,6 +231,13 @@ class App extends React.Component {
                   birthday={this.state["Birthday"]}
                   summary={this.state["Summary"]}
                   personNum={this.state["Person num"]}
+                  forWhoUser={this.state["For who user"]}
+                  forWhoSpouse={this.state["For who spouse"]}
+                  dependantCount={
+                    this.state["For who dependant"]
+                      ? this.state["Dependant count"]
+                      : 0
+                  }
                 />
               )}
             />
@@ -239,6 +251,8 @@ class App extends React.Component {
                   middleName={this.state["Middle name(s)"]}
                   lastName={this.state["Last name"]}
                   personNum={this.state["Person num"]}
+                  pathFrom={this.state["pathFrom"]}
+                  forWhoSpouse={this.state["For who spouse"]}
                 />
               )}
             />
@@ -550,8 +564,10 @@ class App extends React.Component {
                   forWhoUser={this.state["For who user"]}
                   forWhoSpouse={this.state["For who spouse"]}
                   forWhoDependant={this.state["For who dependant"]}
+                  dependantCount={this.state["Dependant count"]}
                   firstName={this.state["First name"][this.state["Person num"]]}
                   lastName={this.state["Last name"][this.state["Person num"]]}
+                  personNum={this.state["Person num"]}
                 />
               )}
             />

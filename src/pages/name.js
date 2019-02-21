@@ -18,7 +18,7 @@ class Name extends React.Component {
       if (event.target[i].type === "text") {
         toSave.push(event.target[i]);
         if (
-          !event.target[i].value.length &&
+          !(event.target[i].value || event.target[i].value.length) &&
           event.target[i].name === "Last name"
         ) {
           save = false;
@@ -66,8 +66,8 @@ class Name extends React.Component {
       if (event.target[i].type === "text") {
         toSave.push(event.target[i]);
         if (
-          !event.target[i].value.length &&
-          event.target[i].name === "Last name"
+          event.target[i].name === "Last name" &&
+          !(event.target[i].value || event.target[i].value.length)
         ) {
           save = false;
         }
@@ -87,10 +87,10 @@ class Name extends React.Component {
             nameValues = this.props.middleName;
             break;
         }
-        if (nameValues.length > 0) {
+        if (nameValues.length === this.props.personNum + 1) {
           nameValues.pop();
         }
-        nameValues.push(toSave[i].value);
+        nameValues.push(toSave[i].value || "");
         this.props.save({
           name: toSave[i].name,
           value: nameValues
@@ -102,7 +102,21 @@ class Name extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/uploadID";
+    this.props.save({
+      name: "Person num",
+      value: this.props.personNum > 0 ? this.props.personNum - 1 : 0
+    });
+    let path = process.env.PUBLIC_URL;
+    switch (this.props.personNum) {
+      case 0:
+        path += "/";
+        break;
+      case 1:
+        path += "/forWho";
+        break;
+      default:
+        path += "/birthday";
+    }
     this.props.history.push(path);
   }
 
@@ -144,13 +158,28 @@ class Name extends React.Component {
             middle name(s) field empty.
           </p>
         </div>
+      ) : this.props.forWhoSpouse && this.props.personNum === 1 ? (
+        <div>
+          <div className="progress-indicator">15 / 22</div>
+          <h2 className="sub-header">Please enter your spouse’s full name.</h2>
+          <p className="caption">
+            This is your spouse’s full name{" "}
+            <b>as it appears on official government documentation.</b>
+            <br />
+            <br />
+            If your spouse’s culture uses a single name, please leave the first
+            and middle name(s) field empty.
+          </p>
+        </div>
       ) : (
         <div>
           <div className="progress-indicator">15 / 22</div>
-          <h2 className="sub-header">Please enter your full name.</h2>
+          <h2 className="sub-header">
+            Please enter your dependant's full name.
+          </h2>
           <p className="caption">
-            If your culture uses a single name, please leave the first and
-            middle name(s) field empty.
+            If your dependant's culture uses a single name, please leave the
+            first and middle name(s) field empty.
           </p>
         </div>
       );
