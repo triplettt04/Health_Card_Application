@@ -13,7 +13,6 @@ class Contact extends React.Component {
   }
   summary(event) {
     event.preventDefault();
-    debugger;
     let save = true,
       toSave = [];
     for (let i = 0; i < event.target.length; i++) {
@@ -27,7 +26,6 @@ class Contact extends React.Component {
       }
     }
     if (save) {
-      debugger;
       for (let i = 0; i < toSave.length; i++) {
         this.props.save(toSave[i]);
       }
@@ -57,8 +55,23 @@ class Contact extends React.Component {
       for (let i = 0; i < toSave.length; i++) {
         this.props.save(toSave[i]);
       }
-      let path = process.env.PUBLIC_URL + "/uploadPhoto";
-      this.props.history.push(path);
+      let curDate = new Date(Date.now());
+      let curDateNum =
+        curDate.getFullYear() * 10000 +
+        curDate.getMonth() * 100 +
+        curDate.getDay();
+      let [day, month, year] = this.props.curBirthday.split("/");
+      let enteredDateNum =
+        parseInt(year) * 10000 + parseInt(month) * 100 + parseInt(day);
+      if (curDateNum - enteredDateNum < 160000) {
+        this.props.save({
+          name: "pathFrom",
+          value: "/contact"
+        });
+        this.props.history.push(process.env.PUBLIC_URL + "/summary");
+      } else {
+        this.props.history.push(process.env.PUBLIC_URL + "/uploadPhoto");
+      }
     }
   }
 

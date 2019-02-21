@@ -8,7 +8,10 @@ const constants = {
     "First name",
     "Middle name(s)",
     "Last name",
-    "Person num"
+    "Person num",
+    "For who user",
+    "For who spouse",
+    "For who dependant"
   ],
   softResetValues: [
     "Citizen type",
@@ -120,6 +123,10 @@ const constants = {
       - Registered Home Ownership Savings Plan (RHOSP)  
       - Workplace Safety and Insurance Board Statement of Benefits (T5007)  
       - Canada Pension Plan Statement of Contributions`
+    },
+    {
+      label: "None of the above",
+      value: "None of the above"
     }
   ],
   buttonsCitizen: [
@@ -156,6 +163,10 @@ const constants = {
     {
       label: "Temporary confirmation",
       value: "Temporary Confirmation of Registration document"
+    },
+    {
+      label: "None of the above",
+      value: "None of the above"
     }
   ],
   buttonsID: [
@@ -249,6 +260,10 @@ const constants = {
       label: "Union card",
       dependency: "n/a",
       value: "Union card"
+    },
+    {
+      label: "None of the above",
+      value: "None of the above"
     }
   ],
   militaryAddresses: [

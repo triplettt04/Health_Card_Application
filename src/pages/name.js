@@ -38,6 +38,8 @@ class Name extends React.Component {
           case "Middle name(s)":
             nameValues = this.props.middleName;
             break;
+          default:
+            console.log("Error - name: " + toSave[i].name);
         }
         if (nameValues.length === this.props.personNum + 1) {
           nameValues.pop();
