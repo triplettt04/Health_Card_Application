@@ -124,7 +124,7 @@ class Birthday extends React.Component {
               guide={true}
               defaultValue={
                 this.props.birthday
-                  ? this.props.birthday[this.state.personNum]
+                  ? this.props.birthday[this.props.personNum]
                   : ""
               }
               name="Birthday"
