@@ -123,9 +123,10 @@ class SelectID extends React.Component {
             }
           />
           <div className="label-text">
-            {isDisabled
-              ? constants.buttonsID[i].value + constants.buttonsID[i].extraText
-              : constants.buttonsID[i].value}
+            {constants.buttonsID[i].value}
+            <div className="extra-text">
+              {isDisabled ? constants.buttonsID[i].extraText : ""}
+            </div>
           </div>
         </label>
       );

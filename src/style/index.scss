@@ -155,7 +155,10 @@ body {
 h1.primary-header {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 24px;
+  font-weight: 600;
   color: $dark-grey;
+  text-align: center;
+  padding-top: 50px;
 }
 
 .semi-bold {
@@ -169,6 +172,10 @@ h1.primary-header {
   .summary-step {
     padding: 50px 15px 30px;
     text-align: center;
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   .spacer {

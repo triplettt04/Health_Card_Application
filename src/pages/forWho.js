@@ -9,7 +9,7 @@ const decrementStyle = {
 };
 
 const doubleDigits = {
-  paddingLeft: "11px"
+  paddingLeft: "13px"
 };
 
 const displayNone = {
@@ -176,19 +176,19 @@ class ForWho extends React.Component {
               />
             </div>
           </div>
-          <div className="btn-container">
-            <input
-              type="submit"
-              value="Next"
-              className="btn btn-general btn-right-align"
-            />
-            <button
-              className="btn btn-general btn-invert"
-              onClick={() => this.back()}
-            >
-              Back
-            </button>
-          </div>
+        </div>
+        <div className="btn-container button-footer">
+          <input
+            type="submit"
+            value="Next"
+            className="btn btn-general btn-right-align"
+          />
+          <button
+            className="btn btn-general btn-invert"
+            onClick={() => this.back()}
+          >
+            Back
+          </button>
         </div>
       </form>
     );

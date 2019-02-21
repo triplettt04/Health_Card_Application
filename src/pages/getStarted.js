@@ -21,39 +21,41 @@ class GetStarted extends React.Component {
       <form onSubmit={event => this.next(event)}>
         <Nav />
         <div className="form-wrapper">
-          <h1 className="primary-header">Here's how applying online works</h1>
+          <h1 className="primary-header">How applying online works</h1>
           <div className="summary-content">
             <div className="summary-step">
-              <img src={require("../assets/passport-photo.svg")} />
+              <img src={require("../assets/documents.svg")} />
               <h2 className="sub-header">
-                Get a certified passport photo and gather your documents
+                Get a <a href="#">certified passport photo</a> and gather the 3
+                required
+                <a href="#"> documents</a> before applying
               </h2>
               <p className="caption">
-                In addition to a <a href="#">certified passport photo</a>, you
-                will need three types of <a href="#">documents</a> to prove your
-                eligibility.
+                The certified passport photo will be used as your health card
+                photo for applicants 16 years and older. If you're applying for
+                someone under 16 years old, they will not need a photo.
               </p>
             </div>
             <div className="spacer" />
             <div className="summary-step">
-              <img src={require("../assets/form-graphic.svg")} />
+              <img src={require("../assets/upload.svg")} />
               <h2 className="sub-header">
-                Fill out the form and upload your documents
+                Begin the online form as soon as you have your documents
               </h2>
               <p className="caption">
-                Complete the online application form with your personal
-                information and upload the relevant documents.
+                You can immediately start the application form after gathering
+                your relevant documents.
               </p>
             </div>
             <div className="spacer" />
             <div className="summary-step">
-              <img src={require("../assets/license-graphic.svg")} />
+              <img src={require("../assets/envelope.svg")} />
               <h2 className="sub-header">
-                Wait for your health card in the mail
+                Receive your health card in 4-6 weeks
               </h2>
               <p className="caption">
-                If you completed the steps above correctly, then your Ontario
-                health card will be mailed to you soon!
+                If you are eligible for OHIP and completed the steps above
+                correctly, then your Ontario health card will be mailed to you!
               </p>
             </div>
           </div>
