@@ -20,7 +20,7 @@ class Birthday extends React.Component {
         event.target[i].value.length > 7
       ) {
         let birthdayValues = this.props.birthday;
-        if (birthdayValues.length > 0) {
+        if (birthdayValues.length === this.props.personNum + 1) {
           birthdayValues.pop();
         }
         birthdayValues.push(event.target[i].value);
@@ -49,7 +49,7 @@ class Birthday extends React.Component {
         event.target[i].value.length > 7
       ) {
         let birthdayValues = this.props.birthday;
-        if (birthdayValues.length > 0) {
+        if (birthdayValues.length === this.props.personNum + 1) {
           birthdayValues.pop();
         }
         birthdayValues.push(event.target[i].value);
