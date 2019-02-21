@@ -11,8 +11,11 @@ class GetStarted extends React.Component {
 
   next(event) {
     event.preventDefault();
-    //handle target and call this.props.save(event.target[i])
-    let path = process.env.PUBLIC_URL + "/pastOHIP"; //TO CHANGE
+    this.props.save({
+      name: "Person num",
+      value: 0
+    });
+    let path = process.env.PUBLIC_URL + "/name";
     this.props.history.push(path);
   }
 

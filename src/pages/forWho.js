@@ -24,7 +24,7 @@ class ForWho extends React.Component {
       forWhoUser: props.forWhoUser || false,
       forWhoSpouse: props.forWhoSpouse || false,
       forWhoDependant: props.forWhoDependant || false,
-      count: 1
+      dependantCount: props.dependantCount || 1
     };
 
     this.back = this.back.bind(this);
@@ -33,25 +33,78 @@ class ForWho extends React.Component {
 
   increment = () => {
     this.setState({
-      count: this.state.count + 1
+      dependantCount: this.state.dependantCount + 1
     });
   };
 
   decrement = () => {
-    if (this.state.count != 0) {
+    if (this.state.dependantCount != 0) {
       this.setState({
-        count: this.state.count - 1
+        dependantCount: this.state.dependantCount - 1
       });
     }
   };
 
   next(event) {
     event.preventDefault();
-    //handle target and call this.props.save(event.target[i])
-    this.props.history.push(process.env.PUBLIC_URL + "/"); //TO CHANGE
+    let noneChecked = true,
+      toSave = [];
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type !== "submit") {
+        if (
+          !this.state.forWhoDependant &&
+          event.target[i].name == "Dependant count"
+        ) {
+          continue;
+        }
+        toSave.push(event.target[i]);
+        noneChecked = false;
+      }
+    }
+    if (
+      this.state.forWhoUser ||
+      this.state.forWhoSpouse ||
+      this.state.forWhoDependant
+    ) {
+      this.props.save({
+        name: "For who user",
+        value: this.state.forWhoUser
+      });
+      this.props.save({
+        name: "For who spouse",
+        value: this.state.forWhoSpouse
+      });
+      this.props.save({
+        name: "For who dependant",
+        value: this.state.forWhoDependant
+      });
+      if (this.state.forWhoDependant) {
+        this.props.save({
+          name: "Dependant count",
+          value: this.state.dependantCount
+        });
+      }
+      this.props.save({
+        name: "pathFrom",
+        value: "/forWho"
+      });
+      if (this.state.forWhoDependant || this.state.forWhoSpouse) {
+        this.props.save({
+          name: "Person num",
+          value: this.props.personNum + 1
+        });
+        this.props.history.push(process.env.PUBLIC_URL + "/name");
+      } else {
+        this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
+      }
+    }
   }
 
   back() {
+    this.props.save({
+      name: "Person num",
+      value: 0
+    });
     this.props.history.push(process.env.PUBLIC_URL + "/birthday");
   }
 
@@ -140,12 +193,12 @@ class ForWho extends React.Component {
               <p className="caption">How many dependents?</p>
               <button
                 className="btn-counter btn-decrement"
-                style={this.state.count != 1 ? {} : decrementStyle}
+                style={this.state.dependantCount != 1 ? {} : decrementStyle}
                 onClick={event => {
                   event.preventDefault();
-                  if (this.state.count != 1) {
+                  if (this.state.dependantCount != 1) {
                     this.setState(state => ({
-                      count: parseInt(state.count) - 1
+                      dependantCount: parseInt(state.dependantCount) - 1
                     }));
                   }
                 }}
@@ -154,22 +207,31 @@ class ForWho extends React.Component {
                 className="counter-input"
                 mask={[/\d/, /\d/]}
                 guide={false}
-                style={this.state.count >= 10 ? doubleDigits : {}}
+                style={this.state.dependantCount >= 10 ? doubleDigits : {}}
                 onChange={event => {
                   event.preventDefault();
                   this.setState({
-                    count: event.target.value
+                    dependantCount: event.target.value
                   });
                 }}
-                value={this.state.count}
+                onBlur={event => {
+                  event.preventDefault();
+                  if (!event.target.value) {
+                    this.setState({
+                      dependantCount: 1
+                    });
+                  }
+                }}
+                name="Dependant count"
+                value={this.state.dependantCount}
               />
               <button
                 className="btn-counter btn-increment"
                 onClick={event => {
                   event.preventDefault();
-                  if (this.state.count < 99) {
+                  if (this.state.dependantCount < 99) {
                     this.setState(state => ({
-                      count: parseInt(state.count) + 1
+                      dependantCount: parseInt(state.dependantCount) + 1
                     }));
                   }
                 }}
