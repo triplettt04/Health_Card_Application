@@ -137,6 +137,10 @@
     margin-top: 10px;
     width: calc(100% - 75px);
     text-align: left;
+
+    .extra-text {
+      padding-top: 10px;
+    }
   }
 }
 
@@ -372,11 +376,14 @@
     width: 50px;
     height: 65px;
     vertical-align: top;
-    padding-left: 17px;
+    padding-left: 18px;
     margin: 0 20px;
     font-size: 20px;
     color: $dark-grey;
-    border: 2px solid $dark-grey;
+    background-color: #fbfbfb;
+    border-radius: 5px;
+    border: 1px solid #f9f9f9;
+    box-shadow: inset 0px 2px 4px #c8c8c8;
   }
 
   input.counter-input:focus {

@@ -201,7 +201,7 @@ class Template extends React.Component {
               Maybe So
             </button>
           </div>
-          <div className="btn-container">
+          <div className="btn-container button-footer">
             <input
               type="submit"
               value="Next"
@@ -214,7 +214,7 @@ class Template extends React.Component {
               Back
             </button>
           </div>
-          <div className="btn-container">
+          <div className="btn-container button-footer">
             <input
               type="submit"
               value="Next"
@@ -230,7 +230,7 @@ class Template extends React.Component {
               className="btn btn-general btn-wide"
               onClick={event => this.summary(event)}
             >
-              Back to summary
+              Save and go back
             </button>
           </div>
         </div>
