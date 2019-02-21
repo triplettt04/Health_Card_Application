@@ -39,7 +39,7 @@ class Name extends React.Component {
             nameValues = this.props.middleName;
             break;
         }
-        if (nameValues.length > 0) {
+        if (nameValues.length === this.props.personNum + 1) {
           nameValues.pop();
         }
         nameValues.push(toSave[i].value);
