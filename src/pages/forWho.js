@@ -2,6 +2,19 @@ import React from "react";
 import constants from "../constants";
 import Card from "../components/card";
 import Nav from "../components/nav";
+import MaskedInput from "react-text-mask";
+
+const decrementStyle = {
+  backgroundColor: "#d6d6d6"
+};
+
+const doubleDigits = {
+  paddingLeft: "11px"
+};
+
+const displayNone = {
+  display: "none"
+};
 
 class ForWho extends React.Component {
   constructor(props) {
@@ -62,7 +75,6 @@ class ForWho extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          What is your vegetable (as indicated on your passport)?
           <div className="checkbox-field">
             <label className="checkbox-label block">
               <input
@@ -106,6 +118,48 @@ class ForWho extends React.Component {
               />
               <div className="label-text">Dependants of {fullName}</div>
             </label>
+            <div
+              className="counter"
+              style={this.state.forWhoDependant === false ? displayNone : {}}
+            >
+              <p className="caption">How many dependents?</p>
+              <button
+                className="btn-counter btn-decrement"
+                style={this.state.count != 1 ? {} : decrementStyle}
+                onClick={event => {
+                  event.preventDefault();
+                  if (this.state.count != 1) {
+                    this.setState(state => ({
+                      count: parseInt(state.count) - 1
+                    }));
+                  }
+                }}
+              />
+              <MaskedInput
+                className="counter-input"
+                mask={[/\d/, /\d/]}
+                guide={false}
+                style={this.state.count >= 10 ? doubleDigits : {}}
+                onChange={event => {
+                  event.preventDefault();
+                  this.setState({
+                    count: event.target.value
+                  });
+                }}
+                value={this.state.count}
+              />
+              <button
+                className="btn-counter btn-increment"
+                onClick={event => {
+                  event.preventDefault();
+                  if (this.state.count < 99) {
+                    this.setState(state => ({
+                      count: parseInt(state.count) + 1
+                    }));
+                  }
+                }}
+              />
+            </div>
           </div>
           <div className="btn-container">
             <input
