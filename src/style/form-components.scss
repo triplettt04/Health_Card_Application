@@ -361,3 +361,53 @@
 .icon-link-container:last-child {
   padding-bottom: 10px;
 }
+
+//Counter
+.counter {
+  text-align: center;
+  width: 100%;
+  padding: 15px 0;
+
+  input.counter-input {
+    width: 50px;
+    height: 65px;
+    vertical-align: top;
+    padding-left: 17px;
+    margin: 0 20px;
+    font-size: 20px;
+    color: $dark-grey;
+    border: 2px solid $dark-grey;
+  }
+
+  input.counter-input:focus {
+    box-shadow: 0px 0px 0px 3px $active-accent;
+    outline: none;
+    transition: 0.15s ease-in;
+  }
+
+  .btn-counter {
+    border-radius: 50%;
+    color: $white;
+    background-color: $primary-blue;
+    width: 45px;
+    height: 45px;
+    margin-top: 10px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+  }
+
+  .btn-counter:focus {
+    box-shadow: 0px 0px 0px 3px $active-accent;
+    outline: none;
+    transition: 0.15s ease-in;
+  }
+
+  .btn-counter.btn-increment {
+    background-image: url("../assets/icon-plus-white.svg");
+  }
+  .btn-counter.btn-decrement {
+    background-image: url("../assets/icon-minus-white.svg");
+  }
+}
