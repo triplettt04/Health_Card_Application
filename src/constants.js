@@ -176,7 +176,7 @@ const constants = {
       dependency: "n/a",
       value: "Passport (Canadian or foreign)",
       extraText:
-        "\n*You have already used this document type to prove Canadian citizenship."
+        "*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Credit card",
@@ -189,21 +189,21 @@ const constants = {
       value:
         "Valid driver's licence or temporary driver's licence from any Canadian province or territory",
       extraText:
-        "\n*You have already used this document type to prove residency in Ontario."
+        "*You have already used this document type to prove residency in Ontario."
     },
     {
       label: "Immigration ID card",
       dependency: "Canadian citizen",
       value: "Canadian Immigration Identification Card",
       extraText:
-        "\n*You have already used this document type to prove Canadian citizenship."
+        "*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Certificate of Canadian Citizenship",
       dependency: "n/a",
       value: "Certificate of Canadian Citizenship (plastic card)",
       extraText:
-        "\n*You have already used this document type to prove Canadian citizenship."
+        "*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Certificate of Indian status",
@@ -218,7 +218,7 @@ const constants = {
       value:
         "Confirmation of Permanent Residence (IMM 5292) only if signature is shown",
       extraText:
-        "\n*You have already used this document type to prove Canadian citizenship."
+        "*You have already used this document type to prove Canadian citizenship."
     },
     {
       label: "Employee ID card",

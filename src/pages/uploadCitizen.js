@@ -105,7 +105,7 @@ class UploadCitizen extends React.Component {
         <input
           className="btn btn-general btn-wide"
           type="submit"
-          value="Back to summary"
+          value="Save and go back"
         />
       ) : (
         <div>
