@@ -48,6 +48,7 @@ import UploadSignature from "./pages/uploadSignature";
 import Agreement from "./pages/agreement";
 import SameHouse from "./pages/sameHouse";
 import MoveWhen from "./pages/moveWhen";
+import ForWho from "./pages/forWho";
 import Template from "./pages/template";
 
 class App extends React.Component {
@@ -192,6 +193,7 @@ class App extends React.Component {
     const RouterAgreement = withRouter(Agreement);
     const RouterSameHouse = withRouter(SameHouse);
     const RouterMoveWhen = withRouter(MoveWhen);
+    const RouterForWho = withRouter(ForWho);
 
     return (
       <Router>
@@ -371,7 +373,7 @@ class App extends React.Component {
               render={() => (
                 <RouterSelectResProof
                   save={target => this.handleChange(target)}
-                  pathFrom={this.state["Residence address"]} //This is fine
+                  hasAddress={this.state["Residence address"]}
                   resProof={this.state["Residence proof type"]}
                   summary={this.state["Summary"]}
                 />
@@ -498,6 +500,7 @@ class App extends React.Component {
                   primaryPhone={this.state["Primary phone"]}
                   alternatePhone={this.state["Alternate phone"]}
                   email={this.state["Email"]}
+                  curBirthday={this.state["Birthday"][this.state["Person num"]]}
                 />
               )}
             />
@@ -536,6 +539,19 @@ class App extends React.Component {
                 <RouterMoveWhen
                   save={target => this.handleChange(target)}
                   moveWhen={this.state["Move when"]}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/forWho"}
+              render={() => (
+                <RouterForWho
+                  save={target => this.handleChange(target)}
+                  forWhoUser={this.state["For who user"]}
+                  forWhoSpouse={this.state["For who spouse"]}
+                  forWhoDependant={this.state["For who dependant"]}
+                  firstName={this.state["First name"][this.state["Person num"]]}
+                  lastName={this.state["Last name"][this.state["Person num"]]}
                 />
               )}
             />

@@ -30,6 +30,9 @@ class Summary extends React.Component {
 
   back() {
     let path = process.env.PUBLIC_URL + "/uploadSignature";
+    if (this.props.state["pathFrom"] === "/contact") {
+      path = process.env.PUBLIC_URL + "/contact";
+    }
     this.props.history.push(path);
   }
 

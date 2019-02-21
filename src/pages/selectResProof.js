@@ -20,6 +20,14 @@ class SelectResProof extends React.Component {
     let value;
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
+        if (event.target[i].value === "None of the above") {
+          this.props.save({
+            name: "pathFrom",
+            value: "/selectResProof"
+          });
+          this.props.history.push(process.env.PUBLIC_URL + "/"); //TO CHANGE
+          break;
+        }
         noneChecked = false;
         value = event.target[i].value;
       }
@@ -36,10 +44,10 @@ class SelectResProof extends React.Component {
 
   back() {
     let path;
-    if (this.props.pathFrom) {
+    if (this.props.hasAddress) {
       path = process.env.PUBLIC_URL + "/hasAddress";
     } else {
-      path = process.env.PUBLIC_URL + "/isMilitary";
+      path = process.env.PUBLIC_URL + "/moveWhen";
     }
     this.props.history.push(path);
   }
