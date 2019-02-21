@@ -48,7 +48,7 @@ class IsMilitary extends React.Component {
           value: "/isMilitary"
         });
         this.props.history.push({
-          pathname: process.env.PUBLIC_URL + "/selectResProof"
+          pathname: process.env.PUBLIC_URL + "/moveWhen"
         });
       }
     }

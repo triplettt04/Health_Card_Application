@@ -21,6 +21,14 @@ class SelectID extends React.Component {
     let value;
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
+        if (event.target[i].value === "None of the above") {
+          this.props.save({
+            name: "pathFrom",
+            value: "/selectID"
+          });
+          this.props.history.push(process.env.PUBLIC_URL + "/"); //TO CHANGE
+          break;
+        }
         noneChecked = false;
         value = event.target[i].value;
       }

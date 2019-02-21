@@ -371,7 +371,7 @@ class App extends React.Component {
               render={() => (
                 <RouterSelectResProof
                   save={target => this.handleChange(target)}
-                  pathFrom={this.state["Residence address"]} //This is fine
+                  hasAddress={this.state["Residence address"]}
                   resProof={this.state["Residence proof type"]}
                   summary={this.state["Summary"]}
                 />
@@ -498,6 +498,7 @@ class App extends React.Component {
                   primaryPhone={this.state["Primary phone"]}
                   alternatePhone={this.state["Alternate phone"]}
                   email={this.state["Email"]}
+                  curBirthday={this.state["Birthday"][this.state["Person num"]]}
                 />
               )}
             />
