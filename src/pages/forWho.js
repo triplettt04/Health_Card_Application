@@ -10,7 +10,7 @@ class ForWho extends React.Component {
     this.state = {
       forWhoUser: props.forWhoUser || false,
       forWhoSpouse: props.forWhoSpouse || false,
-      forWhoDependant: props.forWhoDependant || false
+      forWhoDependant: props.forWhoDependant || 0
     };
 
     this.back = this.back.bind(this);

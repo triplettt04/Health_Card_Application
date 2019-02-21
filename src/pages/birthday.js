@@ -61,8 +61,27 @@ class Birthday extends React.Component {
       }
     }
     if (!noneEntered) {
-      let path = process.env.PUBLIC_URL + "/sex";
-      this.props.history.push(path);
+      if (
+        (this.props.forWhoSpouse ? 1 : 0) + this.props.forWhoDependant ===
+        this.props.personNum
+      ) {
+        this.props.save({
+          name: "Person num",
+          value: this.props.forWhoUser ? 0 : 1
+        });
+        this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
+      } else {
+        let num = this.props.personNum + 1;
+        this.props.save({
+          name: "Person num",
+          value: num
+        });
+        this.props.save({
+          name: "pathFrom",
+          value: "/birthday"
+        });
+        this.props.history.push(process.env.PUBLIC_URL + "/name");
+      }
     }
   }
   render() {
@@ -98,6 +117,17 @@ class Birthday extends React.Component {
             This is <b>your</b> date of birth, regardless of whether you are
             applying for yourself and/or applying for your spouse or
             dependant(s).
+          </p>
+        </div>
+      ) : this.props.forWhoSpouse && this.props.personNum === 1 ? (
+        <div>
+          <div className="progress-indicator">16 / 22</div>
+          <h2 className="sub-header">
+            Please enter your spouse’s date of birth.
+          </h2>
+          <p className="caption">
+            This is your spouse’s date of birth{" "}
+            <b>as it appears on official government documentation.</b>
           </p>
         </div>
       ) : (

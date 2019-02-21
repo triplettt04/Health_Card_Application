@@ -102,7 +102,7 @@ class Name extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/uploadID";
+    let path = process.env.PUBLIC_URL + this.props.pathFrom;
     this.props.history.push(path);
   }
 
@@ -142,6 +142,19 @@ class Name extends React.Component {
             <br />
             If your culture uses a single name, please leave the first and
             middle name(s) field empty.
+          </p>
+        </div>
+      ) : this.props.forWhoSpouse && this.props.personNum === 1 ? (
+        <div>
+          <div className="progress-indicator">15 / 22</div>
+          <h2 className="sub-header">Please enter your spouse’s full name.</h2>
+          <p className="caption">
+            This is your spouse’s full name{" "}
+            <b>as it appears on official government documentation.</b>
+            <br />
+            <br />
+            If your spouse’s culture uses a single name, please leave the first
+            and middle name(s) field empty.
           </p>
         </div>
       ) : (

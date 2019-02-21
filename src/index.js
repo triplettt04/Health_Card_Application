@@ -226,6 +226,9 @@ class App extends React.Component {
                   birthday={this.state["Birthday"]}
                   summary={this.state["Summary"]}
                   personNum={this.state["Person num"]}
+                  forWhoUser={this.state["For who user"]}
+                  forWhoSpouse={this.state["For who spouse"]}
+                  forWhoDependant={this.state["For who dependant"]}
                 />
               )}
             />
@@ -239,6 +242,7 @@ class App extends React.Component {
                   middleName={this.state["Middle name(s)"]}
                   lastName={this.state["Last name"]}
                   personNum={this.state["Person num"]}
+                  pathFrom={this.state["pathFrom"]}
                 />
               )}
             />
