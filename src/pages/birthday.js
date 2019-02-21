@@ -61,26 +61,30 @@ class Birthday extends React.Component {
       }
     }
     if (!noneEntered) {
-      if (
-        (this.props.forWhoSpouse ? 1 : 0) + this.props.forWhoDependant ===
-        this.props.personNum
-      ) {
-        this.props.save({
-          name: "Person num",
-          value: this.props.forWhoUser ? 0 : 1
-        });
-        this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
+      if (this.props.forWhoUser === null || this.props.personNum === 0) {
+        this.props.history.push(process.env.PUBLIC_URL + "/forWho");
       } else {
-        let num = this.props.personNum + 1;
-        this.props.save({
-          name: "Person num",
-          value: num
-        });
-        this.props.save({
-          name: "pathFrom",
-          value: "/birthday"
-        });
-        this.props.history.push(process.env.PUBLIC_URL + "/name");
+        if (
+          (this.props.forWhoSpouse ? 1 : 0) + this.props.dependantCount ===
+          this.props.personNum
+        ) {
+          this.props.save({
+            name: "Person num",
+            value: this.props.forWhoUser ? 0 : 1
+          });
+          this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
+        } else {
+          let num = this.props.personNum + 1;
+          this.props.save({
+            name: "Person num",
+            value: num
+          });
+          this.props.save({
+            name: "pathFrom",
+            value: "/birthday"
+          });
+          this.props.history.push(process.env.PUBLIC_URL + "/name");
+        }
       }
     }
   }
@@ -133,7 +137,9 @@ class Birthday extends React.Component {
       ) : (
         <div>
           <div className="progress-indicator">16 / 22</div>
-          <h2 className="sub-header">What is your date of birth?</h2>
+          <h2 className="sub-header">
+            What is your dependant's date of birth?
+          </h2>
         </div>
       );
 
