@@ -49,6 +49,7 @@ import Agreement from "./pages/agreement";
 import SameHouse from "./pages/sameHouse";
 import MoveWhen from "./pages/moveWhen";
 import ForWho from "./pages/forWho";
+import ConfirmChoose from "./pages/confirmChoose";
 import Template from "./pages/template";
 
 class App extends React.Component {
@@ -88,7 +89,8 @@ class App extends React.Component {
           values[j] === "Birthday" ||
           values[j] === "First name" ||
           values[j] === "Middle name(s)" ||
-          values[j] === "Last name"
+          values[j] === "Last name" ||
+          values[j] === "Done"
         ) {
           val = [];
         }
@@ -199,6 +201,7 @@ class App extends React.Component {
     const RouterSameHouse = withRouter(SameHouse);
     const RouterMoveWhen = withRouter(MoveWhen);
     const RouterForWho = withRouter(ForWho);
+    const RouterConfirmChoose = withRouter(ConfirmChoose);
 
     return (
       <Router>
@@ -568,6 +571,18 @@ class App extends React.Component {
                   firstName={this.state["First name"][this.state["Person num"]]}
                   lastName={this.state["Last name"][this.state["Person num"]]}
                   personNum={this.state["Person num"]}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/confirmChoose"}
+              render={() => (
+                <RouterConfirmChoose
+                  save={target => this.handleChange(target)}
+                  forWhoUser={this.state["For who user"]}
+                  firstName={this.state["First name"]}
+                  lastName={this.state["Last name"]}
+                  done={this.state["Done"]}
                 />
               )}
             />

@@ -12,7 +12,8 @@ const constants = {
     "For who user",
     "For who spouse",
     "For who dependant",
-    "Dependant count"
+    "Dependant count",
+    "Done"
   ],
   softResetValues: [
     "Citizen type",
