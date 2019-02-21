@@ -8,7 +8,10 @@ const constants = {
     "First name",
     "Middle name(s)",
     "Last name",
-    "Person num"
+    "Person num",
+    "For who user",
+    "For who spouse",
+    "For who dependant"
   ],
   softResetValues: [
     "Citizen type",
