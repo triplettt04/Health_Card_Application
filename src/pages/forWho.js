@@ -23,12 +23,27 @@ class ForWho extends React.Component {
     this.state = {
       forWhoUser: props.forWhoUser || false,
       forWhoSpouse: props.forWhoSpouse || false,
-      forWhoDependant: props.forWhoDependant || false
+      forWhoDependant: props.forWhoDependant || false,
+      count: 1
     };
 
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
   }
+
+  increment = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+
+  decrement = () => {
+    if (this.state.count != 0) {
+      this.setState({
+        count: this.state.count - 1
+      });
+    }
+  };
 
   next(event) {
     event.preventDefault();
