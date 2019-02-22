@@ -17,19 +17,7 @@ class ConfirmChoose extends React.Component {
 
   next(event) {
     event.preventDefault();
-    if (this.state.checked) {
-      let updateDone = [];
-      for (let i = 0; i < this.props.done.length; i++) {
-        if (i === this.state.checked) {
-          updateDone.push(true);
-        } else {
-          updateDone.push(this.props.done[i]);
-        }
-      }
-      this.props.save({
-        name: "Done",
-        value: updateDone
-      });
+    if (this.state.checked !== null) {
       this.props.save({
         name: "Person num",
         value: this.state.checked
@@ -54,12 +42,11 @@ class ConfirmChoose extends React.Component {
     );
 
     let extraText = "You have already submitted this application";
+    let length = this.props.firstName.length,
+      start = this.props.forWhoUser ? 0 : 1;
     let radioButtons = [];
-    for (
-      let i = this.props.forWhoUser ? 0 : 1;
-      i < this.props.firstName.length;
-      i++
-    ) {
+
+    for (let i = start; i < length; i++) {
       let isDisabled = this.props.done[i];
       radioButtons.push(
         <label
@@ -82,39 +69,35 @@ class ConfirmChoose extends React.Component {
             }
           />
           <div className="label-text">
-            {isDisabled
-              ? this.props.firstName[i] +
-                " " +
-                this.props.lastName[i] +
-                extraText
-              : this.props.firstName[i] + " " + this.props.lastName[i]}
+            {this.props.firstName[i] + " " + this.props.lastName[i]}
+            <div className="extra-text">{isDisabled ? extraText : ""}</div>
           </div>
         </label>
       );
-
-      return (
-        <form onSubmit={event => this.next(event)}>
-          <Nav />
-          <div className="form-wrapper">
-            <Card content={content} />
-            <div className="radio-field">{radioButtons}</div>
-            <div className="btn-container">
-              <input
-                type="submit"
-                value="Next"
-                className="btn btn-general btn-right-align"
-              />
-              <button
-                className="btn btn-general btn-invert"
-                onClick={() => this.back()}
-              >
-                Back
-              </button>
-            </div>
-          </div>
-        </form>
-      );
     }
+
+    return (
+      <form onSubmit={event => this.next(event)}>
+        <Nav />
+        <div className="form-wrapper">
+          <Card content={content} />
+          <div className="radio-field small-font">{radioButtons}</div>
+          <div className="btn-container">
+            <input
+              type="submit"
+              value="Next"
+              className="btn btn-general btn-right-align"
+            />
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+          </div>
+        </div>
+      </form>
+    );
   }
 }
 

@@ -11,14 +11,38 @@ class Terms extends React.Component {
   next(event) {
     event.preventDefault();
     let checked = false;
+
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].type !== "submit" && event.target[i].checked) {
         checked = true;
       }
     }
     if (checked) {
-      let path = process.env.PUBLIC_URL + "/confirmation";
-      this.props.history.push(path);
+      let done = true;
+      for (let i = 0; i < this.props.done.length; i++) {
+        if (!this.props.done[i] && i !== this.props.personNum) {
+          done = false;
+          break;
+        }
+      }
+      if (done) {
+        this.props.history.push(process.env.PUBLIC_URL + "/confirmation");
+      } else {
+        let updateDone = [];
+        for (let i = 0; i < this.props.done.length; i++) {
+          if (i === this.props.personNum) {
+            updateDone.push(true);
+          } else {
+            updateDone.push(this.props.done[i]);
+          }
+        }
+        this.props.save({
+          name: "Done",
+          value: updateDone
+        });
+        this.props.softReset();
+        this.props.history.push(process.env.PUBLIC_URL + "/confirmChoose");
+      }
     }
   }
   back() {

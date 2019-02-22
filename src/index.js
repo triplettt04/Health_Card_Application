@@ -146,6 +146,15 @@ class App extends React.Component {
     }
   }
 
+  resetAddress() {
+    const { cookies } = this.props;
+    let addressValues = []; //Add constant
+    for (let i = 0; i < addressValues.length; i++) {
+      cookies.remove(addressValues[i]);
+      this.state[addressValues[i]] = null;
+    }
+  }
+
   hardReset() {
     const { cookies } = this.props;
     let hardResetValues = constants.hardResetValues;
@@ -157,6 +166,7 @@ class App extends React.Component {
 
   resetAll() {
     this.softReset();
+    this.resetAddress();
     this.hardReset();
     const { cookies } = this.props;
     let globalValues = constants.globalValues;
@@ -223,7 +233,12 @@ class App extends React.Component {
             <Route
               path={process.env.PUBLIC_URL + "/agreement"}
               render={() => (
-                <RouterAgreement save={target => this.handleChange(target)} />
+                <RouterAgreement
+                  save={target => this.handleChange(target)}
+                  personNum={this.state["Person num"]}
+                  done={this.state["Done"]}
+                  softReset={this.state.softReset}
+                />
               )}
             />
             <Route
@@ -547,6 +562,7 @@ class App extends React.Component {
                 <RouterSameHouse
                   save={target => this.handleChange(target)}
                   sameHouse={this.state["Same house"]}
+                  resetAddress={this.state.resetAddress}
                 />
               )}
             />
@@ -571,6 +587,7 @@ class App extends React.Component {
                   firstName={this.state["First name"][this.state["Person num"]]}
                   lastName={this.state["Last name"][this.state["Person num"]]}
                   personNum={this.state["Person num"]}
+                  done={this.state["Done"]}
                 />
               )}
             />
