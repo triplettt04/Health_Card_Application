@@ -375,6 +375,9 @@ class App extends React.Component {
                       ? constants.militaryAddresses[this.state.baseIndex].label
                       : null
                   }
+                  street={this.state["Residence street"]}
+                  city={this.state["Residence city"]}
+                  postalCode={this.state["Residence postal code"]}
                 />
               )}
             />

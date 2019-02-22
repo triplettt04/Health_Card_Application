@@ -354,6 +354,10 @@ const constants = {
       street: "PO Box 1000 Station Forces",
       city: "Astra",
       postalCode: "K0K 3W0"
+    },
+    {
+      label: "Other location",
+      value: "Other location"
     }
   ]
 };
