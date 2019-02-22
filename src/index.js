@@ -49,6 +49,7 @@ import Agreement from "./pages/agreement";
 import SameHouse from "./pages/sameHouse";
 import MoveWhen from "./pages/moveWhen";
 import ForWho from "./pages/forWho";
+import ConfirmChoose from "./pages/confirmChoose";
 import Template from "./pages/template";
 
 class App extends React.Component {
@@ -88,7 +89,8 @@ class App extends React.Component {
           values[j] === "Birthday" ||
           values[j] === "First name" ||
           values[j] === "Middle name(s)" ||
-          values[j] === "Last name"
+          values[j] === "Last name" ||
+          values[j] === "Done"
         ) {
           val = [];
         }
@@ -144,6 +146,15 @@ class App extends React.Component {
     }
   }
 
+  resetAddress() {
+    const { cookies } = this.props;
+    let addressValues = []; //Add constant
+    for (let i = 0; i < addressValues.length; i++) {
+      cookies.remove(addressValues[i]);
+      this.state[addressValues[i]] = null;
+    }
+  }
+
   hardReset() {
     const { cookies } = this.props;
     let hardResetValues = constants.hardResetValues;
@@ -155,6 +166,7 @@ class App extends React.Component {
 
   resetAll() {
     this.softReset();
+    this.resetAddress();
     this.hardReset();
     const { cookies } = this.props;
     let globalValues = constants.globalValues;
@@ -199,6 +211,7 @@ class App extends React.Component {
     const RouterSameHouse = withRouter(SameHouse);
     const RouterMoveWhen = withRouter(MoveWhen);
     const RouterForWho = withRouter(ForWho);
+    const RouterConfirmChoose = withRouter(ConfirmChoose);
 
     return (
       <Router>
@@ -220,7 +233,12 @@ class App extends React.Component {
             <Route
               path={process.env.PUBLIC_URL + "/agreement"}
               render={() => (
-                <RouterAgreement save={target => this.handleChange(target)} />
+                <RouterAgreement
+                  save={target => this.handleChange(target)}
+                  personNum={this.state["Person num"]}
+                  done={this.state["Done"]}
+                  softReset={this.state.softReset}
+                />
               )}
             />
             <Route
@@ -544,6 +562,7 @@ class App extends React.Component {
                 <RouterSameHouse
                   save={target => this.handleChange(target)}
                   sameHouse={this.state["Same house"]}
+                  resetAddress={this.state.resetAddress}
                 />
               )}
             />
@@ -568,6 +587,19 @@ class App extends React.Component {
                   firstName={this.state["First name"][this.state["Person num"]]}
                   lastName={this.state["Last name"][this.state["Person num"]]}
                   personNum={this.state["Person num"]}
+                  done={this.state["Done"]}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/confirmChoose"}
+              render={() => (
+                <RouterConfirmChoose
+                  save={target => this.handleChange(target)}
+                  forWhoUser={this.state["For who user"]}
+                  firstName={this.state["First name"]}
+                  lastName={this.state["Last name"]}
+                  done={this.state["Done"]}
                 />
               )}
             />
