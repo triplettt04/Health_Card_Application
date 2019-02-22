@@ -359,6 +359,8 @@ class App extends React.Component {
                   save={target => this.handleChange(target)}
                   summary={this.state["Summary"]}
                   specialCase={this.state["Special case"]}
+                  firstName={this.state["First name"][this.state["Person num"]]}
+                  lastName={this.state["Last name"][this.state["Person num"]]}
                 />
               )}
             />

@@ -233,7 +233,7 @@ class ForWho extends React.Component {
                 }}
                 onBlur={event => {
                   event.preventDefault();
-                  if (!event.target.value) {
+                  if (!event.target.value || event.target.value < 1) {
                     this.setState({
                       dependantCount: 1
                     });
