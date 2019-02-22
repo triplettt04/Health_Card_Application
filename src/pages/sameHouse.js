@@ -30,6 +30,7 @@ class SameHouse extends React.Component {
           name: "pathFrom",
           value: "/sameHouse"
         });
+        this.props.resetAddress();
         this.props.history.push({
           pathname: process.env.PUBLIC_URL + "/selectResProof"
         });
@@ -38,7 +39,7 @@ class SameHouse extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/confirmation";
+    let path = process.env.PUBLIC_URL + "/confirmChoose";
     this.props.history.push(path);
   }
 

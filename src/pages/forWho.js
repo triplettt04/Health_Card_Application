@@ -84,6 +84,23 @@ class ForWho extends React.Component {
           value: this.state.dependantCount
         });
       }
+
+      //Initialize done array
+      let totalSize =
+          (this.state.forWhoSpouse ? 1 : 0) +
+          (this.state.forWhoDependant ? this.state.dependantCount : 0) +
+          1, //For the user
+        doneArray = [];
+      for (let i = 0; i < totalSize; i++) {
+        doneArray.push(
+          (i === 0 && !this.state.forWhoUser) || this.props.done[i]
+        );
+      }
+      this.props.save({
+        name: "Done",
+        value: doneArray
+      });
+
       this.props.save({
         name: "pathFrom",
         value: "/forWho"
