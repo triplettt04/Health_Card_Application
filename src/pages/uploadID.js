@@ -17,6 +17,10 @@ const customStyles = {
   }
 };
 
+const padded = {
+  paddingBottom: "50px"
+};
+
 Modal.defaultStyles.overlay.backgroundColor = "rgb(58, 58, 58, 0.75)";
 
 class UploadID extends React.Component {
@@ -40,6 +44,10 @@ class UploadID extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+
+  cancel() {
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
   }
 
   openModal() {
@@ -102,11 +110,36 @@ class UploadID extends React.Component {
 
     let enableSummary =
       this.props.summary === true ? (
-        <input
-          className="btn btn-general btn-wide"
-          type="submit"
-          value="Save and go back"
-        />
+        this.state.status === "Uploaded" ? (
+          <div>
+            <input
+              className="btn btn-general btn-wide"
+              type="submit"
+              value="Save and go back"
+            />
+            <button
+              className="btn btn-general btn-wide btn-cancel"
+              onClick={() => this.cancel()}
+            >
+              Cancel
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button
+              className="btn btn-general btn-wide"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <button
+              className="btn btn-general btn-wide btn-cancel"
+              onClick={() => this.cancel()}
+            >
+              Cancel
+            </button>
+          </div>
+        )
       ) : (
         <div>
           <input
@@ -173,7 +206,7 @@ class UploadID extends React.Component {
     return (
       <form onSubmit={event => this.next(event, path)}>
         <Nav />
-        <div className="form-wrapper">
+        <div className="form-wrapper" style={this.props.summary ? padded : {}}>
           <Card content={content} />
           {cardUploaded}
           <div className="links-container">

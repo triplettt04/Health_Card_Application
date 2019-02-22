@@ -3,6 +3,10 @@ import constants from "../constants";
 import Card from "../components/card";
 import Nav from "../components/nav";
 
+const padded = {
+  paddingBottom: "60px"
+};
+
 class SelectMilitaryProof extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +17,10 @@ class SelectMilitaryProof extends React.Component {
 
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
+  }
+
+  cancel() {
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
   }
 
   next(event, path) {
@@ -31,9 +39,9 @@ class SelectMilitaryProof extends React.Component {
         value: value
       };
       this.props.save(target);
-      if (path === "/summary") {
+      if (this.props.summary) {
         this.props.save({
-          name: "Summary",
+          name: "summaryUploaded",
           value: false
         });
       }
@@ -67,11 +75,19 @@ class SelectMilitaryProof extends React.Component {
 
     let enableSummary =
       this.props.summary === true ? (
-        <input
-          className="btn btn-general btn-wide"
-          type="submit"
-          value="Save and go back"
-        />
+        <div>
+          <input
+            className="btn btn-general btn-wide"
+            type="submit"
+            value="Upload new document"
+          />
+          <button
+            className="btn btn-general btn-wide btn-cancel"
+            onClick={() => this.cancel()}
+          >
+            Cancel
+          </button>
+        </div>
       ) : (
         <div>
           <input
@@ -88,12 +104,12 @@ class SelectMilitaryProof extends React.Component {
         </div>
       );
 
-    let path = this.props.summary ? "/summary" : "/uploadMilitary";
+    let path = "/uploadMilitary";
 
     return (
       <form onSubmit={event => this.next(event, path)}>
         <Nav />
-        <div className="form-wrapper">
+        <div className="form-wrapper" style={this.props.summary ? padded : {}}>
           <Card content={content} />
           <div className="radio-field medium-font">
             <label className="radio-style block">

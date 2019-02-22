@@ -27,7 +27,8 @@ const constants = {
     "pathFrom",
     "Same house",
     "Summary",
-    "pageNum"
+    "pageNum",
+    "summaryUploaded"
   ],
   hardResetValues: [
     "baseIndex",
@@ -227,7 +228,7 @@ const constants = {
       value: "Current employee ID card"
     },
     {
-      label: "professional association licence",
+      label: "Professional association licence",
       dependency: "n/a",
       value: "Current professional association licence"
     },

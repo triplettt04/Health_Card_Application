@@ -19,15 +19,19 @@ const customStyles = {
   }
 };
 
+const padded = {
+  paddingBottom: "50px"
+};
+
 class UploadMilitary extends React.Component {
   constructor(props) {
     super(props);
-
-    let status = props.status
-      ? props.status
-      : props.num > 0
-      ? "Uploaded"
-      : "Not completed";
+    let status =
+      props.status && props.summaryUploaded
+        ? props.status
+        : props.num > 0 && props.summaryUploaded
+        ? "Uploaded"
+        : "Not completed";
     let num =
       props.location.state && props.location.state.num
         ? props.location.state.num
@@ -49,6 +53,11 @@ class UploadMilitary extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
+  cancel() {
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
+  }
+
   openModal(num) {
     switch (num) {
       case 1:
@@ -144,11 +153,36 @@ class UploadMilitary extends React.Component {
 
     let enableSummary =
       this.props.summary === true ? (
-        <input
-          className="btn btn-general btn-wide"
-          type="submit"
-          value="Save and go back"
-        />
+        this.state.status === "Uploaded" ? (
+          <div>
+            <input
+              className="btn btn-general btn-wide"
+              type="submit"
+              value="Save and go back"
+            />
+            <button
+              className="btn btn-general btn-wide btn-cancel"
+              onClick={() => this.cancel()}
+            >
+              Cancel
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button
+              className="btn btn-general btn-wide"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <button
+              className="btn btn-general btn-wide btn-cancel"
+              onClick={() => this.cancel()}
+            >
+              Cancel
+            </button>
+          </div>
+        )
       ) : (
         <div>
           <input
@@ -292,7 +326,7 @@ class UploadMilitary extends React.Component {
     return (
       <form onSubmit={event => this.next(event, path)}>
         <Nav />
-        <div className="form-wrapper">
+        <div className="form-wrapper" style={this.props.summary ? padded : {}}>
           <Card content={content} />
           {cardUploaded}
           <div className="links-container">
