@@ -3,6 +3,10 @@ import constants from "../constants";
 import Card from "../components/card";
 import Nav from "../components/nav";
 
+const padded = {
+  paddingBottom: "50px"
+};
+
 class SelectID extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +17,10 @@ class SelectID extends React.Component {
 
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
+  }
+
+  cancel() {
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
   }
 
   next(event, path) {
@@ -39,10 +47,10 @@ class SelectID extends React.Component {
         value: value
       };
       this.props.save(target);
-      if (path === "/summary") {
+      if (this.props.summary) {
         this.props.save({
-          name: "Summary",
-          value: false
+          name: "Identity proof",
+          value: null
         });
       }
       this.props.history.push(process.env.PUBLIC_URL + path);
@@ -71,11 +79,19 @@ class SelectID extends React.Component {
 
     let enableSummary =
       this.props.summary === true ? (
-        <input
-          className="btn btn-general btn-wide"
-          type="submit"
-          value="Save and go back"
-        />
+        <div>
+          <input
+            className="btn btn-general btn-wide"
+            type="submit"
+            value="Upload new document"
+          />
+          <button
+            className="btn btn-general btn-wide btn-cancel"
+            onClick={() => this.cancel()}
+          >
+            Cancel
+          </button>
+        </div>
       ) : (
         <div>
           <input
@@ -92,7 +108,7 @@ class SelectID extends React.Component {
         </div>
       );
 
-    let path = this.props.summary ? "/summary" : "/uploadID";
+    let path = "/uploadID";
 
     let radioButtons = [];
     for (let i = 0; i < constants.buttonsID.length; i++) {
@@ -134,7 +150,7 @@ class SelectID extends React.Component {
     return (
       <form onSubmit={event => this.next(event, path)}>
         <Nav />
-        <div className="form-wrapper">
+        <div className="form-wrapper" style={this.props.summary ? padded : {}}>
           <Card content={content} />
           <div className="radio-field small-font">{radioButtons}</div>
           <div className="btn-container button-footer">{enableSummary}</div>

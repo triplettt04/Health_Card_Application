@@ -389,7 +389,7 @@
   input.counter-input:focus {
     box-shadow: 0px 0px 0px 3px $active-accent;
     outline: none;
-    transition: 0.15s ease-in;
+    transition: 0.15s ease-in-out;
   }
 
   .btn-counter {
@@ -408,7 +408,7 @@
   .btn-counter:focus {
     box-shadow: 0px 0px 0px 3px $active-accent;
     outline: none;
-    transition: 0.15s ease-in;
+    transition: 0.15s ease-in-out;
   }
 
   .btn-counter.btn-increment {

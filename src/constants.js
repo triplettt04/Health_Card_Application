@@ -226,7 +226,7 @@ const constants = {
       value: "Current employee ID card"
     },
     {
-      label: "professional association licence",
+      label: "Professional association licence",
       dependency: "n/a",
       value: "Current professional association licence"
     },
