@@ -27,7 +27,8 @@ const constants = {
     "pathFrom",
     "Same house",
     "Summary",
-    "pageNum"
+    "pageNum",
+    "summaryUploaded"
   ],
   hardResetValues: [
     "baseIndex",

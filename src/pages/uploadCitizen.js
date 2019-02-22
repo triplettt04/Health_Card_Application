@@ -17,16 +17,23 @@ const customStyles = {
   }
 };
 
+const padded = {
+  paddingBottom: "50px"
+};
+
 Modal.defaultStyles.overlay.backgroundColor = "rgb(58, 58, 58, 0.75)";
 
 class UploadCitizen extends React.Component {
   constructor(props) {
     super(props);
-    let status = props.status
-      ? props.status
-      : props.location.state && props.location.state.uploaded
-      ? "Uploaded"
-      : "Not completed";
+    let status =
+      props.status && props.summaryUploaded
+        ? props.status
+        : props.location.state &&
+          props.location.state.uploaded &&
+          props.summaryUploaded
+        ? "Uploaded"
+        : "Not completed";
     this.state = {
       status: status,
       modalIsOpen: false
@@ -40,6 +47,10 @@ class UploadCitizen extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+
+  cancel() {
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
   }
 
   openModal() {
@@ -102,11 +113,36 @@ class UploadCitizen extends React.Component {
 
     let enableSummary =
       this.props.summary === true ? (
-        <input
-          className="btn btn-general btn-wide"
-          type="submit"
-          value="Save and go back"
-        />
+        this.state.status === "Uploaded" ? (
+          <div>
+            <input
+              className="btn btn-general btn-wide"
+              type="submit"
+              value="Save and go back"
+            />
+            <button
+              className="btn btn-general btn-wide btn-cancel"
+              onClick={() => this.cancel()}
+            >
+              Cancel
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button
+              className="btn btn-general btn-wide"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+            <button
+              className="btn btn-general btn-wide btn-cancel"
+              onClick={() => this.cancel()}
+            >
+              Cancel
+            </button>
+          </div>
+        )
       ) : (
         <div>
           <input
@@ -173,7 +209,7 @@ class UploadCitizen extends React.Component {
     return (
       <form onSubmit={event => this.next(event, path)}>
         <Nav />
-        <div className="form-wrapper">
+        <div className="form-wrapper" style={this.props.summary ? padded : {}}>
           <Card content={content} />
           {cardUploaded}
           <div className="links-container">

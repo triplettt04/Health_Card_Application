@@ -179,6 +179,85 @@ class Summary extends React.Component {
             {hasAddress}
             <div className="summary-tab">
               <div className="summary-question">
+                Please select one of the following documents you wish to use as
+                proof of your residency in Ontario.
+              </div>
+              <div className="card-collection">
+                <div className="response">
+                  {this.props.state["Residence proof type"]}
+                </div>
+              </div>
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "selectResProof")}
+                className="edit"
+              >
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please upload a photo or scan of your bank account statements.
+              </div>
+              <div className="card-collection">
+                <div className="card-uploaded small-card-uploaded">
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">residence_proof1.jpeg</div>
+                  </div>
+                </div>
+                <div className="card-uploaded small-card-uploaded">
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">residence_proof2.jpeg</div>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "uploadRes")}
+                className="edit"
+              >
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
+                Please upload photos or a scan of the military member's posting
+                message to prove your intent to move to Ontario.
+              </div>
+              <div className="card-collection">
+                <div className="card-uploaded small-card-uploaded">
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">posting_message1.jpeg</div>
+                  </div>
+                </div>
+                <div className="card-uploaded small-card-uploaded">
+                  <div className="upload-container">
+                    <a href="#" className="view-link">
+                      View
+                    </a>
+                    <div className="file-name">posting_message2.jpeg</div>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="#"
+                onClick={event => this.handleClick(event, "uploadPosting")}
+                className="edit"
+              >
+                Edit
+              </a>
+            </div>
+            <div className="summary-tab">
+              <div className="summary-question">
                 Please enter your Ontario residence address.
               </div>
               <div className="response">

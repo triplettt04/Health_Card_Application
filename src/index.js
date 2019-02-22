@@ -339,6 +339,7 @@ class App extends React.Component {
               render={() => (
                 <RouterConfirmPhoto
                   save={target => this.handleChange(target)}
+                  summary={this.state["Summary"]}
                 />
               )}
             />
@@ -380,6 +381,7 @@ class App extends React.Component {
               render={() => (
                 <RouterUploadMilitary
                   save={target => this.handleChange(target)}
+                  summaryUploaded={this.state["summaryUploaded"]}
                   status={this.state["Military proof"]}
                   item={
                     this.state["Military proof type"]
@@ -417,6 +419,7 @@ class App extends React.Component {
                 <RouterUploadRes
                   save={target => this.handleChange(target)}
                   status={this.state["Residence proof"]}
+                  summaryUploaded={this.state["summaryUploaded"]}
                   item={
                     this.state["Residence proof type"]
                       ? this.state["Residence proof type"]
@@ -452,6 +455,7 @@ class App extends React.Component {
                 <RouterUploadCitizen
                   save={target => this.handleChange(target)}
                   status={this.state["Citizenship proof"]}
+                  summaryUploaded={this.state["summaryUploaded"]}
                   item={
                     this.state["Citizen proof"]
                       ? this.state["Citizen proof"]
