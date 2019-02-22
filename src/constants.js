@@ -34,7 +34,7 @@ const constants = {
     "Primary phone",
     "Alternate phone",
     "Email",
-    "Military relation",
+    "Special case",
     "Military proof type",
     "Residence proof type",
     "Military proof",

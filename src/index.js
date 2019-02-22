@@ -25,7 +25,7 @@ import NotFound from "./pages/notFound";
 import Name from "./pages/name";
 import Address from "./pages/address";
 //import PastOHIP from "./pages/pastOHIP";
-import IsMilitary from "./pages/isMilitary";
+import SpecialCase from "./pages/specialCase";
 import SelectBase from "./pages/selectBase";
 import SelectMilitaryProof from "./pages/selectMilitaryProof";
 import UploadMilitary from "./pages/uploadMilitary";
@@ -100,9 +100,9 @@ class App extends React.Component {
         if (cookie === "true" || cookie === "false") {
           stateValues[values[j]] = cookie === "true";
         } else if (
-          (!isNaN(cookie) && values[j] === "pageNum") ||
+          (!isNaN(cookie) &&
+            (values[j] === "pageNum" || values[j] === "baseIndex")) ||
           values[j] === "Person num" ||
-          values[j] === "baseIndex" ||
           values[j] === "Dependant count"
         ) {
           stateValues[values[j]] = parseInt(cookie);
@@ -138,9 +138,9 @@ class App extends React.Component {
     });
   }
 
-  reset(value) {
+  reset(type) {
     let values;
-    switch (value) {
+    switch (type) {
       case "Hard":
         values = constants.hardResetValues;
         break;
@@ -152,12 +152,30 @@ class App extends React.Component {
         break;
       default:
         values = [];
-        console.log("Error - value=" + value);
+        console.log("Error - value=" + type);
     }
     const { cookies } = this.props;
     for (let i = 0; i < values.length; i++) {
       cookies.remove(values[i]);
-      this.state[values[i]] = null;
+      let val = null;
+      if (
+        values[i] === "pageNum" ||
+        values[i] === "Person num" ||
+        values[i] === "Dependant count"
+      ) {
+        val = 0;
+      } else if (
+        values[i] === "Birthday" ||
+        values[i] === "First name" ||
+        values[i] === "Middle name(s)" ||
+        values[i] === "Last name" ||
+        values[i] === "Done"
+      ) {
+        val = [];
+      }
+      this.setState({
+        [values[i]]: val
+      });
     }
   }
 
@@ -178,7 +196,7 @@ class App extends React.Component {
     const RouterInCamera = withRouter(InCamera);
     const RouterConfirmPhoto = withRouter(ConfirmPhoto);
     //const RouterPastOHIP = withRouter(PastOHIP);
-    const RouterIsMilitary = withRouter(IsMilitary);
+    const RouterSpecialCase = withRouter(SpecialCase);
     const RouterSelectBase = withRouter(SelectBase);
     const RouterSelectMilitaryProof = withRouter(SelectMilitaryProof);
     const RouterUploadMilitary = withRouter(UploadMilitary);
@@ -279,7 +297,7 @@ class App extends React.Component {
                           city: this.state["Residence city"],
                           postalCode: this.state["Residence postal code"]
                         }
-                      : this.state["Military relation"] &&
+                      : this.state["Special case"] &&
                         this.state["Residence address"] === false
                       ? {
                           street:
@@ -335,12 +353,12 @@ class App extends React.Component {
               )}
             />
             <Route
-              path={process.env.PUBLIC_URL + "/isMilitary"}
+              path={process.env.PUBLIC_URL + "/specialCase"}
               render={() => (
-                <RouterIsMilitary
+                <RouterSpecialCase
                   save={target => this.handleChange(target)}
                   summary={this.state["Summary"]}
-                  isMilitary={this.state["Military relation"]}
+                  specialCase={this.state["Special case"]}
                 />
               )}
             />
@@ -557,7 +575,7 @@ class App extends React.Component {
                   resetAddress={() => this.reset("Address")}
                   firstName={this.state["First name"][this.state["Person num"]]}
                   lastName={this.state["Last name"][this.state["Person num"]]}
-                  isMilitary={this.state["Military relation"]}
+                  specialCase={this.state["Special case"]}
                 />
               )}
             />

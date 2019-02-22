@@ -72,7 +72,7 @@ class Birthday extends React.Component {
             name: "Person num",
             value: this.props.forWhoUser ? 0 : 1
           });
-          this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
+          this.props.history.push(process.env.PUBLIC_URL + "/specialCase");
         } else {
           let num = this.props.personNum + 1;
           this.props.save({

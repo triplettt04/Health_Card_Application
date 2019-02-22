@@ -3,12 +3,12 @@ import constants from "../constants";
 import Card from "../components/card";
 import Nav from "../components/nav";
 
-class IsMilitary extends React.Component {
+class SpecialCase extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isMilitary: props.isMilitary
+      specialCase: props.specialCase
     };
 
     this.back = this.back.bind(this);
@@ -18,10 +18,10 @@ class IsMilitary extends React.Component {
   summary(event) {
     event.preventDefault();
     let target = {
-      name: "Military relation",
-      value: this.state.isMilitary
+      name: "Special case",
+      value: this.state.specialCase
     };
-    if (this.state.isMilitary != null) {
+    if (this.state.specialCase != null) {
       this.props.save(target);
       this.props.save({
         name: "Summary",
@@ -34,18 +34,18 @@ class IsMilitary extends React.Component {
   next(event) {
     event.preventDefault();
     let target = {
-      name: "Military relation",
-      value: this.state.isMilitary
+      name: "Special case",
+      value: this.state.specialCase
     };
-    if (this.state.isMilitary != null) {
+    if (this.state.specialCase != null) {
       this.props.save(target);
-      if (this.state.isMilitary) {
+      if (this.state.specialCase) {
         let path = process.env.PUBLIC_URL + "/selectMilitary";
         this.props.history.push(path);
       } else {
         this.props.save({
           name: "pathFrom",
-          value: "/isMilitary"
+          value: "/specialCase"
         });
         this.props.history.push({
           pathname: process.env.PUBLIC_URL + "/moveWhen"
@@ -113,10 +113,10 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="Yes"
-                checked={this.state.isMilitary === true}
+                checked={this.state.specialCase === true}
                 onChange={() =>
                   this.setState({
-                    isMilitary: true
+                    specialCase: true
                   })
                 }
               />
@@ -128,10 +128,10 @@ class IsMilitary extends React.Component {
                 className="radio-input radio"
                 name="example"
                 value="No"
-                checked={this.state.isMilitary === false}
+                checked={this.state.specialCase === false}
                 onChange={() =>
                   this.setState({
-                    isMilitary: false
+                    specialCase: false
                   })
                 }
               />
@@ -145,4 +145,4 @@ class IsMilitary extends React.Component {
   }
 }
 
-export default IsMilitary;
+export default SpecialCase;

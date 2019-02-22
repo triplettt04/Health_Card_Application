@@ -112,7 +112,7 @@ class ForWho extends React.Component {
         });
         this.props.history.push(process.env.PUBLIC_URL + "/name");
       } else {
-        this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
+        this.props.history.push(process.env.PUBLIC_URL + "/specialCase");
       }
     }
   }
