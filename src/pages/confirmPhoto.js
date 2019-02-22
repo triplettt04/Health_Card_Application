@@ -24,15 +24,33 @@ class SelectBase extends React.Component {
     switch (pathFrom) {
       case process.env.PUBLIC_URL + "/uploadRes":
         target.name = "Residence proof";
+        if (this.props.summary) {
+          this.props.save({
+            name: "summaryUploaded",
+            value: true
+          });
+        }
         break;
       case process.env.PUBLIC_URL + "/uploadCitizen":
         target.name = "Citizenship proof";
+        if (this.props.summary) {
+          this.props.save({
+            name: "summaryUploaded",
+            value: true
+          });
+        }
         break;
       case process.env.PUBLIC_URL + "/uploadID":
         target.name = "Identity proof";
         break;
       case process.env.PUBLIC_URL + "/uploadMilitary":
         target.name = "Military proof";
+        if (this.props.summary) {
+          this.props.save({
+            name: "summaryUploaded",
+            value: true
+          });
+        }
         break;
       case process.env.PUBLIC_URL + "/uploadPosting":
         target.name = "Posting message";
