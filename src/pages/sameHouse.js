@@ -31,9 +31,11 @@ class SameHouse extends React.Component {
           value: "/sameHouse"
         });
         this.props.resetAddress();
-        this.props.history.push({
-          pathname: process.env.PUBLIC_URL + "/selectResProof"
-        });
+        let pathEnd = "/selectResProof";
+        if (this.props.isMilitary) {
+          pathEnd = "/moveWhen";
+        }
+        this.props.history.push(process.env.PUBLIC_URL + pathEnd);
       }
     }
   }
@@ -44,7 +46,7 @@ class SameHouse extends React.Component {
   }
 
   render() {
-    let previousName = "Mary Cook"; //TO CHANGE
+    let previousName = this.props.firstName + " " + this.props.lastName;
 
     let content = (
       <div>

@@ -50,6 +50,7 @@ import SameHouse from "./pages/sameHouse";
 import MoveWhen from "./pages/moveWhen";
 import ForWho from "./pages/forWho";
 import ConfirmChoose from "./pages/confirmChoose";
+import SelectWho from "./pages/selectWho";
 import Template from "./pages/template";
 
 class App extends React.Component {
@@ -73,7 +74,7 @@ class App extends React.Component {
           values = constants.hardResetValues;
           break;
         case 2:
-          values = constants.globalValues;
+          values = constants.addressValues;
           break;
       }
 
@@ -137,43 +138,33 @@ class App extends React.Component {
     });
   }
 
-  softReset() {
-    const { cookies } = this.props;
-    let softResetValues = constants.softResetValues;
-    for (let i = 0; i < softResetValues.length; i++) {
-      cookies.remove(softResetValues[i]);
-      this.state[softResetValues[i]] = null;
+  reset(value) {
+    let values;
+    switch (value) {
+      case "Hard":
+        values = constants.hardResetValues;
+        break;
+      case "Soft":
+        values = constants.softResetValues;
+        break;
+      case "Address":
+        values = constants.addressValues;
+        break;
+      default:
+        values = [];
+        console.log("Error - value=" + value);
     }
-  }
-
-  resetAddress() {
     const { cookies } = this.props;
-    let addressValues = []; //Add constant
-    for (let i = 0; i < addressValues.length; i++) {
-      cookies.remove(addressValues[i]);
-      this.state[addressValues[i]] = null;
-    }
-  }
-
-  hardReset() {
-    const { cookies } = this.props;
-    let hardResetValues = constants.hardResetValues;
-    for (let i = 0; i < hardResetValues.length; i++) {
-      cookies.remove(hardResetValues[i]);
-      this.state[hardResetValues[i]] = null;
+    for (let i = 0; i < values.length; i++) {
+      cookies.remove(values[i]);
+      this.state[values[i]] = null;
     }
   }
 
   resetAll() {
-    this.softReset();
-    this.resetAddress();
-    this.hardReset();
-    const { cookies } = this.props;
-    let globalValues = constants.globalValues;
-    for (let i = 0; i < globalValues.length; i++) {
-      cookies.remove(globalValues[i]);
-      this.state[globalValues[i]] = null;
-    }
+    this.reset("Soft");
+    this.reset("Hard");
+    this.reset("Address");
   }
 
   render() {
@@ -212,6 +203,7 @@ class App extends React.Component {
     const RouterMoveWhen = withRouter(MoveWhen);
     const RouterForWho = withRouter(ForWho);
     const RouterConfirmChoose = withRouter(ConfirmChoose);
+    const RouterSelectWho = withRouter(SelectWho);
 
     return (
       <Router>
@@ -237,7 +229,7 @@ class App extends React.Component {
                   save={target => this.handleChange(target)}
                   personNum={this.state["Person num"]}
                   done={this.state["Done"]}
-                  softReset={this.state.softReset}
+                  softReset={() => this.reset("Soft")}
                 />
               )}
             />
@@ -566,7 +558,10 @@ class App extends React.Component {
                 <RouterSameHouse
                   save={target => this.handleChange(target)}
                   sameHouse={this.state["Same house"]}
-                  resetAddress={this.state.resetAddress}
+                  resetAddress={() => this.reset("Address")}
+                  firstName={this.state["First name"][this.state["Person num"]]}
+                  lastName={this.state["Last name"][this.state["Person num"]]}
+                  isMilitary={this.state["Military relation"]}
                 />
               )}
             />
@@ -590,6 +585,19 @@ class App extends React.Component {
                   dependantCount={this.state["Dependant count"]}
                   firstName={this.state["First name"][this.state["Person num"]]}
                   lastName={this.state["Last name"][this.state["Person num"]]}
+                  personNum={this.state["Person num"]}
+                  done={this.state["Done"]}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/selectWho"}
+              render={() => (
+                <RouterSelectWho
+                  save={target => this.handleChange(target)}
+                  forWhoUser={this.state["For who user"]}
+                  firstName={this.state["First name"]}
+                  lastName={this.state["Last name"]}
                   personNum={this.state["Person num"]}
                   done={this.state["Done"]}
                 />

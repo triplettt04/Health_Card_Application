@@ -40,7 +40,7 @@ class IsMilitary extends React.Component {
     if (this.state.isMilitary != null) {
       this.props.save(target);
       if (this.state.isMilitary) {
-        let path = process.env.PUBLIC_URL + "/selectBase";
+        let path = process.env.PUBLIC_URL + "/selectMilitary";
         this.props.history.push(path);
       } else {
         this.props.save({
@@ -55,7 +55,7 @@ class IsMilitary extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/pastOHIP"; //TO CHANGE
+    let path = process.env.PUBLIC_URL + "/selectWho";
     this.props.history.push(path);
   }
 
