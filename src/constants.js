@@ -3,17 +3,17 @@ const constants = {
   navTopName: "Home",
   numResPages: 2,
   numPostingPages: 2,
-  globalValues: [
-    "Birthday",
-    "First name",
-    "Middle name(s)",
-    "Last name",
-    "Person num",
-    "For who user",
-    "For who spouse",
-    "For who dependant",
-    "Dependant count",
-    "Done"
+  addressValues: [
+    "Residence street",
+    "Residence city",
+    "Residence postal code",
+    "Mailing street",
+    "Mailing postal code",
+    "Mailing province",
+    "Mailing country",
+    "Residence address",
+    "Residence proof",
+    "Move when"
   ],
   softResetValues: [
     "Citizen type",
@@ -31,24 +31,24 @@ const constants = {
   ],
   hardResetValues: [
     "baseIndex",
-    "Residence street",
-    "Residence city",
-    "Residence postal code",
-    "Mailing street",
-    "Mailing postal code",
-    "Mailing province",
-    "Mailing country",
     "Primary phone",
     "Alternate phone",
     "Email",
-    "Residence address",
     "Military relation",
     "Military proof type",
     "Residence proof type",
     "Military proof",
     "Posting message",
-    "Residence proof",
-    "Move when"
+    "Birthday",
+    "First name",
+    "Middle name(s)",
+    "Last name",
+    "Person num",
+    "For who user",
+    "For who spouse",
+    "For who dependant",
+    "Dependant count",
+    "Done"
   ],
   buttonsRes: [
     {

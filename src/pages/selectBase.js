@@ -51,7 +51,7 @@ class SelectBase extends React.Component {
         value: value
       };
       this.props.save(target);
-      let path = process.env.PUBLIC_URL + "/selectMilitaryProof";
+      let path = process.env.PUBLIC_URL + "/uploadPosting";
       this.props.history.push(path);
     }
   }
@@ -66,7 +66,7 @@ class SelectBase extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/isMilitary";
+    let path = process.env.PUBLIC_URL + "/hasAddress";
     this.props.history.push(path);
   }
 

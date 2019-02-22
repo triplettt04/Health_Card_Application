@@ -3,7 +3,7 @@ import constants from "../constants";
 import Card from "../components/card";
 import Nav from "../components/nav";
 
-class ConfirmChoose extends React.Component {
+class SelectWho extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,22 +22,21 @@ class ConfirmChoose extends React.Component {
         name: "Person num",
         value: this.state.checked
       });
-      let path = process.env.PUBLIC_URL + "/sameHouse";
-      this.props.history.push(path);
+      this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
     }
   }
 
   back() {
-    //This is really cancel or something like that
-    let path = process.env.PUBLIC_URL + "/"; //TO CHANGE
-    this.props.history.push(path);
+    this.props.history.push(process.env.PUBLIC_URL + "/birthday");
   }
 
   render() {
     let content = (
       <div>
         <div className="progress-indicator">1 / 22</div>
-        <h2 className="sub-header">Confirmation and choose next applicant</h2>
+        <h2 className="sub-header">
+          Choose the application you would like to start with
+        </h2>
       </div>
     );
 
@@ -101,4 +100,4 @@ class ConfirmChoose extends React.Component {
   }
 }
 
-export default ConfirmChoose;
+export default SelectWho;
