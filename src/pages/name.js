@@ -151,7 +151,7 @@ class Name extends React.Component {
     let content =
       this.props.personNum === 0 ? (
         <div>
-          <div className="progress-indicator">15 / 22</div>
+          <div className="progress-indicator">2 / total</div>
           <h2 className="sub-header">Please enter your full name.</h2>
           <p className="caption">
             This is your full name, regardless of whether you are applying for

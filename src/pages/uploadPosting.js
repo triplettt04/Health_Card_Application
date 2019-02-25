@@ -136,11 +136,35 @@ class UploadPosting extends React.Component {
 
     let enableSummary =
       this.props.summary === true ? (
-        <input
-          className="btn btn-general btn-wide"
-          type="submit"
-          value="Save and go back"
-        />
+        this.state.status === "Uploaded" ? (
+          <div>
+            <input
+              className="btn btn-general btn-right-align"
+              type="submit"
+              value="Save"
+            />
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+          </div>
+        ) : (
+          <div>
+            <input
+              className="btn btn-general btn-right-align btn-inactive"
+              type="submit"
+              value="Save"
+            />
+            <button
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
+            >
+              Back
+            </button>
+          </div>
+        )
       ) : (
         <div>
           <input

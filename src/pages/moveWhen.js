@@ -61,7 +61,7 @@ class MoveWhen extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="movedate-input">
+          <div className="date-input">
             <label>Arrival date (DD/MM/YYYY)</label>
             <MaskedInput
               mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}

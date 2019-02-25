@@ -119,7 +119,7 @@ class Birthday extends React.Component {
     let content =
       this.props.personNum === 0 ? (
         <div>
-          <div className="progress-indicator">16 / 22</div>
+          <div className="progress-indicator">3 / total</div>
           <h2 className="sub-header">What is your date of birth?</h2>
           <p className="caption">
             This is <b>your</b> date of birth, regardless of whether you are
@@ -156,7 +156,7 @@ class Birthday extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="birthdate-input">
+          <div className="date-input">
             <label>Birthdate (DD/MM/YYYY)</label>
             <MaskedInput
               mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
