@@ -41,10 +41,11 @@ class Name extends React.Component {
           default:
             console.log("Error - name: " + toSave[i].name);
         }
-        if (nameValues.length === this.props.personNum + 1) {
-          nameValues.pop();
+        if (nameValues.length >= this.props.personNum + 1) {
+          nameValues.splice(this.props.personNum, 1, toSave[i].value);
+        } else {
+          nameValues.push(toSave[i].value);
         }
-        nameValues.push(toSave[i].value);
         this.props.save({
           name: toSave[i].name,
           value: nameValues
@@ -87,10 +88,11 @@ class Name extends React.Component {
             nameValues = this.props.middleName;
             break;
         }
-        if (nameValues.length === this.props.personNum + 1) {
-          nameValues.pop();
+        if (nameValues.length >= this.props.personNum + 1) {
+          nameValues.splice(this.props.personNum, 1, toSave[i].value || "");
+        } else {
+          nameValues.push(toSave[i].value || "");
         }
-        nameValues.push(toSave[i].value || "");
         this.props.save({
           name: toSave[i].name,
           value: nameValues

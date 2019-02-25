@@ -93,7 +93,9 @@ class ForWho extends React.Component {
         doneArray = [];
       for (let i = 0; i < totalSize; i++) {
         doneArray.push(
-          (i === 0 && !this.state.forWhoUser) || this.props.done[i]
+          this.props.done[i] === null
+            ? i === 0 && !this.state.forWhoUser
+            : this.props.done[i]
         );
       }
       this.props.save({
@@ -161,7 +163,7 @@ class ForWho extends React.Component {
         <div className="form-wrapper">
           <Card content={content} />
           <div className="checkbox-field">
-            <label className="checkbox-label block dead">
+            <label className="checkbox-label block">
               <input
                 type="checkbox"
                 className="checkbox-input checkbox"
