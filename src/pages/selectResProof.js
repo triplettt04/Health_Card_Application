@@ -33,7 +33,7 @@ class SelectResProof extends React.Component {
             name: "pathFrom",
             value: "/selectResProof"
           });
-          this.props.history.push(process.env.PUBLIC_URL + "/"); //TO CHANGE
+          this.props.history.push(process.env.PUBLIC_URL + "/residencyError");
           break;
         }
         noneChecked = false;

@@ -52,6 +52,9 @@ import ForWho from "./pages/forWho";
 import ConfirmChoose from "./pages/confirmChoose";
 import SelectWho from "./pages/selectWho";
 import Template from "./pages/template";
+import ResidencyError from "./pages/residencyError";
+import CitizenshipError from "./pages/citizenshipError";
+import IdError from "./pages/idError";
 
 class App extends React.Component {
   static propTypes = {
@@ -261,6 +264,9 @@ class App extends React.Component {
     const RouterForWho = withRouter(ForWho);
     const RouterConfirmChoose = withRouter(ConfirmChoose);
     const RouterSelectWho = withRouter(SelectWho);
+    const RouterResidencyError = withRouter(ResidencyError);
+    const RouterCitizenshipError = withRouter(CitizenshipError);
+    const RouterIdError = withRouter(IdError);
 
     return (
       <Router>
@@ -635,6 +641,33 @@ class App extends React.Component {
                 <RouterMoveWhen
                   save={target => this.handleChange(target)}
                   moveWhen={this.state["Move when"]}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/residencyError"}
+              render={() => (
+                <RouterResidencyError
+                  save={target => this.handleChange(target)}
+                  applicationsLeft={() => this.applicationsLeft()}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/citizenshipError"}
+              render={() => (
+                <RouterCitizenshipError
+                  save={target => this.handleChange(target)}
+                  applicationsLeft={() => this.applicationsLeft()}
+                />
+              )}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/idError"}
+              render={() => (
+                <RouterIdError
+                  save={target => this.handleChange(target)}
+                  applicationsLeft={() => this.applicationsLeft()}
                 />
               )}
             />
