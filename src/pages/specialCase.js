@@ -116,14 +116,17 @@ class SpecialCase extends React.Component {
     let checkBoxes = [];
     for (let i = 0; i < constants.specialCaseChecks.length - 1; i++) {
       checkBoxes.push(
-        <label className="checkbox-label block" key={i}>
+        <label
+          className={
+            this.state.disabled
+              ? "checkbox-label block dead"
+              : "checkbox-label block"
+          }
+          key={i}
+        >
           <input
             type="checkbox"
-            className={
-              this.state.disabled
-                ? "checkbox-input checkbox dead"
-                : "checkbox-input checkbox"
-            }
+            className={"checkbox-input checkbox"}
             checked={
               this.state.disabled
                 ? false
@@ -184,7 +187,7 @@ class SpecialCase extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="checkbox-field">{checkBoxes}</div>
+          <div className="checkbox-field small-font">{checkBoxes}</div>
         </div>
         <div className="btn-container button-footer">{enableSummary}</div>
       </form>
