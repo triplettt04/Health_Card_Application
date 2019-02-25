@@ -112,6 +112,8 @@ class Birthday extends React.Component {
         </div>
       );
 
+    let numWording = this.props.numWording();
+
     let content =
       this.props.personNum === 0 ? (
         <div>
@@ -138,7 +140,7 @@ class Birthday extends React.Component {
         <div>
           <div className="progress-indicator">16 / 22</div>
           <h2 className="sub-header">
-            What is your dependant's date of birth?
+            What is your {numWording} dependant's date of birth?
           </h2>
         </div>
       );

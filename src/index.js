@@ -113,6 +113,8 @@ class App extends React.Component {
     }
 
     this.state = stateValues;
+
+    this.numWording = this.numWording.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -183,6 +185,32 @@ class App extends React.Component {
     this.reset("Soft");
     this.reset("Hard");
     this.reset("Address");
+  }
+
+  numWording() {
+    let extraNum = this.state["For who spouse"] ? 1 : 0;
+    switch (this.state["Person num"]) {
+      case 1 + extraNum:
+        return "first";
+      case 2 + extraNum:
+        return "second";
+      case 3 + extraNum:
+        return "third";
+      case 4 + extraNum:
+        return "fourth";
+      case 5 + extraNum:
+        return "fifth";
+      case 6 + extraNum:
+        return "sixth";
+      case 7 + extraNum:
+        return "seventh";
+      case 8 + extraNum:
+        return "eighth";
+      case 9 + extraNum:
+        return "ninth";
+      default:
+        return "";
+    }
   }
 
   render() {
@@ -266,6 +294,7 @@ class App extends React.Component {
                       ? this.state["Dependant count"]
                       : 0
                   }
+                  numWording={() => this.numWording()}
                 />
               )}
             />
@@ -281,6 +310,7 @@ class App extends React.Component {
                   personNum={this.state["Person num"]}
                   pathFrom={this.state["pathFrom"]}
                   forWhoSpouse={this.state["For who spouse"]}
+                  numWording={() => this.numWording()}
                 />
               )}
             />

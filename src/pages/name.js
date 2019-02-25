@@ -144,6 +144,8 @@ class Name extends React.Component {
         </div>
       );
 
+    let numWording = this.props.numWording();
+
     let content =
       this.props.personNum === 0 ? (
         <div>
@@ -175,7 +177,7 @@ class Name extends React.Component {
         <div>
           <div className="progress-indicator">15 / 22</div>
           <h2 className="sub-header">
-            Please enter your dependant's full name.
+            Please enter your {numWording} dependant's full name.
           </h2>
           <p className="caption">
             If your dependant's culture uses a single name, please leave the
