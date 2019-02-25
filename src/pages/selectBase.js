@@ -151,7 +151,7 @@ class SelectBase extends React.Component {
 
     let extraAddress =
       this.state.baseLabel === "Other location" ? (
-        <div className="address-set">
+        <div className="address-set padding-no-top">
           <div className="text-input one-line">
             <label className="form-label" htmlFor="street-1">
               Street
@@ -177,7 +177,7 @@ class SelectBase extends React.Component {
               Postal code
             </label>
             <input
-              className="form-control"
+              className="form-control area-code"
               id="postal-code-1"
               name="Residence postal code"
               value={this.state.postalCode}

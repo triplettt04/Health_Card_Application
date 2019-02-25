@@ -123,15 +123,16 @@ class ConfirmChoose extends React.Component {
           <input
             type="submit"
             value="Start application"
-            className="btn btn-general btn-right-align"
+            className="btn btn-general btn-wide"
             disabled={this.state.checked === null}
           />
-          <button
-            className="btn btn-general btn-invert"
+          <a
+            href="#"
+            className="block-link footer-link"
             onClick={() => this.back()}
           >
             Exit process for remaining applicants
-          </button>
+          </a>
         </div>
       );
 
@@ -140,7 +141,7 @@ class ConfirmChoose extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="radio-field small-font">{radioButtons}</div>
+          <div className="radio-field medium-font">{radioButtons}</div>
           {pageBottom}
         </div>
       </form>
