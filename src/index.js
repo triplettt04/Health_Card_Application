@@ -116,7 +116,7 @@ class App extends React.Component {
     }
 
     this.state = stateValues;
-
+    //debugger;
     this.numWording = this.numWording.bind(this);
     this.applicationsLeft = this.applicationsLeft.bind(this);
     this.handleChange = this.handleChange.bind(this);
