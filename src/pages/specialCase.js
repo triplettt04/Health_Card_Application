@@ -10,17 +10,15 @@ class SpecialCase extends React.Component {
     let stateValues = {
       disabled: false
     };
+
     for (let i = 0; i < constants.specialCaseChecks.length; i++) {
-      if (
-        (constants.specialCaseChecks[i].label === "Military relation" &&
-          props.specialCase === true) ||
-        (constants.specialCaseChecks[i].label === "None of the above" &&
-          props.specialCase === false)
-      ) {
-        stateValues[constants.specialCaseChecks[i].label] = true;
-      } else {
-        stateValues[constants.specialCaseChecks[i].label] = false;
+      let inIndex = false;
+      for (let j = 0; j < this.props.specialCase.length; j++) {
+        if (i == this.props.specialCase[j]) {
+          inIndex = true;
+        }
       }
+      stateValues[constants.specialCaseChecks[i].label] = inIndex;
     }
 
     this.state = stateValues;
@@ -29,14 +27,20 @@ class SpecialCase extends React.Component {
     this.next = this.next.bind(this);
     this.summary = this.summary.bind(this);
   }
+
   summary(event) {
     event.preventDefault();
-    let target = {
-      name: "Special case",
-      value: this.state.specialCase
-    };
-    if (this.state.specialCase != null) {
-      this.props.save(target);
+    if (this.state["None of the above"] || this.state["Military relation"]) {
+      let allCases = [];
+      for (let i = 0; i < constants.specialCaseChecks.length; i++) {
+        if (this.state[constants.specialCaseChecks[i].label]) {
+          allCases.push(i);
+        }
+      }
+      this.props.save({
+        name: "Special case",
+        value: allCases
+      });
       this.props.save({
         name: "Summary",
         value: false
@@ -47,14 +51,18 @@ class SpecialCase extends React.Component {
 
   next(event) {
     event.preventDefault();
-    let specialCase = this.state["Military relation"];
-    let target = {
-      name: "Special case",
-      value: specialCase
-    };
     if (this.state["None of the above"] || this.state["Military relation"]) {
-      this.props.save(target);
-      if (specialCase) {
+      let allCases = [];
+      for (let i = 0; i < constants.specialCaseChecks.length; i++) {
+        if (this.state[constants.specialCaseChecks[i].label]) {
+          allCases.push(i);
+        }
+      }
+      this.props.save({
+        name: "Special case",
+        value: allCases
+      });
+      if (this.state["Military relation"]) {
         let path = process.env.PUBLIC_URL + "/selectMilitaryProof";
         this.props.history.push(path);
       } else {
