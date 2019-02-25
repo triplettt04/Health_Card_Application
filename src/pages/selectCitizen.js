@@ -176,6 +176,21 @@ class SelectCitizen extends React.Component {
               />
               <div className="label-text">Other immigration status</div>
             </label>
+            <label className="radio-style block">
+              <input
+                type="radio"
+                className="radio-input radio"
+                name="example"
+                value="None of the above"
+                checked={this.state.citizenType === "None of the above"}
+                onChange={() =>
+                  this.setState({
+                    citizenType: "None of the above"
+                  })
+                }
+              />
+              <div className="label-text">None of the above</div>
+            </label>
           </div>
         </div>
         <div className="btn-container button-footer">{enableSummary}</div>
