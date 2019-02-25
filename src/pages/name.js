@@ -154,8 +154,12 @@ class Name extends React.Component {
           <div className="progress-indicator">2 / total</div>
           <h2 className="sub-header">Please enter your full name.</h2>
           <p className="caption">
-            This is your full name, regardless of whether you are applying for
-            yourself and/or applying for your spouse or dependant(s).
+            This is{" "}
+            <span className="semibold">
+              your full name as it appears on official government documentation
+            </span>
+            , regardless of whether you are applying for yourself and/or
+            applying for your spouse or dependant(s).
             <br />
             <br />
             If your culture uses a single name, please leave the first and

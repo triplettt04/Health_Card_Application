@@ -128,9 +128,12 @@ class UploadPosting extends React.Component {
       <div>
         <div className="progress-indicator">7 / 22</div>
         <h2 className="sub-header">
-          Please upload photos or a scan of the military member's posting
-          message to prove your intent to move to Ontario.
+          Please upload the military member's posting message.
         </h2>
+        <p className="caption">
+          When relocating to Ontario, posting messages show your intent to move
+          into the province. Please upload the full document.
+        </p>
       </div>
     );
 
