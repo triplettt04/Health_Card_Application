@@ -27,11 +27,11 @@ class UploadCitizen extends React.Component {
   constructor(props) {
     super(props);
     let status =
-      props.status && props.summaryUploaded
+      props.status && !(props.summaryUploaded === false)
         ? props.status
         : props.location.state &&
           props.location.state.uploaded &&
-          props.summaryUploaded
+          !(props.summaryUploaded === false)
         ? "Uploaded"
         : "Not completed";
     this.state = {

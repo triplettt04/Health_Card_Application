@@ -41,14 +41,6 @@ class SelectCitizen extends React.Component {
     let value;
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
-        if (event.target[i].value === "None of the above") {
-          this.props.save({
-            name: "pathFrom",
-            value: "/selectCitizen"
-          });
-          this.props.history.push(process.env.PUBLIC_URL + "/citizenshipError");
-          break;
-        }
         noneChecked = false;
         value = event.target[i].value;
       }
@@ -175,21 +167,6 @@ class SelectCitizen extends React.Component {
                 }
               />
               <div className="label-text">Other immigration status</div>
-            </label>
-            <label className="radio-style block">
-              <input
-                type="radio"
-                className="radio-input radio"
-                name="example"
-                value="None of the above"
-                checked={this.state.citizenType === "None of the above"}
-                onChange={() =>
-                  this.setState({
-                    citizenType: "None of the above"
-                  })
-                }
-              />
-              <div className="label-text">None of the above</div>
             </label>
           </div>
         </div>

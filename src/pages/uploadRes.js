@@ -29,9 +29,9 @@ class UploadRes extends React.Component {
     super(props);
 
     let status =
-      props.status && props.summaryUploaded
+      props.status && !(props.summaryUploaded === false)
         ? props.status
-        : props.num > 0 && props.summaryUploaded
+        : props.num > 0 && !(props.summaryUploaded === false)
         ? "Uploaded"
         : "Not completed";
     let num =
