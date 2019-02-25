@@ -79,14 +79,15 @@ class SelectCitizenProof extends React.Component {
           <input
             className="btn btn-general btn-wide"
             type="submit"
-            value="Upload new document"
+            value="Upload document(s)"
           />
-          <button
-            className="btn btn-general btn-wide btn-cancel"
+          <a
+            href="#"
+            className="block-link return-to-summary"
             onClick={() => this.cancel()}
           >
-            Cancel
-          </button>
+            Cancel and return to summary
+          </a>
         </div>
       ) : (
         <div>

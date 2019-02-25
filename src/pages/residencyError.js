@@ -38,7 +38,6 @@ class ResidencyError extends React.Component {
         </p>
       </div>
     );
-
     let applicationsLeft = this.props.applicationsLeft();
     let cancelOptions =
       applicationsLeft === true ? (
