@@ -9,7 +9,7 @@ class CitizenshipError extends React.Component {
     this.back = this.back.bind(this);
   }
   back() {
-    this.props.history.push(process.env.PUBLIC_URL + "/selectCitizen");
+    this.props.history.push(process.env.PUBLIC_URL + "/selectCitizenProof");
   }
   render() {
     let name = this.props.firstName[this.props.personNum]
