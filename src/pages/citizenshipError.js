@@ -35,6 +35,24 @@ class CitizenshipError extends React.Component {
         </p>
       </div>
     );
+
+    let applicationsLeft = this.props.applicationsLeft();
+    let cancelOptions =
+      applicationsLeft === true ? (
+        <div>
+          <a href="#" className="block-link footer-link">
+            Cancel application for [firstName]
+          </a>
+          <a href="#" className="block-link footer-link">
+            Exit application process for everyone
+          </a>
+        </div>
+      ) : (
+        <a href="#" className="block-link footer-link">
+          Cancel application for [firstName]
+        </a>
+      );
+
     return (
       <form onSubmit={event => this.next(event)}>
         <Nav />
@@ -46,12 +64,7 @@ class CitizenshipError extends React.Component {
           >
             Back
           </button>
-          <a href="#" className="block-link footer-link">
-            Cancel application for [firstName]
-          </a>
-          <a href="#" className="block-link footer-link">
-            Exit application process for everyone
-          </a>
+          {cancelOptions}
         </div>
       </form>
     );

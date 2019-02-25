@@ -649,6 +649,7 @@ class App extends React.Component {
               render={() => (
                 <RouterResidencyError
                   save={target => this.handleChange(target)}
+                  applicationsLeft={() => this.applicationsLeft()}
                 />
               )}
             />
@@ -657,13 +658,17 @@ class App extends React.Component {
               render={() => (
                 <RouterCitizenshipError
                   save={target => this.handleChange(target)}
+                  applicationsLeft={() => this.applicationsLeft()}
                 />
               )}
             />
             <Route
               path={process.env.PUBLIC_URL + "/idError"}
               render={() => (
-                <RouterIdError save={target => this.handleChange(target)} />
+                <RouterIdError
+                  save={target => this.handleChange(target)}
+                  applicationsLeft={() => this.applicationsLeft()}
+                />
               )}
             />
             <Route
