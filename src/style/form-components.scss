@@ -230,8 +230,19 @@
   box-shadow: $box-shadow-buttons;
 }
 
+.btn.btn-general:disabled {
+  background-color: $inactive;
+  color: #000;
+  opacity: 1;
+  border: 1px solid $inactive;
+}
+
 .btn.btn-general:focus {
   box-shadow: 0px 0px 0px 3px $active-accent;
+}
+
+.btn.btn-general:hover {
+  color: $white;
 }
 
 .btn.btn-general.btn-wide {
@@ -290,10 +301,6 @@
 .btn.btn-navigation:active,
 .btn.btn-navigation:focus {
   background-color: #999;
-}
-
-.btn.btn-general:hover {
-  color: $white;
 }
 
 .btn.btn-general.btn-invert:hover {
