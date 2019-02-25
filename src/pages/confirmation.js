@@ -12,9 +12,12 @@ class Confirmation extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <div className="Card">
-            <div className="progress-indicator">Complete</div>
+            <div className="progress-indicator">Application completed</div>
             <h2 className="sub-header">
-              Your OHIP application has been submitted for review!{" "}
+              {this.props.firstName[this.props.personNum].length
+                ? this.props.firstName[this.props.personNum]
+                : this.props.lastName[this.props.personNum]}
+              's OHIP application has been submitted for review!{" "}
             </h2>
             <p className="caption">
               A confirmation email has been sent to

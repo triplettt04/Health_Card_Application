@@ -75,19 +75,6 @@ class Summary extends React.Component {
           <div className="summary-content">
             <div className="summary-tab">
               <div className="summary-question">
-                Have you had OHIP in the past?
-              </div>
-              <div className="response">{this.props.state["Past OHIP"]}</div>
-              <a
-                href="#"
-                onClick={event => this.handleClick(event, "pastOHIP")}
-                className="edit"
-              >
-                Edit
-              </a>
-            </div>
-            <div className="summary-tab">
-              <div className="summary-question">
                 Are you a spouse or dependant of a Canadian military member?
               </div>
               <div className="response">
