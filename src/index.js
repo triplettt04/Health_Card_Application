@@ -569,12 +569,14 @@ class App extends React.Component {
               render={() => (
                 <RouterConfirmation
                   save={target => this.handleChange(target)}
-                  street={this.state["Residence street"]}
-                  postalCode={this.state["Residence postal code"]}
-                  city={this.state["Residence city"]}
-                  province={"Ontario"}
-                  country={"Canada"}
+                  street={this.state["Mailing street"]}
+                  postalCode={this.state["Mailing postal code"]}
+                  city={this.state["Mailing city"]}
+                  province={this.state["Mailing province"]}
+                  country={this.state["Mailing country"]}
                   email={this.state["Email"]}
+                  firstName={this.state["First name"][this.state["Person num"]]}
+                  lastName={this.state["Last name"][this.state["Person num"]]}
                 />
               )}
             />
@@ -706,9 +708,19 @@ class App extends React.Component {
                 <RouterConfirmChoose
                   save={target => this.handleChange(target)}
                   forWhoUser={this.state["For who user"]}
+                  forWhoSpouse={this.state["For who spouse"]}
+                  numDependants={this.state["Dependant count"]}
                   firstName={this.state["First name"]}
                   lastName={this.state["Last name"]}
+                  personNum={this.state["Person num"]}
                   done={this.state["Done"]}
+                  street={this.state["Mailing street"]}
+                  postalCode={this.state["Mailing postal code"]}
+                  city={this.state["Mailing city"]}
+                  province={this.state["Mailing province"]}
+                  country={this.state["Mailing country"]}
+                  email={this.state["Email"]}
+                  resetAll={() => this.resetAll()}
                 />
               )}
             />
