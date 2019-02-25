@@ -46,7 +46,7 @@ class SelectCitizen extends React.Component {
             name: "pathFrom",
             value: "/selectCitizen"
           });
-          this.props.history.push(process.env.PUBLIC_URL + "/"); //TO CHANGE
+          this.props.history.push(process.env.PUBLIC_URL + "/citizenshipError");
           break;
         }
         noneChecked = false;

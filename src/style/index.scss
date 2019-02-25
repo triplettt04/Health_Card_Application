@@ -53,7 +53,12 @@ body {
   box-shadow: $box-shadow-cards;
   border-radius: 20px;
   padding: 15px 30px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+
+  .img-container {
+    text-align: center;
+    width: 100%;
+  }
 
   .progress-indicator {
     text-align: center;
@@ -327,7 +332,7 @@ p.caption {
   }
 }
 
-.radio-field.small-font .radio-style.dead {
+.radio-field .radio-style.dead {
   color: $light-grey;
 
   .radio-input {
@@ -342,6 +347,24 @@ p.caption {
   }
 
   pointer-events: none;
+}
+
+.checkbox-field .checkbox-label.dead {
+  color: $light-grey;
+
+  .label-text {
+    color: $light-grey;
+  }
+  .checkbox-input {
+    background: repeating-linear-gradient(
+      45deg,
+      #fff,
+      #fff 3px,
+      #c4c4c4 3px,
+      #c4c4c4 5px
+    );
+    border-color: #c4c4c4;
+  }
 }
 
 .passport-photo img {
@@ -378,4 +401,11 @@ p.caption {
 
 button.btn.btn-general.btn-cancel {
   margin-top: 15px;
+}
+
+.block-link.footer-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 35px;
 }
