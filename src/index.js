@@ -94,7 +94,8 @@ class App extends React.Component {
           values[j] === "First name" ||
           values[j] === "Middle name(s)" ||
           values[j] === "Last name" ||
-          values[j] === "Done"
+          values[j] === "Done" ||
+          values[j] === "Special case"
         ) {
           val = [];
         }
@@ -116,7 +117,7 @@ class App extends React.Component {
     }
 
     this.state = stateValues;
-    //debugger;
+    debugger;
     this.numWording = this.numWording.bind(this);
     this.applicationsLeft = this.applicationsLeft.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -344,7 +345,7 @@ class App extends React.Component {
                           city: this.state["Residence city"],
                           postalCode: this.state["Residence postal code"]
                         }
-                      : this.state["Special case"] &&
+                      : this.state["Special case"][3] && //Military relation
                         this.state["Residence address"] === false
                       ? {
                           street:

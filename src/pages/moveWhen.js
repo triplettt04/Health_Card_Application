@@ -24,6 +24,11 @@ class MoveWhen extends React.Component {
         event.target[i].type !== "submit" &&
         event.target[i].value.length > 7
       ) {
+        let [day, month, year] = event.target[i].value.split("/");
+        let enteredDate = new Date(year, month - 1, day);
+        if (enteredDate > Date.now()) {
+          break;
+        }
         this.props.save(event.target[i]);
         noneEntered = false;
       }

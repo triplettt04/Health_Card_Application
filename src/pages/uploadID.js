@@ -221,19 +221,19 @@ class UploadID extends React.Component {
             <div className="icon-link-container">
               <a
                 href="#"
-                className="icon-link icon-folder"
+                className="icon-link icon-gallery"
                 onClick={() => this.takePic()}
               >
-                Browse files
+                Browse gallery
               </a>
             </div>
             <div className="icon-link-container">
               <a
                 href="#"
-                className="icon-link icon-gallery"
+                className="icon-link icon-folder"
                 onClick={() => this.takePic()}
               >
-                Browse gallery
+                Browse files
               </a>
             </div>
           </div>
