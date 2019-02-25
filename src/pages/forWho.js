@@ -161,7 +161,7 @@ class ForWho extends React.Component {
         <div className="form-wrapper">
           <Card content={content} />
           <div className="checkbox-field">
-            <label className="checkbox-label block">
+            <label className="checkbox-label block dead">
               <input
                 type="checkbox"
                 className="checkbox-input checkbox"
