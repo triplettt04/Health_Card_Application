@@ -652,6 +652,9 @@ class App extends React.Component {
                 <RouterResidencyError
                   save={target => this.handleChange(target)}
                   applicationsLeft={() => this.applicationsLeft()}
+                  firstName={this.state["First name"]}
+                  lastName={this.state["Last name"]}
+                  personNum={this.state["Person num"]}
                 />
               )}
             />
@@ -661,6 +664,9 @@ class App extends React.Component {
                 <RouterCitizenshipError
                   save={target => this.handleChange(target)}
                   applicationsLeft={() => this.applicationsLeft()}
+                  firstName={this.state["First name"]}
+                  lastName={this.state["Last name"]}
+                  personNum={this.state["Person num"]}
                 />
               )}
             />
@@ -670,6 +676,9 @@ class App extends React.Component {
                 <RouterIdError
                   save={target => this.handleChange(target)}
                   applicationsLeft={() => this.applicationsLeft()}
+                  firstName={this.state["First name"]}
+                  lastName={this.state["Last name"]}
+                  personNum={this.state["Person num"]}
                 />
               )}
             />

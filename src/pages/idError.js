@@ -12,6 +12,10 @@ class IdError extends React.Component {
     this.props.history.push(process.env.PUBLIC_URL + "/selectID");
   }
   render() {
+    let name = this.props.firstName[this.props.personNum]
+      ? this.props.firstName[this.props.personNum]
+      : this.props.lastName[this.props.personNum];
+
     let content = (
       <div>
         <div className="img-container">
@@ -27,21 +31,20 @@ class IdError extends React.Component {
           <br />
           Please refer to the <a href="#">eligibility criteria</a> or contact
           your local
-          <a href="#">ServiceOntario</a> centre. <br />
+          <a href="#"> ServiceOntario</a> centre. <br />
           <br />
-          You may go back and change your selection, cancel [firstName]’s
-          application but continue applying for another family member, or exit
-          the application process for everyone.
+          You may go back and change your selection, cancel {name}’s application
+          but continue applying for another family member, or exit the
+          application process for everyone.
         </p>
       </div>
     );
-
     let applicationsLeft = this.props.applicationsLeft();
     let cancelOptions =
       applicationsLeft === true ? (
         <div>
           <a href="#" className="block-link footer-link">
-            Cancel application for [firstName]
+            Cancel application for {name}
           </a>
           <a href="#" className="block-link footer-link">
             Exit application process for everyone
@@ -49,7 +52,7 @@ class IdError extends React.Component {
         </div>
       ) : (
         <a href="#" className="block-link footer-link">
-          Cancel application for [firstName]
+          Cancel application for {name}
         </a>
       );
 

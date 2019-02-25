@@ -167,7 +167,7 @@ class AddressMail extends React.Component {
               Postal code
             </label>
             <input
-              className="form-control"
+              className="form-control area-code"
               id="postal-code-1"
               name="Mailing postal code"
               value={this.state.postalCode}
