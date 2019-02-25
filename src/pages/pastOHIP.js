@@ -33,7 +33,7 @@ class PastOHIP extends React.Component {
     }
     if (!noneChecked) {
       if (!pastOHIP) {
-        let path = process.env.PUBLIC_URL + "/isMilitary";
+        let path = process.env.PUBLIC_URL + "/specialCase";
         this.props.history.push(path);
       } else {
         let path = process.env.PUBLIC_URL + "/moveDate";

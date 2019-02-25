@@ -25,7 +25,7 @@ import NotFound from "./pages/notFound";
 import Name from "./pages/name";
 import Address from "./pages/address";
 //import PastOHIP from "./pages/pastOHIP";
-import IsMilitary from "./pages/isMilitary";
+import SpecialCase from "./pages/specialCase";
 import SelectBase from "./pages/selectBase";
 import SelectMilitaryProof from "./pages/selectMilitaryProof";
 import UploadMilitary from "./pages/uploadMilitary";
@@ -100,9 +100,9 @@ class App extends React.Component {
         if (cookie === "true" || cookie === "false") {
           stateValues[values[j]] = cookie === "true";
         } else if (
-          (!isNaN(cookie) && values[j] === "pageNum") ||
+          (!isNaN(cookie) &&
+            (values[j] === "pageNum" || values[j] === "baseIndex")) ||
           values[j] === "Person num" ||
-          values[j] === "baseIndex" ||
           values[j] === "Dependant count"
         ) {
           stateValues[values[j]] = parseInt(cookie);
@@ -113,6 +113,9 @@ class App extends React.Component {
     }
 
     this.state = stateValues;
+
+    this.numWording = this.numWording.bind(this);
+    this.applicationsLeft = this.applicationsLeft.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -138,9 +141,9 @@ class App extends React.Component {
     });
   }
 
-  reset(value) {
+  reset(type) {
     let values;
-    switch (value) {
+    switch (type) {
       case "Hard":
         values = constants.hardResetValues;
         break;
@@ -152,12 +155,30 @@ class App extends React.Component {
         break;
       default:
         values = [];
-        console.log("Error - value=" + value);
+        console.log("Error - value=" + type);
     }
     const { cookies } = this.props;
     for (let i = 0; i < values.length; i++) {
       cookies.remove(values[i]);
-      this.state[values[i]] = null;
+      let val = null;
+      if (
+        values[i] === "pageNum" ||
+        values[i] === "Person num" ||
+        values[i] === "Dependant count"
+      ) {
+        val = 0;
+      } else if (
+        values[i] === "Birthday" ||
+        values[i] === "First name" ||
+        values[i] === "Middle name(s)" ||
+        values[i] === "Last name" ||
+        values[i] === "Done"
+      ) {
+        val = [];
+      }
+      this.setState({
+        [values[i]]: val
+      });
     }
   }
 
@@ -165,6 +186,42 @@ class App extends React.Component {
     this.reset("Soft");
     this.reset("Hard");
     this.reset("Address");
+  }
+
+  numWording() {
+    let extraNum = this.state["For who spouse"] ? 1 : 0;
+    switch (this.state["Person num"]) {
+      case 1 + extraNum:
+        return "first";
+      case 2 + extraNum:
+        return "second";
+      case 3 + extraNum:
+        return "third";
+      case 4 + extraNum:
+        return "fourth";
+      case 5 + extraNum:
+        return "fifth";
+      case 6 + extraNum:
+        return "sixth";
+      case 7 + extraNum:
+        return "seventh";
+      case 8 + extraNum:
+        return "eighth";
+      case 9 + extraNum:
+        return "ninth";
+      default:
+        return "";
+    }
+  }
+
+  applicationsLeft() {
+    let done = this.state["Done"];
+    for (let i = 0; i < done.length; i++) {
+      if (done[i] === false && i !== this.state["Person num"]) {
+        return true;
+      }
+    }
+    return false;
   }
 
   render() {
@@ -178,7 +235,7 @@ class App extends React.Component {
     const RouterInCamera = withRouter(InCamera);
     const RouterConfirmPhoto = withRouter(ConfirmPhoto);
     //const RouterPastOHIP = withRouter(PastOHIP);
-    const RouterIsMilitary = withRouter(IsMilitary);
+    const RouterSpecialCase = withRouter(SpecialCase);
     const RouterSelectBase = withRouter(SelectBase);
     const RouterSelectMilitaryProof = withRouter(SelectMilitaryProof);
     const RouterUploadMilitary = withRouter(UploadMilitary);
@@ -248,6 +305,7 @@ class App extends React.Component {
                       ? this.state["Dependant count"]
                       : 0
                   }
+                  numWording={() => this.numWording()}
                 />
               )}
             />
@@ -263,6 +321,7 @@ class App extends React.Component {
                   personNum={this.state["Person num"]}
                   pathFrom={this.state["pathFrom"]}
                   forWhoSpouse={this.state["For who spouse"]}
+                  numWording={() => this.numWording()}
                 />
               )}
             />
@@ -279,7 +338,7 @@ class App extends React.Component {
                           city: this.state["Residence city"],
                           postalCode: this.state["Residence postal code"]
                         }
-                      : this.state["Military relation"] &&
+                      : this.state["Special case"] &&
                         this.state["Residence address"] === false
                       ? {
                           street:
@@ -336,12 +395,14 @@ class App extends React.Component {
               )}
             />
             <Route
-              path={process.env.PUBLIC_URL + "/isMilitary"}
+              path={process.env.PUBLIC_URL + "/specialCase"}
               render={() => (
-                <RouterIsMilitary
+                <RouterSpecialCase
                   save={target => this.handleChange(target)}
                   summary={this.state["Summary"]}
-                  isMilitary={this.state["Military relation"]}
+                  specialCase={this.state["Special case"]}
+                  firstName={this.state["First name"][this.state["Person num"]]}
+                  lastName={this.state["Last name"][this.state["Person num"]]}
                 />
               )}
             />
@@ -355,6 +416,9 @@ class App extends React.Component {
                       ? constants.militaryAddresses[this.state.baseIndex].label
                       : null
                   }
+                  street={this.state["Residence street"]}
+                  city={this.state["Residence city"]}
+                  postalCode={this.state["Residence postal code"]}
                 />
               )}
             />
@@ -561,7 +625,7 @@ class App extends React.Component {
                   resetAddress={() => this.reset("Address")}
                   firstName={this.state["First name"][this.state["Person num"]]}
                   lastName={this.state["Last name"][this.state["Person num"]]}
-                  isMilitary={this.state["Military relation"]}
+                  specialCase={this.state["Special case"]}
                 />
               )}
             />

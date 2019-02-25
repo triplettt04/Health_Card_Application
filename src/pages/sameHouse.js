@@ -32,7 +32,7 @@ class SameHouse extends React.Component {
         });
         this.props.resetAddress();
         let pathEnd = "/selectResProof";
-        if (this.props.isMilitary) {
+        if (this.props.specialCase) {
           pathEnd = "/moveWhen";
         }
         this.props.history.push(process.env.PUBLIC_URL + pathEnd);

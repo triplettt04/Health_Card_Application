@@ -47,7 +47,7 @@ class Summary extends React.Component {
       </div>
     );
 
-    let hasAddress = this.props.state["Military relation"] ? (
+    let hasAddress = this.props.state["Special case"] ? (
       <div className="summary-tab">
         <div className="summary-question">
           Do you currently have an address in Ontario?
@@ -91,11 +91,11 @@ class Summary extends React.Component {
                 Are you a spouse or dependant of a Canadian military member?
               </div>
               <div className="response">
-                {this.props.state["Military relation"] ? "Yes" : "No"}
+                {this.props.state["Special case"] ? "Yes" : "No"}
               </div>
               <a
                 href="#"
-                onClick={event => this.handleClick(event, "isMilitary")}
+                onClick={event => this.handleClick(event, "specialCase")}
                 className="edit"
               >
                 Edit
