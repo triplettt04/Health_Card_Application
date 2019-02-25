@@ -156,7 +156,7 @@ class UploadID extends React.Component {
         </div>
       );
 
-    let path = this.props.summary ? "/summary" : "/name";
+    let path = this.props.summary ? "/summary" : "/sex";
 
     let uploaded = (
       <div className="upload-container">
