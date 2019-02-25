@@ -24,22 +24,6 @@ class MoveWhen extends React.Component {
         event.target[i].type !== "submit" &&
         event.target[i].value.length > 7
       ) {
-        let curDate = new Date(Date.now());
-        let curDateNum =
-          curDate.getFullYear() * 10000 +
-          curDate.getMonth() * 100 +
-          curDate.getDay();
-        let [day, month, year] = event.target[i].value.split("/");
-        let enteredDateNum =
-          parseInt(year) * 10000 + parseInt(month) * 100 + parseInt(day);
-        if (curDateNum - enteredDateNum < 500) {
-          this.props.save({
-            name: "pathFrom",
-            value: "/moveWhen"
-          });
-          this.props.history.push(process.env.PUBLIC_URL + "/"); //TO CHANGE
-          break;
-        }
         this.props.save(event.target[i]);
         noneEntered = false;
       }
