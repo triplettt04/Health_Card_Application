@@ -72,7 +72,7 @@ class Birthday extends React.Component {
             name: "Person num",
             value: this.props.forWhoUser ? 0 : 1
           });
-          this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
+          this.props.history.push(process.env.PUBLIC_URL + "/specialCase");
         } else {
           let num = this.props.personNum + 1;
           this.props.save({
@@ -112,6 +112,8 @@ class Birthday extends React.Component {
         </div>
       );
 
+    let numWording = this.props.numWording();
+
     let content =
       this.props.personNum === 0 ? (
         <div>
@@ -138,7 +140,7 @@ class Birthday extends React.Component {
         <div>
           <div className="progress-indicator">16 / 22</div>
           <h2 className="sub-header">
-            What is your dependant's date of birth?
+            What is your {numWording} dependant's date of birth?
           </h2>
         </div>
       );

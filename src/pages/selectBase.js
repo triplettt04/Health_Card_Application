@@ -8,7 +8,10 @@ class SelectBase extends React.Component {
     super(props);
 
     this.state = {
-      baseLabel: props.baseLabel ? props.baseLabel : ""
+      baseLabel: props.baseLabel ? props.baseLabel : "",
+      city: props.city || "",
+      province: props.province || "",
+      postalCode: props.postalCode || ""
     };
 
     this.back = this.back.bind(this);
@@ -51,6 +54,20 @@ class SelectBase extends React.Component {
         value: value
       };
       this.props.save(target);
+      if (this.state.baseLabel === "Other location") {
+        this.props.save({
+          name: "Residence street",
+          value: this.state.street
+        });
+        this.props.save({
+          name: "Residence city",
+          value: this.state.city
+        });
+        this.props.save({
+          name: "Residence postal code",
+          value: this.state.postalCode
+        });
+      }
       let path = process.env.PUBLIC_URL + "/uploadPosting";
       this.props.history.push(path);
     }
@@ -132,6 +149,48 @@ class SelectBase extends React.Component {
       );
     }
 
+    let extraAddress =
+      this.state.baseLabel === "Other location" ? (
+        <div className="address-set">
+          <div className="text-input one-line">
+            <label className="form-label" htmlFor="street-1">
+              Street
+            </label>
+            <input
+              className="form-control"
+              id="street-1"
+              name="Residence street"
+              value={this.state.street}
+              onChange={event => this.setState({ street: event.target.value })}
+            />
+            <label className="form-label" htmlFor="city-1">
+              City
+            </label>
+            <input
+              className="form-control"
+              id="city-1"
+              name="Residence city"
+              value={this.state.city}
+              onChange={event => this.setState({ city: event.target.value })}
+            />
+            <label className="form-label" htmlFor="postal-code-1">
+              Postal code
+            </label>
+            <input
+              className="form-control"
+              id="postal-code-1"
+              name="Residence postal code"
+              value={this.state.postalCode}
+              onChange={event =>
+                this.setState({ postalCode: event.target.value })
+              }
+            />
+          </div>
+        </div>
+      ) : (
+        ""
+      );
+
     return (
       <form
         onSubmit={event =>
@@ -142,6 +201,7 @@ class SelectBase extends React.Component {
         <div className="form-wrapper">
           <Card content={content} />
           <div className="radio-field small-font">{radioButtons}</div>
+          {extraAddress}
         </div>
         <div className="btn-container button-footer">{enableSummary}</div>
       </form>

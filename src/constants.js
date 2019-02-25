@@ -1,3 +1,5 @@
+import React from "react";
+
 const constants = {
   buttonClasses: "btn btn-primary",
   navTopName: "Home",
@@ -35,7 +37,7 @@ const constants = {
     "Primary phone",
     "Alternate phone",
     "Email",
-    "Military relation",
+    "Special case",
     "Military proof type",
     "Residence proof type",
     "Military proof",
@@ -50,6 +52,40 @@ const constants = {
     "For who dependant",
     "Dependant count",
     "Done"
+  ],
+  specialCaseChecks: [
+    {
+      label: "Born without identification",
+      value: "Babies born in Ontario without identification"
+    },
+    {
+      label: "International adoption",
+      value:
+        "Internationally adopted children under 16, adopted by Ontario residents"
+    },
+    {
+      label: "Immigration and Refugee",
+      value: (
+        <div>
+          <a href="#">Convention refugees</a> and other{" "}
+          <a href="#">protected persons</a> as defined by the Immigration and
+          Refugee Board of Canada
+        </div>
+      )
+    },
+    {
+      label: "Military relation",
+      value: "Military spouse or dependant"
+    },
+    {
+      label: "Long term care home",
+      value:
+        "People who move from another Canadian province or territory into a long term care home in Ontario within the first three months of their arrival"
+    },
+    {
+      label: "None of the above",
+      value: "None of the above apply"
+    }
   ],
   buttonsRes: [
     {
@@ -318,6 +354,10 @@ const constants = {
       street: "PO Box 1000 Station Forces",
       city: "Astra",
       postalCode: "K0K 3W0"
+    },
+    {
+      label: "Other location",
+      value: "Other location"
     }
   ]
 };

@@ -22,7 +22,7 @@ class SelectWho extends React.Component {
         name: "Person num",
         value: this.state.checked
       });
-      this.props.history.push(process.env.PUBLIC_URL + "/isMilitary");
+      this.props.history.push(process.env.PUBLIC_URL + "/specialCase");
     }
   }
 
