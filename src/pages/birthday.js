@@ -20,10 +20,11 @@ class Birthday extends React.Component {
         event.target[i].value.length > 7
       ) {
         let birthdayValues = this.props.birthday;
-        if (birthdayValues.length === this.props.personNum + 1) {
-          birthdayValues.pop();
+        if (birthdayValues.length >= this.props.personNum + 1) {
+          birthdayValues.splice(this.props.personNum, 1, event.target[i].value);
+        } else {
+          birthdayValues.push(event.target[i].value);
         }
-        birthdayValues.push(event.target[i].value);
         this.props.save({
           name: event.target[i].name,
           value: birthdayValues
@@ -49,10 +50,11 @@ class Birthday extends React.Component {
         event.target[i].value.length > 7
       ) {
         let birthdayValues = this.props.birthday;
-        if (birthdayValues.length === this.props.personNum + 1) {
-          birthdayValues.pop();
+        if (birthdayValues.length >= this.props.personNum + 1) {
+          birthdayValues.splice(this.props.personNum, 1, event.target[i].value);
+        } else {
+          birthdayValues.push(event.target[i].value);
         }
-        birthdayValues.push(event.target[i].value);
         this.props.save({
           name: event.target[i].name,
           value: birthdayValues
