@@ -6,7 +6,7 @@ import Nav from "../components/nav";
 class SpecialCase extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
+
     let stateValues = {
       disabled:
         this.props.specialCase &&
