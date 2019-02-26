@@ -147,11 +147,12 @@ class Name extends React.Component {
       );
 
     let numWording = this.props.numWording();
+    let progress = this.props.personNum === 0 ? 1 : 4;
 
     let content =
       this.props.personNum === 0 ? (
         <div>
-          <div className="progress-indicator">15 / 22</div>
+          <div className="progress-indicator">{progress} / 23</div>
           <h2 className="sub-header">Please enter your full name.</h2>
           <p className="caption">
             This is your full name, regardless of whether you are applying for
@@ -164,7 +165,7 @@ class Name extends React.Component {
         </div>
       ) : this.props.forWhoSpouse && this.props.personNum === 1 ? (
         <div>
-          <div className="progress-indicator">15 / 22</div>
+          <div className="progress-indicator">{progress} / 23</div>
           <h2 className="sub-header">Please enter your spouse’s full name.</h2>
           <p className="caption">
             This is your spouse’s full name{" "}
@@ -177,7 +178,7 @@ class Name extends React.Component {
         </div>
       ) : (
         <div>
-          <div className="progress-indicator">15 / 22</div>
+          <div className="progress-indicator">{progress} / 23</div>
           <h2 className="sub-header">
             Please enter your {numWording} dependant's full name.
           </h2>

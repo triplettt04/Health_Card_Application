@@ -93,7 +93,7 @@ class UploadPhoto extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">19 / 22</div>
+        <div className="progress-indicator">20 / 23</div>
         <h2 className="sub-header">
           Please upload the front and back of a certified passport photo of
           yourself.

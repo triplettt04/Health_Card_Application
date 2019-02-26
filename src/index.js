@@ -120,6 +120,7 @@ class App extends React.Component {
     debugger;
     this.numWording = this.numWording.bind(this);
     this.applicationsLeft = this.applicationsLeft.bind(this);
+    this.isMilitary = this.isMilitary.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -222,6 +223,17 @@ class App extends React.Component {
     let done = this.state["Done"];
     for (let i = 0; i < done.length; i++) {
       if (!done[i] && i !== this.state["Person num"]) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  isMilitary() {
+    debugger;
+    for (let i = 0; i < this.state["Special case"].length; i++) {
+      if (this.state["Special case"][i] == 3) {
+        //Military relation
         return true;
       }
     }
@@ -345,7 +357,7 @@ class App extends React.Component {
                           city: this.state["Residence city"],
                           postalCode: this.state["Residence postal code"]
                         }
-                      : this.state["Special case"][3] && //Military relation
+                      : this.isMilitary() && //Military relation
                         this.state["Residence address"] === false
                       ? {
                           street:
@@ -473,6 +485,7 @@ class App extends React.Component {
                   hasAddress={this.state["Residence address"]}
                   resProof={this.state["Residence proof type"]}
                   summary={this.state["Summary"]}
+                  sameHouse={this.state["Same house"]}
                 />
               )}
             />
@@ -499,6 +512,7 @@ class App extends React.Component {
                   summary={this.state["Summary"]}
                   save={target => this.handleChange(target)}
                   citizenType={this.state["Citizen type"]}
+                  sameHouse={this.state["Same house"]}
                 />
               )}
             />
@@ -562,6 +576,7 @@ class App extends React.Component {
                 <RouterSummary
                   save={target => this.handleChange(target)}
                   state={this.state}
+                  isMilitary={() => this.isMilitary()}
                 />
               )}
             />
@@ -635,6 +650,7 @@ class App extends React.Component {
                   firstName={this.state["First name"][this.state["Person num"]]}
                   lastName={this.state["Last name"][this.state["Person num"]]}
                   specialCase={this.state["Special case"]}
+                  isMilitary={() => this.isMilitary()}
                 />
               )}
             />
@@ -644,6 +660,7 @@ class App extends React.Component {
                 <RouterMoveWhen
                   save={target => this.handleChange(target)}
                   moveWhen={this.state["Move when"]}
+                  sameHouse={this.state["Same house"]}
                 />
               )}
             />

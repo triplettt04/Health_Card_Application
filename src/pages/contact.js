@@ -106,7 +106,7 @@ class Contact extends React.Component {
 
     let content = (
       <div>
-        <div className="progress-indicator">18 / 22</div>
+        <div className="progress-indicator">19 / 23</div>
         <h2 className="sub-header">Please enter your contact information.</h2>
         <p className="caption">
           This information will be useful if we need to get in contact with you.

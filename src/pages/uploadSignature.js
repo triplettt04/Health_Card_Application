@@ -93,7 +93,7 @@ class UploadSignature extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">20 / 22</div>
+        <div className="progress-indicator">21 / 23</div>
         <h2 className="sub-header">
           Please upload a photo or scan of your signature or sign on your
           device.

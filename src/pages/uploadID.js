@@ -101,7 +101,7 @@ class UploadID extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">14 / 22</div>
+        <div className="progress-indicator">17 / 23</div>
         <h2 className="sub-header">
           Please upload a photo or scan of your {this.props.item.toLowerCase()}.
         </h2>

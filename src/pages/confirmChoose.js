@@ -40,7 +40,7 @@ class ConfirmChoose extends React.Component {
       (this.props.forWhoUser ? 1 : 0) +
       (this.props.forWhoSpouse ? 1 : 0) +
       this.props.numDependants;
-    let progress = this.props.forWhoUser ? -1 : 0;
+    let progress = this.props.forWhoUser ? 0 : -1;
     for (let i = 0; i < this.props.done.length; i++) {
       if (this.props.done[i]) {
         progress++;
