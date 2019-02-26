@@ -372,7 +372,7 @@ p.caption {
   width: 100%;
 }
 
-.birthdate-input {
+.date-input {
   input {
     border: 2px solid $dark-grey;
     border-radius: 0;
@@ -407,9 +407,17 @@ button.btn.btn-general.btn-cancel {
   margin-top: 15px;
 }
 
-.block-link.footer-link {
+.block-link {
   display: block;
   width: 100%;
   text-align: center;
+}
+
+.block-link.footer-link {
   margin-top: 35px;
+}
+
+.return-to-summary {
+  color: $primary-blue;
+  padding: 15px 0 5px;
 }

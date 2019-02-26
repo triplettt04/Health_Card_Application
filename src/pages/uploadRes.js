@@ -152,30 +152,29 @@ class UploadRes extends React.Component {
         this.state.status === "Uploaded" ? (
           <div>
             <input
-              className="btn btn-general btn-wide"
+              className="btn btn-general btn-right-align"
               type="submit"
-              value="Save and go back"
+              value="Save"
             />
             <button
-              className="btn btn-general btn-wide btn-cancel"
-              onClick={() => this.cancel()}
-            >
-              Cancel
-            </button>
-          </div>
-        ) : (
-          <div>
-            <button
-              className="btn btn-general btn-wide"
+              className="btn btn-general btn-invert"
               onClick={() => this.back()}
             >
               Back
             </button>
+          </div>
+        ) : (
+          <div>
+            <input
+              className="btn btn-general btn-right-align btn-inactive"
+              type="submit"
+              value="Save"
+            />
             <button
-              className="btn btn-general btn-wide btn-cancel"
-              onClick={() => this.cancel()}
+              className="btn btn-general btn-invert"
+              onClick={() => this.back()}
             >
-              Cancel
+              Back
             </button>
           </div>
         )
