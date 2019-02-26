@@ -6,7 +6,6 @@ import Nav from "../components/nav";
 class Summary extends React.Component {
   constructor(props) {
     super(props);
-
     this.back = this.back.bind(this);
     this.next = this.next.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -47,6 +46,10 @@ class Summary extends React.Component {
       </div>
     );
 
+    let name = this.props.firstName[this.props.personNum]
+      ? this.props.firstName[this.props.personNum]
+      : this.props.lastName[this.props.personNum];
+
     let hasAddress = this.props.state["Special case"][3] ? ( //Military relation
       <div className="summary-tab">
         <div className="summary-question">
@@ -66,6 +69,50 @@ class Summary extends React.Component {
     ) : (
       ""
     );
+
+    let specialNames = [];
+    for (let i = 0; i < this.props.state["Special case"].length; i++) {
+      specialNames.push(
+        <div key={i}>
+          {
+            constants.specialCaseChecks[this.props.state["Special case"][i]]
+              .value
+          }
+        </div>
+      );
+    }
+
+    let groups =
+      this.props.personNum === 0 ? (
+        <div className="summary-tab">
+          <div className="summary-question">
+            Are you part of any groups that have a modified application process?
+          </div>
+          <div className="response">{specialNames} </div>
+          <a
+            href="#"
+            onClick={event => this.handleClick(event, "specialCase")}
+            className="edit"
+          >
+            Edit
+          </a>
+        </div>
+      ) : (
+        <div className="summary-tab">
+          <div className="summary-question">
+            Is {name} part of any groups that have a modified application
+            process?
+          </div>
+          <div className="response">{specialNames} </div>
+          <a
+            href="#"
+            onClick={event => this.handleClick(event, "specialCase")}
+            className="edit"
+          >
+            Edit
+          </a>
+        </div>
+      );
 
     return (
       <form onSubmit={event => this.next(event)}>
@@ -89,6 +136,7 @@ class Summary extends React.Component {
                 Edit
               </a>
             </div>
+            {groups}
             <div className="summary-tab">
               <div className="summary-question">
                 Please indicate which Ontario base the military member has been

@@ -11,7 +11,8 @@ class SelectResProof extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      resProof: props.resProof
+      resProof: props.resProof,
+      selected: false
     };
 
     this.back = this.back.bind(this);
@@ -114,7 +115,6 @@ class SelectResProof extends React.Component {
       );
 
     let path = "/uploadRes";
-
     let radioButtons = [];
     for (let i = 0; i < constants.buttonsRes.length; i++) {
       radioButtons.push(
@@ -134,7 +134,12 @@ class SelectResProof extends React.Component {
               })
             }
           />
-          <div className="label-text">{constants.buttonsRes[i].value}</div>
+          <div className="label-text">
+            {constants.buttonsRes[i].value}
+            <div className="extra-text">
+              {this.state.selected ? constants.buttonsRes[i].extraText : ""}
+            </div>
+          </div>
         </label>
       );
     }
