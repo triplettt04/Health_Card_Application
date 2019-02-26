@@ -33,7 +33,7 @@ class SelectWho extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">1 / 22</div>
+        <div className="progress-indicator">5 / 23</div>
         <h2 className="sub-header">
           Choose the application you would like to start with
         </h2>

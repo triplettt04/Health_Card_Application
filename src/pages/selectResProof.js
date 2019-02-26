@@ -59,7 +59,9 @@ class SelectResProof extends React.Component {
 
   back() {
     let path;
-    if (this.props.hasAddress) {
+    if (this.props.sameHouse !== null) {
+      path = process.env.PUBLIC_URL + "/sameHouse";
+    } else if (this.props.hasAddress) {
       path = process.env.PUBLIC_URL + "/hasAddress";
     } else {
       path = process.env.PUBLIC_URL + "/moveWhen";
@@ -70,7 +72,7 @@ class SelectResProof extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">4 / 22</div>
+        <div className="progress-indicator">10 / 23</div>
         <h2 className="sub-header">
           Please select one of the following documents you wish to use as proof
           of your residency in Ontario.

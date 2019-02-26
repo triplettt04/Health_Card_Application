@@ -65,7 +65,7 @@ class SelectCitizenProof extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">11 / 22</div>
+        <div className="progress-indicator">14 / 23</div>
         <h2 className="sub-header">
           Please select one of the following documents you wish to use as proof
           of your Canadian citizenship.

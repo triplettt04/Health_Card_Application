@@ -13,7 +13,12 @@ class MoveWhen extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/specialCase";
+    let path = process.env.PUBLIC_URL;
+    if (this.props.sameHouse !== null) {
+      path += "/sameHouse";
+    } else {
+      path += "/specialCase";
+    }
     this.props.history.push(path);
   }
   next(event) {
@@ -40,7 +45,7 @@ class MoveWhen extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">16 / 22</div>
+        <div className="progress-indicator">9 / 23</div>
         <h2 className="sub-header">When did you arrive to Ontario?</h2>
       </div>
     );

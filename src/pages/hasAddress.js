@@ -44,7 +44,7 @@ class HasAddress extends React.Component {
           state: { pathFrom: process.env.PUBLIC_URL + "/hasAddress" }
         });
       } else {
-        let path = process.env.PUBLIC_URL + "/uploadPosting";
+        let path = process.env.PUBLIC_URL + "/selectBase";
         this.props.history.push(path);
       }
     }
@@ -81,7 +81,7 @@ class HasAddress extends React.Component {
 
     let content = (
       <div>
-        <div className="progress-indicator">6 / 22</div>
+        <div className="progress-indicator">9 / 23</div>
         <h2 className="sub-header">
           Do you currently have an address in Ontario?
         </h2>

@@ -103,7 +103,7 @@ class UploadCitizen extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">12 / 22</div>
+        <div className="progress-indicator">15 / 23</div>
         <h2 className="sub-header">
           Please upload a photo or a scan of your{" "}
           {this.props.item.toLowerCase()}.

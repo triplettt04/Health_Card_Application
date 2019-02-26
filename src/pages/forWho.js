@@ -144,7 +144,7 @@ class ForWho extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">1 / 22</div>
+        <div className="progress-indicator">3 / 23</div>
         <h2 className="sub-header">Who would you like to apply for?</h2>
         <p className="caption">
           You are able to apply on behalf of your spouse and/or dependants.

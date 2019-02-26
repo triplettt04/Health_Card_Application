@@ -8,7 +8,10 @@ class SpecialCase extends React.Component {
     super(props);
 
     let stateValues = {
-      disabled: false
+      disabled:
+        this.props.specialCase &&
+        constants.specialCaseChecks[this.props.specialCase[0]].label ===
+          "None of the above"
     };
 
     for (let i = 0; i < constants.specialCaseChecks.length; i++) {
@@ -54,7 +57,12 @@ class SpecialCase extends React.Component {
     if (this.state["None of the above"] || this.state["Military relation"]) {
       let allCases = [];
       for (let i = 0; i < constants.specialCaseChecks.length; i++) {
-        if (this.state[constants.specialCaseChecks[i].label]) {
+        if (
+          (this.state[constants.specialCaseChecks[i].label] &&
+            !this.state.disabled) ||
+          (constants.specialCaseChecks[i].label === "None of the above" &&
+            this.state["None of the above"])
+        ) {
           allCases.push(i);
         }
       }
@@ -62,7 +70,7 @@ class SpecialCase extends React.Component {
         name: "Special case",
         value: allCases
       });
-      if (this.state["Military relation"]) {
+      if (!this.state["None of the above"]) {
         let path = process.env.PUBLIC_URL + "/selectMilitaryProof";
         this.props.history.push(path);
       } else {
@@ -110,7 +118,7 @@ class SpecialCase extends React.Component {
 
     let content = (
       <div>
-        <div className="progress-indicator">2 / 22</div>
+        <div className="progress-indicator">6 / 23</div>
         <h2 className="sub-header">
           Is {fullName} part of any of the following groups?
         </h2>

@@ -140,7 +140,7 @@ class Address extends React.Component {
 
     let content = (
       <div>
-        <div className="progress-indicator">8 / 22</div>
+        <div className="progress-indicator">12 / 23</div>
         <h2 className="sub-header">
           Your ontario residence address has been set to your military base
           address for now.
