@@ -157,7 +157,7 @@ class Birthday extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="birthdate-input">
+          <div className="date-input">
             <label>Birthdate (DD/MM/YYYY)</label>
             <MaskedInput
               mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
