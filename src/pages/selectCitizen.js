@@ -35,6 +35,10 @@ class SelectCitizen extends React.Component {
     }
   }
 
+  cancel() {
+    this.props.history.push(process.env.PUBLIC_URL + "/summary");
+  }
+
   next(event) {
     event.preventDefault();
     let noneChecked = true;
@@ -69,11 +73,16 @@ class SelectCitizen extends React.Component {
   render() {
     let enableSummary =
       this.props.summary === true ? (
-        <input
-          className="btn btn-general btn-wide"
-          type="submit"
-          value="Save and go back"
-        />
+        <div>
+          <button className="btn btn-general btn-wide">Select new proof</button>
+          <a
+            href="#"
+            className="block-link return-to-summary"
+            onClick={() => this.cancel()}
+          >
+            Cancel and return to summary
+          </a>
+        </div>
       ) : (
         <div>
           <input
