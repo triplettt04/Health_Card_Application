@@ -90,7 +90,8 @@ const constants = {
   buttonsRes: [
     {
       label: "Driver's licence",
-      value: "Valid Ontario driver's licence"
+      value: "Valid Ontario driver's licence",
+      extraText: "This is your previous answer"
     },
     {
       label: "Temp licence",

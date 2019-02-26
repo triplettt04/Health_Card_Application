@@ -117,7 +117,6 @@ class App extends React.Component {
     }
 
     this.state = stateValues;
-    //debugger;
     this.numWording = this.numWording.bind(this);
     this.applicationsLeft = this.applicationsLeft.bind(this);
     this.isMilitary = this.isMilitary.bind(this);
@@ -575,6 +574,9 @@ class App extends React.Component {
                 <RouterSummary
                   save={target => this.handleChange(target)}
                   state={this.state}
+                  firstName={this.state["First name"]}
+                  lastName={this.state["Last name"]}
+                  personNum={this.state["Person num"]}
                   isMilitary={() => this.isMilitary()}
                 />
               )}
