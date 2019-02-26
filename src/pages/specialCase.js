@@ -9,7 +9,7 @@ class SpecialCase extends React.Component {
 
     let stateValues = {
       disabled:
-        this.props.specialCase &&
+        this.props.specialCase[0] &&
         constants.specialCaseChecks[this.props.specialCase[0]].label ===
           "None of the above"
     };

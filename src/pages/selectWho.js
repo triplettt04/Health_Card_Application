@@ -34,9 +34,12 @@ class SelectWho extends React.Component {
     let content = (
       <div>
         <div className="progress-indicator">5 / 23</div>
-        <h2 className="sub-header">
-          Choose the application you would like to start with
-        </h2>
+        <h2 className="sub-header">Who would you like to apply for first?</h2>
+        <p className="caption">
+          You can apply in any order you choose. Any common information or
+          documentation will be automatically shared between applications if you
+          complete them in the same session.
+        </p>
       </div>
     );
 
@@ -80,7 +83,7 @@ class SelectWho extends React.Component {
         <Nav />
         <div className="form-wrapper">
           <Card content={content} />
-          <div className="radio-field small-font">{radioButtons}</div>
+          <div className="radio-field large-font">{radioButtons}</div>
           <div className="btn-container">
             <input
               type="submit"
