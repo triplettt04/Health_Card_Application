@@ -50,7 +50,7 @@ class PastOHIP extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">1 / 22</div>
+        <div className="progress-indicator">1 / 23</div>
         <h2 className="sub-header">Have you had OHIP coverage in the past?</h2>
         <p className="caption">
           Depending on when you last had coverage, you may not be required to

@@ -39,7 +39,7 @@ class Summary extends React.Component {
   render() {
     let content = (
       <div>
-        <div className="progress-indicator">21 / 22</div>
+        <div className="progress-indicator">22 / 23</div>
         <h2 className="sub-header">
           Please verify the information you have provided is complete and
           correct.
@@ -47,7 +47,7 @@ class Summary extends React.Component {
       </div>
     );
 
-    let hasAddress = this.props.state["Special case"][3] ? ( //Military relation
+    let hasAddress = this.props.isMilitary() ? ( //Military relation
       <div className="summary-tab">
         <div className="summary-question">
           Do you currently have an address in Ontario?
@@ -78,7 +78,7 @@ class Summary extends React.Component {
                 Are you a spouse or dependant of a Canadian military member?
               </div>
               <div className="response">
-                {this.props.state["Special case"][3] ? "Yes" : "No" //Military relation
+                {this.props.isMilitary() ? "Yes" : "No" //Military relation
                 }
               </div>
               <a

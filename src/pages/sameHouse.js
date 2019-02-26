@@ -32,8 +32,7 @@ class SameHouse extends React.Component {
         });
         this.props.resetAddress();
         let pathEnd = "/selectResProof";
-        //3 is the Military Relation
-        if (this.props.specialCase[3]) {
+        if (!this.props.isMilitary()) {
           pathEnd = "/moveWhen";
         }
         this.props.history.push(process.env.PUBLIC_URL + pathEnd);
@@ -51,7 +50,6 @@ class SameHouse extends React.Component {
 
     let content = (
       <div>
-        <div className="progress-indicator">0 / 22</div>
         <h2 className="sub-header">
           Are you moving to the same household as {previousName}?
         </h2>

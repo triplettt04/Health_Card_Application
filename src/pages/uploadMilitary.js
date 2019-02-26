@@ -144,7 +144,7 @@ class UploadMilitary extends React.Component {
         : "your " + this.props.item.toLowerCase();
     let content = (
       <div>
-        <div className="progress-indicator">5 / 22</div>
+        <div className="progress-indicator">8 / 23</div>
         <h2 className="sub-header">
           Please upload photos or a scan of {personalized}.
         </h2>

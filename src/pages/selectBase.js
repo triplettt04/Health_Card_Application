@@ -113,7 +113,7 @@ class SelectBase extends React.Component {
 
     let content = (
       <div>
-        <div className="progress-indicator">3 / 22</div>
+        <div className="progress-indicator">10 / 23</div>
         <h2 className="sub-header">
           Please indicate which Ontario base the military member has been posted
           to.

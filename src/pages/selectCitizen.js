@@ -57,7 +57,12 @@ class SelectCitizen extends React.Component {
   }
 
   back() {
-    let path = process.env.PUBLIC_URL + "/address";
+    let path = process.env.PUBLIC_URL;
+    if (this.state.sameHouse !== null) {
+      path += "/sameHouse";
+    } else {
+      path += "/address";
+    }
     this.props.history.push(path);
   }
 
@@ -87,7 +92,7 @@ class SelectCitizen extends React.Component {
 
     let content = (
       <div>
-        <div className="progress-indicator">10 / 22</div>
+        <div className="progress-indicator">13 / 23</div>
         <h2 className="sub-header">Please select your immigration status.</h2>
         <p className="caption">
           In order to receive OHIP coverage, you must provide proof of legal

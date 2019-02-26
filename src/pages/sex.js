@@ -81,7 +81,7 @@ class Sex extends React.Component {
 
     let content = (
       <div>
-        <div className="progress-indicator">17 / 22</div>
+        <div className="progress-indicator">18 / 23</div>
         <h2 className="sub-header">
           What is your sex on your passport or birth certificate?
         </h2>

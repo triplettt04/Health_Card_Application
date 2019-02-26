@@ -74,7 +74,7 @@ class Birthday extends React.Component {
             name: "Person num",
             value: this.props.forWhoUser ? 0 : 1
           });
-          this.props.history.push(process.env.PUBLIC_URL + "/specialCase");
+          this.props.history.push(process.env.PUBLIC_URL + "/selectWho");
         } else {
           let num = this.props.personNum + 1;
           this.props.save({
@@ -115,11 +115,12 @@ class Birthday extends React.Component {
       );
 
     let numWording = this.props.numWording();
+    let progress = this.props.personNum === 0 ? 2 : 4;
 
     let content =
       this.props.personNum === 0 ? (
         <div>
-          <div className="progress-indicator">3 / total</div>
+          <div className="progress-indicator">{progress} / 23</div>
           <h2 className="sub-header">What is your date of birth?</h2>
           <p className="caption">
             This is <b>your</b> date of birth, regardless of whether you are
@@ -129,7 +130,7 @@ class Birthday extends React.Component {
         </div>
       ) : this.props.forWhoSpouse && this.props.personNum === 1 ? (
         <div>
-          <div className="progress-indicator">16 / 22</div>
+          <div className="progress-indicator">{progress} / 23</div>
           <h2 className="sub-header">
             Please enter your spouse’s date of birth.
           </h2>
@@ -140,7 +141,7 @@ class Birthday extends React.Component {
         </div>
       ) : (
         <div>
-          <div className="progress-indicator">16 / 22</div>
+          <div className="progress-indicator">{progress} / 23</div>
           <h2 className="sub-header">
             What is your {numWording} dependant's date of birth?
           </h2>
